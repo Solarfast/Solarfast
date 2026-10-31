@@ -1,0 +1,113 @@
+# SolarFast — Gerichte audit en reparatie van de bestaande berekeningen
+
+Werk rechtstreeks in de bestaande SolarFast-codebase. Voer een volledige controle uit van de huidige berekeningen en repareer uitsluitend onderdelen die aantoonbaar fout, inconsistent of onvolledig zijn.
+
+## 1. Harde beperkingen
+
+- Herbouw de applicatie niet.
+- Introduceer geen nieuwe architectuur of een tweede rekensysteem.
+- Verander de bestaande interface, styling, pagina-indeling en gebruikersflow niet, tenzij een concrete fout dit noodzakelijk maakt.
+- Verwijder geen bestaande functionaliteit.
+- Hernoem of verplaats geen bestanden zonder noodzaak.
+- Pas geen correcte formules, functies of onderdelen aan alleen omdat je ze anders zou implementeren.
+- Voeg geen nieuwe productcategorieën of functionaliteiten toe.
+- Behoud de huidige producten, invoervelden, databronnen, API's en rapportages.
+- Gebruik de bestaande berekeningsstructuur en pas alleen de noodzakelijke onderdelen aan.
+
+**Doel: de huidige SolarFast-tool betrouwbaar maken met zo klein mogelijke, gerichte codewijzigingen.**
+
+## 2. Controleer de volledige huidige berekening
+
+Inspecteer de bestaande code en volg de huidige berekening van invoer tot eindresultaat.
+
+Controleer specifiek:
+
+- Energiebalans en elektriciteitsverbruik.
+- Zonneopwek, direct zelfverbruik en teruglevering.
+- Batterijcapaciteit, laad- en ontlaadenergie en opslagverlies.
+- Batterijbesparing en eventuele dynamische EPEX-handel.
+- Terugleverkosten en energietarieven.
+- Verschil tussen vaste en dynamische contracten.
+- Totale investering, jaarlijkse besparing, ROI en terugverdientijd.
+- Nettoresultaat na tien jaar.
+- De berekeningen bij het toevoegen, verwijderen of combineren van bestaande producten.
+- De cijfers in productoverzichten, dashboards en PDF-rapporten.
+
+Controleer of dezelfde opbrengsten of energiestromen dubbel worden geteld, of totalen verkeerd worden gecombineerd en of berekeningen op verschillende plaatsen van elkaar afwijken.
+
+## 3. Repareer alleen aantoonbare fouten
+
+Gebruik het bestaande SolarFast-energierapport als concreet regressievoorbeeld.
+
+De huidige rapportage bevat onder andere:
+
+- Zonneopwek: 3.500 kWh per jaar.
+- Direct zelfverbruik: 1.300 kWh per jaar.
+- Huidige netinkoop: 2.900 kWh per jaar.
+- Huidige teruglevering: 2.200 kWh per jaar.
+- Batterijlevering aan huis: 1.940 kWh per jaar.
+- Geschatte batterijdoorvoer: 5.263 kWh per jaar.
+- Geschatte EPEX-waarde: € 544–€ 707 per jaar.
+- Totale gerapporteerde batterijbesparing: € 1.169–€ 1.332 per jaar.
+- Investering: € 6.290.
+- Terugverdientijd: 4,7–5,4 jaar.
+
+Controleer of deze cijfers overeenkomen met de daadwerkelijke implementatie en de gebruikte invoer.
+
+Onderzoek in het bijzonder:
+
+1. Of de energiebalans sluit en de batterijdoorvoer correct wordt uitgesplitst.
+2. Of batterijverlies correct wordt verwerkt.
+3. Of EPEX-handelsopbrengsten en besparingen door eigen verbruik elkaar overlappen.
+4. Of de extra besparing door een dynamisch contract correct wordt berekend ten opzichte van dezelfde batterij op een vast contract.
+5. Of terugleverkosten alleen worden bespaard voor zover ze daadwerkelijk vervallen.
+6. Of de jaarlijkse besparing, ROI, terugverdientijd en het nettoresultaat na tien jaar onderling overeenkomen.
+7. Of productcombinaties de juiste gewijzigde energiebehoefte en financiële uitkomsten gebruiken.
+
+Ga niet automatisch uit van bovenstaande bedragen als correcte waarden. Gebruik ze om fouten op te sporen en herstel de formules waar nodig.
+
+## 4. Behoud bestaande berekeningen die al kloppen
+
+Pas uitsluitend de foutieve onderdelen aan.
+
+Als een formule correct is, laat die ongemoeid. Als een berekening ontbrekende gegevens vereist, maak die beperking expliciet in plaats van zelf waarden te verzinnen.
+
+Gebruik waar mogelijk de bestaande functies, variabelen, modellen en tests. Hergebruik bestaande berekeningen en voorkom onnodige duplicatie.
+
+Verander de interface alleen als een onjuiste uitkomst anders niet correct kan worden weergegeven. Behoud alle bestaande productkaarten, rapportages en gebruikersmogelijkheden.
+
+## 5. Test de gerichte reparaties
+
+Voeg alleen noodzakelijke tests toe of pas bestaande tests aan.
+
+Controleer minimaal:
+
+- De energiebalans vóór en na de batterij.
+- De verhouding tussen batterijlaadenergie, ontlaadenergie en verliezen.
+- De scheiding tussen eigenverbruiksbesparing en EPEX-handelswinst.
+- De berekening van de totale jaarlijkse besparing.
+- De terugverdientijd en het tienjaarsresultaat.
+- De consistentie tussen de interface en de PDF.
+- De bestaande productcombinaties waarop de gewijzigde berekeningen invloed hebben.
+
+Voer de relevante tests daadwerkelijk uit en herstel eventuele regressies.
+
+## 6. Werkwijze en oplevering
+
+Werk rechtstreeks in de bestaande codebase.
+
+1. Lokaliseer de huidige berekeningen.
+2. Identificeer concrete fouten met hun oorzaak.
+3. Pas alleen de noodzakelijke code aan.
+4. Test de aangepaste berekeningen.
+5. Controleer of bestaande functionaliteit behouden blijft.
+
+Lever na afloop een kort overzicht met:
+
+- Welke berekeningen fout waren.
+- Welke bestanden en functies zijn aangepast.
+- Welke uitkomsten hierdoor veranderen.
+- Welke tests daadwerkelijk zijn uitgevoerd en wat de resultaten zijn.
+- Welke onzekerheden of ontbrekende gegevens nog bestaan.
+
+**Voer de reparaties daadwerkelijk uit. Lever geen volledige herbouw, geen nieuw ontwerp en geen uitsluitend theoretisch advies. Als een onderdeel al correct werkt, verander het niet.**

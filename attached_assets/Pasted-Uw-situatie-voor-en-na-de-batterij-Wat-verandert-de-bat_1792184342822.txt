@@ -1,0 +1,86 @@
+Uw situatie: voor en na de batterij
+Wat verandert de batterij?
+HUIDIG
+Huidig vast contract
+Totale zonneopbrengst
+Uw jaarlijkse opwek via zonnepanelen
+5.000 kWh/jaar
+Stroomverbruik per jaar
+Uw totale stroomvraag, vóór eigen zonnestroom
+3.500 kWh/jaar
+Zelfverbruik
+Aandeel van de zonne-opwek dat u zelf gebruikt
+30%
+Direct zelfverbruik
+Zonnestroom die meteen in huis wordt gebruikt
+1.500 kWh/jaar
+Totaal ontladen uit de batterij
+Naar de woning plus EPEX-handel
+0 kWh/jaar
+Waarvan aan huis geleverd
+Verlaagt de stroom die uw woning van het net nodig heeft
+Geen batterij in de huidige situatie
+0 kWh/jaar
+Teruglevering aan het net
+Overschot na direct gebruik en opslag
+3.500 kWh/jaar
+Zelfvoorzienendheid
+Aandeel van uw totale stroomverbruik gedekt door eigen zonnestroom
+1.500 / 3.500 kWh
+43%
+Netstroom inkoop
+Stroom die u nog van uw energieleverancier nodig heeft
+2.000 kWh/jaar
+Slimme marktoptimalisatie (EPEX)
+Geschatte waarde uit dynamische prijsverschillen
+Niet actief
+MET BATTERIJ
+Dynamisch contract + batterij
+Totale zonneopbrengst
+Uw jaarlijkse opwek via zonnepanelen
+5.000 kWh/jaar
+Stroomverbruik per jaar
+Uw totale stroomvraag, vóór eigen zonnestroom
+3.500 kWh/jaar
+Zelfverbruik
+Aandeel van de zonne-opwek dat u zelf gebruikt
+63%
+Direct zelfverbruik
+Zonnestroom die meteen in huis wordt gebruikt
+1.500 kWh/jaar
+Totaal ontladen uit de batterij
+Naar de woning plus EPEX-handel
+3.492 kWh/jaar
+Waarvan aan huis geleverd
+Verlaagt de stroom die uw woning van het net nodig heeft
+1.642 kWh/jaar
+Teruglevering aan het net
+Overschot na direct gebruik en opslag
+1.729 kWh/jaar minder teruggeleverd door batterijopslag
+1.771 kWh/jaar
+Zelfvoorzienendheid
+Aandeel van uw totale stroomverbruik gedekt door eigen zonnestroom
+3.142 / 3.500 kWh
+90%
+Netstroom inkoop
+Stroom die u nog van uw energieleverancier nodig heeft
+↓ 1.642 kWh/jaar
+358 kWh/jaar
+Slimme marktoptimalisatie (EPEX)
+Geschatte waarde uit dynamische prijsverschillen
+1.849 kWh/jaar ontladen voor EPEX
+€ 307–€ 389/jr
+Terugleverkosten
+Huidig vast contract
+€ 385/jr
+Dynamisch contract + batterij
+€ 0/jr
+Besparing op terugleverkosten: € 385/jr
+Uitgaande van het vervallen van terugleverkosten bij het gekozen dynamische contract.
+
+Terugleververgoeding
+Huidig vast contract
+€ 280/jr
+Dynamisch contract + batterij
+€ 142/jr
+Berekend over de stroom die na direct gebruik en batterijopslag aan het net wordt teruggeleverd.

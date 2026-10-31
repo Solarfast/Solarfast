@@ -1,0 +1,171 @@
+Je werkt aan de VOLTRAX results page (thuisbatterij calculator UI).
+
+DOEL:
+Maak de huidige results page visueel en inhoudelijk “premium, high-trust, sales-ready” zoals een Apple/Tesla-grade energieproduct tool. De focus is niet meer op extra berekening, maar op presentatie, hiërarchie en overtuiging.
+
+CRITISCHE REGELS:
+- Verander GEEN backend berekeningen of logica.
+- Verander GEEN formule-uitkomsten.
+- Alleen frontend/UI/UX, copy, layout en informatie-structuur aanpassen.
+- Geen extra data toevoegen die niet al uit de API komt.
+- Geen overengineering of nieuwe features.
+
+------------------------------------------------------------
+HOOFDDOEL VAN DE FIX
+------------------------------------------------------------
+
+De pagina moet voelen als:
+“uitleg + overtuiging + besluitvorming”
+
+niet als:
+“technisch rapport met veel cijfers”
+
+------------------------------------------------------------
+NIEUWE UI STRUCTUUR (VERPLICHT)
+------------------------------------------------------------
+
+HERSTRUCTUREER DE RESULTS PAGE IN 5 BLOKKEN:
+
+------------------------------------------------------------
+1. HERO (MOST IMPORTANT)
+------------------------------------------------------------
+
+Bovenaan moet 1 duidelijke kernuitkomst staan:
+
+- Jaarlijks voordeel (GROOT EN DOMINANT)
+- Terugverdientijd (DIRECT ERONDER)
+- Investering (kleiner)
+
+Voorbeeld layout:
+
+H1:
+Geschat jaarlijks voordeel
+
+GROOT GETAL:
+€X.XXX – €X.XXX per jaar
+
+SUB:
+Terugverdientijd: X – X jaar
+
+SMALL:
+Investering: €X.XXX
+
+REGEL:
+Dit blok moet visueel 70% van de aandacht krijgen.
+
+------------------------------------------------------------
+2. SIMPLE VALUE BREAKDOWN (NO TECH TALK)
+------------------------------------------------------------
+
+Toon alleen 3 simpele bullets:
+
+- Minder netafname → €X
+- Terugleverkosten vermeden → €X
+- Slimme batterijsturing → €X – €X
+
+REGEL:
+Geen termen zoals EMS, EPEX, spread in dit blok.
+
+------------------------------------------------------------
+3. SMART OPTIMISATIE (COLLAPSIBLE SECTIE)
+------------------------------------------------------------
+
+Titel:
+Slimme optimalisatie met AlphaESS
+
+Inhoud:
+Leg kort uit in begrijpelijke taal:
+
+- laadt bij lage stroomprijs
+- ontlaadt bij hoge prijs
+- optimaliseert automatisch verbruik
+
+Toon één range:
+Extra waarde: €X – €X per jaar
+
+REGEL:
+Technische termen alleen hier toegestaan, niet in main view.
+
+------------------------------------------------------------
+4. “WAT U NU VERLIEST” BLOCK (PSYCHOLOGISCH CLOSING BLOCK)
+------------------------------------------------------------
+
+Titel:
+Wat u nu verliest zonder batterij
+
+Bullets:
+
+- €X per jaar gemiste besparing
+- €X aan extra netkosten
+- €X terugleverkosten
+
+REGEL:
+Dit is de urgency trigger, moet duidelijk maar niet agressief zijn.
+
+------------------------------------------------------------
+5. FINANCIAL SUMMARY (MINIMAL)
+------------------------------------------------------------
+
+Toon alleen:
+
+- Netto 10 jaar resultaat (klein)
+- Eventueel ROI label klein
+
+REGEL:
+Niet dominant maken.
+
+------------------------------------------------------------
+DESIGN STYLE REQUIREMENTS
+------------------------------------------------------------
+
+- Veel witruimte
+- Grote typografie voor hoofdgetallen
+- Eén accentkleur (groen of blauw)
+- Geen drukke tabellen
+- Geen technische blokken als default
+- Mobile-first readability
+- “Financial dashboard meets Apple landing page”
+
+------------------------------------------------------------
+COPY STYLE RULES
+------------------------------------------------------------
+
+- Geen technische jargon in main sections
+- Geen dubbele uitleg van dezelfde waarde
+- Geen herhaling van kWh in klanttaal
+- Gebruik “u” stijl (NL sales tone)
+- Korte zinnen
+- Vertrouwen > complexiteit
+
+------------------------------------------------------------
+VERBODEN
+------------------------------------------------------------
+
+- EMS details in main view
+- EPEX uitleg in main view
+- spread uitleg in main view
+- dubbele monetisatie van dezelfde kWh
+- lange technische paragrafen
+- overvolle cijfers per sectie
+
+------------------------------------------------------------
+SUCCESS CRITERIA
+------------------------------------------------------------
+
+Na implementatie moet de pagina:
+
+- in 3 seconden begrijpelijk zijn
+- één duidelijk “wow getal” hebben
+- vertrouwen uitstralen (niet technisch gevoel)
+- aanvoelen als een premium energie product page
+- geschikt zijn om live verkoopgesprekken te ondersteunen
+
+------------------------------------------------------------
+EINDDOEL
+------------------------------------------------------------
+
+Verhoog conversie door:
+- minder complexiteit
+- hogere visuele hiërarchie
+- sterkere emotionele framing
+- duidelijkere beslisstructuur

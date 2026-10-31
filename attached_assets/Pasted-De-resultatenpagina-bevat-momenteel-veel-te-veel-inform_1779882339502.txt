@@ -1,0 +1,118 @@
+De resultatenpagina bevat momenteel veel te veel informatie tegelijk. Het moet premium, snel scanbaar en conversiegericht voelen — niet technisch of overweldigend. Minder tekst = meer vertrouwen en hogere conversie.
+
+Belangrijk:
+
+* Focus op het gevoel van voordeel, onafhankelijkheid en slim energiegebruik
+* Verberg technische details standaard achter “Bekijk onderbouwing”
+* Toon alleen de belangrijkste KPI’s direct zichtbaar
+* Alles moet rustiger, cleaner en visueel sterker ogen
+
+HOOFDSECTIE BOVENAAN:
+Alleen tonen:
+
+* Jaarlijks voordeel
+* Per maand voordeel
+* Terugverdientijd
+* Batterijmodel + prijs
+
+Dus ongeveer:
+€1.250 – €1.550 voordeel per jaar
+€105 – €129 per maand
+6–7 jaar terugverdientijd
+AlphaESS SMILE G3 — 9,3 kWh
+
+Maak dit groot, premium en minimalistisch.
+
+VERWIJDER OF VERSTOP:
+
+* Alle lange uitlegteksten
+* “A/B/C/D” berekeningen
+* Formules
+* Lange EMS uitleg
+* Herhalende energiestroom secties
+* Overmatige kWh details
+* Te veel percentages
+* “Elke euro herleidbaar naar kWh”
+* Grote blokken tekst
+
+Dit moet NIET voelen als een technisch rapport.
+
+ENERGIEFLOW VEREENVOUDIGEN:
+Maak één simpele vergelijking:
+
+Zonder batterij:
+
+* Veel teruglevering
+* Hoge netafname
+* Lage vergoeding
+
+Met batterij:
+
+* Meer eigen verbruik
+* Minder afhankelijk van net
+* Slim laden op goedkope uren
+
+Gebruik iconen + korte labels.
+Maximaal 3–4 metrics tonen.
+
+BATTERIJ-EFFECT SIMPEL TONEN:
+Niet tientallen cijfers tonen.
+
+Alleen bijvoorbeeld:
+
+* Zelfverbruik stijgt sterk
+* Netafname daalt tot bijna nul
+* Overschot wordt lokaal opgeslagen
+* EMS optimaliseert automatisch op prijs
+
+Dus emotionele impact > technische diepgang.
+
+EMS DEEL VEEL PREMIUMER MAKEN:
+Niet focussen op ingewikkelde berekeningen.
+
+Meer focus op:
+
+* AI-gestuurde energieoptimalisatie
+* Automatisch laden tijdens goedkope of negatieve stroomuren
+* Slim ontladen tijdens piekprijzen
+* Continue prijsoptimalisatie via EPEX-markt
+
+Kort, krachtig en high-end.
+
+BELANGRIJK:
+Verhoog voordeel liever via slimme EMS optimalisatie dan via extreme energiestroomcijfers.
+
+Dus:
+
+* Zelfverbruik NIET verder extreem verhogen
+* Geen absurd lage netafname
+* Geen ongeloofwaardige cijfers
+
+Wel:
+
+* Meer waarde uit dynamische energiemarkt halen
+* Negatieve stroomuren meenemen
+* Slimmere prijsoptimalisatie simuleren
+* EMS arbitragedeel iets sterker maken
+
+DOEL:
+De pagina moet voelen als:
+
+* premium software
+* financieel slim
+* modern
+* betrouwbaar
+* weinig cognitieve belasting
+* hoge conversie
+
+Visueel:
+
+* veel witruimte
+* rustige eco-kleuren
+* nauwelijks lange tekst
+* cards met duidelijke hiërarchie
+* belangrijke cijfers groot
+* details alleen op uitklappen
+
+De gebruiker moet binnen 5 seconden denken:
+“Dit levert serieus geld op.”

@@ -1,0 +1,238 @@
+SOLARFAST — DEFINITIEVE MASTERPROMPT VOOR REKENMODEL, ROI EN RAPPORTAGE
+
+Hoofddoel
+
+Voer een volledige technische en financiële audit uit van de bestaande SolarFast-tool en herstel alle inhoudelijke fouten in het energiemodel, de batterijberekeningen, dynamische energiehandel, besparingen, ROI, terugverdientijd en rapportage.
+
+Het eindresultaat moet een betrouwbare, controleerbare en commercieel sterke rekentool zijn die voor iedere klant duidelijk maakt wat een thuisbatterij naar verwachting per jaar oplevert.
+
+Optimaliseer voor de hoogste realistische financiële opbrengst voor de klant, met een slimme batterijstrategie en correcte berekeningen. Optimaliseer nooit door opbrengsten te verzinnen, risico’s te verbergen of aannames als gegarandeerde resultaten te presenteren.
+
+1. Eerst de bestaande applicatie analyseren
+
+Inspecteer de volledige relevante code voordat je wijzigingen aanbrengt:
+
+* De invoervelden en standaardwaarden.
+* De energie- en batterijberekeningen.
+* De logica voor dynamische energieprijzen en handel.
+* De berekening van kosten, besparingen, ROI en terugverdientijd.
+* De koppeling tussen backend, frontend en PDF-rapport.
+* Alle modellen, configuraties, bestaande tests en rapportages.
+
+Breng de volledige gegevensstroom in kaart: van klantinvoer tot de uiteindelijke financiële conclusie.
+
+Belangrijke werkwijze:
+
+* Behoud de bestaande architectuur, vormgeving, API-contracten en werkende functionaliteit.
+* Herschrijf de applicatie niet volledig en maak geen nieuwe applicatie naast de bestaande.
+* Verander geen bestaande interfaces, tenzij dit aantoonbaar noodzakelijk is.
+* Gebruik één centrale rekenkern als bron voor alle berekende resultaten.
+* Verwijder tegenstrijdige of dubbele berekeningslogica.
+* Hardcode geen uitkomsten die afhankelijk horen te zijn van klantgegevens.
+* Laat de bestaande applicatie bruikbaar blijven tijdens de werkzaamheden.
+* Start geen tweede serverproces op een poort die al in gebruik is.
+* Voer wijzigingen gecontroleerd uit en test iedere relevante wijziging.
+
+Voer de audit daadwerkelijk uit. Lever niet alleen een analyse, plan of lijst met aanbevelingen op: implementeer de noodzakelijke reparaties en verifieer het resultaat.
+
+2. Eén betrouwbare energiebalans
+
+Ontwikkel of herstel één consistente energiebalans waarin iedere relevante energiestroom afzonderlijk wordt bijgehouden.
+
+Verwerk minimaal:
+
+* Jaarlijkse zonnepaneelproductie.
+* Jaarlijks huishoudelijk elektriciteitsverbruik.
+* Direct eigen verbruik van zonnestroom.
+* Teruglevering vóór installatie van de batterij.
+* Energie die vanuit zonnepanelen de batterij in gaat.
+* Energie die vanuit het elektriciteitsnet de batterij in gaat.
+* Laadverliezen en ontlaadverliezen.
+* Energie die de batterij daadwerkelijk aan de woning levert.
+* Energie die de batterij daadwerkelijk aan het elektriciteitsnet levert, indien technisch en contractueel toegestaan.
+* Resterende netafname en resterende teruglevering.
+* Het aantal equivalente volledige laadcycli.
+
+Gebruik de werkelijke energiestromen om de berekeningen te controleren. Iedere hoeveelheid energie mag maar één keer aan een bestemming worden toegewezen.
+
+Maak onderscheid tussen energie uit zonnepanelen en energie die goedkoop uit het elektriciteitsnet is geladen. Deze energiebronnen hebben verschillende financiële gevolgen.
+
+Hanteer natuurkundige grenzen voor capaciteit, laadvermogen, ontlaadvermogen, beschikbaarheid, verliezen en jaarlijkse doorvoer. Controleer de daadwerkelijk geldende productspecificaties van iedere batterijvariant; verzin geen specificaties.
+
+Gebruik waar de benodigde gegevens beschikbaar zijn een uur- of kwartiermodel. Als die gegevens ontbreken, mag een onderbouwd schattingsmodel worden gebruikt. Vermeld dan duidelijk welke profielen en aannames zijn toegepast.
+
+Een kleine afrondingsafwijking is acceptabel. Een structureel onmogelijke energiebalans is dat niet.
+
+3. Slimme batterijstrategie met maximale realistische ROI
+
+Bepaal welke inzet van de batterij de hoogste netto financiële opbrengst geeft binnen de technische mogelijkheden en de situatie van de klant.
+
+Vergelijk waar relevant:
+
+1. Zonnestroom opslaan voor later eigen gebruik.
+2. Laden tijdens goedkope uren en later stroom gebruiken in de woning.
+3. Laden tijdens goedkope uren en ontladen tijdens duurdere uren voor teruglevering, uitsluitend als de batterij, energieleverancier, het contract en de aansturing dit daadwerkelijk toestaan.
+4. Combinaties van eigen verbruik en dynamische handel.
+
+Bereken per strategie de financiële opbrengst na laad- en ontlaadverliezen, energiebelasting, toepasselijke belastingen, inkoop- en verkoopprijzen, terugleverkosten, handelskosten en overige relevante kosten.
+
+Houd rekening met de concurrentie tussen de strategieën: dezelfde opgeslagen kWh kan niet tegelijkertijd volledig voor eigen verbruik én voor verkoop worden benut.
+
+Optimaliseer de strategie op basis van netto financiële opbrengst, niet op basis van omzet of theoretische prijsverschillen.
+
+Wanneer een volledige optimalisatie op uurbasis technisch niet mogelijk is, gebruik dan een expliciet begrensde schatting en presenteer die niet alsof het een gegarandeerd handelsresultaat is.
+
+4. Contractvergelijking correct instellen
+
+Wanneer een klant momenteel een vast of variabel energiecontract heeft, bereken dan het scenario met batterij volgens de beoogde overstap naar een dynamisch energiecontract.
+
+Maak daarbij onderscheid tussen:
+
+* De kosten van de huidige situatie.
+* De kosten van de nieuwe situatie met batterij en dynamisch contract.
+* Het financiële effect van de contractwijziging.
+* Het aanvullende financiële effect van de batterij.
+* Het gecombineerde resultaat van batterij en contractwijziging.
+
+Gebruik dezelfde verbruiksgegevens, dezelfde relevante periode en vergelijkbare uitgangspunten voor de vergelijking.
+
+Bereken de volledige besparing rechtstreeks uit de kosten van de situatie vóór en na de investering. Gebruik de afzonderlijke onderdelen alleen om die uitkomst uit te leggen.
+
+Voeg de contractbesparing niet nogmaals toe als deze al in de totale kostenvergelijking is verwerkt.
+
+Als de klant al een dynamisch contract heeft, mag geen fictieve besparing door een contractwissel worden toegevoegd.
+
+Neem contractspecifieke kosten en voorwaarden mee als ze bekend zijn. Ontbrekende gegevens mogen niet automatisch als nul worden behandeld wanneer ze de uitkomst wezenlijk beïnvloeden.
+
+5. Eén duidelijke financiële berekening
+
+Gebruik één centrale financiële berekening voor alle resultaten.
+
+Bereken minimaal:
+
+* Jaarlijkse kosten vóór installatie.
+* Jaarlijkse kosten na installatie.
+* Jaarlijkse netto financiële besparing.
+* Gemiddelde maandelijkse besparing.
+* Totale investering inclusief relevante installatiekosten.
+* Eventuele toepasselijke subsidies of fiscale voordelen, uitsluitend als de klant daarvoor aantoonbaar in aanmerking komt.
+* Netto-investering.
+* Terugverdientijd.
+* Netto cumulatief financieel resultaat na 5, 10 en 15 jaar.
+* ROI over dezelfde perioden.
+* Eventuele onderhouds-, vervangings- en degradatiekosten wanneer deze relevant zijn.
+
+Maak duidelijk onderscheid tussen bruto voordeel, netto besparing en netto financieel resultaat.
+
+Gebruik als basis voor de terugverdientijd de netto-investering en de netto jaarlijkse financiële besparing. Als de jaarlijkse besparing varieert, gebruik dan een cumulatieve kasstroomanalyse in plaats van blind te delen.
+
+Als de investering binnen de gemodelleerde levensduur niet wordt terugverdiend, toon dan geen misleidende terugverdientijd.
+
+6. Realistische scenario’s zonder verwarring
+
+Bereken intern minimaal drie scenario’s:
+
+* Conservatief: voorzichtige aannames over prijzen, batterijbenutting en handel.
+* Verwacht: de meest verdedigbare schatting op basis van de beschikbare klantgegevens.
+* Gunstig: een hogere opbrengst die alleen wordt getoond als deze technisch en financieel haalbaar is.
+
+Kies één duidelijk hoofdresultaat: de verwachte netto besparing per jaar.
+
+Gebruik de conservatieve en gunstige scenario’s uitsluitend als aanvullende context. Presenteer een bandbreedte niet als een gegarandeerde opbrengst.
+
+Laat ontbrekende invoergegevens, onzekerheid en de belangrijkste bepalende aannames zien wanneer die de uitkomst wezenlijk beïnvloeden.
+
+Gebruik geen willekeurige jaarlijkse energieprijsstijging om de basisbesparing kunstmatig te verhogen. Als toekomstige prijsontwikkeling wordt gemodelleerd, toon deze dan afzonderlijk als scenario en niet als zekere winst.
+
+7. Correcte behandeling van Nederlandse energieregels
+
+Controleer de actuele regels en de geldende datum voor salderen, terugleververgoedingen, terugleverkosten, energiebelasting, btw en relevante fiscale regelingen.
+
+Pas deze regels alleen toe wanneer ze van toepassing zijn op de betreffende klant, contractvorm en periode.
+
+Maak onderscheid tussen het huidige kalenderjaar en toekomstige jaren wanneer regelgeving of contractvoorwaarden veranderen.
+
+Neem btw-teruggave, subsidies of andere voordelen niet automatisch op in het basisscenario zonder controle van de voorwaarden.
+
+Gebruik controleerbare bronnen voor actuele regels en sla de relevante aannames en ingangsdatums vast in de berekeningslogica.
+
+8. Eén bron van waarheid voor alle rapportages
+
+De frontend, grafieken, samenvatting, berekening en PDF moeten allemaal dezelfde resultaten uit de centrale rekenkern gebruiken.
+
+Voorkom dat verschillende onderdelen onafhankelijk dezelfde besparing berekenen.
+
+Toon in het klantgerichte rapport minimaal:
+
+De investering
+
+* Geselecteerde batterij en bruikbare capaciteit.
+* Totale investering en eventuele toepasselijke voordelen.
+* Netto-investering.
+
+De jaarlijkse impact
+
+* Verwachte netto besparing per jaar in euro’s.
+* Gemiddelde maandelijkse besparing in euro’s.
+* Verandering in netafname.
+* Verandering in teruglevering.
+* Het aandeel van het verbruik dat door eigen opwek en batterij wordt gedekt, met een correct gedefinieerde noemer.
+
+De financiële prognose
+
+* Verwachte terugverdientijd.
+* Netto financieel resultaat na 10 jaar.
+* Conservatief en gunstig scenario als aanvullende informatie.
+* De belangrijkste aannames en onzekerheden.
+
+Gebruik begrijpelijke Nederlandse teksten. Vermijd dubbele uitleg, tegenstrijdige percentages, onduidelijke begrippen en herhaling van dezelfde conclusie in verschillende woorden.
+
+Maak duidelijk dat de uitkomsten berekende prognoses zijn en geen gegarandeerde opbrengsten.
+
+9. Controleerbare berekeningen en automatische tests
+
+Voeg automatische tests toe voor de energiebalans, batterijlimieten, financiële uitkomsten en rapportage.
+
+Test minimaal:
+
+* Geen zonnepanelen.
+* Geen batterij.
+* Geen verbruik.
+* Zonnepanelen zonder overschot.
+* Een groot zonne-overschot.
+* Een kleine en een grote batterij.
+* Een vast, variabel en dynamisch contract.
+* Geen prijsverschillen tussen laden en ontladen.
+* Negatieve en positieve dynamische prijzen.
+* Hoge terugleverkosten.
+* Beperkt laad- en ontlaadvermogen.
+* Batterijhandel die niet is toegestaan.
+* Ontbrekende of ongeldige invoer.
+* Een investering die niet wordt terugverdiend.
+
+Controleer dat onmogelijke invoer wordt afgewezen of veilig wordt behandeld en dat ontbrekende gegevens niet stilzwijgend tot onrealistische opbrengsten leiden.
+
+Voeg regressietests toe zodat bestaande werkende berekeningen niet opnieuw kapotgaan.
+
+Leg bij belangrijke uitkomsten vast welke invoer, aannames, energiestromen en prijscomponenten de uitkomst hebben veroorzaakt. Zo kan een afwijkend resultaat later worden onderzocht zonder de hele applicatie opnieuw te bouwen.
+
+10. Definitieve acceptatiecriteria
+
+De opdracht is pas afgerond wanneer:
+
+1. De bestaande applicatie intact blijft.
+2. De energiebalans binnen de vastgestelde tolerantie sluit.
+3. Batterijcapaciteit, vermogen, verliezen en cycli correct worden begrensd.
+4. Iedere financiële besparing een controleerbare berekening heeft.
+5. Dynamische handel geen fictieve of dubbel getelde winst oplevert.
+6. Contractwissel en batterijbesparing correct van elkaar worden onderscheiden.
+7. ROI en terugverdientijd rechtstreeks uit de financiële berekeningen volgen.
+8. Alle rapportonderdelen dezelfde resultaten tonen.
+9. De automatische tests slagen en bestaande functionaliteit behouden blijft.
+10. Alle relevante berekeningen reproduceerbaar zijn met dezelfde invoer en modelversie.
+
+Voer de benodigde wijzigingen daadwerkelijk door. Test het resultaat met representatieve klantgegevens en de bestaande batterijvarianten. Los gevonden fouten op en voer de tests opnieuw uit.
+
+Rapporteer na afloop beknopt welke onderdelen zijn gewijzigd, welke tests zijn geslaagd, welke aannames nog onzeker zijn en welke beperkingen niet volledig konden worden opgelost.
+
+Eindprincipe: SolarFast moet de klant de hoogst verdedigbare financiële opbrengst laten zien, niet de hoogst denkbare opbrengst. De berekening moet technisch logisch, financieel controleerbaar en helder genoeg zijn om de jaarlijkse waarde van de batterij zonder dubbelzinnigheid uit te leggen.

@@ -1,0 +1,46 @@
+BELANGRIJK: wijzig NIETS aan bestaande berekeningen, componenten, routes of pagina's. Voeg alleen één nieuwe pagina toe op route "/salderen-calculator", met eigen bestanden. Hergebruik de bestaande stijl, kleuren en componenten. Voeg geen navigatie-item of homepage-wijziging toe.
+
+DOEL
+Een simpele calculator waarmee mensen met zonnepanelen kunnen uitrekenen wat het einde van de salderingsregeling (per 1 januari 2027) ze per jaar extra kost.
+
+INVOER (live resultaat bij elke wijziging, geen submit-knop)
+- Totaal stroomverbruik per jaar in kWh (default 3000). Hulptekst: "Te vinden op uw jaarafrekening."
+- Opgewekte zonnestroom per jaar in kWh (default 4400)
+- Teruglevering aan het net per jaar in kWh (default 3400). Hulptekst: "Staat op uw jaarafrekening of in de app van uw slimme meter."
+- Inkoopprijs per kWh, alles inbegrepen (belasting en btw) (default 0,25)
+- Terugleververgoeding per kWh (default 0,07)
+- Terugleverkosten per jaar in euro (default 0, optioneel)
+Accepteer komma en punt als decimaal, alleen positieve getallen, vriendelijke foutmeldingen.
+
+BEREKENING (pure functie in eigen bestand)
+inkoop = verbruik - (opwek - teruglevering)      // wat ze van het net halen
+gesaldeerd = min(inkoop, teruglevering)
+
+kosten_met_salderen = (inkoop - gesaldeerd) * inkoopprijs
+                      - (teruglevering - gesaldeerd) * terugleververgoeding
+                      + terugleverkosten
+
+kosten_zonder_salderen = inkoop * inkoopprijs
+                         - teruglevering * terugleververgoeding
+                         + terugleverkosten
+
+extra_per_jaar = kosten_zonder_salderen - kosten_met_salderen
+(controle: gelijk aan gesaldeerd * (inkoopprijs - terugleververgoeding))
+
+RESULTAAT (duidelijk en groot)
+- "Tot 1 januari 2027 (met salderen): € X per jaar" (variabele stroomkosten)
+- "Vanaf 1 januari 2027 (zonder salderen): € Y per jaar"
+- "Dat is € Z per jaar extra", plus per maand en per dag
+- Als de uitkomst negatief of nul is: toon "Voor uw situatie verandert er weinig."
+Onder het resultaat: "Alleen variabele kosten voor stroom. Vaste kosten en netbeheerkosten zijn niet meegerekend."
+
+UITLEG (kort, onder het resultaat)
+- Tot 1 januari 2027 mag u teruggeleverde stroom verrekenen met wat u afneemt. Vanaf die datum niet meer: u ontvangt dan een terugleververgoeding van uw leverancier, die doorgaans lager is dan de inkoopprijs.
+- Uitklapbaar blok "Zo rekenen wij": toon de formules en de zin "Dit is een indicatie. Uw werkelijke bedrag hangt af van uw contract en tarieven."
+
+REGELS
+- Rond bedragen af op hele euro's in de weergave, reken intern met volle precisie.
+- Mobile first, toegankelijk (labels bij alle velden, voldoende contrast, resultaat in een aria-live region).
+- Geen externe dependencies toevoegen.
+- Voeg unit tests toe: verbruik 3000, opwek 4400, teruglevering 3400, inkoop 0,25, vergoeding 0,07, terugleverkosten 0 geeft extra_per_jaar = 360. Voeg ook edge cases toe (teruglevering 0, inkoop 0). Draai de tests en los fouten op.
+- Sluit af met een lijst van de toegevoegde bestanden.

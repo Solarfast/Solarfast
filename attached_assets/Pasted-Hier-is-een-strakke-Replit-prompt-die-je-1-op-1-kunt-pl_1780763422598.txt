@@ -1,0 +1,82 @@
+Hier is een strakke Replit prompt die je 1-op-1 kunt plakken. Deze is bewust compact (weinig tokens/credits) maar duidelijk genoeg om je calculator correct te fixen zonder ROI te overdrijven:
+
+⸻
+
+🔧 REPLIT PROMPT (PLAK DIT)
+
+Fix de VOLTRAX calculator in server.py en zorg dat alle resultaten realistisch, stabiel en consistent zijn met de volgende regels:
+
+1. Zelfverbruik (CRUCIAAL)
+
+* Zelfverbruik mag NOOIT boven 92% van verbruik (V) gaan
+* Zelfverbruik moet afhangen van:
+    * PV (zonneproductie)
+    * batterijgrootte (diminishing returns)
+* Gebruik een afvlakking (geen lineaire groei)
+* Grote batterijen geven minder extra winst per kWh
+
+2. Realistische energiebalans
+
+* Energie moet altijd kloppen:
+    * PV + import = verbruik + export (± kleine marge 1–2%)
+* Export mag nooit negatief zijn
+* Import mag nooit onder 2% van verbruik gaan
+
+3. Batterij effect (belangrijk)
+
+* Kleine batterij: grote impact
+* Grote batterij: afvlakkend effect
+* Max batt_rate cap: 0.92
+
+Gebruik deze logica:
+
+batt_rate = 0.72 + 0.18 * (1 - exp(-bat_kWh / 20))
+batt_rate += 0.05 * (PV / 5000)
+batt_rate = clamp(batt_rate, 0.72, 0.92)
+
+total_self_use = min(PV * batt_rate, V * 0.92)
+
+4. Financiële output corrigeren
+
+* Gebruik echte kWh verschillen:
+    * grid_saving = (grid_without - grid_with) * pE
+    * export_loss = (export_shifted) * pT
+* Geen dubbele telling van dezelfde kWh
+* EMS mag max +18% uplift geven, niet meer
+
+5. EMS regeling
+
+* Vast: max 400 cycles
+* Dynamisch: max 450 cycles
+* Rendement: 95%
+* Spread realistisch houden (geen extra optimistische multipliers)
+
+6. Resultaten fixen
+
+* Verlaag alle outputs die >15% afwijking hebben van realistische waarden
+* ROI mag niet kunstmatig onder 3 jaar vallen
+* Geen “perfecte” 98–100% zelfverbruik claims meer
+
+DOEL
+
+* Realistische, verdedigbare calculator
+* Geen overoptimistische besparing
+* Consistente resultaten bij alle batterijgroottes
+
+⸻
+
+Waarom deze werkt
+
+* klein (weinig tokens)
+* geen uitleg
+* alleen directe regels
+* voorkomt je huidige bug: te hoge zelfverbruik + te hoge ROI + dubbele winst
+
+⸻
+
+Als je wil kan ik daarna ook:
+
+* ￼ je backend checken op “dubbele kWh telling”
+* of ￼ exact zeggen waarom je huidige €1.828 → €2.308 swing gebeurt (dat zit ergens in overlap van EMS + self-consumption)
+
+Zeg maar.

@@ -1,0 +1,126 @@
+Ik ga je wel helpen, maar houd het normaal — anders ga je straks je hele tool nog harder slopen door random tweaks.
+
+Hier is de schone masterprompt (copy-paste ready):
+
+⸻
+
+VOLTRAX ENERGY ROI ENGINE — PHYSICS FLOW MODE
+
+Gebruik een volledig kWh-gedreven energieflow simulatie voor een thuisbatterij (AlphaESS).
+
+Doel: maximale maar fysiek correcte ROI berekenen zonder percentages te forceren.
+
+⸻
+
+1. HOOFDPRINCIPE
+
+Alle berekeningen gebeuren via energiebalans:
+
+PV = direct verbruik + batterij laden + export
+Load = direct PV + batterij ontladen + net import
+
+Elke kWh moet exact worden toegewezen. Geen dubbele telling.
+
+⸻
+
+2. ZELFVERBRUIK (RESULTAAT, NOOIT INPUT)
+
+Zelfverbruik wordt altijd berekend uit flow:
+
+self_consumption = direct PV + batterij ontlading
+
+Regels:
+
+* nooit handmatig instellen (geen 72% → 90%)
+* moet voortkomen uit PV vs load vs batterij
+* typische range ontstaat automatisch
+
+⸻
+
+3. ZONDER BATTERIJ
+
+* PV direct gedeeld met load
+* overschot = export
+* tekort = grid import
+
+⸻
+
+4. MET BATTERIJ
+
+Batterij werkt alleen op:
+
+* PV overschot
+* prijsverschillen (EPEX spread)
+* load shifting
+
+Constraints:
+
+* 350–460 cycli/jaar realistisch
+* 92–95% efficiëntie
+* max 1 cycle per dag per beschikbare energie
+
+⸻
+
+5. ENERGIE FLOWS (VERPLICHT)
+
+export = PV - self_consumption
+grid_import = load - self_consumption
+
+Geen uitzonderingen.
+
+⸻
+
+6. FINANCIËLE BEREKENING
+
+grid_saving = (grid_import_before - grid_import_after) × pE
+export_loss = export_after × pT
+
+EMS value:
+
+* gebaseerd op echte cycles
+* spread = (pE - pT)
+* efficiency 0.92–0.95
+* EMS max 40% van totaal voordeel
+
+⸻
+
+7. VAST VS DYNAMISCH
+
+* vast: lagere spread, stabiel profiel
+* dynamisch: hogere spread +5–15% realistisch voordeel
+    Geen harde multipliers op totaal
+
+⸻
+
+8. REALITEITSCHECK
+
+Controleer altijd:
+
+* PV = self + export + storage losses
+* Load = self + grid import + battery discharge
+* geen dubbele kWh allocatie
+* batterij output ≤ batterij input × efficiency
+
+Bij fout → herbereken correct, niet forceren
+
+⸻
+
+9. OUTPUT
+
+Geef:
+
+* Jaarlijkse besparing (€)
+* Net savings (€)
+* EMS value (€)
+* Export loss (€)
+* self-consumption (kWh + logisch afgeleid %, niet geforceerd)
+
+⸻
+
+10. PRINCIPLE
+
+Eerst energie verdelen, dan geld berekenen.
+
+⸻
+
+Als je wil kan ik hierna ook je ￼ calculator.js fixen zodat je nooit meer €300 outputs krijgt, dat is eigenlijk de echte oorzaak.

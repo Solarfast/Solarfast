@@ -1,0 +1,180 @@
+MASTERPROMPT – VOLTRAX RESULTS PAGE (HIGH-CASE, VERDEDIGBAAR, UPGRADE-ONLY)
+
+DOEL
+
+Je werkt in een bestaande applicatie. Je mag alleen de results page verbeteren, niet herstructureren of opnieuw bouwen.
+
+De pagina moet een duidelijke, visuele vergelijking tonen tussen:
+
+* Zonder batterij
+* Met batterij (high-case realistisch)
+
+Focus: maximale maar verdedigbare economische output.
+
+⸻
+
+⚠️ HARD CONSTRAINTS
+
+* Geen extra energie (kWh blijft exact gelijk)
+* Opwek = zelfverbruik + teruglevering blijft altijd correct
+* Geen dubbele telling van energie
+* Geen marketing-bonussen buiten model
+* Alleen bestaande input herverdelen en herwaarderen
+* Geen rebuild van backend logica
+
+⸻
+
+🧠 HIGH-CASE REALISTISCHE AANNAMES
+
+Gebruik altijd bovenkant van realistische bandbreedtes:
+
+Batterij performance
+
+* Zelfverbruik: 88% – 92%
+* Efficiëntie: 96% – 97%
+* Benutting (cycles): 88% – 92%
+
+⸻
+
+Prijslogica (tijdgewogen, niet vast)
+
+* Netvervanging (effectief): €0,26 – €0,30 / kWh
+* Piekvervanging: €0,28 – €0,32 / kWh
+* Exportwaarde: €0,08 – €0,10 / kWh
+* Arbitrage spread: €0,18 – €0,20 / kWh
+
+⸻
+
+📊 WAARDE MODEL (KERN)
+
+Zonder batterij:
+
+* export = lage waarde
+* netafname = hoge kosten
+
+Met batterij:
+
+* export wordt vervangen door eigen verbruik
+* netafname wordt vermeden tegen hogere piekwaarde
+* energie wordt tijd-gewogen herwaardeerd
+
+⸻
+
+ARBITRAGE FORMULE
+
+V = kWh \times spread \times efficiency \times utilization
+
+Gebruik:
+
+* spread = €0,18 – €0,20
+* efficiency = 0,96 – 0,97
+* utilization = 0,88 – 0,92
+
+⸻
+
+📱 UI STRUCTUUR (VERPLICHT)
+
+BOVENAAN
+
+👉 “Geschat jaarlijks voordeel: €LOW – €HIGH”
+
+waar:
+
+* LOW = realistische high-case
+* HIGH = optimale high-case (bovenkant bandbreedte)
+
+⸻
+
+🟥 CARD 1 – ZONDER BATTERIJ
+
+Toon:
+
+Energie
+
+* Zelfverbruik (kWh + %)
+* Teruglevering (kWh + %)
+* Netafname (kWh)
+
+Financieel
+
+* Kosten netafname (€)
+* Opbrengst teruglevering (€)
+* Terugleverkosten (€)
+
+1 zin:
+
+“Uw energie wordt grotendeels teruggeleverd tegen lage vergoeding en later duur ingekocht.”
+
+⸻
+
+🟩 CARD 2 – MET BATTERIJ (HIGH-CASE)
+
+Toon:
+
+Energie
+
+* Zelfverbruik (↑ 88–92%)
+* Teruglevering (↓)
+* Netafname (↓ sterk)
+
+Financieel
+
+* Jaarlijkse besparing (€)
+* Vermeden netkosten
+* Vermeden exportverlies
+* Arbitrage + EMS (binnen totale waarde)
+
+1 zin:
+
+“Uw eigen energie wordt maximaal lokaal benut op basis van prijsmomenten.”
+
+⸻
+
+⚖️ CENTRAAL VERSCHIL
+
+Altijd tonen:
+
+👉 “+ €LOW – €HIGH per jaar voordeel”
+
+met nadruk op HIGH case
+
+⸻
+
+📉 DETAIL BLOK (OPTIONEEL COLLAPSIBLE)
+
+* Δ zelfverbruik
+* Δ netafname
+* Δ teruglevering
+* kWh verschoven
+
+⸻
+
+🔒 CONSISTENTIE REGELS
+
+* Geen extra kWh genereren
+* Alle winst komt uit herwaardering + verschuiving
+* High-case = altijd bovenkant realistische bandbreedte
+* Kleine batterijen mogen relatief hogere uplift hebben (maar niet buiten ranges)
+* Alles moet herleidbaar blijven naar kWh × prijs
+
+⸻
+
+🎯 UX DOEL
+
+De gebruiker moet in 5 seconden begrijpen:
+
+“dit is de maximale realistische opbrengst van mijn situatie”
+
+⸻
+
+🚀 RESULTAATGEDRAG
+
+* 9,3 kWh → sterke maar geloofwaardige uplift
+* 18,6 kWh → hogere absolute waarde, lagere relatieve uplift
+* alles schaalbaar en consistent
+
+⸻
+
+📌 BELANGRIJK
+
+Dit is een high-case real-world model, geen theoretisch maximum.

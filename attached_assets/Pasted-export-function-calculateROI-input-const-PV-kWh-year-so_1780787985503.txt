@@ -1,0 +1,158 @@
+export function calculateROI(input) {
+  const {
+    PV,            // kWh/year solar production
+    V,             // kWh/year consumption
+    T,             // kWh/year export
+    pE,            // €/kWh import price
+    pT,            // €/kWh export price
+    bat_kWh,
+    battery_price,
+    terugleverkosten = 0,
+    terugleververgoeding = 0
+  } = input;
+
+  const clamp = (x, min, max) => Math.min(Math.max(x, min), max);
+
+  // =========================
+  // 1. BASE ENERGY BALANCE (NO BATTERY)
+  // =========================
+
+  const direct_rate = clamp((PV - T) / PV, 0.25, 0.85);
+
+  const sc_direct_kwh = clamp(V * direct_rate, V * 0.35, V * 0.75);
+
+  const grid_import_zonder = Math.max(V * 0.10, V - sc_direct_kwh);
+
+  const export_kwh_zonder = Math.max(0, PV - sc_direct_kwh);
+
+  const grid_cost_zonder = grid_import_zonder * pE;
+
+  const export_revenue_zonder = export_kwh_zonder * pT;
+
+  const net_zonder =
+    grid_cost_zonder
+    - export_revenue_zonder
+    + terugleverkosten
+    - terugleververgoeding;
+
+  // =========================
+  // 2. BATTERY ENERGY MODEL (PHYSICAL LIMITS)
+  // =========================
+
+  const storage_factor = 0.45 + 0.35 * (1 - Math.exp(-bat_kWh / 12));
+
+  const season_boost = 1 + (0.08 * PV / 5000);
+
+  let total_self = PV * storage_factor * season_boost;
+
+  total_self = clamp(total_self, V * 0.60, V * 0.92);
+
+  const grid_import_met = Math.max(V * 0.05, V - total_self);
+
+  const export_kwh_met = Math.max(0, PV - total_self);
+
+  const sc_battery_kwh = Math.max(0, total_self - sc_direct_kwh);
+
+  const efficiency = 0.94;
+
+  // =========================
+  // 3. FINANCIAL ENERGY VALUE
+  // =========================
+
+  const grid_saving =
+    (grid_import_zonder - grid_import_met) * pE;
+
+  const export_loss =
+    export_kwh_met * pT;
+
+  const net_energy_saving =
+    grid_saving
+    - export_loss
+    + terugleverkosten
+    - terugleververgoeding;
+
+  const price_spread = Math.max(0, pE - pT);
+
+  const effective_shift = Math.min(sc_battery_kwh, PV * 0.35);
+
+  const battery_arbitrage =
+    effective_shift * price_spread * 0.20 * efficiency;
+
+  const base_energy_value =
+    net_energy_saving + battery_arbitrage;
+
+  // =========================
+  // 4. EMS MODEL (CONTROLLED SCALING)
+  // =========================
+
+  const EMS_GRID_CYCLES = 300;
+  const EMS_MAX_TOTAL = 420;
+
+  const cycles = clamp(
+    (sc_battery_kwh / Math.max(bat_kWh, 1)) * EMS_MAX_TOTAL,
+    180,
+    EMS_MAX_TOTAL
+  );
+
+  const ems_low =
+    bat_kWh * cycles * efficiency * 0.26;
+
+  const ems_high =
+    bat_kWh * cycles * efficiency * 0.32;
+
+  const ems_value =
+    (ems_low + ems_high) / 2;
+
+  // EMS cap control (no dominance)
+  const ems_share = ems_value / (base_energy_value + ems_value);
+
+  const final_ems =
+    ems_share > 0.40
+      ? ems_value * 0.75
+      : ems_value;
+
+  // =========================
+  // 5. TOTAL ROI
+  // =========================
+
+  let total_low = base_energy_value + ems_low;
+  let total_high = base_energy_value + ems_high;
+
+  total_low = Math.max(total_low, 800);
+  total_high = Math.max(total_high, 1200);
+
+  const payback_low = battery_price / total_high;
+  const payback_high = battery_price / total_low;
+
+  // =========================
+  // 6. SELF CONSUMPTION (REAL RESULT ONLY)
+  // =========================
+
+  const sc_pct_zonder = (sc_direct_kwh / V) * 100;
+  const sc_pct_met = (total_self / V) * 100;
+
+  return {
+    energy: {
+      self_consumption_before: sc_pct_zonder,
+      self_consumption_after: sc_pct_met,
+      grid_import_before: grid_import_zonder,
+      grid_import_after: grid_import_met,
+      export_before: export_kwh_zonder,
+      export_after: export_kwh_met
+    },
+
+    financial: {
+      net_before: net_zonder,
+      net_after_low: -total_low,
+      net_after_high: -total_high,
+      yearly_savings_low: total_low,
+      yearly_savings_high: total_high,
+      ems_value: final_ems
+    },
+
+    roi: {
+      payback_low,
+      payback_high
+    }
+  };
+}

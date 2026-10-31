@@ -1,0 +1,477 @@
+.saldering-page {
+  min-height: 100vh;
+  background: #f7f7f1;
+  color: #16261e;
+}
+
+.saldering-main {
+  width: min(1160px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 112px 0 72px;
+}
+
+.saldering-back,
+.saldering-bottom-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  border: 0;
+  background: transparent;
+  color: #385846;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.saldering-back {
+  padding: 8px 0;
+  font-size: 14px;
+}
+
+.saldering-hero {
+  max-width: 800px;
+  margin: 40px auto 32px;
+  text-align: center;
+}
+
+.saldering-eyebrow,
+.saldering-result-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #386044;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.saldering-hero h1 {
+  margin: 17px 0 14px;
+  color: #193829;
+  font-size: clamp(2rem, 5vw, 3.75rem);
+  font-weight: 800;
+  letter-spacing: -.045em;
+  line-height: 1.06;
+  text-wrap: balance;
+}
+
+.saldering-hero > p {
+  max-width: 680px;
+  margin: 0 auto;
+  color: #5c6b61;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.saldering-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(320px, .9fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.saldering-card,
+.saldering-result-card,
+.saldering-explanation {
+  border: 1px solid #dfe6dd;
+  border-radius: 24px;
+  box-shadow: 0 10px 35px rgba(24, 54, 37, .055);
+}
+
+.saldering-card {
+  background: #fff;
+  overflow: hidden;
+}
+
+.saldering-card-heading {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 22px 24px;
+  background: #eaf1e8;
+}
+
+.saldering-card-heading > span {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  place-items: center;
+  border-radius: 50%;
+  background: #fff;
+  color: #386044;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.saldering-card-heading h2,
+.saldering-result-card h2,
+.saldering-explanation h2 {
+  margin: 0;
+  color: #193829;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.saldering-card-heading p {
+  margin: 4px 0 0;
+  color: #68766c;
+  font-size: 13px;
+}
+
+.saldering-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 16px;
+  padding: 24px;
+}
+
+.saldering-field label {
+  display: block;
+  margin-bottom: 7px;
+  color: #293e31;
+  font-size: 13px;
+  font-weight: 750;
+  line-height: 1.4;
+}
+
+.saldering-input-wrap {
+  position: relative;
+}
+
+.saldering-input-wrap input {
+  width: 100%;
+  min-height: 50px;
+  border: 1px solid #d9e0d8;
+  border-radius: 13px;
+  background: #fbfcf9;
+  padding: 12px 90px 12px 14px;
+  color: #17281e;
+  font-size: 16px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.saldering-input-wrap input:focus {
+  outline: 3px solid rgba(68, 123, 82, .2);
+  border-color: #4c8058;
+}
+
+.saldering-input-wrap input[aria-invalid="true"] {
+  border-color: #bd4138;
+}
+
+.saldering-input-wrap > span {
+  position: absolute;
+  top: 50%;
+  right: 13px;
+  transform: translateY(-50%);
+  color: #738078;
+  font-size: 12px;
+  pointer-events: none;
+}
+
+.saldering-help,
+.saldering-error {
+  margin: 6px 0 0;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.saldering-help { color: #758078; }
+.saldering-error { color: #a3312b; font-weight: 650; }
+
+.saldering-result-card {
+  position: sticky;
+  top: 24px;
+  padding: 26px;
+  background: #193829;
+  color: #fff;
+}
+
+.saldering-result-eyebrow { color: #c3d9bc; }
+.saldering-result-card h2 { margin-top: 10px; color: #fff; }
+
+.saldering-extra {
+  margin: 23px 0 18px;
+  color: #fff;
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  font-weight: 850;
+  letter-spacing: -.05em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.saldering-extra span {
+  display: block;
+  margin-top: 7px;
+  color: #d7e5d3;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.saldering-periods {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.saldering-periods > div {
+  display: grid;
+  gap: 5px;
+  padding: 13px 14px;
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 14px;
+  background: rgba(255,255,255,.08);
+}
+
+.saldering-periods span,
+.saldering-costs span {
+  color: #d4e1d1;
+  font-size: 12px;
+}
+
+.saldering-periods strong {
+  font-size: 19px;
+  font-variant-numeric: tabular-nums;
+}
+
+.saldering-little-change {
+  margin: 13px 0 0;
+  border-radius: 12px;
+  background: rgba(227, 241, 219, .12);
+  padding: 11px 13px;
+  color: #e2f0dc;
+  font-size: 13px;
+}
+
+.saldering-costs {
+  display: grid;
+  gap: 12px;
+  margin-top: 22px;
+  padding-top: 19px;
+  border-top: 1px solid rgba(255,255,255,.19);
+}
+
+.saldering-costs > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.saldering-costs strong {
+  white-space: nowrap;
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+}
+
+.saldering-variable-note {
+  margin: 16px 0 0;
+  color: #c9d8ca;
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+.saldering-invalid-state {
+  margin: 22px 0 0;
+  color: #e2f0dc;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.saldering-explanation {
+  margin-top: 20px;
+  padding: 26px;
+  background: #fff;
+}
+
+.saldering-explanation > p {
+  max-width: 850px;
+  margin: 10px 0 0;
+  color: #5e6b62;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.saldering-details {
+  position: relative;
+  margin-top: 18px;
+  border-top: 1px solid #e4e9e2;
+  padding-top: 15px;
+}
+
+.saldering-details summary {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  gap: 8px;
+  color: #254936;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.saldering-details-icon {
+  flex: 0 0 auto;
+  color: #456d50;
+  transition: transform .2s ease;
+}
+
+.saldering-details[open] .saldering-details-icon { transform: rotate(180deg); }
+
+.saldering-formulas {
+  display: grid;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.saldering-formulas p {
+  margin: 0;
+  color: #5f6e63;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.saldering-formulas code {
+  white-space: normal;
+  color: #2f5840;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.saldering-bottom-link {
+  margin-top: 23px;
+  padding: 8px 0;
+  font-size: 14px;
+}
+
+.saldering-back:focus-visible,
+.saldering-bottom-link:focus-visible,
+.saldering-details summary:focus-visible {
+  outline: 3px solid #6b956a;
+  outline-offset: 4px;
+}
+
+@media (max-width: 800px) {
+  .saldering-main { width: min(100% - 28px, 620px); padding-top: 102px; }
+  .saldering-hero { margin: 28px auto 23px; }
+  .saldering-hero > p { font-size: 15px; }
+  .saldering-layout { grid-template-columns: 1fr; }
+  .saldering-result-card { position: static; }
+}
+
+@media (max-width: 520px) {
+  .saldering-main { width: calc(100% - 24px); padding-bottom: 44px; }
+  .saldering-card-heading,
+  .saldering-explanation { padding: 18px; }
+  .saldering-fields { grid-template-columns: 1fr; gap: 15px; padding: 18px; }
+  .saldering-result-card { padding: 21px; }
+  .saldering-costs > div { align-items: flex-start; flex-direction: column; gap: 4px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .saldering-details-icon { transition: none; }
+}
+
+/* The salderings estimate uses the same paper, forest and quiet controls. */
+.saldering-page {
+  min-height: 100dvh;
+  background: var(--sf-paper);
+  color: var(--sf-ink);
+  font-family: var(--sf-font-body);
+}
+.saldering-main { width: min(1120px, calc(100% - 48px)); }
+.saldering-back,
+.saldering-bottom-link {
+  color: var(--sf-forest);
+  font-size: 15px;
+}
+.saldering-eyebrow,
+.saldering-result-eyebrow {
+  color: #526d59;
+  font-size: 13px;
+  letter-spacing: .1em;
+}
+.saldering-hero h1 {
+  color: var(--sf-ink);
+  font-family: var(--sf-font-display);
+  font-weight: 650;
+  letter-spacing: -.045em;
+}
+.saldering-hero > p {
+  color: var(--sf-muted);
+  font-size: 16px;
+  line-height: 1.7;
+}
+.saldering-card,
+.saldering-result-card,
+.saldering-explanation {
+  border-color: var(--sf-line);
+  border-radius: 13px;
+  box-shadow: 0 3px 12px rgba(32, 45, 36, .045);
+}
+.saldering-card { background: var(--sf-white); }
+.saldering-card-heading { background: var(--sf-cream); }
+.saldering-card-heading > span {
+  background: var(--sf-white);
+  color: var(--sf-forest);
+}
+.saldering-card-heading h2,
+.saldering-result-card h2,
+.saldering-explanation h2 {
+  color: var(--sf-ink);
+  font-family: var(--sf-font-display);
+  font-weight: 650;
+  letter-spacing: -.03em;
+}
+.saldering-field label {
+  color: var(--sf-ink);
+  font-size: 15px;
+  font-weight: 650;
+}
+.saldering-input-wrap input {
+  border-color: #d8ddd5;
+  border-radius: 10px;
+  background: #faf9f6;
+  color: var(--sf-ink);
+  font-family: var(--sf-font-body);
+}
+.saldering-input-wrap input:focus {
+  outline: 3px solid rgba(82, 119, 96, .14);
+  border-color: var(--sf-focus);
+}
+.saldering-help { color: #686d65; font-size: 14px; }
+.saldering-error { font-size: 14px; }
+.saldering-result-card {
+  background: #262923;
+  color: #fdfcf9;
+}
+.saldering-result-eyebrow { color: #e9dfb5; }
+.saldering-result-card h2 { color: #fdfcf9; }
+.saldering-extra { color: #e9dfb5; }
+.saldering-extra span,
+.saldering-periods span,
+.saldering-costs span,
+.saldering-variable-note,
+.saldering-invalid-state { color: #e4e5dc; }
+.saldering-periods > div {
+  border-color: rgba(255,255,255,.18);
+  border-radius: 10px;
+  background: rgba(255,255,255,.07);
+}
+.saldering-explanation { background: var(--sf-white); }
+.saldering-explanation > p,
+.saldering-formulas p { color: #555a53; font-size: 16px; }
+.saldering-details summary { color: var(--sf-forest); font-size: 15px; }
+.saldering-formulas code { color: var(--sf-forest); }
+.saldering-back:focus-visible,
+.saldering-bottom-link:focus-visible,
+.saldering-details summary:focus-visible {
+  outline: 2px solid var(--sf-focus);
+  outline-offset: 3px;
+}
+
+@media (max-width: 800px) {
+  .saldering-main { width: calc(100% - 28px); }
+}

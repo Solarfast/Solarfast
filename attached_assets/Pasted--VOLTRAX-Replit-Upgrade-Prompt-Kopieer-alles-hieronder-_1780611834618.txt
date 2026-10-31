@@ -1,0 +1,166 @@
+# VOLTRAX — Replit Upgrade Prompt
+# Kopieer alles hieronder en plak in Replit AI
+
+---
+
+Verbeter de bestaande VOLTRAX tool. Maak GEEN nieuwe tool.
+Pas de bestaande bestanden aan:
+- `VOLTRAX/backend/server.py`
+- `VOLTRAX/frontend/src/pages/CalculatorPage.jsx`
+- `VOLTRAX/frontend/src/pages/ResultsPage.jsx`
+
+Verander NIETS aan de bestaande stijl (kleuren, fonts, animaties, rounded corners).
+Test na elke wijziging dat de calculator nog werkt.
+
+---
+
+## WIJZIGING 1 — Backend: Dynamisch contract (server.py)
+
+Voeg `dynamic_contract` toe aan `CalculationInput`:
+
+```python
+dynamic_contract: Optional[bool] = False
+```
+
+Pas `calculate_battery_savings` aan met extra parameter `dynamic_contract: bool = False`.
+
+Vervang in STAP 4 de constanten:
+
+```python
+if dynamic_contract:
+    EMS_GRID_CYCLES      = 336   # 280 × 1.20
+    EMS_MAX_SOLAR_CYCLES = 180
+    EMS_MAX_TOTAL_CYCLES = 480   # 400 × 1.20
+    SPREAD_LOW           = 0.28
+    SPREAD_HIGH          = 0.34
+else:
+    EMS_GRID_CYCLES      = 280
+    EMS_MAX_SOLAR_CYCLES = 180
+    EMS_MAX_TOTAL_CYCLES = 400
+    SPREAD_LOW           = 0.20
+    SPREAD_HIGH          = 0.26
+
+ems_annual_low  = bat_kWh * ems_cycles * SPREAD_LOW
+ems_annual_high = bat_kWh * ems_cycles * SPREAD_HIGH
+```
+
+Voeg toe aan de return dict:
+```python
+"ems_solar_cycles": round(ems_solar_cycles, 0),
+"ems_total_cycles": round(ems_cycles, 0),
+"spread_low":       round(SPREAD_LOW, 2),
+"spread_high":      round(SPREAD_HIGH, 2),
+"dynamic_contract": dynamic_contract,
+```
+
+Voeg deze velden ook toe aan `CalculationResult` als Optional fields.
+
+Pas de `/calculate` endpoint aan zodat `dynamic_contract` wordt doorgegeven:
+
+```python
+results = calculate_battery_savings(
+    ...bestaande parameters...,
+    dynamic_contract=input_data.dynamic_contract or False,
+)
+```
+
+---
+
+## WIJZIGING 2 — Frontend Calculator: Dynamisch contract toggle (CalculatorPage.jsx)
+
+Voeg toe aan `formData` state:
+```javascript
+dynamic_contract: false,
+```
+
+Voeg bovenaan stap 4 (VOOR de prijsvelden) een ja/nee toggle toe:
+
+```
+"Heeft u een dynamisch energiecontract?"
+```
+
+Gebruik dezelfde stijl als de batterijkeuze in stap 5:
+- Twee knoppen: "Nee — Vast tarief" en "Ja — Dynamisch (EPEX)"
+- Geselecteerde knop: border-[#22a55d] bg-[#f0fdf4]
+- Niet geselecteerd: border-gray-200 bg-white
+
+Bij "Ja" toon een kleine groene hint onder de toggle:
+```
+"Uw batterij profiteert maximaal van uurprijzen op de energiemarkt."
+```
+
+Stuur `dynamic_contract` mee in de API payload naar `/api/calculate`.
+
+Alle bestaande prijsvelden in stap 4 blijven ongewijzigd en altijd zichtbaar.
+
+---
+
+## WIJZIGING 3 — Frontend Calculator: Terug navigeren (CalculatorPage.jsx)
+
+De terug knop bestaat al. Controleer en zorg dat:
+- Alle 6 stappen correct terug navigeren met `goPrev()`
+- `formData` state NIET gereset wordt bij terug navigeren
+- De al ingevulde waarden zichtbaar blijven als de gebruiker terugkomt
+
+Dit is waarschijnlijk al correct maar verifieer het.
+
+---
+
+## WIJZIGING 4 — Frontend Resultaten: Dagprijs in hero (ResultsPage.jsx)
+
+Voeg in de hero sectie (donkere kaart `bg-[#0D2B1A]`) onder de bestaande
+`perYear` tekst een extra regel toe:
+
+```jsx
+<div className="inline-flex items-center gap-2 bg-white/[0.07] rounded-xl px-4 py-2 mt-3">
+  <span className="text-white/40 text-xs font-medium">Per dag</span>
+  <span className="text-white font-extrabold text-sm">
+    €{fmt(results.total_daily_low, 2)} – €{fmt(results.total_daily_high, 2)}
+  </span>
+</div>
+```
+
+---
+
+## WIJZIGING 5 — Frontend Resultaten: Hoe werkt uw AlphaESS (ResultsPage.jsx)
+
+Voeg een nieuwe kaart toe TUSSEN `<SideBySideCards>` en `<FinancialCard>`.
+Gebruik dezelfde `card` classname stijl als de rest.
+
+Inhoud — drie stappen horizontaal op desktop, verticaal op mobiel:
+
+**Stap 1 — Eerste 4 weken**
+Icoon: Battery (groen)
+Titel: "Batterij leert uw patroon"
+Tekst: "De eerste 4 weken analyseert het systeem uw verbruik en bouwt op naar maximale efficiëntie."
+
+**Stap 2 — Dagelijks zelfverbruik**
+Icoon: Sun (groen)
+Titel: "35–90% voor zonnestroom"
+Tekst: "Dit deel van de capaciteit slaat uw eigen zonnestroom op en levert 's avonds wanneer de panelen stoppen."
+
+**Stap 3 — Marktoptimalisatie**
+Icoon: Zap (groen)
+Titel: "Rest speelt de energiemarkt"
+Tekst: "De resterende buffer laadt automatisch bij lage EPEX-prijzen en ontlaadt op piekuren. Dag en nacht, volledig automatisch."
+
+Pijl (→) tussen de stappen op desktop.
+Gebruik `grid grid-cols-1 sm:grid-cols-3` layout.
+Iconen in groene cirkel: `w-9 h-9 rounded-full bg-emerald-50 flex items-center justify-center`.
+
+---
+
+## WIJZIGING 6 — Frontend Resultaten: Uitleg per berekening in Spoiler (ResultsPage.jsx)
+
+In `FinancialCard`, binnen de bestaande `<Spoiler label={res.viewCalc}>`,
+voeg onder elke bestaande DataRow een kleine grijze uitlegtekst toe:
+
+**Na "Netafname vermeden":**
+```
+"U vermeed {grid_import_besparing_kwh} kWh netinkoop × €{pE_used}/kWh.
+Zonnestroom opgeslagen overdag, gebruikt 's avonds."
+```
+
+**Na "Minder exportopbrengst":**
+```
+"{export_shift_kwh} kWh blijft nu in ...

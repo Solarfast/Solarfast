@@ -1,0 +1,246 @@
+/* A quieter SolarFast editorial system shared by the existing route layouts.
+   Content, destinations, forms and calculations remain owned by each page. */
+:root {
+  --sf-paper: #faf9f6;
+  --sf-white: #fdfcf9;
+  --sf-surface: #f0ede5;
+  --sf-sage: #e2e9e0;
+  --sf-forest: #183d32;
+  --sf-deep: #15352c;
+  --sf-ink: #20231f;
+  --sf-muted: #74766f;
+  --sf-line: rgba(32, 58, 46, .14);
+  --sf-shadow-card: 0 3px 12px rgba(32, 45, 36, .045);
+}
+
+body {
+  background: var(--sf-paper);
+}
+
+/* Navigation: a calm, legible control surface rather than a floating ornament. */
+.sf-nav-wrap {
+  width: min(1280px, calc(100% - 48px));
+}
+.sf-nav {
+  min-height: 64px;
+  border-color: rgba(32, 58, 46, .13);
+  border-radius: 14px;
+  background: rgba(250, 249, 246, .97);
+  box-shadow: 0 3px 12px rgba(32, 45, 36, .05);
+}
+.sf-nav-wrap.is-scrolled .sf-nav {
+  box-shadow: 0 5px 16px rgba(32, 45, 36, .075);
+}
+.sf-nav-link[aria-current="page"] {
+  color: var(--sf-deep);
+  background: #e2e9e0;
+}
+.sf-nav-cta {
+  min-height: 43px;
+  border-radius: 12px;
+}
+.sf-more-menu,
+.sf-mobile-menu {
+  border-color: rgba(32, 58, 46, .14);
+  border-radius: 13px;
+  background: rgba(253, 252, 249, .985);
+  box-shadow: 0 8px 24px rgba(32, 45, 36, .1);
+}
+.sf-nav-wrap :is(button, a):focus-visible {
+  outline: 2px solid #426d50;
+  outline-offset: 3px;
+}
+
+/* Editorial pages use softer elevation and fewer competing card gradients. */
+.sf-brand-page > section:first-of-type {
+  background-color: #f0ede5 !important;
+}
+.sf-brand-page :is(.sf-page-card, .sf-offer-card, .sf-approach-card, .sf-reason-card) {
+  border-color: rgba(32, 58, 46, .14) !important;
+  border-radius: 12px !important;
+  background-color: var(--sf-white) !important;
+  background-image: none !important;
+  box-shadow: 0 3px 12px rgba(32, 45, 36, .045) !important;
+}
+.sf-brand-page :is(.sf-page-card, .sf-offer-card, .sf-approach-card, .sf-reason-card):hover {
+  border-color: rgba(24, 61, 50, .28) !important;
+  box-shadow: 0 5px 15px rgba(32, 45, 36, .07) !important;
+}
+.sf-brand-page .sf-page-card--static:hover,
+.sf-brand-page .sf-page-card-dark:hover {
+  transform: none;
+}
+.sf-brand-page .sf-page-card-dark {
+  background-color: var(--sf-forest) !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+.sf-brand-page :is(p, li) {
+  line-height: 1.7;
+}
+.sf-brand-page :is(h1, h2, h3) {
+  text-wrap: balance;
+}
+.sf-brand-page :is(a, button) {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Home: keep the existing photography and storytelling; reduce visual noise. */
+.sf-home .sf-hero-proof {
+  border: 1px solid rgba(255, 255, 255, .68);
+  border-radius: 12px;
+  box-shadow: 0 5px 16px rgba(18, 42, 29, .1);
+}
+.sf-home :is(.sf-trust, .sf-range, .sf-cta) {
+  background-color: #f0ede5;
+}
+.sf-home :is(.sf-credentials, .sf-insulation-card, .sf-range-card) {
+  border-color: rgba(32, 58, 46, .14);
+  background-image: none;
+  box-shadow: 0 3px 12px rgba(32, 45, 36, .045);
+}
+.sf-home :is(.sf-credentials, .sf-insulation-card, .sf-range-card):hover {
+  box-shadow: 0 5px 15px rgba(32, 45, 36, .07);
+}
+.sf-home .sf-trust-facts {
+  gap: 26px;
+}
+.sf-home .sf-saldering-callout {
+  background: #e9eee6;
+}
+.sf-home .sf-saldering-callout-inner {
+  border-radius: 16px;
+  box-shadow: 0 5px 18px rgba(35, 52, 43, .05);
+}
+.sf-home .sf-saldering-callout button {
+  border-radius: 12px;
+}
+.sf-home .sf-scale {
+  background: #dce6da;
+}
+.sf-home .sf-scale-stat {
+  border-radius: 48%;
+  transform: none;
+}
+.sf-home .sf-stat-mark {
+  transform: none;
+}
+.sf-home .sf-cta-orbit {
+  opacity: .58;
+}
+
+/* Calculator steps: retain all controls and make the hierarchy more grounded. */
+.sf-calc-page {
+  background: var(--sf-paper);
+}
+.sf-calc-page .sf-calc-step-shell {
+  border-color: rgba(32, 58, 46, .14);
+  border-radius: 14px;
+  background: var(--sf-white);
+  box-shadow: 0 3px 14px rgba(32, 45, 36, .045);
+}
+.sf-calc-page .sf-calc-step-heading {
+  background: #f0ede5;
+}
+.sf-calc-page .sf-calc-step-item.is-current {
+  background: var(--sf-white);
+  box-shadow: 0 3px 12px rgba(35, 52, 43, .05);
+}
+.sf-calc-page .sf-calc-nav-primary:not(:disabled) {
+  box-shadow: none;
+}
+.sf-calculator .sf-calculator-card {
+  border-width: 1px !important;
+  border-radius: 12px !important;
+  background-image: none;
+  box-shadow: 0 3px 12px rgba(32, 45, 36, .045);
+}
+
+/* Results: remove stacked gradients and oversized shadows while preserving
+   the existing before/after, product detail and export information. */
+.sf-results :is(section, article, [class*="rounded-2xl"], [class*="rounded-3xl"]) {
+  background-image: none;
+}
+.sf-results :is(.sf-results-card, [class*="shadow-"]) {
+  box-shadow: 0 3px 12px rgba(32, 45, 36, .045) !important;
+}
+.sf-results .sf-results-card {
+  border-radius: 12px;
+  border-color: var(--sf-line);
+  background-color: var(--sf-white);
+}
+.sf-results .sf-results-card-header {
+  background: #f0ede5;
+}
+.sf-results :is([class*="bg-gradient-to-"]) {
+  background-image: none !important;
+  background-color: var(--sf-white) !important;
+}
+.sf-results :is([class*="from-[#142f23]"], [class*="from-[#193829]"], [class*="from-[#1c412f]"], [class*="from-[#315b40]"], [class*="bg-[#142f23]"], [class*="bg-[#193829]"], [class*="bg-[#1c412f]"], [class*="bg-[#315b40]"]) {
+  background-color: var(--sf-forest) !important;
+}
+
+/* Salderings calculator: clean input/result pairing, with all existing
+   calculator values and disclosure behavior unchanged. */
+.saldering-page {
+  background: var(--sf-paper);
+  color: var(--sf-ink);
+}
+.saldering-main {
+  width: min(1120px, calc(100% - 40px));
+}
+.saldering-hero h1,
+.saldering-card-heading h2,
+.saldering-result-card h2,
+.saldering-explanation h2 {
+  letter-spacing: -.04em;
+}
+.saldering-card,
+.saldering-result-card,
+.saldering-explanation {
+  border-color: var(--sf-line);
+  border-radius: 13px;
+  box-shadow: 0 3px 12px rgba(32, 45, 36, .045);
+}
+.saldering-card { background: var(--sf-white); }
+.saldering-card-heading { background: #f0ede5; }
+.saldering-result-card { background: #262923; }
+.saldering-input-wrap input {
+  border-radius: 10px;
+  background: #f8f8f2;
+}
+.saldering-explanation { background: var(--sf-white); }
+
+.sf-global-legal {
+  border-top-color: rgba(237, 243, 235, .15);
+}
+
+@media (max-width: 790px) {
+  .sf-nav-wrap { width: calc(100% - 24px); }
+  .sf-nav { border-radius: 15px; }
+  .sf-mobile-menu { border-radius: 16px; }
+  .sf-home .sf-trust-facts { gap: 17px; }
+  .sf-home .sf-scale-stat { transform: none; }
+}
+
+@media (max-width: 600px) {
+  .sf-brand-page :is(.sf-page-card, .sf-offer-card, .sf-approach-card, .sf-reason-card) {
+    border-radius: 14px !important;
+  }
+  .sf-results :is(.sf-results-card, [class*="shadow-"]) {
+    box-shadow: 0 4px 14px rgba(35, 52, 43, .045) !important;
+  }
+  .saldering-main { width: calc(100% - 24px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sf-brand-page :is(.sf-page-card, .sf-offer-card, .sf-approach-card, .sf-reason-card),
+  .sf-home :is(.sf-insulation-card, .sf-range-card),
+  .sf-nav-wrap * {
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+  }
+  .sf-brand-page :is(.sf-page-card, .sf-offer-card, .sf-approach-card, .sf-reason-card):hover {
+    transform: none;
+  }
+}

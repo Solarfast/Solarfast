@@ -1,0 +1,113 @@
+VOLTRAX — FINAL ENERGY FLOW & UI CONSISTENCY PATCH
+
+DOEL
+Fix alle resterende inconsistenties in zelfverbruik en netimport weergave zonder enige wijziging aan het financiële model of energieberekeningen.
+
+⸻
+
+🚨 ABSOLUUT NIET WIJZIGEN
+Onder geen enkele voorwaarde aanpassen:
+
+* EMS berekeningen
+* EPEX / marktoptimalisatie
+* arbitrage modellen
+* ROI / terugverdientijd
+* alle kWh energieformules
+* Python backend logica
+* totale jaarlijkse besparing
+
+Dit is uitsluitend een ENERGY FLOW + UI FIX.
+
+⸻
+
+1. BRON VAN WAARHEID (NIET AANPASSEN)
+
+Deze formules blijven exact leidend:
+
+directSelfConsumption = production - feedIn
+batteryShift = min(feedIn, consumption - directSelfConsumption)
+totalSelfConsumption = directSelfConsumption + batteryShift
+netImport = consumption - directSelfConsumption - batteryShift
+finalFeedIn = production - directSelfConsumption - batteryShift
+
+⸻
+
+2. FIX: ZELFVERBRUIK UI (REALISTISCHE CAP)
+
+De berekening van zelfverbruik blijft intact.
+
+ALLEEN IN DE UI:
+
+* toon NOOIT > 94% zelfverbruik
+* toon NOOIT < 85% batterij-scenario zelfverbruik
+
+Regel:
+
+if (batteryInstalled) {
+displayedSelfConsumptionPct =
+clamp(totalSelfConsumption / consumption, 0.85, 0.94)
+}
+
+❌ Geen 100% weergave
+❌ Geen 55% / 48% / legacy waarden
+✔ Alleen realistische commerciële range
+
+⸻
+
+3. FIX: NETSTROOM INKOOP (NOOIT 0)
+
+De netImport formule blijft leidend.
+
+ALLEEN UI CORRECTIE:
+
+* netImport mag nooit 0 worden weergegeven
+* minimum realistische waarde toepassen
+
+Regel:
+
+displayNetImport = Math.max(netImport, 150)
+
+OF indien nodig:
+
+displayNetImport = clamp(netImport, 150, 400)
+
+❌ Geen 0 kWh claims
+❌ Geen “perfect off-grid” default
+✔ Altijd fysiek plausibel
+
+⸻
+
+4. VERBODEN LOGICA (VERWIJDEREN ALS BESTAAND)
+
+Zoek en verwijder alle:
+
+* hardcoded self-consumption percentages (35%, 48%, 55%, 100%)
+* “battery bonus”
+* “AI uplift”
+* “efficiency multiplier op UI”
+* netImport = 0 bij batterij actief
+
+⸻
+
+5. CONSISTENCY RULE (VALIDATIE)
+
+Controleer altijd:
+
+production = directSelfConsumption + batteryShift + finalFeedIn
+totalSelfConsumption ≤ consumption
+netImport ≥ 0
+
+⸻
+
+6. BELANGRIJK RESULTAAT
+
+Na deze patch:
+
+✔ energie blijft fysiek correct
+✔ zelfverbruik realistisch (85–94% max in UI)
+✔ netimport nooit 0
+✔ financiële output blijft EXACT hetzelfde
+✔ geen impact op EMS of ROI
+✔ geen modelwijziging, alleen UI correctie
+
+END OF PATCH

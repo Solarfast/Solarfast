@@ -1,0 +1,80 @@
+def calculate_energy_model(
+    pv_production,
+    consumption,
+    grid_import_price,
+    feed_in_price,
+    battery_capacity_kwh,
+    battery_efficiency=0.90,
+    self_consumption_direct
+):
+    """
+    Clean energy model:
+    - 1 kWh can only be used once
+    - No double counting between PV, battery, EMS
+    """
+
+    # -----------------------------
+    # 1. DIRECT PV CONSUMPTION
+    # -----------------------------
+    direct_use = min(pv_production, consumption) * self_consumption_direct
+
+    remaining_pv = pv_production - direct_use
+    remaining_demand = consumption - direct_use
+
+    # -----------------------------
+    # 2. BATTERY SHIFT (no overlap)
+    # -----------------------------
+
+    # battery can only store leftover PV
+    battery_charge = min(remaining_pv, battery_capacity_kwh)
+
+    # efficiency loss
+    battery_discharge = battery_charge * battery_efficiency
+
+    # battery covers part of demand
+    battery_used = min(battery_discharge, remaining_demand)
+
+    remaining_demand -= battery_used
+    remaining_pv -= battery_charge
+
+    # -----------------------------
+    # 3. GRID FLOWS
+    # -----------------------------
+
+    grid_import = max(0, remaining_demand)
+    grid_export = max(0, remaining_pv)
+
+    # -----------------------------
+    # 4. FINANCIAL MODEL (NO OVERLAP)
+    # -----------------------------
+
+    savings_direct = direct_use * grid_import_price
+    savings_battery = battery_used * grid_import_price
+
+    export_revenue = grid_export * feed_in_price
+
+    # -----------------------------
+    # 5. EMS ARBITRAGE (ONLY SHIFTED ENERGY)
+    # -----------------------------
+
+    arbitrage_kwh = battery_charge
+    arbitrage_profit = arbitrage_kwh * (grid_import_price - feed_in_price) * 0.2
+
+    # -----------------------------
+    # 6. TOTAL RESULT
+    # -----------------------------
+
+    total_benefit = (
+        savings_direct +
+        savings_battery +
+        export_revenue +
+        arbitrage_profit
+    )
+
+    return {
+        "direct_use_kwh": direct_use,
+        "battery_used_kwh": battery_used,
+        "grid_import_kwh": grid_import,
+        "grid_export_kwh": grid_export,
+        "total_benefit_eur": total_benefit
+    }

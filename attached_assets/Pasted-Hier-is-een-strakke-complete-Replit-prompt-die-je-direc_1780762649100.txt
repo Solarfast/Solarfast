@@ -1,0 +1,139 @@
+Hier is een strakke, complete Replit prompt die je direct kunt gebruiken om je VOLTRAX calculator correct, schaalbaar en fysisch realistisch te maken — zonder ROI-overdrijving.
+
+⸻
+
+🔧 VOLTRAX — CALC ENGINE FIX (PASTE IN REPLIT)
+
+Pas de VOLTRAX calculator backend aan (calculate_battery_savings in server.py of equivalente calculation layer).
+
+🎯 DOEL
+
+Maak het model fysisch realistisch:
+
+* verwijder onrealistische zelfverbruik (95–98%)
+* voeg diminishing returns toe voor batterijgrootte
+* forceer energie-balance (PV, verbruik, export blijven logisch)
+* behoud commerciële ROI maar zonder “fantasy cases”
+
+⸻
+
+1. VERVANG SELF-CONSUMPTION MODEL
+
+VERWIJDER huidige batt_rate logica.
+
+VERVANG DOOR:
+
+batt_rate =
+  0.72 +
+  0.18 * (1 - Math.exp(-bat_kWh / 18)) +
+  0.05 * (verbruik / 5000)
+batt_rate = clamp(batt_rate, 0.72, 0.92)
+
+👉 effect:
+
+* snelle groei bij kleine batterijen
+* afvlakking bij grotere systemen
+* hard realistisch maximum
+
+⸻
+
+2. SELF-CONSUMPTION HARD CAP
+
+VERVANG:
+
+total_self_use = min(PV * batt_rate, verbruik * 0.98)
+
+DOOR:
+
+max_self_use = verbruik * 0.92
+total_self_use = Math.min(
+  PV * batt_rate,
+  max_self_use
+)
+
+👉 voorkomt 95–98% self-consumption cases volledig
+
+⸻
+
+3. EXPORT REALISM FIX
+
+VERVANG:
+
+export_kwh_with = PV - total_self_use
+
+DOOR:
+
+min_export = PV * 0.05
+export_kwh_with = Math.max(
+  min_export,
+  PV - total_self_use
+)
+
+👉 altijd minimale export (realistisch grid gedrag)
+
+⸻
+
+4. REAL SELF-CONSUMPTION OUTPUT
+
+VOEG TOE:
+
+real_self_consumption = total_self_use / PV
+
+👉 alleen gebruiken voor UI / rapport, NIET als driver
+
+⸻
+
+5. ENERGY BALANCE RULE (CRUCIAAL)
+
+Voeg toe als system rule in comment of config:
+
+* PV + grid import = verbruik + export + verliezen
+* batterij kan energie verschuiven, niet creëren
+* nooit >92% zelfverbruik in standaard cases
+* batterij rendement = 0.85–0.92 effectief verwerkt in EMS
+
+⸻
+
+6. EXPECTED RESULT (VALIDATIE)
+
+Na fix moet output typisch zijn:
+
+Zelfverbruik:
+
+* 75% – 90%
+* premium cases max ~91–92%
+
+Netafname:
+
+* nooit near-zero zonder extreme overdimensionering
+
+Export:
+
+* altijd > 3–10% van PV
+
+ROI:
+
+* iets lager maar realistischer
+* geen “perfect payback funnels” meer
+
+⸻
+
+7. BUSINESS DOEL
+
+Dit model moet:
+
+* geloofwaardig zijn voor offertes
+* consistent zijn per batterijgrootte (9.3 → 111 kWh)
+* schaalbaar blijven voor VOLTRAX configurator
+* vertrouwen verhogen, niet alleen ROI maximaliseren
+
+⸻
+
+⚠️ BELANGRIJK
+
+Dit is geen UI-change, maar een core calculation correction.
+
+⸻
+
+Als je wil kan ik daarna ￼ je volgende stap schrijven:
+👉 ￼ “VOLTRAX v3 — high-end sales engine zonder ROI distortion maar met maximale conversie copy”

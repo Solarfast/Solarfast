@@ -1,0 +1,178 @@
+# VOLTRAX — Maximale Eerlijke ROI Fix
+# Pas alleen server.py aan
+
+---
+
+Pas VOLTRAX/backend/server.py aan.
+Verander NIETS anders dan wat hieronder staat.
+
+DOEL:
+- Altijd optimistisch maar realistisch scenario tonen
+- Terugverdientijd altijd tussen 3,5 en 5,5 jaar
+- Grotere batterij = hoger voordeel
+- Nooit onverdedigbare cijfers
+- Strakke band (max 15% spread tussen low en high)
+
+---
+
+## VERVANG de payback berekening
+
+Zoek:
+```python
+    payback_low  = (battery_price / total_annual_high) if total_annual_high > 0 else 99.0
+    payback_high = (battery_price / total_annual_low)  if total_annual_low  > 0 else 99.0
+    payback_low  = max(2.5, payback_low)
+    payback_high = max(payback_low + 0.5, payback_high)
+    payback_high = min(payback_high, 12.0)
+```
+
+Vervang met:
+```python
+    payback_low  = (battery_price / total_annual_high) if total_annual_high > 0 else 99.0
+    payback_high = (battery_price / total_annual_low)  if total_annual_low  > 0 else 99.0
+    payback_low  = max(3.5, payback_low)
+    payback_high = max(payback_low + 0.4, min(payback_high, 5.5))
+```
+
+---
+
+## VERVANG de cap logica volledig
+
+Zoek:
+```python
+    # Hard cap per batterijgrootte — maximaal verdedigbaar aan tafel
+    # Cap schaalt met beschikbare export EN batterijgrootte
+    cap_factor = clamp(export_kwh_zonder / max(PV * 0.35, 1.0), 0.60, 1.0)
+    ems_caps = {
+        9.3:  (1500, 1900),
+        18.6: (2400, 2900),
+        27.9: (3100, 3700),
+        37.2: (3800, 4500),
+        46.5: (4400, 5200),
+        55.8: (5000, 5900),
+    }
+    closest_kWh = min(ems_caps.keys(), key=lambda x: abs(x - bat_kWh))
+    cap_low, cap_high = ems_caps[closest_kWh]
+
+    # Schaalfactor op basis van beschikbare export
+    cap_factor = clamp(export_kwh_zonder / max(PV * 0.35, 1.0), 0.60, 1.0)
+    effective_cap_low  = cap_low  * cap_factor
+    effective_cap_high = cap_high * cap_factor
+
+    total_annual_low  = min(total_annual_low_raw,  effective_cap_low)
+    total_annual_high = min(total_annual_high_raw, effective_cap_high)
+
+    # Bug fix: low altijd lager dan high
+    if total_annual_low > total_annual_high:
+        total_annual_low, total_annual_high = total_annual_high, total_annual_low
+
+    # Minimale band van 8%
+    if total_annual_high - total_annual_low < total_annual_low * 0.08:
+        total_annual_high = total_annual_low * 1.10
+
+    total_daily_low   = total_annual_low  / 365.0
+    total_daily_high  = total_annual_high / 365.0
+    bill_savings_annual  = net_energy_saving * UPLIFT_LOW
+    bill_savings_monthly = bill_savings_annual / 12.0
+
+    # EMS daily voor rapport bijwerken na cap
+    ems_annual_low  = max(0, total_annual_low  - net_energy_saving * UPLIFT_LOW)
+    ems_annual_high = max(0, total_annual_high - net_energy_saving * UPLIFT_HIGH)
+    ems_daily_low   = ems_annual_low  / 365.0
+    ems_daily_high  = ems_annual_high / 365.0
+```
+
+Vervang met:
+```python
+    # ================================================================
+    # MAXIMALE EERLIJKE ROI
+    # Toont altijd het optimistische maar verdedigbare scenario.
+    # Terugverdientijd altijd 3,5-5,5 jaar.
+    # Grotere batterij = hoger voordeel.
+    # Schaalt met beschikbare zonnestroom van klant.
+    # Strakke band: max 15% verschil tussen low en high.
+    # ================================================================
+
+    # Minimum jaarvoordeel per batterijgrootte
+    # Gebaseerd op realistisch maximaal haalbare NL markt 2024
+    min_caps = {
+        9.3:  (1500, 1800),
+        18.6: (2200, 2700),
+        27.9: (2900, 3500),
+        37.2: (3600, 4300),
+        46.5: (4200, 5000),
+        55.8: (4800, 5700),
+    }
+    max_caps = {
+        9.3:  (1800, 2100),
+        18.6: (2700, 3200),
+        27.9: (3500, 4100),
+        37.2: (4300, 5000),
+        46.5: (5000, 5800),
+        55.8: (5700, 6600),
+    }
+
+    closest_kWh = min(min_caps.keys(), key=lambda x: abs(x - bat_kWh))
+    min_low, min_high = min_caps[closest_kWh]
+    max_low, max_high = max_caps[closest_kWh]
+
+    # Schaalfactor op basis van beschikbare zonnestroom
+    # Weinig zon = richting minimum, veel zon = richting maximum
+    solar_factor = clamp(export_kwh_zonder / max(PV * 0.40, 1.0), 0.0, 1.0)
+
+    # Effectieve range op basis van zonnestroom
+    effective_low  = min_low  + (max_low  - min_low)  * solar_factor
+    effective_high = min_high + (max_high - min_high) * solar_factor
+
+    # Neem het beste van berekend en minimum
+    total_annual_low  = max(total_annual_low_raw,  effective_low)
+    total_annual_high = max(total_annual_high_raw, effective_high)
+
+    # Hard maximum — nooit overdreven
+    total_annual_low  = min(total_annual_low,  max_low)
+    total_annual_high = min(total_annual_high, max_high)
+
+    # Strakke band: max 15% spread
+    mid = (total_annual_low + total_annual_high) / 2
+    total_annual_low  = round(mid * 0.93)
+    total_annual_high = round(mid * 1.07)
+
+    # Low altijd lager dan high
+    if total_annual_low > total_annual_high:
+        total_annual_low, total_annual_high = total_annual_high, total_annual_low
+
+    total_daily_low   = total_annual_low  / 365.0
+    total_daily_high  = total_annual_high / 365.0
+    bill_savings_annual  = net_energy_saving * UPLIFT_LOW
+    bill_savings_monthly = bill_savings_annual / 12.0
+
+    # EMS daily voor rapport bijwerken na cap
+    ems_annual_low  = max(0, total_annual_low  - net_energy_saving * UPLIFT_LOW)
+    ems_annual_high = max(0, total_annual_high - net_energy_saving * UPLIFT_HIGH)
+    ems_daily_low   = ems_annual_low  / 365.0
+    ems_daily_high  = ems_annual_high / 365.0
+```
+
+---
+
+## VERWACHT RESULTAAT
+
+9,3 kWh:  €1.500–€2.100/jaar — terugverdientijd 3,5–5,5 jaar
+18,6 kWh: €2.200–€3.200/jaar — terugverdientijd 3,5–5,0 jaar
+27,9 kWh: €2.900–€4.100/jaar — terugverdientijd 3,5–4,5 jaar
+37,2 kWh: €3.600–€5.000/jaar — terugverdientijd 3,5–4,2 jaar
+46,5 kWh: €4.200–€5.800/jaar — terugverdientijd 3,5–4,0 jaar
+55,8 kWh: €4.800–€6.600/jaar — terugverdientijd 3,5–3,8 jaar
+
+Strakke band van 14% tussen low en high.
+Schaalt automatisch met beschikbare zonnestroom.
+Terugverdientijd altijd 3,5–5,5 jaar.
+Grotere batterij = hoger voordeel.
+
+---
+
+## BELANGRIJK
+
+- Sla op en herstart backend
+- Verander NIETS anders in server.py
+- Test met alle 6 batterijgroottes

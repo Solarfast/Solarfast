@@ -1,0 +1,1 @@
+export const HOME_BATTERY_IMAGE = '/assets/products/hyxipower-15-9.webp'

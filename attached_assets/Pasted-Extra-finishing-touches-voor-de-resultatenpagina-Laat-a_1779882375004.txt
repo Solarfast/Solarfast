@@ -1,0 +1,103 @@
+Extra finishing touches voor de resultatenpagina:
+
+* Laat alles aanvoelen alsof het een premium financiële app is, niet een installateurswebsite
+* Meer focus op “waarde”, minder op “techniek”
+* Gebruik micro-animaties subtiel:
+    * cijfers zacht inladen
+    * stijgende percentages animeren
+    * flows vloeiend bewegen
+* Zorg dat de belangrijkste cijfers direct zichtbaar zijn zonder scrollen
+
+VISUELE HIERARCHIE:
+
+* Jaarvoordeel moet veruit het grootste element zijn
+* Terugverdientijd tweede belangrijkste
+* Per maand voordeel psychologisch prominenter tonen dan per jaar
+* Gebruik kleine ondersteunende labels, grote bedragen
+
+KAARTEN / CARDS:
+
+* Minder borders
+* Meer zachte schaduwen
+* Meer spacing/padding
+* Grote afgeronde hoeken
+* Premium glassmorphism heel subtiel toegestaan
+* Geen drukke gradients
+
+KLEUREN:
+
+* Geen hard rood/oranje
+* Vooral:
+    * diep groen
+    * eco mint
+    * zacht wit
+    * donkergrijs
+* Positieve cijfers altijd groen accent
+* Rustige contrasten
+
+CONVERSIEPSYCHOLOGIE:
+Laat de gebruiker voelen:
+
+* minder afhankelijk van energieleveranciers
+* slimmer dan “normale huishoudens”
+* voorbereid op afbouw salderen
+* beschermd tegen stijgende energiekosten
+* toekomstbestendig
+
+TEKSTSTIJL:
+
+* Kort
+* Zelfverzekerd
+* Geen technische muur van tekst
+* Geen overdreven marketingtaal
+* Geen uitroeptekens overal
+* Premium en rustig
+
+VOORBEELD VAN GOEDE MICROCOPY:
+
+* “Uw woning benut energie slimmer.”
+* “Meer lokaal verbruik. Minder netafhankelijk.”
+* “Automatisch geoptimaliseerd op prijsmomenten.”
+* “Maximale waarde uit uw zonnestroom.”
+
+VERMIJD:
+
+* “baanbrekend”
+* “ongekend”
+* “revolutionair”
+* “gigantische besparing”
+* Te agressieve saleswoorden
+
+RESULTATEN VISUEEL SLIMMER TONEN:
+Gebruik:
+
+* before/after vergelijking
+* kleine flow-visuals
+* compacte statistieken
+* progress bars
+* eenvoudige energiestromen
+
+NIET:
+
+* grote tabellen
+* enorme tekstblokken
+* lange berekeningen standaard open
+
+BELANGRIJK:
+Alles moet scanbaar zijn op mobiel.
+De gebruiker moet zonder lezen al begrijpen:
+
+* dit bespaart geld
+* dit werkt slim
+* dit voelt betrouwbaar
+
+LAATSTE PREMIUM DETAIL:
+Voeg subtiele “live intelligence” feeling toe:
+
+* actuele stroomprijs indicatie
+* negatieve uren detectie
+* EMS status labels
+* “Vandaag slim geladen om 14:00”
+* “Prijsoptimalisatie actief”
+
+Daardoor voelt het systeem levend en intelligent.

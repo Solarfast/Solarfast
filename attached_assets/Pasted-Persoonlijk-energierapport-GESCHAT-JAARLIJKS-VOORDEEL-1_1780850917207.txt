@@ -1,0 +1,80 @@
+Persoonlijk energierapport
+GESCHAT JAARLIJKS VOORDEEL
+€1.395
+–
+€1.605
+per jaar, energiebesparing + marktoptimalisatie
+
+TERUGVERDIENTIJD
+4,7 – 5,4 jaar
+Per maand
+€ 116 – 134
+Per dag
+€ 3,82 – 4,40
+Investering
+€ 7.500
+UW SITUATIE: VOOR EN NA DE BATTERIJ
+HUIDIG
+Huidig dynamisch contract
+Zelfverbruik
+van eigen zonnestroom benut
+63%
+Netstroom inkoop
+€ 420/jr
+1.500 kWh
+Teruggeleverd aan net
+onbenut overschot naar het net
+3.000 kWh
+Jaarlijkse netkosten
+incl. terugleverkosten
+€ 420/jr
+MET BATTERIJ
+Dynamisch geoptimaliseerd + batterij
+Zelfverbruik
+63% → 96%
++34 procentpunt
+Netstroom inkoop
+€ 42/jr
+150 kWh
+↓ 1.350 kWh
+Teruggeleverd aan net
+resterend na batterijopslag
+1.326 kWh
+↓ 1.674 kWh
+Jaarlijkse besparing
+per jaar, energiebesparing + marktoptimalisatie
+€ 1.395 – 1.605
+↑
+ZO VERDIENT U TERUG
+Meer eigen zonnestroom gebruiken
+Minder stroom inkopen van het net
+Minder terugleveren tegen lage vergoeding
+Slim laden en ontladen op dynamische prijzen
+TOTAAL GESCHAT JAARVOORDEEL
+per jaar, energiebesparing + marktoptimalisatie
+€ 1.395 – 1.605
+
+Hoe is dit berekend?
+Netafname vermeden
+U vermeed 1.350 kWh netinkoop × €0.28/kWh. Zonnestroom opgeslagen overdag, gebruikt 's avonds.
++ € 378
+Minder exportopbrengst
+1.350 kWh blijft nu in huis in plaats van terugleveren voor €0.07/kWh. Dit is de eerlijke aftrekpost.
+− € 117
+Terugleververgoeding gemist
+− € 100
+EMS arbitrage (direct)
+1.350 kWh × (€0.28 − €0.07) × 22% rendementsmarge.
++ € 70
+Subtotaal energiestroom
+€ 231
+EMS dag-piek optimalisatie
++ € 1.164 – 1.374
+Totaal jaarlijks voordeel
+€ 1.395 – 1.605
+Uw AlphaESS EMS handelt automatisch op de energiemarkt. Het systeem laadt op bij lage EPEX-prijzen en levert op piekuren. Dit is de grootste waardedrijver van uw systeem — volledig automatisch, dag en nacht.
+Gebaseerd op uw verbruiksprofiel, actuele EPEX SPOT marktdata en het AlphaESS LFP optimalisatiemodel. Resultaten vertegenwoordigen het optimistische maar realistische scenario.
+
+Slimme optimalisatie met AlphaESS
+Klik voor uitleg: hoe laadt en ontlaadt de batterij slim?
+WAT

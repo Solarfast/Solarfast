@@ -1,0 +1,58 @@
+Fix de bestaande SolarFast energierapport-calculator volledig. Inspecteer eerst de huidige code en pas daarna de bestaande implementatie aan. Bouw niet onnodig opnieuw en behoud de huidige UI, styling, productselectie, API en PDF-export.
+
+**1. HERSTEL ALLE REKENFOUTEN**
+Controleer en corrigeer de volledige berekening van zonnepanelen, thuisbatterijen, energieverbruik, netafname, teruglevering, dynamische handel, besparingen, ROI en terugverdientijd. Gebruik één centrale rekenengine voor de backend, frontend en PDF. Voorkom dubbele berekeningen en dubbeltelling van besparingen.
+
+**2. FIX DE ENERGIEBALANS**
+Gebruik deze bestaande rapportage als regressietest:
+- Zonneopwek: 3.500 kWh/jaar.
+- Direct zelfverbruik: 1.500 kWh/jaar.
+- Teruglevering vóór batterij: 2.000 kWh/jaar.
+- Netafname vóór batterij: 700 kWh/jaar.
+- Netafname na batterij: 105 kWh/jaar.
+- Teruglevering na batterij: 1.374 kWh/jaar.
+- Extra zelf gebruikte zonnestroom: 626 kWh/jaar.
+- Batterijlevering aan huis: 595 kWh/jaar.
+- Batterij en handel samen: 5.580 kWh/jaar.
+
+Onderzoek waarom deze energiestromen niet volledig op elkaar aansluiten. Definieer exact wat de 5.580 kWh voorstelt. Controleer batterijlaadenergie, ontlaadenergie, verliezen, netladen en eventuele teruglevering uit de batterij. Corrigeer de oorzaak in de rekenlogica en verzin geen waarden om de balans sluitend te maken.
+
+Bereken zelfverbruik en zelfvoorziening afzonderlijk. Controleer dat geen energie ontstaat, verdwijnt of dubbel wordt geteld.
+
+**3. FIX DYNAMISCHE HANDEL**
+Vergelijk drie scenario's op basis van dezelfde woning en verbruiksprofielen:
+- Huidige situatie zonder batterij.
+- Batterij met vast contract.
+- Batterij met dynamisch contract.
+
+Bereken de extra besparing door overstappen naar dynamisch als het werkelijke netto verschil tussen de relevante scenario's. Verwerk laadkosten, ontlaadopbrengsten, batterijverliezen, belastingen, leverancierskosten, terugleverkosten en terugleververgoedingen waar van toepassing.
+
+Tel besparingen op eigen verbruik en markttransacties nooit dubbel. Gebruik echte prijsdata of expliciet gemarkeerde aannames. Presenteer geen theoretische handelsopbrengst als gegarandeerde winst.
+
+**4. FIX TERUGLEVERKOSTEN**
+De rapportage gebruikt € 0,12/kWh en 1.374 kWh teruglevering, maar toont slechts € 24 jaarlijkse terugleverkosten. Bij een lineair tarief zou dit € 164,88 zijn.
+
+Controleer het daadwerkelijke contractmodel. Ondersteun correcte tarieven, staffels en vaste kosten. Behoud € 24 alleen als de gebruikte contractvoorwaarden die uitkomst daadwerkelijk rechtvaardigen. Verwerk ook de Nederlandse wijzigingen rond salderen vanaf 1 januari 2027.
+
+**5. FIX ROI EN TERUGVERDIENTIJD**
+Investering: € 7.450.
+
+Bij een jaarlijkse besparing van € 1.130–€ 1.374 zijn de eenvoudige terugverdientijd en jaarlijkse ROI rekenkundig:
+- Terugverdientijd: circa 5,42–6,59 jaar.
+- ROI: circa 15,17–18,44%.
+- Gemiddelde maandbesparing: € 94,17–€ 114,50.
+- Gemiddelde dagbesparing: € 3,10–€ 3,76.
+
+Deze uitkomsten mogen uitsluitend worden getoond als de jaarlijkse netto besparing correct is berekend.
+
+Bereken het nettoresultaat na tien jaar op basis van de daadwerkelijke jaarlijkse kasstromen, inclusief relevante onderhoudskosten, degradatie, vervangingskosten en veranderende contractvoorwaarden wanneer deze bekend of expliciet gemodelleerd zijn. Toon alle aannames. Als de besparing constant blijft en er geen aanvullende kosten zijn, bedraagt het nettoresultaat na tien jaar € 3.850–€ 6.290. Onderzoek waarom het huidige rapport € 2.268–€ 5.191 toont.
+
+**6. MAAK ALLES CONTROLEERBAAR**
+Toon de invoerwaarden, gebruikte tarieven, formules, verliezen, contractaannames en financiële componenten. Maak duidelijk onderscheid tussen gemeten gegevens, aannames en prognoses. Gebruik geen verborgen standaardwaarden en laat ontbrekende essentiële gegevens niet ongemerkt tot fictieve besparingen leiden.
+
+**7. TEST EN REPAREER**
+Voeg unit-tests en integratietests toe voor energiebalans, batterijverliezen, dynamische handel, terugleverkosten, ROI, terugverdientijd, ontbrekende gegevens en meerdere producten. Controleer ook dat frontend, backend en PDF exact dezelfde berekeningsresultaten gebruiken.
+
+Voer de tests daadwerkelijk uit, los de gevonden fouten op en rapporteer welke bestanden zijn aangepast en welke tests slagen.
+
+**BELANGRIJK:** verander niet alleen de weergegeven cijfers. Herstel de onderliggende formules en gegevensstromen. Behoud alle bestaande werkende functionaliteit. De taak is pas klaar als de energiebalans sluit, de financiële berekening reproduceerbaar is en dubbeltelling is uitgesloten.

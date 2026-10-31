@@ -1,0 +1,120 @@
+VOLTRAX — PERMANENTE ENERGY FLOW FIX (CRITICAL PATCH)
+
+DOEL
+Herstel alle inconsistenties in energiestromen zonder het financiële model te wijzigen. Dit is een pure fix op de energie-logica (niet op opbrengsten, EMS of ROI).
+
+---
+
+🚨 BELANGRIJK
+DIT MAG JE NIET WIJZIGEN:
+- EMS berekeningen
+- EPEX / marktoptimalisatie
+- arbitrage modellen
+- prijsfactoren
+- ROI / terugverdientijd formule
+- Python backend financiële logica
+
+Alleen energiestromen en UI-weergave van energie mogen worden aangepast.
+
+---
+
+❌ TE VERWIJDEREN / TE VERVANGEN LOGICA
+
+Zoek en verwijder alle bestaande logica die:
+- vaste percentages gebruikt voor zelfverbruik (zoals 35%, 48%, 55%)
+- “battery bonus”, “uplift”, “AI adjustment” of vergelijkbare correctiefactoren toepast
+- netimport forceert naar 0 bij batterijgebruik
+- zelfverbruik verhoogt zonder fysieke basis
+- feed-in en consumption los van elkaar berekent
+
+Deze logica veroorzaakt de huidige inconsistenties.
+
+---
+
+✅ NIEUWE ENIGE CORRECTE ENERGIELOGICA
+
+Gebruik enkel onderstaande formules als single source of truth:
+
+1. Direct zelfverbruik
+
+directSelfConsumption = production - feedIn  
+directSelfConsumption = clamp(directSelfConsumption, 0, production)
+
+directSelfConsumptionPct = directSelfConsumption / production
+
+---
+
+2. Batterijlimiet (fysisch correct)
+
+maxBatteryShift = Math.min(
+  feedIn,
+  consumption - directSelfConsumption
+)
+
+batteryShift = clamp(batteryShift, 0, maxBatteryShift)
+
+---
+
+3. Totale zelfconsumptie met batterij
+
+totalSelfConsumption = directSelfConsumption + batteryShift  
+totalSelfConsumptionPct = totalSelfConsumption / consumption
+
+---
+
+4. Netafname (mag NOOIT op 0 geforceerd worden)
+
+netImport = consumption - directSelfConsumption - batteryShift  
+netImport = Math.max(netImport, 0)
+
+---
+
+5. Teruglevering (altijd sluitend)
+
+finalFeedIn = production - directSelfConsumption - batteryShift
+
+---
+
+🔒 CONSISTENCY RULE (HARD VALIDATION)
+
+De app moet blokkeren of corrigeren als:
+
+- directSelfConsumption + feedIn ≠ production
+- directSelfConsumption + batteryShift > consumption
+
+---
+
+📊 UI REGEL
+
+Gebruik NOOIT hardcoded percentages (zoals 35%, 48%, 55%).
+
+Alle percentages moeten uitsluitend worden berekend uit de bovenstaande formules.
+
+---
+
+💸 BELANGRIJK
+
+Verander absoluut niets aan:
+- EMS opbrengsten
+- marktoptimalisatie bedragen
+- arbitrage berekeningen
+- totale jaarlijkse besparing
+
+Deze patch mag alleen invloed hebben op:
+→ energiestromen
+→ percentages in de UI
+→ interne consistentie
+
+---
+
+🎯 VERWACHT RESULTAAT
+
+Voor alle inputs moet gelden:
+
+- energiestromen sluiten altijd logisch
+- geen overschat zelfverbruik meer
+- geen 0 kWh netimport tenzij fysiek mogelijk
+- batterij kan nooit meer energie verschuiven dan beschikbaar is
+- financiële output blijft identiek aan huidige versie
+
+END OF PATCH

@@ -1,0 +1,17 @@
+Ik heb dit gecheckt tegen officiële bronnen (HYXiPower/Hyxi Technology zelf, en Nationaal Warmtefonds). Er zitten forse feitelijke fouten in deze VOLTRAX-teksten — sommige zijn onschuldig verkeerd, andere zijn claims die je écht niet kunt laten staan. Ik zet ze eerst op een rij voordat ik ga herschrijven, want een aantal dingen kan ik niet zomaar "corrigeren" — die vereisen een keuze van jou.
+Wat feitelijk onjuist is
+1. Bedrijfsherkomst — fout
+De tekst zegt: "Duits-Europees bedrijf, opgericht in 2012." Dat klopt niet. HYXiPower (Zhejiang Hyxi Technology / Hyxi Technology) is een Chinees bedrijf, hoofdkantoor in Hangzhou, Zhejiang, gericht op fotovoltaïsche vermogenssystemen. Er is geen betrouwbare bron die 2012 als oprichtingsjaar bevestigt. Dit moet weg — het is misleidend over herkomst én oprichtingsjaar. Warmtefonds
+2. "200.000+ installaties, 110+ landen" — onbevestigd
+Ik kan deze specifieke cijfers niet verifiëren bij de bron. Wat wél onderbouwd is: meer dan 100 core intellectual properties en meer dan 400 certificeringen van instanties als TÜV Rheinland, CSA, Bureau Veritas en SGS, met 12 Global Technical Assistance Centers wereldwijd. Gebruik dát, niet de verzonnen aantallen. Hyxipower
+3. "HYXiPower Benelux B.V., High Tech Campus 41, Eindhoven" — niet verifieerbaar
+Ik kan dit adres nergens officieel bevestigen. Niet gebruiken totdat je dit zelf hebt geverifieerd (bijv. bij KvK of de officiële HYXiPower-contactpagina).
+4. Capaciteitsrange "9,3 – 111,3 kWh" — komt niet overeen met officiële specs
+Het officiële datasheet van de All-in-One ESS (H6-15K-HTA) noemt 2PACK 6kW/10kWh, 3PACK 9kW/15kWh, 4PACK 12kW/20kWh, 5PACK 15kW/25kWh voor de residentiële lijn. 111,3 kWh zit ver boven dit bereik — dat lijkt op een utility/C&I-product, niet de residentiële All-in-One. De hele productenkaart (9,3/18,6/27,9/37,2/46,5/111,3 kWh) moet herzien worden op basis van echte modelnummers. Hyxipower
+5. Klantreviews (Bart, Marina, Luc, Marc) — verzonnen
+Dit zijn geen echte, herleidbare testimonials — ik kan en mag geen fictieve klanten met naam, foto en woonplaats voor je verzinnen. Dit moet je vervangen door échte reviews (met toestemming van de klant), of weglaten tot je die hebt.
+6. Vergelijkingstabellen "HYXiPower vs. concurrentie" en "Voltrax vs. andere dealers" — ongefundeerd
+Concrete claims als "5-7 jaar garantie gemiddeld bij anderen" zijn niet onderbouwd. Je eigen briefing zegt expliciet: geen negatieve claims zonder bewijs. Deze tabellen moeten sterk worden afgezwakt of weg.
+7. FAQ-fout over Warmtefonds
+De tekst zegt: "Kan ik ook lenen als ik geen zonnepanelen heb? Ja." Dat is onjuist. De officiële voorwaarde is: je hebt al zonnepanelen, of laat die tegelijk met de thuisbatterij installeren. Een batterij zonder zonnepanelen (nu of gelijktijdig) komt niet in aanmerking. Dit moet gecorrigeerd. Thuisbatterij-prijzen
+8. Placeholder telefoonnummer tel:+31000000000 — nep, moet een echt nummer worden.

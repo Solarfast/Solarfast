@@ -1,0 +1,182 @@
+# SOLARFAST — COMPLETE AIRCOCALCULATOR FIX & OPTIMALISATIE
+
+Je werkt in mijn bestaande SolarFast-app. Ik wil dat je de volledige aircocalculator technisch controleert, de rekenformules corrigeert en de berekeningen daadwerkelijk implementeert in de bestaande code.
+
+**BELANGRIJK: voer de wijzigingen daadwerkelijk uit. Geef mij geen uitleg, pseudocode of alleen een plan. Inspecteer de code, pas de bestanden aan, voer tests uit en herstel fouten.**
+
+## 1. Behoud de bestaande applicatie
+
+- Behoud het huidige SolarFast-design, de huisstijl, navigatie en bestaande pagina's.
+- Behoud de bestaande route voor de aircocalculator en de koppeling met de aanbodpagina.
+- Behoud alle bestaande batterij-, warmtepomp-, isolatie- en andere calculatorfunctionaliteit.
+- Verwijder geen bestaande producten, gegevens of functionaliteit.
+- Maak vóór wijzigingen een back-up of gebruik versiebeheer.
+- Onderzoek eerst waar de huidige formules, productgegevens en resultaten worden verwerkt.
+- Gebruik de bestaande architectuur en dependencies waar mogelijk.
+- Maak geen tweede calculator wanneer de bestaande calculator kan worden verbeterd.
+
+## 2. Correcte berekening van koelvermogen per kamer
+
+Bereken iedere ruimte afzonderlijk met instelbare richtwaarden:
+
+| Isolatie | Richtwaarde |
+|---|---:|
+| Goed | 80 W/m² |
+| Gemiddeld | 100 W/m² |
+| Matig/slecht | 130 W/m² |
+| Onbekend | 100 W/m² |
+
+Formule:
+
+cooling_kw = area_m2 * watts_per_m2 / 1000
+
+Voorbeelden:
+- 25 m² met gemiddelde isolatie = 2,5 kW.
+- 35 m² met matige isolatie = 4,55 kW.
+- 40 m² met goede isolatie = 3,2 kW.
+
+Dit zijn uitsluitend indicatieve richtwaarden en geen volledige koelbelastingberekening.
+
+Bereken eerst het vermogen per kamer. Tel daarna de waarden op voor een globale systeemcontrole.
+
+Verwerk zonbelasting, grote ramen en plafondhoogte alleen met transparante, instelbare correcties waarvoor een onderbouwde methode beschikbaar is. Verzin geen nauwkeurigheidsclaims.
+
+Bij onbekende isolatie moet de calculator de onzekerheid tonen en geen definitieve dimensionering presenteren.
+
+## 3. Maak de productselectie technisch betrouwbaar
+
+De calculator moet producten selecteren uit de bestaande SolarFast-productcatalogus.
+
+Controleer voor ieder product, voor zover beschikbaar:
+- Merk en exact modelnummer.
+- Type single-split of multi-split.
+- Nominale koelcapaciteit.
+- Minimale en maximale koelcapaciteit.
+- Nominale, minimale en maximale verwarmingscapaciteit.
+- SEER en SCOP.
+- Toegestane binnenunit-buitenunitcombinaties.
+- Maximaal aantal binnenunits.
+- Capaciteit bij relevante buitentemperaturen.
+- Bron en datum van de technische gegevens.
+
+Gebruik officiële fabrikantdocumentatie of betrouwbare, verifieerbare productgegevens.
+
+**Verboden:** een buitenunit uitsluitend kiezen door de nominale vermogens van de binnenunits bij elkaar op te tellen.
+
+Controleer of de complete combinatie door de fabrikant wordt ondersteund en voldoende capaciteit levert. Controleer koeling en verwarming afzonderlijk.
+
+Selecteer nooit automatisch een groter model zonder technische reden.
+
+Als de benodigde gegevens ontbreken, geef dan aan dat technische verificatie nodig is. Verzin geen productmodellen, capaciteiten of compatibiliteit.
+
+## 4. Correcte berekening van het jaarlijkse stroomverbruik
+
+Houd thermische energie en elektriciteitsverbruik strikt gescheiden.
+
+### Koelen
+
+Wanneer de jaarlijkse geleverde hoeveelheid koude bekend is:
+
+electricity_cooling_kwh = annual_cooling_demand_kwh / SEER
+
+Voorbeeld:
+
+1.800 kWh koude per jaar / SEER 6 = 300 kWh elektriciteit per jaar.
+
+### Verwarmen
+
+Wanneer de jaarlijkse nuttige warmtebehoefte bekend is:
+
+electricity_heating_kwh = annual_heating_demand_kwh / SCOP
+
+Voorbeeld:
+
+2.400 kWh warmte per jaar / SCOP 4 = 600 kWh elektriciteit per jaar.
+
+Gebruik bij voorkeur de geverifieerde SEER- en SCOP-gegevens van de exacte productuitvoering en relevante systeemcombinatie.
+
+Wanneer alleen het nominale vermogen beschikbaar is, bereken dan niet automatisch een jaarverbruik. Je hebt ook een onderbouwde schatting van de gebruiksuren of jaarlijkse energiebehoefte nodig.
+
+Als je een vereenvoudigde methode gebruikt:
+
+annual_electricity_kwh = nominal_capacity_kw * equivalent_full_load_hours / seasonal_efficiency
+
+Toon de aangenomen vollasturen en rendementen duidelijk aan de gebruiker.
+
+Verwijder vaste universele uitkomsten zoals 350 kWh koeling en 1.200 kWh verwarming wanneer deze niet uit de ingevulde gegevens volgen.
+
+## 5. Bereken jaarlijkse energiekosten
+
+Gebruik de ingevoerde energietarieven.
+
+airco_cost = electricity_kwh * electricity_price_per_kwh
+
+Maak afzonderlijke berekeningen voor:
+- Elektriciteitskosten voor koelen.
+- Elektriciteitskosten voor verwarmen.
+- Totale elektriciteitskosten wanneer beide functies worden gebruikt.
+
+Voeg geen verwarmingskosten toe wanneer de gebruiker uitsluitend koelen selecteert.
+
+Zorg dat alle kosten in euro's worden weergegeven en dat ontbrekende tarieven geen verzonnen uitkomsten opleveren.
+
+## 6. Vergelijk verwarmen met de bestaande warmtebron
+
+Ondersteun in deze versie minimaal:
+- Gasverwarming.
+- Directe elektrische verwarming.
+- Geen verwarmingsvergelijking wanneer onvoldoende gegevens beschikbaar zijn.
+
+Voor gasverwarming:
+
+gas_input_kwh = useful_heat_demand_kwh / boiler_efficiency
+
+gas_cost = gas_input_kwh * gas_price_per_kwh
+
+Gebruik een instelbaar en duidelijk weergegeven ketelrendement. Leg vast of de gasprijs per kWh gas wordt ingevoerd en gebruik consequent dezelfde eenheden.
+
+Vergelijk altijd dezelfde hoeveelheid nuttige warmte.
+
+Voor directe elektrische verwarming:
+
+direct_electricity_kwh = useful_heat_demand_kwh / heater_efficiency
+
+direct_electricity_cost = direct_electricity_kwh * electricity_price_per_kwh
+
+Gebruik een expliciete, configureerbare efficiëntieaanname. Maak geen onjuiste vergelijking tussen thermische kWh en elektrische kWh.
+
+Bereken geen besparing wanneer de huidige warmtebron, warmtebehoefte of relevante tarieven ontbreken.
+
+## 7. Correcte jaarlijkse besparing en terugverdientijd
+
+Bereken:
+
+annual_savings = reference_annual_cost - airco_annual_cost - incremental_annual_maintenance
+
+Controleer dat onderhoudskosten consistent worden verwerkt en niet dubbel worden afgetrokken.
+
+Bereken de netto investering als:
+
+net_investment = installed_investment - confirmed_applicable_subsidy
+
+Trek uitsluitend een bevestigd, toepasselijk subsidiebedrag af.
+
+Bereken de terugverdientijd alleen wanneer:
+- De netto investering geldig is.
+- De jaarlijkse netto besparing positief is.
+- Alle verplichte invoergegevens geldig zijn.
+
+Formule:
+
+payback_years = net_investment / annual_savings
+
+Als de jaarlijkse besparing nul of negatief is, toon dan:
+
+'Op basis van de ingevulde gegevens is er geen positieve jaarlijkse besparing berekend. Een terugverdientijd kan daarom niet worden vastgesteld.'
+
+Presenteer een eenvoudige terugverdientijd niet als een garantie. Houd rekening met onzekerheid in gebruik, energieprijzen en de geschatte warmtevraag.
+
+## 8. Verbeter de gebruikerservaring zonder extra ingewikkelde vragenlijst
+
+Behoud de bestaande eenvoudige invoer:
+- Aantal ruimtes

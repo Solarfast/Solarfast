@@ -1,0 +1,80 @@
+# SOLARFAST AIRCOCALCULATOR — DEFINITIEVE 10/10 FIX
+
+## HOOFDDOEL
+
+Verbeter de bestaande aircocalculator van SolarFast tot een betrouwbare, gebruiksvriendelijke en professioneel ogende adviesmodule.
+
+De calculator moet op basis van een beperkt aantal klantgegevens:
+1. Het indicatieve koelvermogen per ruimte berekenen.
+2. Een technisch passende airco uit het bestaande assortiment selecteren.
+3. Single-split en multi-split correct onderscheiden.
+4. De technische compatibiliteit van binnen- en buitenunits controleren.
+5. Het jaarlijkse elektriciteitsverbruik berekenen wanneer voldoende gegevens beschikbaar zijn.
+6. Energiekosten, eventuele besparingen en terugverdientijd correct berekenen.
+7. Duidelijk communiceren welke uitkomsten indicatief zijn en welke technisch zijn geverifieerd.
+
+**Voer alle noodzakelijke wijzigingen daadwerkelijk uit in de bestaande code. Geef geen pseudocode, geen vrijblijvende aanbevelingen en geen fictieve testresultaten.**
+
+## 1. BESCHERM DE BESTAANDE SOLARFAST-APPLICATIE
+
+Inspecteer eerst de volledige relevante implementatie:
+- De huidige aircocalculator.
+- De bijbehorende routes en templates.
+- De bestaande productcatalogus.
+- De rekenfuncties.
+- De energiekostenberekening.
+- De gebruikte afbeeldingen en productbestanden.
+- De bestaande aanbodpagina en andere calculators.
+
+Maak een back-up of gebruik versiebeheer voordat je wijzigingen doorvoert.
+
+Behoud het bestaande SolarFast-design, de huisstijl, navigatie en functionaliteit. Verwijder of overschrijf geen bestaande productgegevens. Wijzig de batterijcalculator, warmtepompcalculator en andere modules niet, tenzij dat strikt noodzakelijk is om een aangetoonde fout op te lossen.
+
+Werk binnen de bestaande architectuur en gebruik bestaande dependencies waar mogelijk.
+
+## 2. BEREKEN DE KOELVRAAG PER KAMER
+
+Gebruik de volgende configureerbare richtwaarden:
+
+| Isolatie | Richtwaarde |
+|---|---:|
+| Goed | 80 W/m² |
+| Gemiddeld | 100 W/m² |
+| Matig/slecht | 130 W/m² |
+| Onbekend | 100 W/m², met waarschuwing |
+
+Formule:
+
+cooling_load_kw = area_m2 * watts_per_m2 / 1000
+
+Verwachte uitkomsten:
+- 25 m², gemiddelde isolatie: 2,5 kW.
+- 30 m², gemiddelde isolatie: 3,0 kW.
+- 35 m², matige isolatie: 4,55 kW.
+- 40 m², goede isolatie: 3,2 kW.
+
+Deze waarden zijn indicatieve richtwaarden, geen gegarandeerde koelbelasting.
+
+Bereken iedere kamer afzonderlijk en tel de uitkomsten vervolgens op voor een globale controle van het systeem.
+
+Voeg geen willekeurige correctiefactoren toe. Als zonbelasting, raamoppervlak, plafondhoogte of andere factoren worden meegenomen, moeten de correcties configureerbaar, onderbouwd en duidelijk als indicatief herkenbaar zijn.
+
+Toon per ruimte:
+- Het ingevoerde vloeroppervlak.
+- De gekozen isolatiecategorie.
+- De gebruikte W/m²-richtwaarde.
+- Het berekende indicatieve koelvermogen.
+
+## 3. SELECTEER DE JUISTE AIRCO UIT HET BESTAANDE ASSORTIMENT
+
+Gebruik de daadwerkelijke SolarFast-productcatalogus.
+
+Verzin geen merken, modellen, productcombinaties, capaciteiten, prijzen, rendementen of technische specificaties.
+
+Haal waar mogelijk de volgende gegevens op uit bestaande productgegevens of verifieerbare fabrikantdocumentatie:
+- Merk en exact modelnummer.
+- Type binnenunit en buitenunit.
+- Nominale, minimale en maximale koelcapaciteit.
+- Verwarmingscapaciteit.
+- SEER en SCOP.
+-

@@ -1,0 +1,251 @@
+Aanpassen
+SolarFast
+Download PDF
+Uw persoonlijke energieschatting
+Geschatte totale besparing
+€ 2.235 – € 2.453
+per jaar · De gezamenlijke uitkomst is opgebouwd uit twee aparte berekeningen.
+
+Totale investering
+€ 16.518
+Terugverdientijd samen
+6,7–7,4 jaar
+Jaarlijks rendement
+13,5%–14,8%
+Bijdrage per product
+De besparing en investering blijven per product zichtbaar.
+
+Thuisbatterij
+Geschatte besparing volgens de batterijberekening
+
+per jaar
+€ 1.215 – € 1.433/ jr
+Investering
+€ 7.250
+Warmtepomp
+Vermeden gaskosten min extra stroomkosten
+
+per jaar
+€ 1.020/ jr
+Investering
+€ 9.268
+De batterijbesparing gebruikt de opgegeven toekomstige energiebalans. Extra zonnepanelen en elektrisch laden tellen niet als aparte besparing of investering mee in dit rendement.
+
+
+Gekozen producten en energieaannames
+HYXiPower 10,6 kWh All-in · 10,6 kWh + WeHeat Sparrow P60 · 6–9 kW · hybrid
+Gekozen batterij
+HYXiPower 10,6 kWh All-in · 10,6 kWh · 3-fase
+Investering
+€ 7.250
+Extra verbruik warmtepomp
+WeHeat Sparrow P60 · 6–9 kW · hybrid
++3.939,3 kWh/jaar · € 9.268
+Opgegeven investering andere producten
+€ 9.268
+Jaarwaarden na geplande producten
+4.000 opwek · 8.939,3 verbruik · 1.806,1 teruglevering
+De aanpassing is gebaseerd op uw jaarwaarden; de werkelijke teruglevering hangt ook af van het tijdstip van opwek en verbruik.
+
+Warmtepompberekening
+WeHeat Sparrow P60 · 6–9 kW · hybrid
+Details
+Gekozen warmtepomp
+WeHeat Sparrow P60 · 6–9 kW · hybrid · 6,0 kW
+
+Configuratie
+Hybride
+Geschatte jaarlijkse ruimteverwarmingsvraag
+11.818 kWh/jaar
+Voor en na · per jaar
+Voor
+Na
+Jaarlijks gasverbruik
+1.680,0 m³/jaar
+336,0 m³/jaar
+Stroomverbruik warmtepomp
+0 kWh/jaar
+3.939 kWh/jaar
+Vaste kosten gasaansluiting
+€ 425
+€ 425
+Geschatte besparing vaste gaskosten
+—
+€ 0
+Jaarlijkse verwarmings- en gaskosten
+€ 3.029
+€ 2.009
+Jaarlijkse besparing
+—
+€ 1.020 / per jaar
+Vaste gaskosten vervallen alleen als de netbeheerder de aansluiting en meter verwijdert. Hybride systemen behouden deze kosten.
+
+Technische details en woninginvoer
+Prestatieaannames
+Indicatieve SCOP (niet door fabrikant bevestigd)
+3,00
+Extra stroom per bespaarde m³ gas
+2,93 kWh/m³
+Aanvoertemperatuur
+55 °C
+Rendement cv-ketel
+90%
+Woninggegevens en dimensioneringsaannames
+Woningtype
+Appartement
+Bouwperiode
+1975–1990
+Verwarmd woonoppervlak
+140 m²
+Totaal jaarlijks gasverbruik
+1.680,0 m³/jaar
+Geschat gas voor ruimteverwarming
+1.344,0 m³/jaar
+Isolatie
+Gemiddeld
+Afgiftesysteem
+Radiatoren
+Leeftijd cv-ketel
+4 jaar
+Geschat benodigd vermogen
+7,1 kW
+Voorlopig aanbevolen configuratie
+Hybride
+Stroomcontract
+Vast
+Opgegeven stroomprijs
+0,27 €/kWh
+Effectief stroomtarief in berekening
+0,27 €/kWh
+Gas voor ruimteverwarming wordt geschat uit het totale gasverbruik; woninggegevens helpen bij de voorlopige dimensionering.
+
+Aannames bij deze schatting
+Indicatieve schatting; werkelijk energieverbruik, tarieven en kosten kunnen afwijken. Onderhoud is niet meegenomen.
+
+De getoonde WeHeat-SCOP is illustratief en niet geverifieerd als door de fabrikant gepubliceerd cijfer.
+
+De RVO Installatiemonitor 3.0 rapporteerde gemiddeld minder gasverbruik voor ruimteverwarming in hybride woningen; resultaten verschillen per woning.
+
+Technische verdieping · alleen thuisbatterij
+Voor/na-overzicht en rekenstappen
+Uw situatie: voor en na de batterij
+Huidig
+Huidig vast contract
+De batterijberekening gaat uit van een dynamisch contract; de extra besparing door overstappen staat hieronder.
+
+Met batterij
+Dynamisch geoptimaliseerd + batterij
+Totale zonneopbrengst
+Uw jaarlijkse opwek via zonnepanelen
+4.000 kWh
+Totale zonneopbrengst
+Gelijk aan de huidige situatie
+4.000 kWh
+Zelfverbruik
+Aandeel zonne-opwek dat thuis wordt gebruikt, direct of na batterijopslag
+55%
+Zelfverbruik
+Aandeel zonne-opwek dat thuis wordt gebruikt, direct of na batterijopslag
+55% → 93%
+↑ 38%
+Direct zelfverbruik
+Zonnestroom die op hetzelfde moment direct wordt gebruikt, vóór batterijopslag
+2.194 kWh
+Direct zelfverbruik
+Zonnestroom die op hetzelfde moment direct wordt gebruikt, vóór batterijopslag
+2.194 kWh
+Zelfvoorziening uit eigen zonnestroom
+Aandeel van uw totale elektriciteitsverbruik dat door eigen zonnestroom wordt gedekt
+25%
+Zelfvoorziening uit eigen zonnestroom
+Aandeel van uw totale elektriciteitsverbruik dat door eigen zonnestroom wordt gedekt
+25% → 41%
+↑ 17%
+Teruglevering aan net
+Overschot aan zonne-energie wordt teruggeleverd aan het elektriciteitsnet
+1.806 kWh
+Zelf gebruikt i.p.v. teruggeleverd
+Overschot aan zonne-energie wordt opgeslagen en zelf gebruikt in plaats van teruggeleverd aan het net
+1.588 kWh
+↑ 1.588 kWh
+Geschatte energie via de batterij per jaar
+Geen batterij in de huidige situatie
+0 kWh/jaar
+Geschatte energie via de batterij per jaar
+Zonne-opslag en markthandel samen
+4.832 kWh/jaar
+Netstroom inkoop
+Aankoop van elektriciteit van het net wanneer opwek onvoldoende is
+6.745 kWh
+Netstroom inkoop
+Sterk verminderd door inzet van opgeslagen zonne-energie
+5.236 kWh
+↓ 1.509 kWh
+EPEX-marktwaarde (dynamisch contract)
+Niet actief in de huidige situatie
+€ 0/mnd
+EPEX-marktwaarde (dynamisch contract)
+€ 60–79/mnd
+↑
+Terugleverkosten
+Wat u nu betaalt aan terugleverkosten over uw teruglevering · € 199/jr
+€ 0,11/kWh
+Terugleverkosten
+Minder teruglevering door opslag → lagere terugleverkosten
+€ 20/jr
+↓ € 179/jr
+Extra besparing door overstap naar dynamisch
+Batterijscenario vergeleken met dezelfde batterij op een vast contract
+
+€ 729–€ 947/jr
+Per maand: € 60,75–€ 78,92/mnd
+Zo verdient u terug · alleen thuisbatterij
+Meer eigen zonnestroom gebruiken
+Minder stroom inkopen van het net
+Minder terugleveren tegen lage vergoeding
+Slim laden en ontladen op dynamische prijzen
+Totaal geschat jaarvoordeel · batterij
+per jaar, energiebesparing; EPEX alleen bij dynamisch contract en gemodelleerde doorvoer
+€ 1.215 – 1.433
+
+Hoe is dit berekend?
+1
+Minder stroom inkopen
+U verbruikt uw eigen zonnestroom — elke kWh die u niet inkoopt scheelt direct geld
++ € 490
+2
+EPEX-marktwaarde
+Indicatieve marktwaarde bij een dynamisch contract. · Per maand: € 60,42–€ 78,58/mnd
++ € 725 – € 943/jr
+3
+Stroom wordt elk jaar duurder
+Gebaseerd op CBS-energieprijsontwikkeling ~5%/jr · uw besparing groeit automatisch mee
+Informatieve prognose — niet in basislijn
+€ 390 – € 459
+4
+Saldering verdwijnt 2027–2031
+U levert dan bijna niets meer terug — uw batterij vangt dat op
+Informatieve prognose — niet in basislijn
+€ 250
+Stap 1–2 schatten energiebesparing op basis van uw invoer. Marktwaarde wordt alleen berekend bij een dynamisch contract en is begrensd door gemodelleerde batterijdoorvoer en netvraag. Stap 3 gebruikt het CBS-historisch gemiddelde (~5%/jr, 2010–2024); stap 4 volgt de wettelijke afbouw van saldering 2027–2031. Werkelijke resultaten kunnen afwijken.
+
+
+Slimme batterijoptimalisatie
+Klik voor uitleg: hoe laadt en ontlaadt de batterij slim?
+Netto na 10 jaar · combinatie
+€ 5.828 – € 8.008
+Berekend over 10 jaar op basis van de gezamenlijke jaarbesparing, na aftrek van beide investeringen.
+Nationaal Warmtefonds
+Financiering via SolarFast, 0% rente mogelijk
+Tot € 8.500 lenen via het Nationaal Warmtefonds. Bij inkomen onder € 60.000 betaalt u mogelijk 0% rente. Voorwaarden kunnen wijzigen, wij helpen u bij de aanvraag.
+
+Tot € 8.500
+0% rente mogelijk
+Wij regelen alles
+Klaar voor persoonlijk advies?
+Op basis van dit rapport stellen onze specialisten een offerte op maat samen. Volledig vrijblijvend.
+
+Vraag gratis advies aan
+Indicatieve berekening op basis van uw verbruiksdata en marktgemiddelden. Werkelijke resultaten kunnen afwijken.
+
+Andere getallen invoeren

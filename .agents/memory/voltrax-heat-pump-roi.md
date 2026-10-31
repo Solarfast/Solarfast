@@ -1,0 +1,34 @@
+---
+name: VOLTRAX combined ROI boundaries
+description: Why heat-pump and battery contributions are shown separately and together, with quoted costs
+---
+
+For a battery + heat-pump choice, compare whole-house annual costs without either product against costs with both. Do not add standalone battery and heat-pump savings. The combined electricity cost must include the heat pump's full annual demand; include gas costs before and after the heat pump. Add the separate EPEX estimate once, only when dynamic battery optimization is active. If the no-heat-pump baseline is missing, leave the combined financial result unavailable rather than substituting standalone savings. Joint payback and 10-year net return require both quoted investments.
+
+After a battery result, let the customer select an extra measure and enter only its missing inputs without restarting the battery calculation. Recalculate the existing household scenario and battery ROI with that added demand; do not append a separate product estimate or standalone savings. Heat-pump inputs include gas use and insulation; air-conditioning inputs include served area, insulation and cooling/heating mode; EV charging needs annual kWh. Treat air-conditioner electricity as added demand and do not claim gas savings unless displaced heating is established. For EV or air-conditioning annual kWh without a measured or user-entered time/export profile, do not assume that the added load consumes solar that would otherwise be exported; use zero assumed solar overlap and disclose this conservative treatment. When the add-on investment has been folded into the battery price but its own annual benefit is not modeled, do not present the resulting battery payback as the complete package payback.
+
+**Why:** The annual result may describe battery savings at the new energy demand while the payback denominator includes the added product's price; those figures do not establish a combined-product ROI.
+
+**How to apply:** Keep the battery-only annual result clearly labeled, show the added product's energy and entered price separately, and mark package payback unavailable until both sides of the comparison are modeled.
+
+**Why:** Annual kWh totals do not establish when a vehicle charges or an air conditioner runs; subtracting all added use from export can invent solar overlap and understate grid imports.
+
+**How to apply:** Honor a measured/user-entered export forecast when present. Otherwise preserve current measured export for unprofiled EV and air-conditioning loads, and tell the customer that added use is conservatively treated as grid demand.
+
+**Why:** The user corrected the flow requirement: add products at the battery-result stage, ask product-specific follow-up questions, then update the ROI from the resulting combined scenario rather than sending the customer to an unrelated standalone estimate.
+
+**How to apply:** Preserve existing household inputs, ask only for missing information about the added measure, then recalculate the whole-house energy and cost scenario. Keep any unverified thermal substitution or investment value out of payback claims.
+
+When projecting the combined energy balance, add all heat-pump electricity to annual demand. Because space heating is concentrated in low-solar months, estimate direct solar overlap conservatively (10% of space-heating electricity and 35% of hot-water electricity), capped by available export plus planned PV. State clearly that these are seasonal-overlap assumptions, not measured monthly household data; battery shifting is calculated separately.
+
+**Why:** The owner requires the interaction between solar overlap, battery use, grid imports and dynamic optimization to be represented as one household scenario; adding component savings double-counts electricity. Solar and EV costs/savings remain outside this result unless a defensible separate model is supplied. Heat-pump prices are catalog final prices including VAT after subsidy, but installation scope is not independently verified. Published seasonal performance figures describe standardized tests, not a household guarantee; some listed models lack verified manufacturer SCOP data. The hybrid scenario assumes 80% less **total household gas**, whereas RVO's observed hybrid reduction concerns space heating only: do not present one as proof of the other. All-electric fixed gas-charge savings require confirmed removal of both the gas connection and meter. Dynamic value is shown separately, not as an assumed supplier discount on heat-pump electricity.
+
+**Why:** An annual energy balance cannot resolve the winter/summer mismatch without a measured monthly profile. The overlap factors make that uncertainty explicit and avoid treating all annual PV surplus as if it were available during heating demand.
+
+**How to apply:** Keep any product-level energy figures explanatory, not additive financial contributions. Use the whole-house baseline and combined energy-cost outputs, then account for remaining gas and the conditional fixed gas charge. Include both product prices for package payback; never use battery-only payback as the package return or invent solar/EV economics. Derive gas-to-electricity conversion from selected SCOP, boiler efficiency and gas energy content rather than a universal fixed factor. Keep dynamic effects explicit and conditional on optimization.
+
+**How to apply:** Treat the 10%/35% overlap as provisional until household monthly data is available. Add all heat-pump electricity to demand regardless of overlap; do not use overlap factors as a battery-charging or financial-return multiplier.
+
+For a battery-use delta, compare the combined case with a no-heat-pump baseline while holding the battery, contract, planned solar, and planned EV settings constant. Do not carry a user-entered export forecast into that baseline; it applies to the combined scenario. **Why:** This isolates the heat pump's effect without assigning appliance-specific battery kWh or treating a combined-scenario forecast as a measured baseline. **How to apply:** If the separate baseline cannot be obtained, label the comparison unavailable instead of implying a zero change.
+
+When a combined household electricity bill already includes an added air conditioner's kWh, do not add the airco's standalone net savings to that bill comparison. Add only supported avoided gas cost, capped by the gas cost still remaining after a heat pump; if the airco heating source or gas baseline is unknown, leave the package result unavailable. **Why:** Otherwise airco electricity is deducted twice or the same gas use is credited to both products. **How to apply:** Keep before/after annual benefit and payback tied to the same whole-house baseline, current costs, and total investment.

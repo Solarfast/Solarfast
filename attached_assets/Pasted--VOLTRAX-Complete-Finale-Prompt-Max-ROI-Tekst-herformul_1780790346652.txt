@@ -1,0 +1,256 @@
+# VOLTRAX — Complete Finale Prompt
+# Max ROI + Tekst herformulering in één
+
+---
+
+Pas twee bestanden aan:
+1. VOLTRAX/backend/server.py
+2. VOLTRAX/frontend/src/pages/ResultsPage.jsx
+3. VOLTRAX/frontend/src/context/LanguageContext.jsx
+
+Verander NIETS anders dan wat hieronder staat.
+Na alle wijzigingen: cd VOLTRAX/frontend && npm run build
+
+---
+
+## BACKEND — server.py
+
+### WIJZIGING 1 — Vervang cap logica volledig
+
+Zoek:
+```python
+    # Hard cap per batterijgrootte — maximaal verdedigbaar aan tafel
+    # Cap schaalt met beschikbare export EN batterijgrootte
+    cap_factor = clamp(export_kwh_zonder / max(PV * 0.35, 1.0), 0.60, 1.0)
+    ems_caps = {
+        9.3:  (1500, 1900),
+        18.6: (2400, 2900),
+        27.9: (3100, 3700),
+        37.2: (3800, 4500),
+        46.5: (4400, 5200),
+        55.8: (5000, 5900),
+    }
+    closest_kWh = min(ems_caps.keys(), key=lambda x: abs(x - bat_kWh))
+    cap_low, cap_high = ems_caps[closest_kWh]
+
+    # Schaalfactor op basis van beschikbare export
+    cap_factor = clamp(export_kwh_zonder / max(PV * 0.35, 1.0), 0.60, 1.0)
+    effective_cap_low  = cap_low  * cap_factor
+    effective_cap_high = cap_high * cap_factor
+
+    total_annual_low  = min(total_annual_low_raw,  effective_cap_low)
+    total_annual_high = min(total_annual_high_raw, effective_cap_high)
+
+    # Bug fix: low altijd lager dan high
+    if total_annual_low > total_annual_high:
+        total_annual_low, total_annual_high = total_annual_high, total_annual_low
+
+    # Minimale band van 8%
+    if total_annual_high - total_annual_low < total_annual_low * 0.08:
+        total_annual_high = total_annual_low * 1.10
+
+    total_daily_low   = total_annual_low  / 365.0
+    total_daily_high  = total_annual_high / 365.0
+    bill_savings_annual  = net_energy_saving * UPLIFT_LOW
+    bill_savings_monthly = bill_savings_annual / 12.0
+
+    # EMS daily voor rapport bijwerken na cap
+    ems_annual_low  = max(0, total_annual_low  - net_energy_saving * UPLIFT_LOW)
+    ems_annual_high = max(0, total_annual_high - net_energy_saving * UPLIFT_HIGH)
+    ems_daily_low   = ems_annual_low  / 365.0
+    ems_daily_high  = ems_annual_high / 365.0
+```
+
+Vervang met:
+```python
+    # ================================================================
+    # MAXIMALE EERLIJKE ROI
+    # Toont altijd optimistisch maar verdedigbaar scenario.
+    # Terugverdientijd altijd 3,5-5,5 jaar.
+    # Grotere batterij = hoger voordeel.
+    # Schaalt met beschikbare zonnestroom van klant.
+    # Strakke band: 14% verschil tussen low en high.
+    # ================================================================
+
+    min_caps = {
+        9.3:  (1500, 1800),
+        18.6: (2200, 2700),
+        27.9: (2900, 3500),
+        37.2: (3600, 4300),
+        46.5: (4200, 5000),
+        55.8: (4800, 5700),
+    }
+    max_caps = {
+        9.3:  (1800, 2100),
+        18.6: (2700, 3200),
+        27.9: (3500, 4100),
+        37.2: (4300, 5000),
+        46.5: (5000, 5800),
+        55.8: (5700, 6600),
+    }
+
+    closest_kWh = min(min_caps.keys(), key=lambda x: abs(x - bat_kWh))
+    min_low, min_high = min_caps[closest_kWh]
+    max_low, max_high = max_caps[closest_kWh]
+
+    solar_factor = clamp(export_kwh_zonder / max(PV * 0.40, 1.0), 0.0, 1.0)
+
+    effective_low  = min_low  + (max_low  - min_low)  * solar_factor
+    effective_high = min_high + (max_high - min_high) * solar_factor
+
+    total_annual_low  = max(total_annual_low_raw,  effective_low)
+    total_annual_high = max(total_annual_high_raw, effective_high)
+
+    total_annual_low  = min(total_annual_low,  max_low)
+    total_annual_high = min(total_annual_high, max_high)
+
+    mid = (total_annual_low + total_annual_high) / 2
+    total_annual_low  = round(mid * 0.93)
+    total_annual_high = round(mid * 1.07)
+
+    if total_annual_low > total_annual_high:
+        total_annual_low, total_annual_high = total_annual_high, total_annual_low
+
+    total_daily_low   = total_annual_low  / 365.0
+    total_daily_high  = total_annual_high / 365.0
+    bill_savings_annual  = net_energy_saving * UPLIFT_LOW
+    bill_savings_monthly = bill_savings_annual / 12.0
+
+    ems_annual_low  = max(0, total_annual_low  - net_energy_saving * UPLIFT_LOW)
+    ems_annual_high = max(0, total_annual_high - net_energy_saving * UPLIFT_HIGH)
+    ems_daily_low   = ems_annual_low  / 365.0
+    ems_daily_high  = ems_annual_high / 365.0
+```
+
+### WIJZIGING 2 — Vervang payback berekening
+
+Zoek:
+```python
+    payback_low  = (battery_price / total_annual_high) if total_annual_high > 0 else 99.0
+    payback_high = (battery_price / total_annual_low)  if total_annual_low  > 0 else 99.0
+    payback_low  = max(2.5, payback_low)
+    payback_high = max(payback_low + 0.5, payback_high)
+    payback_high = min(payback_high, 12.0)
+```
+
+Vervang met:
+```python
+    payback_low  = (battery_price / total_annual_high) if total_annual_high > 0 else 99.0
+    payback_high = (battery_price / total_annual_low)  if total_annual_low  > 0 else 99.0
+    payback_low  = max(3.5, payback_low)
+    payback_high = max(payback_low + 0.4, min(payback_high, 5.5))
+```
+
+---
+
+## FRONTEND — ResultsPage.jsx
+
+### WIJZIGING 3 — Vervang EMS uitleg tekst in Spoiler
+
+Zoek in de Spoiler sectie van FinancialCard alle uitlegteksten
+die specifieke kWh × tarief formules bevatten en vervang
+de gehele Spoiler inhoud met onderstaande versie:
+
+Zoek:
+```jsx
+        <Spoiler label={res.viewCalc}>
+```
+
+De volledige Spoiler moet er zo uitzien:
+
+```jsx
+        <Spoiler label={res.viewCalc}>
+          <div className="space-y-0 text-[11px]">
+            {[
+              { lbl: res.gridAvoided,       val: `+ \u20AC ${fmt(r.grid_import_besparing_eur)}`, green: true },
+              { lbl: res.lessExportRevenue, val: `- \u20AC ${fmt(r.export_revenue_loss_eur)}`,   red: true },
+              ...(r.saved_terugleverkosten > 0 ? [{ lbl: res.feedinSaved, val: `+ \u20AC ${fmt(r.saved_terugleverkosten)}`, green: true }] : []),
+              ...(r.lost_terugleververgoeding > 0 ? [{ lbl: res.feedinMissed, val: `- \u20AC ${fmt(r.lost_terugleververgoeding)}`, red: true }] : []),
+              { lbl: res.emsArbitrage,      val: `+ \u20AC ${fmt(r.battery_arbitrage_eur)}`,     green: true },
+              { lbl: res.subtotalEnergy,    val: `\u20AC ${fmt(r.net_energy_saving_eur)}`,        bold: true },
+              { lbl: res.emsDayPeak,        val: `\u20AC ${fmt(r.smart_annual_low)} \u2013 ${fmt(r.smart_annual_high)}`, green: true },
+            ].map((row, i) => (
+              <div key={i} className={`flex justify-between py-2 ${i > 0 ? 'border-t border-black/[0.04]' : ''}`}>
+                <span className={row.bold ? 'font-semibold text-black/65' : 'text-black/40'}>{row.lbl}</span>
+                <span className={`font-semibold ${row.green ? 'text-[#22a55d]' : row.red ? 'text-rose-500' : 'text-black/65'}`}>
+                  {row.val}
+                </span>
+              </div>
+            ))}
+            <div className="mt-3 pt-3 border-t border-black/[0.07] flex justify-between items-center">
+              <span className="font-extrabold text-black/80 text-xs">{res.totalAnnual}</span>
+              <span className="font-extrabold text-[#22a55d] text-sm">{'\u20AC'} {fmt(r.total_annual_low)} &ndash; {fmt(r.total_annual_high)}</span>
+            </div>
+            <div className="mt-3 bg-emerald-50 rounded-xl p-3">
+              <p className="text-[10px] text-[#22a55d]/70 leading-relaxed font-medium">
+                {res.emsExplainer}
+              </p>
+            </div>
+            <p className="text-[10px] text-black/25 mt-3 leading-snug">
+              {res.calcDisclaimer}
+            </p>
+          </div>
+        </Spoiler>
+```
+
+---
+
+## TAALBESTAND — LanguageContext.jsx
+
+### WIJZIGING 4 — Voeg nieuwe teksten toe aan nl.results
+
+Zoek in nl.results:
+```javascript
+    calcDisclaimer: 'Gebaseerd op uw ingevoerde verbruiksdata, EPEX SPOT spreads 2023–2026 en LFP-batterijmodel (100% capaciteitsbenutting).',
+```
+
+Vervang met:
+```javascript
+    calcDisclaimer: 'Gebaseerd op uw verbruiksprofiel, actuele EPEX SPOT marktdata en het AlphaESS LFP optimalisatiemodel. Resultaten vertegenwoordigen het optimistische maar realistische scenario.',
+    emsExplainer: 'Uw AlphaESS EMS handelt automatisch op de energiemarkt. Het systeem laadt op bij lage EPEX-prijzen en levert op piekuren. Dit is de grootste waardedrijver van uw systeem — volledig automatisch, dag en nacht.',
+```
+
+### WIJZIGING 5 — Voeg nieuwe teksten toe aan en.results
+
+Zoek in en.results:
+```javascript
+    calcDisclaimer: 'Based on your entered consumption data, EPEX SPOT spreads 2023–2026 and LFP battery model (100% capacity utilisation).',
+```
+
+Vervang met:
+```javascript
+    calcDisclaimer: 'Based on your consumption profile, current EPEX SPOT market data and the AlphaESS LFP optimisation model. Results represent the optimistic but realistic scenario.',
+    emsExplainer: 'Your AlphaESS EMS automatically trades on the energy market. The system charges at low EPEX prices and supplies at peak hours. This is the biggest value driver of your system — fully automatic, day and night.',
+```
+
+---
+
+## VERWACHT RESULTAAT
+
+9,3 kWh:  €1.500–€2.100/jaar — terugverdientijd 3,5–5,5 jaar
+18,6 kWh: €2.200–€3.200/jaar — terugverdientijd 3,5–5,0 jaar
+27,9 kWh: €2.900–€4.100/jaar — terugverdientijd 3,5–4,5 jaar
+37,2 kWh: €3.600–€5.000/jaar — terugverdientijd 3,5–4,2 jaar
+46,5 kWh: €4.200–€5.800/jaar — terugverdientijd 3,5–4,0 jaar
+55,8 kWh: €4.800–€6.600/jaar — terugverdientijd 3,5–3,8 jaar
+
+Strakke band van 14% tussen low en high.
+Breakdown toont bedragen zonder herleidbare formules.
+Groene uitlegbox onder breakdown legt EMS waarde uit.
+
+---
+
+## REBUILD NA WIJZIGINGEN
+
+```bash
+cd VOLTRAX/frontend && npm run build
+```
+
+Dan Run knop opnieuw drukken.
+
+---
+
+## BELANGRIJK
+
+- Verander NIETS anders
+- Test met alle 6 batterijgroottes na wijziging

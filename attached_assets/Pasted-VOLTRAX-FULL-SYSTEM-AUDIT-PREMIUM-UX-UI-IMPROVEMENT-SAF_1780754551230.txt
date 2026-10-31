@@ -1,0 +1,146 @@
+VOLTRAX — FULL SYSTEM AUDIT + PREMIUM UX/UI IMPROVEMENT (SAFE REFACTOR ONLY)
+
+BELANGRIJK:
+Werk uitsluitend op de bestaande VOLTRAX applicatie. Geen herbouw. Geen nieuwe architectuur. Geen wijziging van business logic.
+
+DOEL:
+Verbeter de volledige VOLTRAX ervaring naar premium niveau (Quatt.io-achtig), met hogere conversie, betere leesbaarheid en consistente UX — zonder enige impact op rekenlogica of resultaten.
+
+────────────────────────────────────
+
+HARD CONSTRAINTS (NIET OVERSCHRIJDEN):
+
+- NOOIT rekenlogica, formules of backend berekeningen aanpassen
+- NOOIT ROI-modellen, aannames of energie-algoritmes wijzigen
+- NOOIT output-waardes of berekeningen veranderen
+- NOOIT calculator opnieuw bouwen of datastructuur herstructureren
+- Alleen UI/UX, styling, layout, spacing en state handling verbeteren
+- Alleen state persistence fixes toegestaan (geen logica wijzigingen)
+- Alles moet functioneel identiek blijven qua resultaten
+
+────────────────────────────────────
+
+FASE 1 — VOLLEDIGE CONTENT & CONSISTENCY AUDIT
+
+Scan ALLE pagina’s, tabs, modals, resultaten en flows.
+
+Controleer op:
+
+- Dubbele content of herhaling van dezelfde boodschap
+- Tegenstrijdige uitleg tussen secties
+- Overlap tussen “Hoe werkt het”, “Waarom VOLTRAX”, FAQ en resultaten
+- Inconsistente claims over:
+  - zelfverbruik
+  - dynamische energieprijzen
+  - onbalansmarkt
+  - AlphaESS EMS
+  - Warmtefonds
+  - batterijcapaciteit en rendement
+
+Output: alleen subtiele correcties in tekststructuur (geen inhoudelijke herpositionering van claims).
+
+────────────────────────────────────
+
+FASE 2 — PREMIUM UI/UX REDESIGN (QUIET LUXURY STYLE)
+
+Doel: premium uitstraling zoals Quatt.io (licht, modern, high-end)
+
+VISUELE PRINCIPES:
+- Geen dark theme
+- Geen zware kleuren of gradients
+- Rustige, lichte, high-contrast UI
+- Veel witruimte
+- Zeer sterke typografie hiërarchie
+
+TYPOGRAFIE:
+- Duidelijke heading schaal (H1–H6 strikt)
+- Grotere headings, luchtigere spacing
+- Body text 16–20px met goede line-height
+- Max content width voor leesbaarheid
+
+LAYOUT:
+- Consistente grid spacing
+- Meer whitespace tussen secties
+- Minder visuele drukte
+- Cards beter gescheiden maar subtiel
+
+CARDS & COMPONENTS:
+- Subtiele shadows (niet hard)
+- Consistente border radius
+- Hover states elegant en rustig
+- Geen visuele ruis
+
+BUTTONS:
+- Duidelijke primary/secondary hierarchy
+- Hover/focus states consistent
+- Meer “premium feel” (niet flashy)
+
+RESULTATENPAGINA:
+- Dashboard-achtige structuur
+- KPI cards duidelijker gescheiden
+- Betere visuele focus op belangrijkste besparing
+- Minder tekst, meer hiërarchie
+
+────────────────────────────────────
+
+FASE 3 — CONTRAST & LEESBAARHEID (WCAG AA)
+
+Controleer overal:
+
+- Tekstcontrast op witte achtergrond
+- Grijswaarden die te licht zijn
+- Kleine font sizes op belangrijke info
+- Buttons zonder voldoende contrast
+
+Doel:
+Alle belangrijke informatie direct leesbaar zonder inspanning.
+
+────────────────────────────────────
+
+FASE 4 — CALCULATOR FLOW FIX (CRITICAL)
+
+Huidige probleem:
+Navigatie reset gebruiker altijd naar stap 1.
+
+GEWENST GEDRAG:
+- Stap 6 → Stap 5 → Stap 4 → Stap 3 → Stap 2 → Stap 1
+- Resultaten → terug naar laatste stap (niet reset)
+- Geen data verlies bij terug navigeren
+
+VERPLICHT:
+- State moet persistent blijven per stap
+- Alle ingevulde waarden blijven behouden
+- Gebruiker kan vrij aanpassen:
+  - batterijkeuze
+  - investering
+  - verbruik
+  - tarieven
+
+────────────────────────────────────
+
+FASE 5 — CRO & UX OPTIMALISATIE
+
+Verbeter conversie zonder agressieve sales:
+
+- Verlaag frictie in calculator
+- Maak stappen logischer
+- Verhoog vertrouwen in resultaten
+- Verwijder onnodige herhaling
+- Maak flow intuïtiever
+
+────────────────────────────────────
+
+FASE 6 — IMPLEMENTATIE REGELS
+
+- Implementeer direct in bestaande codebase
+- Geen “voorstellen” of rapporten
+- Geen redesign zonder noodzaak
+- Breek niets van huidige functionaliteit
+- Test volledige flow na wijzigingen:
+  - stap 1 → 6
+  - terug navigatie
+  - resultaten
+  - responsive
+
+EINDDOEL:
+Een premium, extreem duidelijke, conversiegerichte VOLTRAX calculator die visueel topniveau is maar technisch exact hetzelfde blijft in berekeningen.

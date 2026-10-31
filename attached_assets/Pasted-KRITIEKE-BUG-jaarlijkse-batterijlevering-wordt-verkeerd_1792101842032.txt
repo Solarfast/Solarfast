@@ -1,0 +1,33 @@
+KRITIEKE BUG: jaarlijkse batterijlevering wordt verkeerd berekend
+
+De huidige berekening is fundamenteel verkeerd gemodelleerd. Bij een HYXiPower MAX van 10,6 kWh wordt de jaarlijkse levering uit de batterij ten onrechte beperkt tot de resterende netinkoop van de woning. Daardoor kan de tool bijvoorbeeld slechts 600 kWh of zelfs 418 kWh per jaar tonen.
+
+Dat is niet hetzelfde als de jaarlijkse energie die de batterij kan leveren.
+
+Een batterij van 10,6 kWh heeft een opslagcapaciteit van circa 10,6 kWh per volledige laadbeurt, niet per jaar. Bij gemiddeld één volledige equivalente cyclus per dag kan deze batterij theoretisch ongeveer 10,6 × 365 = 3.869 kWh per jaar verwerken, gerekend met nominale capaciteit. De werkelijk geleverde energie hangt af van de bruikbare capaciteit en de verliezen.
+
+Gebruik daarom als orde van grootte voor een intensief gebruikte batterij:
+
+* 10,6 kWh: circa 3.000–4.000 kWh jaarlijkse ontlading als technisch scenario, mits de gebruiksomstandigheden dit toelaten.
+* 15,9 kWh: circa 4.500–6.000 kWh.
+* 21,2 kWh: circa 6.000–8.000 kWh.
+* 26,5 kWh: circa 7.500–10.000 kWh.
+
+Dit zijn scenario’s op basis van hoge benutting, geen gegarandeerde levering aan iedere woning. Valideer ze met de bruikbare capaciteit, het rendement en het maximaal toegestane aantal equivalente cycli.
+
+Wat moet worden aangepast?
+
+1. Bereken eerst de potentiële jaarlijkse batterijontlading op basis van bruikbare capaciteit, cycli en rendement.
+2. Bereken vervolgens welk deel daarvan aan de woning wordt geleverd, welk deel voor eventuele toegestane energiehandel wordt gebruikt en welk deel niet kan worden benut.
+3. Beperk de totale batterijontlading door de werkelijke laadmogelijkheden, vermogenslimieten, vraagprofielen en toegestane handelsstrategie.
+4. Gebruik de jaarlijkse netinkoop niet als maximum voor de totale batterijontlading. De batterij kan bijvoorbeeld ook zonnestroom opslaan die anders zou worden teruggeleverd.
+5. Als een woning weinig netinkoop heeft, toon dan afzonderlijk de batterijlevering aan huis, de resterende netinkoop en eventuele handelsenergie. Verzin geen extra verbruik of opbrengst om de cijfers hoger te maken.
+6. Voorkom dubbeltelling: dezelfde ontladen kWh mag niet tegelijkertijd als levering aan huis én als energiehandel worden geboekt.
+
+Vereiste controle
+
+Test de vier batterijgroottes met een consistent energiebalansmodel. Toon per batterij de jaarlijkse laadenergie, ontlaadenergie, verliezen, levering aan huis en eventuele handelsenergie.
+
+Belangrijk: als een batterij van 10,6 kWh slechts 418–600 kWh per jaar levert, onderzoek dan waarom de beschikbare laadmogelijkheden of vraagprofielen zo beperkt zijn. Presenteer dat niet automatisch als de maximale jaarlijkse capaciteit van de batterij.
+
+Behoud de bestaande API en interface zo veel mogelijk en voer regressietests uit op de aangepaste berekening.

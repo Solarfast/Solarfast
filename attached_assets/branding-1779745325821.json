@@ -1,0 +1,130 @@
+{
+  "colorScheme": "light",
+  "fonts": [
+    {
+      "family": "Plus Jakarta Sans",
+      "role": "body"
+    }
+  ],
+  "colors": {
+    "primary": "#F76622",
+    "secondary": "#FF6933",
+    "accent": "#F76622",
+    "background": "#FFFFFF",
+    "textPrimary": "#131A20",
+    "link": "#F3EBE1"
+  },
+  "typography": {
+    "fontFamilies": {
+      "primary": "Plus Jakarta Sans",
+      "heading": "Plus Jakarta Sans"
+    },
+    "fontStacks": {
+      "heading": [
+        "Plus Jakarta Sans",
+        "sans-serif"
+      ],
+      "body": [
+        "Plus Jakarta Sans",
+        "sans-serif"
+      ],
+      "paragraph": [
+        "Plus Jakarta Sans",
+        "sans-serif"
+      ]
+    },
+    "fontSizes": {
+      "h1": "69.6px",
+      "h2": "48.72px",
+      "body": "18px"
+    }
+  },
+  "spacing": {
+    "baseUnit": 4,
+    "borderRadius": "18px"
+  },
+  "components": {
+    "buttonPrimary": {
+      "background": "#F76622",
+      "textColor": "#FFFFFF",
+      "borderColor": "#F76622",
+      "borderRadius": "27.84px",
+      "borderRadiusCorners": {
+        "topLeft": "27.84px",
+        "topRight": "27.84px",
+        "bottomRight": "27.84px",
+        "bottomLeft": "27.84px"
+      },
+      "shadow": "none"
+    },
+    "buttonSecondary": {
+      "background": "transparent",
+      "textColor": "#131A20",
+      "borderColor": "#C8C8C8",
+      "borderRadius": "27.84px",
+      "borderRadiusCorners": {
+        "topLeft": "27.84px",
+        "topRight": "27.84px",
+        "bottomRight": "27.84px",
+        "bottomLeft": "27.84px"
+      },
+      "shadow": "none"
+    }
+  },
+  "images": {
+    "logo": "File saved at: attached_assets/logo.svg",
+    "favicon": "File saved at: attached_assets/favicon.png",
+    "ogImage": "File saved at: attached_assets/ogImage.avif",
+    "logoHref": "File saved at: attached_assets/logoHref.html",
+    "logoAlt": "Quatt"
+  },
+  "__llm_logo_reasoning": {
+    "selectedIndex": 16,
+    "reasoning": "Selected #1 because it is visible, medium-sized, located in the body but links to home, and matches the brand name 'Quatt'.",
+    "confidence": 0.9,
+    "source": "llm"
+  },
+  "__llm_button_reasoning": {
+    "primary": {
+      "index": 1,
+      "text": "Ontdek Hybrid met Chill",
+      "reasoning": "Button #1 uses the vibrant brand color #F76622, which is consistent with the primary brand color and stands out as the main call-to-action with its prominent placement and action-oriented text."
+    },
+    "secondary": {
+      "index": 6,
+      "text": "Bekijk onze producten",
+      "reasoning": "Button #6 has a transparent background, providing a clear contrast to the primary button's vibrant color, making it suitable as a secondary option."
+    },
+    "confidence": 0.95
+  },
+  "personality": {
+    "tone": "modern",
+    "energy": "high",
+    "targetAudience": "tech-savvy consumers interested in sustainable energy solutions"
+  },
+  "designSystem": {
+    "framework": "bootstrap",
+    "componentLibrary": ""
+  },
+  "confidence": {
+    "buttons": 0.95,
+    "colors": 0.9,
+    "overall": 0.925
+  },
+  "__llm_metadata": {
+    "logoSelection": {
+      "llmCalled": true,
+      "llmSucceeded": true,
+      "finalSource": "llm",
+      "rawLogoSelection": {
+        "selectedLogoIndex": 1,
+        "selectedLogoReasoning": "Selected #1 because it is visible, medium-sized, located in the body but links to home, and matches the brand name 'Quatt'.",
+        "confidence": 0.9
+      }
+    },
+    "buttonClassification": {
+      "llmCalled": true,
+      "llmSucceeded": true
+    }
+  }
+}

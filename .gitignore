@@ -1,0 +1,13 @@
+# Installed packages are recreated from the lockfiles for builds and workflows.
+**/node_modules/
+
+# Vite and other build outputs are generated during the build.
+**/dist/
+**/.vite/
+
+# Local caches and Python-generated files are not application source.
+.cache/
+.pythonlibs/
+**/__pycache__/
+*.py[cod]
+/generated-artifacts/

@@ -1,0 +1,137 @@
+Oké, dit is precies het probleem: Replit zit vast in “analysis mode” en herhaalt alleen je bugbeschrijving. Er is nog geen actieplan + codewijziging gemaakt.
+
+👉 Je moet hem dwingen om te schakelen naar IMPLEMENTATION MODE (diff / file changes).
+
+⸻
+
+⚠️ Wat er misgaat
+
+Replit doet nu:
+
+* ✔ begrijpt probleem
+* ❌ maakt geen code changes
+* ❌ schrijft geen files aan
+* ❌ voert geen refactor uit
+
+Dus je backend blijft ongewijzigd.
+
+⸻
+
+🔥 FIX: gebruik deze “HARD EXECUTION PROMPT”
+
+Plak dit exact:
+
+⸻
+
+⚙️ VOLTRAX BACKEND – FORCE IMPLEMENTATION MODE
+
+Je hebt het probleem correct geïdentificeerd. Nu:
+
+❗ STOP MET ANALYSEREN
+
+❗ START MET CODE WIJZIGEN
+
+⸻
+
+🚨 VERPLICHTE ACTIE
+
+Voer nu direct code changes uit in de bestaande codebase.
+
+Je mag niet alleen beschrijven wat fout is — je moet het fixen.
+
+⸻
+
+🧱 MINIMALE VERANDERINGEN (ONLY THESE)
+
+1. FIX DUBBELTELING ARBITRAGE
+
+Zoek in code:
+
+* arbitrage_eur
+* net_energy_saving
+* ems_annual_low
+* ems_annual_high
+
+RULE:
+
+* (pE - pT) mag maar 1x gebruikt worden
+* verwijder of neutraliseer duplicaat in EMS layer
+
+⸻
+
+2. FIX EMS STRUCTURE
+
+* EMS mag NIET dezelfde kWh gebruiken als arbitrage
+* EMS = ONLY incremental optimization layer
+
+⸻
+
+3. FORCE HARD CAP (CODE LEVEL)
+
+Implementeer letterlijk:
+
+ems_value = min(ems_value, 0.35 * total_year_value)
+
+⸻
+
+4. FIX EFFICIENCY FACTOR
+
+EMS_EFFICIENCY = 0.22
+
+geen ranges meer
+
+⸻
+
+📊 VERIFICATION TEST
+
+Na fix moet deze input:
+
+* PV 4500
+* verbruik 3500
+* teruglevering 3000
+* batterij 18.6 kWh
+* pE 0.28 / pT 0.07
+
+geven:
+
+👉 €2.200 – €2.600 per jaar
+
+⸻
+
+❗ OUTPUT VERPLICHTING
+
+Na het uitvoeren:
+
+1. laat gewijzigde files zien
+2. toon diff of code snippets
+3. bevestig dat dubbele counting weg is
+
+⸻
+
+🧠 BELANGRIJK
+
+* Geen uitleg
+* Geen samenvatting van probleem
+* Alleen code wijzigingen uitvoeren
+
+⸻
+
+🚀 MODE SWITCH
+
+Ga nu van “plan mode” → “implementation mode”.
+
+⸻
+
+🔥 Waarom dit werkt
+
+Je forceert 3 dingen:
+
+1. file editing (niet praten)
+2. concrete code output
+3. bewijs van fix (diff)
+
+⸻
+
+⚡ Als hij dit nog steeds niet doet
+
+Dan stuur mij zijn response, dan maak ik je een “diff-forcing prompt” die Replit letterlijk verplicht om git-style wijzigingen te tonen.

@@ -1,0 +1,286 @@
+# VOLTRAX — Add-on Prompt: Engelse vertalingen
+# Plak dit NA de hoofdprompt in Replit AI
+
+---
+
+Pas het bestand `VOLTRAX/frontend/src/context/LanguageContext.jsx` aan.
+Verander NIETS aan de Nederlandse teksten. Vervang ALLEEN de Engelse
+teksten onder `en:` met de volledige versie hieronder.
+
+De Engelse sectie bevat alle nieuwe teksten voor de wijzigingen uit de
+hoofdprompt (dynamisch contract, hoe werkt het sectie, wachten sectie,
+berekening uitleg). Vervang de gehele `en:` sectie met het volgende:
+
+```javascript
+en: {
+  nav: {
+    home: 'Home',
+    alphaess: 'About AlphaESS',
+    warmtefonds: 'Heat Fund',
+    aanbod: 'Products',
+    hoeWerktHet: 'How it works',
+    cta: 'Calculate savings',
+  },
+  home: {
+    badge: 'The #1 home battery in the Netherlands',
+    hero1: 'Store your solar energy.',
+    hero2: 'Use it smart.',
+    heroDesc: 'With the AlphaESS SMILE G3 you use up to 92% of your own solar power. The Energy Management System handles everything automatically.',
+    calcBtn: 'Calculate my savings',
+    howBtn: 'How does it work?',
+    stat1: 'Max. self-consumption',
+    stat2: 'Installations',
+    stat3: 'Warranty',
+    productBadge: 'AlphaESS SMILE G3',
+    productSub: '9.3 to 55.8 kWh capacity',
+    featuresBadge: 'AlphaESS SMILE G3',
+    featuresTitle: 'Build towards a greener future',
+    featuresDesc: 'The AlphaESS home battery is more than storage. It is a smart energy system that automatically optimises for maximum yield and minimum costs.',
+    features: [
+      { title: 'Maximum self-consumption', desc: 'Store your surplus solar power and use it exactly when you need it. From 35% to over 80% own power.' },
+      { title: 'Earn from the energy market', desc: 'The EMS automatically buys at negative or low rates, and feeds back at peak hours. Fully automatic, day and night.' },
+      { title: 'Energy independent', desc: 'Be prepared for any situation. Essential devices keep running, even during power outages. Worry-free and sustainable.' },
+      { title: 'Proven returns', desc: 'Over 200,000 installed systems worldwide. Market leader in home energy storage with a 10-year factory warranty.' },
+    ],
+    productTitle: 'Home battery for every house in the Netherlands',
+    productDesc: 'Modularly expandable from 9.3 to 55.8 kWh, built with LFP technology for maximum safety and longevity. Silent, IP55-certified and compatible with all major inverters.',
+    productBullets: [
+      'LFP technology, more than 10,000 charge cycles',
+      'Modular: from 9.3 to 55.8 kWh',
+      'IP55 for indoor and outdoor installation',
+      'Smart EMS with real-time monitoring via app',
+      'Compatible with all major inverters',
+    ],
+    viewOffer: 'View products',
+    calcSavings: 'Calculate my savings',
+    specCapacity: 'Capacity',
+    specTech: 'Technology',
+    specCycles: 'Charge cycles',
+    specWarranty: 'Warranty',
+    testimonialsTitle: 'Real stories from satisfied customers',
+    testimonialsSub: 'More than 200,000 households worldwide have gone before you.',
+    testimonials: [
+      { name: 'Bart', text: 'The battery does what it should. Without a hitch. Integration with the platform went very smoothly and gives me clear insight. I\'m sure the battery is doing useful work without me having to watch it.', stars: 5 },
+      { name: 'Marina van den Eynde', text: 'The battery works very well. The app is easy to use and very clear. You immediately know the battery percentage, how many watts your panels are producing and how much you need from the grid.', stars: 5 },
+      { name: 'Luc', text: 'We were pleasantly surprised by the price. The representative gave a clear explanation and patiently answered all our questions. All work was carried out on time.', stars: 5 },
+      { name: 'Marc De Schinckel', text: 'The AlphaESS battery gives a great return. We now have two batteries providing our reserve electricity. Via the app you can perfectly monitor production and consumption.', stars: 5 },
+    ],
+    installTitle: 'Professional installation',
+    installDesc: 'From advice to completion by our certified technicians. No hidden costs.',
+    ctaBadge: 'Free, no registration',
+    ctaTitle: 'Discover what a battery means for you',
+    ctaDesc: 'Enter your usage and see your personal savings and payback period in 2 minutes.',
+    ctaBtn: 'Start the calculation',
+    ctaSub: '100% no obligation',
+    footerDealer: 'Official AlphaESS dealer Netherlands',
+    footerWarranty: '10-year warranty',
+  },
+  calc: {
+    back: 'Back',
+    stepOf: (s, total) => `Step ${s} of ${total}`,
+    steps: ['Solar production', 'Annual usage', 'Grid export', 'Tariffs', 'Capacity', 'Investment'],
+    prev: 'Previous',
+    next: 'Next',
+    viewReport: 'View my report',
+    calculating: 'Calculating...',
+    enterToContinue: 'Press Enter to continue',
+    error: 'An error occurred during calculation. Please try again.',
+    step1Title: 'How much solar power do you generate?',
+    step1Sub: 'Check your inverter or energy bill for your annual production.',
+    step1Label: 'Annual solar production',
+    step1Tooltip: 'Total annual output of your solar panels in kilowatt-hours.',
+    step1Hint: 'An average household with 12 panels produces approximately 3,600 to 4,800 kWh per year.',
+    step2Title: 'What is your annual energy consumption?',
+    step2Sub: 'Found on your annual statement or via your smart meter.',
+    step2Label: 'Annual electricity consumption',
+    step2Tooltip: 'The total annual electricity consumption of your home.',
+    step2Hint: 'An average Dutch household consumes 3,000 to 4,500 kWh per year. With an electric car or heat pump this can rise to 7,000 kWh or more.',
+    step3Title: 'How much do you feed back to the grid?',
+    step3Sub: 'Your grid export is the solar power you don\'t consume yourself.',
+    step3Label: 'Annual grid export',
+    step3Tooltip: 'The number of kWh you feed back to the energy grid per year.',
+    step3Hint: 'On average, households with solar panels feed back 40 to 60% of their production. For 4,500 kWh that is approximately 1,800 to 2,700 kWh.',
+    step4Title: 'What are your energy tariffs?',
+    step4Sub: 'Find these on your energy contract or bill.',
+    step4LabelDynamic: 'Do you have a dynamic energy contract?',
+    step4DynamicNo: 'No — Fixed tariff',
+    step4DynamicYes: 'Yes — Dynamic (EPEX)',
+    step4DynamicHint: 'Your battery benefits fully from hourly price differences on the energy market.',
+    step4LabelInkoop: 'Electricity purchase price',
+    step4TooltipInkoop: 'The rate you pay for electricity drawn from the grid.',
+    step4LabelTerug: 'Feed-in tariff',
+    step4TooltipTerug: 'The rate you receive for electricity fed back to the grid.',
+    step4LabelVergoeding: 'Feed-in bonus',
+    step4TooltipVergoeding: 'Additional compensation from your supplier for feeding back, above the feed-in tariff.',
+    step4LabelKosten: 'Feed-in costs',
+    step4TooltipKosten: 'Costs your supplier charges for feeding back to the grid.',
+    perKwh: 'per kWh',
+    perJaar: 'per year',
+    step5Title: 'Choose your battery capacity',
+    step5Sub: 'Select the capacity that best suits your situation. Larger capacity gives higher returns.',
+    batteries: [
+      { kWh: 9.3,  label: '9.3 kWh',  desc: 'Ideal for 1-2 people with limited consumption' },
+      { kWh: 18.6, label: '18.6 kWh', desc: 'Popular choice for an average family' },
+      { kWh: 27.9, label: '27.9 kWh', desc: 'Optimal for high consumption or EV charger' },
+      { kWh: 37.2, label: '37.2 kWh', desc: 'Maximum independence for larger families' },
+      { kWh: 46.5, label: '46.5 kWh', desc: 'High capacity for energy-intensive households' },
+      { kWh: 55.8, label: '55.8 kWh', desc: 'Maximum capacity, fully energy independent' },
+    ],
+    step6Title: 'What is your investment amount?',
+    step6Sub: 'Including battery, installation and VAT, as on the quote.',
+    step6Label: 'Total investment',
+    step6Tooltip: 'Total costs including battery, installation and VAT.',
+    warmtefondsTitle: 'Heat Fund partner',
+    warmtefondsDesc: 'Via VOLTRAX you can borrow up to €8,500 through the National Heat Fund, possibly at 0% interest. We arrange everything for you.',
+  },
+  results: {
+    adjust: 'Adjust',
+    downloadPdf: 'Download PDF',
+    loadingPdf: 'Loading\u2026',
+    loading: 'Loading report\u2026',
+    annualBenefitLabel: 'Estimated annual benefit',
+    perYear: 'per year \u2014 energy savings + market optimisation',
+    perMonth: 'Per month',
+    payback: 'Payback period',
+    netAfter10: 'Net after 10 yrs',
+    currentSituation: 'Current situation',
+    withoutBattery: 'Without battery',
+    withAlpha: 'With AlphaESS',
+    withBattery: 'With battery',
+    recommended: 'Recommended',
+    solarProduction: 'Solar production',
+    solarSub: 'your panels per year',
+    directSelfUse: 'Direct self-consumption',
+    exportedToGrid: 'Exported to grid',
+    exportedSub: 'unused surplus',
+    gridImport: 'Grid import',
+    gridImportSub: 'you pay full tariff',
+    feedinCosts: 'Feed-in costs',
+    feedinSub: 'fixed fee to your supplier',
+    solarEqualSub: 'same as current situation',
+    totalSelfUse: 'Total self-consumption',
+    stillExported: 'Still exported',
+    lessToGrid: (n) => `${n} kWh less to grid`,
+    gridImportWithSub: (n) => `${n} kWh less than now`,
+    energySaving: 'Energy savings',
+    energySavingSub: (tk) => `less grid import${tk > 0 ? ' + no feed-in costs' : ''}`,
+    smartOptTitle: 'Smart market optimisation',
+    smartOptDesc: 'Your battery charges when electricity is cheap and supplies at expensive peak hours. You automatically benefit from daily price differences on the energy market.',
+    viaEpex: 'via EPEX SPOT connection',
+    financialOverview: 'Financial overview',
+    investment: 'Investment',
+    annualBenefit: 'Annual benefit',
+    paybackPeriod: 'Payback period',
+    netAfter10Label: 'Net after 10 years',
+    inclInstall: (kWh) => `${kWh} kWh incl. installation`,
+    year: 'year',
+    viewCalc: 'View full calculation',
+    gridAvoided: 'Grid import avoided',
+    lessExportRevenue: 'Less export revenue',
+    feedinSaved: 'Feed-in costs saved',
+    feedinMissed: 'Feed-in bonus missed',
+    emsArbitrage: 'EMS arbitrage (direct)',
+    subtotalEnergy: 'Energy subtotal',
+    emsDayPeak: 'EMS peak optimisation',
+    totalAnnual: 'Total annual benefit',
+    calcDisclaimer: 'Based on your entered consumption data, EPEX SPOT spreads 2023\u20132026 and LFP battery model (100% capacity utilisation).',
+    warmtefondsLabel: 'National Heat Fund',
+    warmtefondsTitle: 'Financing via VOLTRAX \u2014 0% interest possible',
+    warmtefondsDesc: 'Borrow up to \u20ac8,500 via the National Heat Fund. With income below \u20ac60,000 you pay 0% interest. We arrange everything.',
+    warmteTags: ['Up to \u20ac8,500', '0% interest possible', 'We arrange everything'],
+    ctaTitle: 'Ready for personal advice?',
+    ctaDesc: 'Based on this report our specialists will prepare a tailored quote. Completely without obligation.',
+    ctaBtn: 'Request free advice',
+    disclaimer: 'Indicative calculation based on your consumption data and market averages. Actual results may vary.',
+    recalculate: 'Enter different numbers',
+    personalReport: 'Personal energy report',
+    maximaalVoordeel: 'Maximum benefit',
+    perDayLabel: 'Per day',
+
+    // Hoe werkt uw AlphaESS sectie
+    howItWorksTitle: 'How your AlphaESS works',
+    howStep1Title: 'Battery learns your pattern',
+    howStep1Desc: 'During the first 4 weeks the system analyses your consumption and builds up to maximum efficiency.',
+    howStep2Title: '35–90% for solar power',
+    howStep2Desc: 'This part of the capacity stores your own solar power and supplies it in the evening when the panels stop.',
+    howStep3Title: 'Rest plays the energy market',
+    howStep3Desc: 'The remaining buffer automatically charges at low EPEX prices and discharges at peak hours. Day and night, fully automatic.',
+
+    // Wat kost 1 jaar wachten sectie
+    waitingTitle: 'What does waiting 1 year cost?',
+    waitingMissedSavings: 'Missed savings',
+    waitingExtraCosts: 'Extra energy costs',
+    waitingTotal: 'Total missed',
+    waitingPerMonth: (n) => `Every month you wait costs you €${n} in missed savings.`,
+
+    // Berekening uitleg
+    calcExplainGridAvoided: (kwh, pE) => `You avoided ${kwh} kWh of grid import × €${pE}/kWh. Solar power stored during the day, used in the evening.`,
+    calcExplainExportLoss: (kwh, pT) => `${kwh} kWh now stays in your home instead of being exported at €${pT}/kWh. This is the honest deduction.`,
+    calcExplainArbitrage: (kwh, pE, pT) => `${kwh} kWh × (€${pE} − €${pT}) × 22% return margin.`,
+    calcExplainEms: (totalCycles, solarCycles, bat, spreadLow, spreadHigh, emsLow, emsHigh) =>
+      `Your battery makes ${totalCycles} charge/discharge cycles per year. ${solarCycles} come from solar power, the rest are pure EPEX cycles — charging at €${spreadLow}/kWh, discharging at €${spreadHigh}/kWh. ${totalCycles} cycles × ${bat} kWh × €${spreadLow}–€${spreadHigh} = €${emsLow}–€${emsHigh}/year.`,
+
+    // Dynamisch contract
+    dynamicContractLabel: 'Do you have a dynamic energy contract?',
+    dynamicNo: 'No — Fixed tariff',
+    dynamicYes: 'Yes — Dynamic (EPEX)',
+    dynamicHint: 'Your battery benefits fully from hourly price differences on the energy market.',
+  },
+},
+```
+
+Voeg ook de volgende nieuwe sleutels toe aan de Nederlandse `nl.calc` sectie
+(na `warmtefondsDesc`):
+
+```javascript
+step4LabelDynamic: 'Heeft u een dynamisch energiecontract?',
+step4DynamicNo: 'Nee — Vast tarief',
+step4DynamicYes: 'Ja — Dynamisch (EPEX)',
+step4DynamicHint: 'Uw batterij profiteert maximaal van uurprijzen op de energiemarkt.',
+```
+
+Voeg ook de volgende nieuwe sleutels toe aan de Nederlandse `nl.results` sectie
+(na `maximaalVoordeel`):
+
+```javascript
+perDayLabel: 'Per dag',
+
+// Hoe werkt uw AlphaESS sectie
+howItWorksTitle: 'Zo werkt uw AlphaESS',
+howStep1Title: 'Batterij leert uw patroon',
+howStep1Desc: 'De eerste 4 weken analyseert het systeem uw verbruik en bouwt op naar maximale efficiëntie.',
+howStep2Title: '35–90% voor zonnestroom',
+howStep2Desc: 'Dit deel van de capaciteit slaat uw eigen zonnestroom op en levert \'s avonds wanneer de panelen stoppen.',
+howStep3Title: 'Rest speelt de energiemarkt',
+howStep3Desc: 'De resterende buffer laadt automatisch bij lage EPEX-prijzen en ontlaadt op piekuren. Dag en nacht, volledig automatisch.',
+
+// Wat kost 1 jaar wachten sectie
+waitingTitle: 'Wat kost 1 jaar wachten?',
+waitingMissedSavings: 'Gemiste besparing',
+waitingExtraCosts: 'Extra energiekosten',
+waitingTotal: 'Totaal gemist',
+waitingPerMonth: (n) => `Elke maand wachten kost u €${n} aan gemiste besparing.`,
+
+// Berekening uitleg
+calcExplainGridAvoided: (kwh, pE) => `U vermeed ${kwh} kWh netinkoop × €${pE}/kWh. Zonnestroom opgeslagen overdag, gebruikt 's avonds.`,
+calcExplainExportLoss: (kwh, pT) => `${kwh} kWh blijft nu in huis in plaats van terugleveren voor €${pT}/kWh. Dit is de eerlijke aftrekpost.`,
+calcExplainArbitrage: (kwh, pE, pT) => `${kwh} kWh × (€${pE} − €${pT}) × 22% rendementsmarge.`,
+calcExplainEms: (totalCycles, solarCycles, bat, spreadLow, spreadHigh, emsLow, emsHigh) =>
+  `Uw batterij maakt ${totalCycles} laad/ontlaad cycli per jaar. ${solarCycles} komen van zonnestroom, de rest zijn pure EPEX-cycli — laden voor €${spreadLow}/kWh, ontladen voor €${spreadHigh}/kWh. ${totalCycles} cycli × ${bat} kWh × €${spreadLow}–€${spreadHigh} = €${emsLow}–€${emsHigh}/jaar.`,
+
+// Dynamisch contract
+dynamicContractLabel: 'Heeft u een dynamisch energiecontract?',
+dynamicNo: 'Nee — Vast tarief',
+dynamicYes: 'Ja — Dynamisch (EPEX)',
+dynamicHint: 'Uw batterij profiteert maximaal van uurprijzen op de energiemarkt.',
+```
+
+---
+
+## BELANGRIJK
+
+- Verander NIETS anders in LanguageContext.jsx
+- Alle nieuwe teksten in CalculatorPage.jsx en ResultsPage.jsx
+  moeten via `t.calc.*` en `t.results.*` werken zodat beide
+  talen automatisch werken
+- Test de taalwissel NL → EN op elke pagina na de wijzigingen

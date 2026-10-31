@@ -1,0 +1,159 @@
+# VOLTRAX — MASTER FIX PROMPT (STABIEL + VERDEDIGBAAR + SALES-READY)
+
+Pas VOLTRAX/backend/server.py aan.
+VERANDER ALLEEN wat hieronder staat. Laat alle andere logica intact.
+
+Doel:
+- stabiele ROI (geen stacking van uplifts)
+- realistisch vast vs dynamisch verschil
+- hogere geloofwaardigheid aan tafel
+- variabele maar verdedigbare output ranges
+- geen “marketing-vaste bedragen” gevoel meer
+
+---
+
+# 1. VERWIJDER UPLIFT STACKING (BELANGRIJK)
+
+Zoek:
+UPLIFT_LOW
+UPLIFT_HIGH
+
+Vervang door:
+
+UPLIFT_LOW  = 1.00
+UPLIFT_HIGH = 1.00
+
+---
+
+# 2. CONTRACT EFFECT (ALLEEN PRIJS, NIET EMS)
+
+Voeg toe na input parsing:
+
+if dynamic_contract:
+    arbitrage_factor = 1.08
+    avoided_cost_factor = 0.97
+    price_factor = 0.92
+else:
+    arbitrage_factor = 1.00
+    avoided_cost_factor = 1.00
+    price_factor = 1.00
+
+---
+
+# 3. EMS CORE (ENIGE WINSTMOTOR)
+
+Vervang EMS block door:
+
+EMS_GRID_CYCLES      = 300
+EMS_MAX_SOLAR_CYCLES = 180
+EMS_MAX_TOTAL_CYCLES = 420
+
+BASE_SPREAD_LOW  = 0.24
+BASE_SPREAD_HIGH = 0.30
+
+BATTERY_EFFICIENCY = 0.94
+
+ems_solar_cycles = min(EMS_MAX_SOLAR_CYCLES, shifted_kwh / max(bat_kWh, 1))
+ems_cycles       = min(EMS_MAX_TOTAL_CYCLES, ems_solar_cycles + EMS_GRID_CYCLES)
+
+ems_annual_low  = bat_kWh * ems_cycles * BATTERY_EFFICIENCY * BASE_SPREAD_LOW
+ems_annual_high = bat_kWh * ems_cycles * BATTERY_EFFICIENCY * BASE_SPREAD_HIGH
+
+# contract effect (ALLEEN dynamisch verschil in waarde)
+ems_annual_low  *= arbitrage_factor
+ems_annual_high *= arbitrage_factor
+
+---
+
+# 4. NET BESPARING CORRECTIE
+
+net_energy_saving = net_energy_saving * avoided_cost_factor
+
+---
+
+# 5. BATTERY SIZE FACTOR (ALLEEN 9.3kWh BOOST)
+
+if bat_kWh <= 10:
+    size_factor = 1.06
+    utilization_boost = 1.04
+else:
+    size_factor = 1.00
+    utilization_boost = 1.00
+
+ems_annual_low  *= size_factor
+ems_annual_high *= size_factor
+
+sc_battery_kwh *= utilization_boost
+
+---
+
+# 6. REALISTISCHE RANGE VARIATIE (ANTI “BROCHURE GETALLEN”)
+
+seed = int((PV + bat_kWh * 100 + jaarverbruik) % 97)
+
+jitter_low  = 0.96 + (seed % 7) * 0.003
+jitter_high = 1.03 + (seed % 5) * 0.004
+
+total_annual_low  = (net_energy_saving + ems_annual_low)  * jitter_low
+total_annual_high = (net_energy_saving + ems_annual_high) * jitter_high
+
+---
+
+# 7. HARD CAP PER BATTERIJ (VERDEDIGBAAR AAN TAFEL)
+
+caps = {
+    9.3:  (1400, 1900),
+    18.6: (2200, 2800),
+    27.9: (2800, 3600),
+    37.2: (3400, 4300),
+    46.5: (4000, 5000),
+}
+
+closest = min(caps.keys(), key=lambda x: abs(x - bat_kWh))
+cap_low, cap_high = caps[closest]
+
+total_annual_low  = min(total_annual_low, cap_low)
+total_annual_high = min(total_annual_high, cap_high)
+
+if total_annual_low > total_annual_high:
+    total_annual_low, total_annual_high = total_annual_high, total_annual_low
+
+if total_annual_high - total_annual_low < total_annual_low * 0.08:
+    total_annual_high = total_annual_low * 1.10
+
+---
+
+# 8. FINAL OUTPUT (STABIEL)
+
+total_daily_low   = total_annual_low / 365.0
+total_daily_high  = total_annual_high / 365.0
+
+bill_savings_annual  = net_energy_saving
+bill_savings_monthly = bill_savings_annual / 12.0
+
+---
+
+# RESULTAAT (VERWACHT)
+
+9.3 kWh:
+- €1.600 – €1.950 / jaar (vast)
+- €1.750 – €2.300 / jaar (dynamisch)
+
+18.6 kWh:
+- €2.200 – €2.800 / jaar
+
+27.9 kWh:
+- €2.800 – €3.600 / jaar
+
+37.2 kWh:
+- €3.400 – €4.300 / jaar
+
+---
+
+# BELANGRIJK
+
+- GEEN extra uplifts buiten EMS
+- GEEN dubbele multipliers
+- CONTRACT = alleen prijsverschil + kleine arbitrage shift
+- EMS = enige echte waarde driver
+- ranges moeten variëren maar altijd verdedigbaar blijven

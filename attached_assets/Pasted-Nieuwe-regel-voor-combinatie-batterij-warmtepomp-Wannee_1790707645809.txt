@@ -1,0 +1,100 @@
+Nieuwe regel voor combinatie batterij + warmtepomp
+
+Wanneer gebruiker warmtepomp + batterij kiest:
+
+Toon een extra blok:
+
+🔋♨️ Slimme combinatie: batterij + warmtepomp
+
+Een warmtepomp verhoogt uw stroomverbruik, maar maakt uw batterij waardevoller.
+
+Uw batterij kan:
+
+* goedkope stroom opslaan wanneer prijzen laag zijn;
+* deze energie gebruiken tijdens dure avonduren;
+* minder elektriciteit van het net inkopen.
+
+Daarnaast gebruikt de warmtepomp meer van uw eigen zonnestroom direct overdag.
+
+⸻
+
+Voorbeeldweergave:
+
+Zonder combinatie
+
+Zonnepanelen
+
+* Opwek: 4.000 kWh
+* Direct zelfverbruik: 2.200 kWh
+* Teruglevering: 1.800 kWh
+
+Met warmtepomp
+
+Meer eigen gebruik
+
+* Warmtepomp gebruikt zonnestroom op momenten dat deze beschikbaar is.
+* Zelfverbruik stijgt bijvoorbeeld:
+    55% → 65%
+
+Met batterij + warmtepomp
+
+Maximale benutting
+
+* Overschot wordt opgeslagen.
+* Batterij levert energie terug in de avond.
+* Minder netstroom nodig.
+
+Bijvoorbeeld:
+
+* Batterij levert: +X kWh/jaar
+* Minder netinkoop: -X kWh/jaar
+
+⸻
+
+Bij volledig elektrische warmtepomp toevoegen:
+
+Extra blok:
+
+Gasrekening vervalt grotendeels
+
+Bij overstap naar volledig elektrisch:
+
+Vervallen:
+✅ Gasverbruik
+✅ Vastrecht gas
+✅ Transportkosten gas
+✅ Gasaansluiting (indien verwijderd)
+
+Toon:
+
+Besparing gasinfrastructuur
+
+* Vastrecht + transport: €XXX/jaar
+
+Niet alleen:
+“minder gasverbruik”
+
+⸻
+
+Belangrijk voor de formule
+
+Niet doen:
+
+❌ Batterijbesparing + warmtepompbesparing simpel optellen
+
+Wel:
+
+✅ Eerst energieprofiel opnieuw berekenen:
+
+1. Nieuwe stroomvraag warmtepomp toevoegen
+2. Zonne-overlap berekenen
+3. Zelfverbruik zonnepanelen aanpassen
+4. Batterijdoorvoer opnieuw berekenen
+5. Minder netinkoop berekenen
+6. EPEX optimalisatie berekenen
+
+⸻
+
+Tekst voor Codex/Replit:
+
+Wanneer meerdere producten worden gekozen moet het model de interactie tussen producten meenemen. Bij batterij + warmtepomp moet extra stroomvraag van de warmtepomp leiden tot meer eigen gebruik van zonnepanelen en meer batterijbenutting in de avond. Bereken hierdoor lagere netinkoop, hogere zelfconsumptie en eventuele dynamische prijsoptimalisatie. Toon dit als synergie-effect, niet als losse optelsom. Bij volledig elektrische warmtepomp moet gasbesparing ook vervallen vaste gaskosten, transportkosten en mogelijke kosten van de gasaansluiting meenemen.

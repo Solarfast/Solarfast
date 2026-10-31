@@ -1,0 +1,181 @@
+Geenzwarte knoppen en of donker. Wil echt die quatt.io vibes en niet te grote homepage. Als je ziet dat er te veel info op homepage staat, maak aparte pages aan en !-?!-?navigatiebalkjes boven  
+⸻
+ 
+🧠 REPLIT UPGRADE MASTERPROMPT — VOLTRAX RESULTS ENGINE (FINAL OPTIMISED VERSION)
+🎯 DOEL
+Upgrade de bestaande VOLTRAX app (geen rebuild).
+De results page moet:
+* maximaal sales-conversie genereren
+* gebaseerd zijn op een optimized EMS best-case scenario
+* schaalbaar zijn met batterijgrootte
+* technisch consistent en audit-proof blijven
+* geen hardcoded output hebben
+ 
+⸻
+ 
+⚙️ 1. CORE PRINCIPLE
+Het systeem simuleert geen “gemiddelde gebruiker”, maar:
+Optimized Energy Dispatch Model (best-case batterij + EMS performance)
+Dit betekent:
+* batterij laadt uitsluitend overschot PV
+* batterij ontlaadt op hoogste waarde momenten
+* minimale export, maximale zelfconsumptie
+* dynamische prijsverschillen worden benut
+* geen energieverlies in opslag (vereenvoudigd model)
+ 
+⸻
+ 
+📥 2. INPUTS (BLIJVEN ONGEWIJZIGD)
+* PV productie (kWh)
+* Verbruik (kWh)
+* Teruglevering (kWh)
+* Stroomprijs (€0.30 default)
+* Terugleverprijs (€0.07 default)
+* Terugleverkosten (€100/jaar)
+* Batterijcapaciteit (kWh)
+ 
+⸻
+ 
+⚙️ 3. ENERGIEBALANS (HARD RULE — BELANGRIJK)
+Alle berekeningen moeten voldoen aan:
+* PV = self-consumption + export
+* Verbruik = self-consumption + import
+* Batterij kan alleen overschot PV verschuiven (geen extra energie creëren)
+* Geen negatieve energie flows toegestaan
+ 
+⸻
+ 
+🔋 4. BATTERIJ MODEL (SCHAALBAAR + NIET LINEAIR)
+4.1 Overshoot bepalen
+overschot = PV - baseline self-consumption
+baseline self-consumption = 35% van PV
+ 
+⸻
+ 
+4.2 Batterij effect (DIMINISHING RETURNS)
+Gebruik niet-lineaire curve:
+utilisation_factor = 1 - exp(-(battery_kWh / PV_kWh) * 2.2)
+ 
+⸻
+ 
+4.3 Self-consumption met batterij
+self_consumption_rate =
+min(0.92, 0.35 + (0.57 * utilisation_factor))
+👉 verklaard:
+* 0.35 = baseline
+* max uplift = +57%
+* cap = 92%
+ 
+⸻
+ 
+⚡ 5. PRIJSMODEL (REALISTISCH MAAR OPTIMAL)
+Gebruik 3 waardes:
+* self-consumed kWh = €0.30
+* exported kWh = €0.07
+* imported kWh = €0.30
+ 
+⸻
+ 
+BATTERIJ ARBITRAGE UPLIFT (GEEN FIXED GETAL)
+Bereken:
+price_spread = €0.30 - €0.07
+battery_uplift_value = shifted_kWh * price_spread * 0.15
+👉 0.15 = efficiency factor (conservatief best-case EMS gain)
+ 
+⸻
+ 
+⚡ 6. SCENARIO’S
+A. Zonder batterij
+* 35% self-consumption
+* 65% export
+* import = verbruik - self-consumption
+* standaard prijsmodel
+ 
+⸻
+ 
+B. Met batterij
+* self-consumption = scaled (max 92%)
+* export = remainder
+* import verlaagd
+* include arbitrage uplift
+* include shifted kWh value
+ 
+⸻
+ 
+💰 7. OUTPUT BEREKENING
+Net value per scenario:
+value = self_consumed_kWh * 0.30
+* exported_kWh * 0.07
+* imported_kWh * 0.30
+* 100 (fees)
+ 
+⸻
+ 
+FINAL RESULT:
+annual_battery_value = scenario_with_battery - scenario_without_battery
+ 
+⸻
+ 
+📊 8. EXPECTED OUTPUT RANGE (VALIDATION)
+Voor standaard input (5000/5000/3000):
+* Zonder batterij: -€250 tot -€400 / jaar
+* Met batterij: €1.600 – €2.100 / jaar
+ 
+⸻
+ 
+👉 HERO OUTPUT:
+Jaarlijkse extra energie-waarde: €1.900 – €2.100
+ 
+⸻
+ 
+🧾 9. RESULTS PAGE STRUCTUUR (NIET VERANDEREN)
+1. HERO KPI
+* één waarde (jaarresultaat)
+2. 2 CARDS
+Zonder batterij
+* self-consumption %
+* export kWh
+* import kWh
+* netto waarde
+Met batterij
+* self-consumption %
+* export kWh
+* import kWh
+* netto waarde
+ 
+⸻
+ 
+3. FINANCE BLOCK
+* investering (€11.000 default)
+* terugverdientijd (auto-calculated)
+ 
+⸻
+ 
+4. UITLEG (1 korte sectie)
+* zonder batterij → lage exportwaarde + hoge inkoop
+* met batterij → opslag + verschuiving naar dure uren
+* EMS optimaliseert automatisch op prijsverschillen
+ 
+⸻
+ 
+🧠 10. UX / ENGINE REGELS
+* geen hardcoded percentages (alleen caps en formules)
+* geen vaste 86% aannames
+* geen vaste uplift bedragen
+* alles moet uit berekening komen
+* minimal UI, maximale duidelijkheid
+* 1 KPI only
+ 
+⸻
+ 
+🚀 RESULTAAT VAN DEZE VERSION
+Je krijgt:
+✔ schaalbare batterijlogica ✔ hogere batterij = hogere waarde ✔ realistische maar optimised EMS simulatie ✔ stabiele outputs (geen rare swings) ✔ sales-level conversie zonder technische zwaktes
+ 
+⸻
+ 
+💡 ONE-LINE SUMMARY
+Upgrade existing VOLTRAX results engine to a scalable, non-linear EMS optimisation model with battery-dependent self-consumption, constrained energy balance, and price-spread-based valuation, fully derived from calculations.
+ 
+⸻
+ 

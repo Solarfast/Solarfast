@@ -1,0 +1,82 @@
+
+Officieel AlphaESS dealer Nederland
+Hoe werkt een thuisbatterij?
+
+Uw zonnepanelen maken stroom. Een batterij slaat dat op. Het systeem kiest automatisch wanneer te laden en ontladen — op basis van echte marktprijzen, elke 15 minuten opnieuw.
+Een dag in het leven van uw batterij
+Zo werkt het — 24 uur per dag
+4 / 4
+23:00 – 06:00
+Slim laden 's nachts — tegen de laagste prijs
+06:00 – 12:00
+Zonnepanelen starten — gratis stroom de batterij in
+12:00 – 17:00
+Maximale zonproductie — batterij bijna vol
+17:00 – 23:00Stap 4/4
+Avondpiek op eigen stroom — tarief buiten: €0,34
+
+De duurste uren van de dag. Koken, tv, wasmachine. Uw batterij levert. Het systeem ontlaadt tot de ingestelde reserve — daarna begint de cyclus opnieuw bij de goedkoopste nachturen.
+Avondpiek volledig op eigen stroom
+Systeem stopt automatisch bij reserve
+Daarna begint de cyclus opnieuw
+↓ Scroll om de dag te zien
+🔒
+Ingebouwde beveiliging
+De reserve: altijd een buffer
+
+De batterij ontlaadt nooit tot nul. Via de AlphaCloud app stelt u een minimale reserve in — standaard tussen 10 en 20%. Zo is er altijd stroom als u laat thuiskomt, of bij bewolkt weer de volgende dag.
+Instelbaar via AlphaCloud app
+Beschermt de levensduur van de cellen
+Altijd beschikbaar — ook bij bewolkt weer
+EPEX Spotmarkt
+Negatieve stroomprijs: u wordt betaald om te laden
+
+Op de Europese stroommarkt (EPEX) kan de prijs negatief worden — op zonnige of winderige momenten wanneer er meer aanbod is dan vraag. Uw batterij profiteert automatisch.
+Hoe werkt het?
+
+Elke dag om ±13:00 publiceert EPEX de day-ahead prijzen voor elk uur van morgen. Uw EMS leest die prijzen en plant automatisch de laad- en ontlaadmomenten.
+±13:00 → prijzen morgen bekend
+EMS plant laad- en ontlaadschema
+Elke 15 minuten: beslissing bijstellen
+24/7 volledig automatisch
+💰
+Negatieve prijs — u verdient
+
+Als de EPEX-prijs negatief is en uw leverancier dat doorberekent, wordt u betaald om stroom af te nemen. Uw batterij laadt precies op die momenten.
+Voorbeeld
+Marktprijs− €0,05/kWh
+Uw batterij laadt9,3 kWh
+Voordeel vs. avondpiek± €0,35/kWh
+
+📈 Door de groei van zonne- en windenergie in Europa komen negatieve stroomprijzen steeds vaker voor. Een thuisbatterij wordt daardoor elk jaar relevanter — niet minder.
+Goed om te weten
+Feiten die het verschil maken
+
+Niet alle thuisbatterijen zijn hetzelfde. Dit zijn de punten waar het in de praktijk op aankomt.
+⚡
+Negatieve stroomprijzen komen vaker voor
+
+In Nederland waren er in 2024 meer dan 200 uur met een negatieve stroomprijs op de EPEX-spotmarkt. Door de groei van zon- en windenergie in Europa neemt dat aantal elk jaar toe. Een thuisbatterij wordt daardoor elk jaar relevanter.
+🔋
+LFP vs. NMC: niet elke lithiumbatterij is gelijk
+
+Er zijn twee veelgebruikte lithiumchemieën: LFP (lithium-ijzerfosfaat) en NMC (nikkel-mangaan-kobalt). LFP is thermisch stabieler, brandveiliger en gaat meer laadcycli mee. Het is ook de keuze van fabrikanten als BYD voor hun thuisbatterijen.
+🏡
+Garantie overdraagbaar bij woningverkoop
+
+Bij veel merken vervalt de garantie als de woning van eigenaar wisselt. Bij AlphaESS is de garantie overdraagbaar: de nieuwe eigenaar erft de resterende garantieperiode. Dat maakt een batterij ook een verkoopargument voor uw woning.
+📊
+Twee garanties, niet één
+
+AlphaESS geeft een productgarantie (10 jaar op het apparaat) én een prestatiegarantie (≥ 80% resterende capaciteit na 10 jaar). Dat zijn twee aparte contractuele zekerheden — niet alle fabrikanten bieden beide.
+🔌
+Backup/noodstroom: niet standaard bij elke batterij
+
+Sommige thuisbatterijen werken alleen als het stroomnet actief is. De AlphaESS SMILE G3 kan — met de juiste configuratie — ook noodstroom leveren bij een stroomstoring. Handig als u apparaten draaiende wilt houden bij netuitval.
+🏢
+AlphaESS heeft een kantoor en magazijn in Eindhoven
+
+AlphaESS Benelux B.V. is gevestigd op de High Tech Campus in Eindhoven. Dat betekent lokale ondersteuning, onderdelen op voorraad in Nederland en snellere service dan bij merken zonder Europese aanwezigheid.
+Wat levert het u op?
+
+Bereken in 2 minuten uw persoonlijke besparing op basis van uw eigen verbruik, zonproductie en energietarief.

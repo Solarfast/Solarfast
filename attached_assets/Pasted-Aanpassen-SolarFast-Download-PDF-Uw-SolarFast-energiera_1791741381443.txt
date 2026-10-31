@@ -1,0 +1,72 @@
+Aanpassen
+SolarFast
+Download PDF
+Uw SolarFast energierapport
+Uw persoonlijke energieschatting
+Batterij + warmtepomp
+Geschatte daling van de totale energiekosten
+Zonder batterij en warmtepomp vergeleken met de combinatie
+€ 2.461–€ 2.787
+per jaar
+
+Dit is één vergelijking van de totale jaarlijkse energie- en gaskosten. De losse batterij- en warmtepompbesparingen worden niet opgeteld; de EPEX-schatting is één keer verwerkt.
+
+Totale investering
+€ 14.022
+Terugverdientijd samen
+5–5,7 jaar
+Netto na 10 jaar
+€ 10.588–€ 13.848
+Zo werken batterij en warmtepomp samen
+De warmtepomp wordt eerst aan de jaarlijkse stroomvraag toegevoegd. Daarna herberekent het model de zonne-overlap, batterijstromen, netinkoop en dynamische marktwaarde.
+
+Extra stroom warmtepomp
+3.283 kWh/jaar
+Warmtepompstroom die samenvalt met zonne-opwek: 328 kWh/jaar
+Batterij levert zonne-opslag aan huis
+1.580 kWh/jaar
+Verschil in zonne-opslag t.o.v. scenario zonder warmtepomp: +1.418 kWh/jaar
+Minder netinkoop door batterij
+1.580 kWh/jaar
+Netstroom na batterij: 1.564 kWh/jaar
+Totale energiekosten zonder beide producten
+€ 2.670
+Totale kosten met combinatie, vóór EPEX-waarde
+€ 1.297
+Gemodelleerde EPEX-waarde · al één keer verwerkt in totaal
+€ 1.088–€ 1.414
+6.646 kWh/jaar
+Eventuele geplande zonnepanelen of EV-lading zijn in beide scenario’s gelijk gehouden; hun aparte investering en besparing vallen buiten dit batterij + warmtepomp-resultaat.
+
+Bekijk de berekening en energiegegevens
+
+Gekozen producten en energieaannames
+HYXiPower 21,2 kWh · 21,2 kWh + WeHeat Flint P40 · 4–6 kW · R290 · hybrid
+Product toevoegen aan deze uitslag
+Kies een product. Vul alleen de gegevens in die nodig zijn; daarna rekenen we de batterijbesparing en terugverdientijd opnieuw uit.
+
+Warmtepomp
+Airco
+Laadpaal / elektrisch rijden
+Na toevoegen worden het jaarverbruik, de netto-teruglevering en de batterijterugverdientijd opnieuw berekend.
+
+Warmtepompdetails
+WeHeat Flint P40 · 4–6 kW · R290 · hybrid
+Details
+Nationaal Warmtefonds
+Financiering: informatie Warmtefonds
+Controleer actuele voorwaarden en financieringsmogelijkheden rechtstreeks bij het Nationaal Warmtefonds.
+
+Controleer voorwaarden
+Actuele informatie
+Nationaal Warmtefonds
+Wilt u de berekening bespreken?
+Bespreek de uitkomst en mogelijke vervolgstappen met SolarFast.
+
+Neem contact op
+Indicatieve berekening op basis van uw verbruiksdata en marktgemiddelden. Werkelijke resultaten kunnen afwijken.
+
+Andere getallen invoeren
+Privacy en uw gegevens
+·
+info@solarfast.nl

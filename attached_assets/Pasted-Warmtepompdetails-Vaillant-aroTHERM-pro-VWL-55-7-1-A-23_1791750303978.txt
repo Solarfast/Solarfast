@@ -1,0 +1,144 @@
+Warmtepompdetails
+Vaillant aroTHERM pro VWL 55/7.1 A 230V · R290 · 5 kW · hybrid
+Details
+Vergelijking per jaar
+
+Voor en na
+Verwarming + gaskosten · / jaar
+HUIDIGE SITUATIE
+Voor
+Verwarmen met cv-ketel
+
+Jaarlijks gasverbruik
+1.000,0 m³/jaar
+Stroomverbruik warmtepomp
+0 kWh/jaar
+Vaste kosten gasaansluiting
+€ 425
+Jaarlijkse verwarmings- en gaskosten
+€ 1.975
+GEKOZEN WARMTEPOMP
+Na
+Vaillant aroTHERM pro VWL 55/7.1 A 230V · R290 · 5 kW · hybrid · 5,0 kW
+
+Hybride
+
+Jaarlijks gasverbruik
+200,0 m³/jaar
+Stroomverbruik warmtepomp
++1.901 kWh/jaar
+Vaste kosten gasaansluiting
+€ 425
+Jaarlijkse verwarmings- en gaskosten
+€ 1.248
+Vaste gaskosten zijn in deze schatting niet als besparing gerekend. Ze blijven bestaan zolang de aansluiting niet wordt verwijderd.
+
+Prijsopbouw
+
+Gekozen product
+Gekozen model
+Vaillant aroTHERM pro VWL 55/7.1 A 230V · R290 · 5 kW · hybrid
+5,0 kW · Hybride
+Catalogusprijs incl. btw
+€ 9.233
+Subsidie
+−€ 2.350
+Productprijs na subsidie
+€ 6.883
+Investering in deze berekening
+€ 6.883
+De productprijs en de investering die in de berekening is gebruikt, staan apart vermeld en kunnen van elkaar verschillen.
+
+User-supplied VAT-inclusive list price, subsidy, and final price; installation scope not independently verified
+
+De aantrekkelijkheid van uw woning
+
+Een energiezuiniger huis, met meer perspectief.
+Een energiezuiniger huis kan aantrekkelijker zijn voor kopers. Het effect hangt af van de woning en de markt; er is hier geen huis-specifieke waardestijging in euro’s berekend.
+
+Ter algemene context: Rijksoverheid · Milieu Centraal
+[Brounen & Kok (2011), “On the economics of energy labels in the housing market” · Journal of Environmental Economics and Management](https://doi.org/10.1016/j.jeem.2010.11.006)
+Energielabel
+
+Huidige invoer
+B
+Een warmtepomp kan bijdragen aan een beter energielabel, maar we voorspellen hier geen nieuw label. Voor een officieel label is een beoordeling door een energielabeladviseur nodig.
+
+Ter algemene context: RVO.nl · Milieu Centraal
+[Officiële informatie over energielabels · Energielabel.nl](https://www.energielabel.nl/woningen/)
+Technische details en woninginvoer
+Invoer, prestaties en rekenaannames
+Prestatieaannames
+Configuratie
+Hybride
+Geschatte jaarlijkse ruimteverwarmingsvraag
+7.034 kWh/jaar
+Gebruikte SCOP
+3,70
+Extra stroom per bespaarde m³ gas
+2,38 kWh/m³
+SCOP volgens productlabel
+5,01 / 3,70
+Aanvoertemperatuur
+55 °C
+Rendement cv-ketel
+90%
+Energie-inhoud gas
+9,77 kWh/m³
+Gebruikte gasprijs
+€ 1,55 / m³
+Gebruikte stroomprijs
+€ 0,27 / kWh
+De gestandaardiseerde SCOP voorspelt niet het werkelijke rendement in uw woning.
+
+[De RVO Installatiemonitor 3.0 rapporteerde gemiddeld minder gasverbruik voor ruimteverwarming in hybride woningen; resultaten verschillen per woning.](https://www.rvo.nl/nieuws/warmtepompen-verlagen-energieverbruik)
+[SCOP-bron: Vaillant aroTHERM pro](https://www.vaillant.nl/producten/arothermpro)
+Woninggegevens en dimensioneringsaannames
+Woningtype
+Tussenwoning
+Bouwperiode
+1990–2005
+Verwarmd woonoppervlak
+75–99 m² (berekend met circa 87 m²)
+Totaal jaarlijks gasverbruik
+1.000,0 m³/jaar
+Geschat gas voor ruimteverwarming
+800,0 m³/jaar
+Isolatie
+Gemiddeld
+Energielabel
+B
+Dakisolatie
+Nee
+Spouwmuurisolatie
+Nee
+Vloer-/bodemisolatie
+Ja
+HR++ / triple glas
+Nee
+Afgiftesysteem
+Radiatoren + vloerverwarming
+Leeftijd cv-ketel
+10 jaar
+Geschat benodigd vermogen
+4,2 kW
+Voorlopig aanbevolen configuratie
+Hybride
+Stroomcontract
+Vast
+Opgegeven stroomprijs
+0,27 €/kWh
+Effectief stroomtarief in berekening
+0,27 €/kWh
+Gas voor ruimteverwarming wordt geschat uit het totale gasverbruik; woninggegevens helpen bij de voorlopige dimensionering.
+
+Vermogen en warmtevraag zijn grove indicaties, geen warmteverliesberekening. Laat een installateur de modelkeuze en installatie controleren.
+
+Aannames bij deze schatting
+Indicatieve schatting; werkelijk energieverbruik, tarieven en kosten kunnen afwijken. Onderhoud is niet meegenomen.
+
+Bronnen ter algemene context:
+Rijksoverheid · Milieu Centraal
+[RVO Installatiemonitor 3.0 · context over prestaties van warmtepompen](https://www.rvo.nl/nieuws/warmtepompen-verlagen-energieverbruik)
+[Officiële informatie over het Nederlandse energielabel](https://www.energielabel.nl/woningen/)
+[Brounen & Kok (2011), “On the economics of energy labels in the housing market” · Journal of Environmental Economics and Management](https://doi.org/10.1016/j.jeem.2010.11.006)

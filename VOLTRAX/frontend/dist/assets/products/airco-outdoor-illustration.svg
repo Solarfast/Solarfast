@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" role="img" aria-labelledby="title desc">
+  <title id="title">Illustrative air conditioner outdoor unit</title>
+  <desc id="desc">A generic outdoor condenser with a fan grille, shown on a clean light background.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f1f3ee"/>
+      <stop offset="1" stop-color="#dfe5dc"/>
+    </linearGradient>
+    <linearGradient id="case" x1="0" y1="0" x2="0.9" y2="1">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="1" stop-color="#e4e9e5"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="420" rx="24" fill="url(#bg)"/>
+  <ellipse cx="321" cy="354" rx="182" ry="22" fill="#172d21" opacity=".12"/>
+  <path d="M172 89q0-18 19-18h258q19 0 19 18v244q0 16-18 16H190q-18 0-18-16z" fill="#cbd3ce"/>
+  <rect x="184" y="74" width="274" height="266" rx="14" fill="url(#case)" stroke="#b7c1ba" stroke-width="3"/>
+  <rect x="196" y="87" width="250" height="240" rx="9" fill="#f7f8f5" stroke="#d0d7d1" stroke-width="2"/>
+  <circle cx="321" cy="207" r="92" fill="#e8ede9" stroke="#9ca99f" stroke-width="4"/>
+  <circle cx="321" cy="207" r="78" fill="none" stroke="#aeb8b1" stroke-width="3"/>
+  <g fill="#84948a">
+    <path d="M318 137q18 5 23 26l-13 35-12-2-8-30z"/>
+    <path d="M391 205q-5 18-26 23l-35-13 2-12 30-8z"/>
+    <path d="M324 277q-18-5-23-26l13-35 12 2 8 30z"/>
+    <path d="M251 209q5-18 26-23l35 13-2 12-30 8z"/>
+    <path d="M372 155q15 11 12 33l-23 30-11-6 3-31z"/>
+    <path d="M373 258q-11 15-33 12l-30-23 6-11 31 3z"/>
+    <path d="M270 259q-15-11-12-33l23-30 11 6-3 31z"/>
+    <path d="M269 156q11-15 33-12l30 23-6 11-31-3z"/>
+  </g>
+  <circle cx="321" cy="207" r="13" fill="#52675a"/>
+  <path d="M215 352v17m197-17v17" stroke="#617267" stroke-width="8" stroke-linecap="round"/>
+  <path d="M219 369h-22m219 0h-22" stroke="#617267" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="431" cy="96" r="4" fill="#79a287"/>
+  <circle cx="431" cy="110" r="4" fill="#d2a657"/>
+</svg>

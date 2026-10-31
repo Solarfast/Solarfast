@@ -1,0 +1,79 @@
+# SolarFast — Correctie energierapport
+
+## 1. Maak het hoofdresultaat eenduidig
+
+**Vervang de huidige hoofdtekst door:**
+
+Uw SolarFast energierapport
+
+**Geschatte jaarlijkse besparing met thuisbatterij**
+
+€ 848 – € 1.011 per jaar
+
+Op basis van de geselecteerde batterij, uw energieverbruik en de gebruikte rekenaannames.
+
+**Let op:** deze bedragen mogen uitsluitend worden getoond als ze zijn berekend voor hetzelfde contractscenario. Is de berekening gebaseerd op een dynamisch contract, vermeld dit direct onder het bedrag.
+
+## 2. Scheid de contractscenario's
+
+Toon boven de berekening één duidelijke regel:
+
+**Huidig energiecontract:** Vast
+
+**Berekend batterijscenario:** Dynamisch energiecontract
+
+Voeg daaronder toe:
+
+De berekening hieronder gaat uit van een dynamisch energiecontract. De daadwerkelijke besparing kan afwijken als u uw huidige vaste contract behoudt.
+
+## 3. Maak de extra besparing door dynamisch optioneel en afzonderlijk
+
+Titel: **Verschil door een dynamisch energiecontract**
+
+Toelichting:
+
+Dit is het berekende verschil tussen dezelfde batterij met een vast contract en met een dynamisch contract. Dit bedrag is al onderdeel van de totale besparing met dynamisch en wordt niet nogmaals bij het hoofdresultaat opgeteld.
+
+Toon het bedrag uitsluitend als beide scenario's met dezelfde uitgangspunten zijn berekend.
+
+## 4. Gebruik één consistente terugverdientijd
+
+Bereken de terugverdientijd altijd op basis van:
+
+Totale investering inclusief installatie en btw ÷ jaarlijkse netto besparing.
+
+Gebruik geen andere jaarlijkse besparing voor de terugverdientijd dan voor het hoofdresultaat.
+
+## 5. Maak de productberekening transparant
+
+Toon per batterij:
+
+- Minder stroominkoop uit het net (kWh/jaar).
+- Minder teruglevering (kWh/jaar).
+- Batterijverliezen (kWh/jaar).
+- Besparing op stroominkoop (€ / jaar).
+- Effect op terugleverkosten (€ / jaar).
+- Netto voordeel van eventuele energiehandel (€ / jaar).
+- Eventuele contractwijziging afzonderlijk.
+- Totale jaarlijkse besparing (€ / jaar).
+
+Tel iedere financiële component precies één keer mee.
+
+## 6. Pas de tienjaarsberekening aan
+
+Bereken:
+
+Nettoresultaat na tien jaar = som van de jaarlijkse netto voordelen over tien jaar − totale investering.
+
+Als degradatie, veranderende energieprijzen, onderhoud of vervanging niet zijn gemodelleerd, vermeld dat expliciet.
+
+Gebruik geen gegarandeerde opbrengsten of terugverdientijden.
+
+## 7. Validatieregels
+
+- Alle getoonde bedragen moeten uit dezelfde berekeningsuitkomst komen.
+- Geen dubbeltelling tussen zelfverbruik, terugleverkosten en energiehandel.
+- Een dynamisch scenario mag niet worden gepresenteerd als de gegarandeerde opbrengst bij een vast contract.
+- De terugverdientijd en ROI moeten exact aansluiten op het getoonde jaarlijkse netto voordeel.
+- Als de benodigde gegevens ontbreken, toon dan 'Niet berekend' in plaats van een onbevestigd bedrag.
+- Rond bedragen pas af bij de presentatie, niet tussentijds in de berekeningen.

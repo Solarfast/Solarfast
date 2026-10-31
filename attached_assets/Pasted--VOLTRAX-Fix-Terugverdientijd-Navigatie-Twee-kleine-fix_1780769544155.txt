@@ -1,0 +1,114 @@
+# VOLTRAX — Fix: Terugverdientijd + Navigatie
+# Twee kleine fixes, minimale wijzigingen
+
+---
+
+## FIX 1 — Terugverdientijd bug (server.py)
+
+Pas VOLTRAX/backend/server.py aan.
+
+Zoek:
+```python
+    payback_low  = (battery_price / total_annual_high) if total_annual_high > 0 else 99.0
+    payback_high = (battery_price / total_annual_low)  if total_annual_low  > 0 else 99.0
+    payback_low  = max(3.5, payback_low)
+    payback_high = max(payback_low, payback_high)
+```
+
+Vervang met:
+```python
+    payback_low  = (battery_price / total_annual_high) if total_annual_high > 0 else 99.0
+    payback_high = (battery_price / total_annual_low)  if total_annual_low  > 0 else 99.0
+    payback_low  = max(2.5, payback_low)
+    payback_high = max(payback_low + 0.5, payback_high)
+    payback_high = min(payback_high, 12.0)
+```
+
+---
+
+## FIX 2 — Navigatie data bewaren (CalculatorPage.jsx)
+
+Pas VOLTRAX/frontend/src/pages/CalculatorPage.jsx aan.
+
+Zoek:
+```javascript
+  const goPrev = () => { setDir(-1); setStep((s) => Math.max(s - 1, 1)) }
+```
+
+Vervang met:
+```javascript
+  const goPrev = () => {
+    setDir(-1)
+    setStep((s) => Math.max(s - 1, 1))
+  }
+```
+
+Zoek de initiële `formData` state:
+```javascript
+  const [formData, setFormData] = useState({
+    zonneproductie: '',
+    jaarverbruik: '',
+    teruglevering: '',
+    prijsInkoop: '',
+    prijsTeruglevering: '',
+    terugleververgoeding_value: '',
+    terugleververgoeding_unit: 'kWh',
+    terugleverkosten_value: '',
+    terugleverkosten_unit: 'jaar',
+    battery_kWh: 18.6,
+    battery_price: '',
+  })
+```
+
+Vervang met:
+```javascript
+  const savedForm = sessionStorage.getItem('voltrax_form')
+  const [formData, setFormData] = useState(savedForm ? JSON.parse(savedForm) : {
+    zonneproductie: '',
+    jaarverbruik: '',
+    teruglevering: '',
+    prijsInkoop: '',
+    prijsTeruglevering: '',
+    terugleververgoeding_value: '',
+    terugleververgoeding_unit: 'kWh',
+    terugleverkosten_value: '',
+    terugleverkosten_unit: 'jaar',
+    battery_kWh: 18.6,
+    battery_price: '',
+    dynamic_contract: false,
+  })
+```
+
+Zoek direct onder de `update` functie:
+```javascript
+  const update = (key, val) => setFormData((prev) => ({ ...prev, [key]: val }))
+```
+
+Vervang met:
+```javascript
+  const update = (key, val) => setFormData((prev) => {
+    const next = { ...prev, [key]: val }
+    sessionStorage.setItem('voltrax_form', JSON.stringify(next))
+    return next
+  })
+```
+
+Zoek de `handleSubmit` functie en voeg toe na `setLoading(true)`:
+```javascript
+    sessionStorage.removeItem('voltrax_form')
+```
+
+---
+
+## VERWACHT RESULTAAT
+
+Terugverdientijd: 3,5 – 4,2 jaar (niet meer 3,5 – 3,5)
+Navigatie: alle ingevulde waarden blijven bewaard bij terug navigeren
+Na rapport bekijken en "aanpassen": alle waarden nog aanwezig
+
+---
+
+## BELANGRIJK
+
+- Sla op en herstart na wijzigingen
+- Verander NIETS anders

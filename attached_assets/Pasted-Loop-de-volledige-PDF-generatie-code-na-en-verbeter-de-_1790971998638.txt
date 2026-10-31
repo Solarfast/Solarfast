@@ -1,0 +1,61 @@
+Loop de volledige PDF-generatie code na en verbeter de layout-engine. 
+De huidige PDF-export van SolarFast ziet er niet professioneel uit: tekst overlapt, kaarten breken midden door, pagina's worden verkeerd verdeeld en content valt buiten de marges.
+
+Maak een professionele PDF-rendering zoals een commerciële energieadviseur.
+
+Los dit structureel op:
+
+1. Gebruik een echte document-layout structuur:
+- vaste A4 marges
+- vaste header/footer hoogte
+- content moet automatisch binnen beschikbare ruimte blijven
+- nooit tekst buiten een kaart/blok laten vallen
+
+2. Maak alle PDF componenten responsive:
+- kaarten moeten automatisch meegroeien met tekst
+- lange teksten automatisch wrappen
+- geen overflow
+- geen afgesneden regels
+- geen tekst over andere elementen heen
+
+3. Voeg automatische pagina-afhandeling toe:
+- een kaart/blok mag nooit half op een pagina staan
+- gebruik page-break-inside: avoid principe
+- als een sectie niet past → volledig naar volgende pagina verplaatsen
+
+4. Verbeter de financiële overzicht pagina:
+- linker kolom en rechter samenvatting moeten netjes uitlijnen
+- alle bedragen, titels en bullets moeten binnen hun container blijven
+- maak vaste spacing tussen:
+  titel
+  subtitel
+  berekening
+  totaal
+  KPI kaarten
+
+5. Verbeter de energieanalyse pagina:
+- Voor/Na kaarten moeten altijd dezelfde hoogte en structuur hebben
+- alle waarden netjes onder elkaar
+- lange labels afbreken naar 2 regels indien nodig
+- groene kaart mag nooit buiten de pagina lopen
+
+6. Voeg een PDF debug mode toe:
+- log per element:
+  - x positie
+  - y positie
+  - breedte
+  - hoogte
+  - beschikbare ruimte
+- zodat toekomstige overflow automatisch gevonden wordt
+
+7. Test met extreme data:
+- lange productnamen
+- hoge bedragen
+- lange subsidie teksten
+- meerdere producten tegelijk
+- batterij + warmtepomp + zonnepanelen combinatie
+
+De PDF moet eindresultaat hebben alsof hij uit een professioneel CRM/adviesplatform komt.
+
+Belangrijk:
+Niet alleen marges aanpassen. De onderliggende PDF layout moet correct worden opgebouwd met automatische hoogteberekening en paginering.

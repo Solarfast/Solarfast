@@ -1,0 +1,123 @@
+Goed, dit is dezelfde soort fout als bij netkosten. Ik leg het uit alsof je het aan Replit geeft.
+
+⸻
+
+Fix instructie voor Replit – Inkoop stroomkosten model
+
+De huidige berekening van “inkoop stroomkosten” is vaak onjuist omdat het model niet onderscheidt tussen:
+
+* zelfconsumptie (geen inkoop nodig)
+* netafname (wel inkoop)
+* batterijverschuiving (uitgesteld verbruik)
+
+⸻
+
+❌ Wat er fout gaat
+
+1. Het model rekent alsof de klant altijd alles van het net koopt
+    → terwijl een deel direct uit zonnepanelen komt
+2. Het model vergeet dat batterij ook inkoop vermindert
+    → maar niet volledig elimineert
+3. Soms wordt dezelfde kWh zowel als besparing als arbitrage meegenomen
+    → dubbele telling
+
+⸻
+
+⚙️ Correcte logica (moet worden geïmplementeerd)
+
+1. Splits energie in 3 stromen
+
+solar_direct_self_use
+battery_self_use
+grid_import
+
+⸻
+
+2. Inkoopkosten berekening
+
+Alleen grid import mag worden vermenigvuldigd met stroomprijs:
+
+grid_import_kwh = total_consumption - (solar_self_use + battery_self_use)
+electricity_cost = grid_import_kwh * import_price
+
+⸻
+
+3. Belangrijke regel
+
+Battery reduces grid_import, but does NOT reduce total consumption
+
+⸻
+
+4. Correct effect van batterij
+
+Batterij doet alleen dit:
+
+* verschuift zonne-energie naar later gebruik
+* vervangt dure netafname
+* verhoogt zelfconsumptie
+
+Maar:
+
+* geen “extra gratis energie”
+* geen dubbele besparing
+
+⸻
+
+5. Correct baseline vs after model
+
+Zonder batterij:
+
+grid_import = consumption - solar_self_use
+
+Met batterij:
+
+grid_import = consumption - (solar_self_use + shifted_solar_via_battery)
+
+⸻
+
+📊 Wat je tool moet tonen
+
+❌ Fout (huidig gedrag)
+
+“Inkoopkosten dalen + arbitrage + extra besparing op dezelfde kWh”
+
+✔️ Correct gedrag
+
+“Inkoopkosten dalen alleen door minder netafname”
+
+⸻
+
+💰 Belangrijk voor ROI geloofwaardigheid
+
+Inkoopkosten mogen alleen lager worden door:
+
+* hogere zelfconsumptie
+* batterij shifting
+
+Niet door:
+
+* prijs fantasie
+* dubbele berekeningen
+* extra “bonus besparing”
+
+⸻
+
+🔥 Simpele uitleg voor in code comments
+
+You only pay for electricity that comes from the grid.
+Solar and battery usage reduce grid consumption, but do not create extra savings beyond avoided grid purchases.
+
+⸻
+
+🚀 Resultaat na fix
+
+Je model wordt:
+
+* realistischer
+* minder “too good to be true”
+* stabiele ROI range
+* hogere vertrouwen + betere conversie
+
+⸻
+
+Als je wil kan ik hierna ￼ je hele energiemodel (inkoop + export + arbitrage + netkosten) volledig herstructureren tot één clean “bank-grade calculation engine”.

@@ -1,0 +1,1119 @@
+Broer, we gaan dit goed aanpakken. Je wilt niet nóg een losse calculator bouwen. Je wilt dat jouw bestaande aanbodcalculator automatisch de technische berekeningen, energiebesparing, ROI en terugverdientijd uitvoert voor alle producten die je aanbiedt.
+
+Dus als jij bij een klant spouwmuurisolatie, vloerisolatie, dakisolatie, HR++-glas, een airco, een warmtepomp, zonnepanelen of een thuisbatterij selecteert, moet het systeem zelfstandig de juiste berekeningen uitvoeren.
+
+Het belangrijkste is dat je calculator niet zomaar percentages verzint. Hij moet onderscheid maken tussen berekende waarden, onderbouwde schattingen en ontbrekende gegevens. Anders krijg je mooie terugverdientijden die in de praktijk niet kloppen.
+
+Hieronder staat een uitgebreide prompt die je in je ontwikkeltool kunt gebruiken om jouw bestaande aanbod- en ROI-systeem uit te breiden zonder je huidige functionaliteit onnodig te vervangen.
+
+MASTERPROMPT: UITBREIDING BESTAANDE AANBODCALCULATOR MET AUTOMATISCHE ROI, ENERGIEBESPARING EN TERUGVERDIENTIJD
+
+1. ROL EN OPDRACHT
+
+Je bent een senior software engineer, energieadviseur, bouwfysisch rekenspecialist en financieel modelleur, gespecialiseerd in Nederlandse woningverduurzaming.
+
+Je opdracht is om mijn BESTAANDE aanbodcalculator uit te breiden met een betrouwbare, automatische berekeningsmodule voor energiebesparing, investeringsrendement, terugverdientijd en financiële scenario’s.
+
+Mijn huidige systeem bevat al een aanbodomgeving met verschillende producten en verduurzamingsmaatregelen, waaronder onder andere:
+
+* Thuisbatterijen.
+* Zonnepanelen.
+* Warmtepompen.
+* Airco’s.
+* Spouwmuurisolatie.
+* Vloerisolatie.
+* Dakisolatie.
+* Glasverbetering, waaronder HR++-glas.
+* Andere reeds aanwezige producten en diensten.
+
+Dit is geen verzoek om een volledig nieuwe applicatie te bouwen.
+
+Breid de bestaande applicatie uit en behoud alle huidige functionaliteit, productgegevens, gebruikersinstellingen, aanbodstructuur en bestaande berekeningen die correct werken.
+
+Voordat je wijzigingen uitvoert, inspecteer je de bestaande applicatie, de databronnen, de productstructuur en de huidige berekeningslogica.
+
+Identificeer welke functionaliteit al bestaat en hergebruik die waar mogelijk.
+
+Vervang geen bestaande functionaliteit zonder noodzaak.
+
+Maak geen tweede, conflicterende productdatabase en bouw geen dubbele ROI-engine wanneer er al een geschikt onderdeel aanwezig is.
+
+Het eindresultaat moet een geïntegreerde berekeningsmodule zijn die automatisch werkt met het bestaande aanbod.
+
+⸻
+
+2. HOOFDDOEL
+
+Wanneer ik een product of combinatie van producten selecteer in mijn bestaande aanbodomgeving, moet het systeem automatisch berekenen:
+
+1. De totale investering.
+2. De eventuele subsidiabele investering.
+3. De eventuele subsidie, uitsluitend wanneer daarvoor voldoende onderbouwde gegevens beschikbaar zijn.
+4. De netto-investering na toepasselijke subsidie.
+5. Het huidige energieverbruik van de woning.
+6. Het verwachte energieverbruik na de verduurzamingsmaatregel.
+7. De verwachte jaarlijkse energiebesparing.
+8. De jaarlijkse financiële besparing.
+9. De eventuele extra jaarlijkse energiekosten.
+10. De jaarlijkse netto financiële besparing.
+11. De eenvoudige terugverdientijd.
+12. De cumulatieve financiële besparing over 5, 10, 15, 20 en 25 jaar.
+13. De totale financiële kosten of opbrengsten over de gekozen periode.
+14. De verwachte vermindering van het gasverbruik.
+15. De verwachte verandering in het elektriciteitsverbruik.
+16. De eventuele CO₂-reductie.
+17. De belangrijkste onzekerheden in de berekening.
+18. Een realistisch scenario, een voorzichtig scenario en een gunstig scenario.
+
+Niet ieder product heeft al deze uitkomsten nodig.
+
+Gebruik daarom een productspecifiek rekenmodel binnen één centrale berekeningsarchitectuur.
+
+De gebruiker mag niet zelf handmatig formules hoeven in te voeren.
+
+Het systeem moet alle benodigde berekeningen automatisch uitvoeren zodra de benodigde gegevens beschikbaar zijn.
+
+⸻
+
+3. EERSTE STAP: ANALYSEER DE BESTAANDE APPLICATIE
+
+Voordat je gaat programmeren, voer je een technische inventarisatie uit.
+
+Onderzoek:
+
+* Welke programmeertaal en framework worden gebruikt?
+* Welke database wordt gebruikt?
+* Hoe zijn producten opgeslagen?
+* Hoe worden producten aan een aanbod gekoppeld?
+* Hoe worden verkoopprijzen en installatiekosten opgeslagen?
+* Bestaat er al een energieverbruiksberekening?
+* Bestaat er al een ROI-berekening?
+* Welke invoervelden bestaan er al voor woningen?
+* Hoe worden gebruikers, klanten en offertes opgeslagen?
+* Welke berekeningen vinden momenteel in de frontend plaats?
+* Welke berekeningen vinden op de backend plaats?
+* Welke gegevens worden opgeslagen en opnieuw gebruikt?
+* Zijn er al externe API’s of databronnen gekoppeld?
+
+Maak eerst een overzicht van de bestaande architectuur.
+
+Gebruik bestaande gegevens en functionaliteit waar mogelijk.
+
+Als er al een correcte berekening bestaat, verbeter of hergebruik die dan in plaats van dezelfde functionaliteit opnieuw te bouwen.
+
+Voer de uitbreiding stapsgewijs uit.
+
+Breek bestaande functionaliteit niet af.
+
+⸻
+
+4. UNIVERSELE WONINGINVOER
+
+Maak gebruik van de bestaande woninggegevens als die al beschikbaar zijn.
+
+Ontbreken gegevens, voeg dan een logisch invoerproces toe.
+
+Verzamel waar relevant de volgende gegevens:
+
+Algemene woninggegevens
+
+* Postcode of locatie, indien nodig voor klimaat- en subsidierelevante gegevens.
+* Bouwjaar.
+* Woningtype.
+* Appartement, tussenwoning, hoekwoning, twee-onder-een-kapwoning of vrijstaande woning.
+* Woonoppervlakte in m².
+* Aantal bewoners, indien relevant.
+* Huidig verwarmingssysteem.
+* Jaarlijks gasverbruik in m³.
+* Jaarlijks elektriciteitsverbruik in kWh.
+* Huidige gasprijs in €/m³.
+* Huidige elektriciteitsprijs in €/kWh.
+* Eventuele vaste energiekosten die aantoonbaar veranderen door de maatregel.
+* Aanwezige zonnepanelen.
+* Aanwezige thuisbatterij.
+* Aanwezige warmtepomp.
+* Aanwezige airco die kan verwarmen.
+* Huidige isolatiestatus.
+* Eventuele elektrische auto.
+* Aanwezigheid van vloerverwarming.
+* Eventuele toekomstige verduurzamingsplannen.
+
+Niet ieder veld is verplicht voor ieder product.
+
+Vraag alleen om gegevens die nodig zijn voor de geselecteerde berekening.
+
+Maak onderscheid tussen:
+
+1. Werkelijk gemeten gegevens.
+2. Gegevens die de gebruiker heeft opgegeven.
+3. Waarden die afkomstig zijn uit technische documentatie.
+4. Geschatte waarden op basis van woningkenmerken.
+5. Ontbrekende gegevens.
+
+Sla de herkomst van belangrijke invoerwaarden op.
+
+Als een gegeven ontbreekt, mag het systeem niet stilzwijgend doen alsof de waarde bekend is.
+
+Gebruik alleen een standaardwaarde wanneer daarvoor een verdedigbare, gedocumenteerde basis bestaat.
+
+Toon wanneer een berekening op aannames berust.
+
+⸻
+
+5. PRODUCTMODULE: SPOUWMUURISOLATIE
+
+Ontwikkel een automatische ROI-module voor spouwmuurisolatie.
+
+Benodigde invoer
+
+* Woningtype.
+* Bouwjaar.
+* Geveloppervlakte.
+* Eventuele raam- en deuropeningen.
+* Huidige spouwmuurconstructie.
+* Huidige isolatiestatus.
+* Type bestaand isolatiemateriaal, indien bekend.
+* Spouwbreedte, indien bekend.
+* Verwachte isolatieverbetering.
+* Totale installatiekosten.
+* Eventuele toepasselijke subsidie.
+* Huidig gasverbruik.
+* Huidige verwarmingsinstallatie.
+* Gasprijs.
+
+Berekeningsmethode
+
+Bepaal de bestaande thermische eigenschappen van de gevel en de verwachte eigenschappen na isolatie.
+
+Gebruik waar mogelijk bekende materiaalgegevens, constructiegegevens en gedocumenteerde U-waarden.
+
+Als de constructie onvoldoende bekend is, gebruik dan een gevalideerde schattingsmethode of vraag aanvullende informatie.
+
+Bereken de verwachte vermindering van de warmtevraag met een geschikte gebouwfysische methode.
+
+Houd rekening met:
+
+* Geveloppervlakte.
+* Bestaande thermische eigenschappen.
+* Verwachte thermische eigenschappen na isolatie.
+* Klimaatcondities.
+* Warmteverlies via andere constructies.
+* Ventilatie en infiltratie voor zover relevant.
+* Huidig verwarmingssysteem.
+* Rendement van de warmteopwekker.
+* Werkelijk of geschat gebruik van de woning.
+
+Zet de verminderde warmtevraag om naar een verwachte vermindering van het gasverbruik of andere energie-input.
+
+Gebruik hiervoor het daadwerkelijke rendement van het verwarmingssysteem of een onderbouwde schatting.
+
+Bereken vervolgens de jaarlijkse financiële besparing.
+
+Gebruik geen universeel besparingspercentage voor alle woningen.
+
+Voorkom dat de berekende besparing hoger uitkomt dan thermisch en energetisch verdedigbaar is.
+
+⸻
+
+6. PRODUCTMODULE: VLOERISOLATIE
+
+Ontwikkel een afzonderlijke rekenmodule voor vloerisolatie.
+
+Benodigde invoer
+
+* Oppervlakte van de beganegrondvloer.
+* Type vloer.
+* Betonvloer of houten vloer, indien bekend.
+* Aanwezigheid van een kruipruimte.
+* Bestaande isolatie.
+* Dikte van bestaande isolatie.
+* Type bestaand isolatiemateriaal.
+* Voorgesteld isolatiemateriaal.
+* Dikte van nieuwe isolatie.
+* Kosten van materiaal en installatie.
+* Verwarmingssysteem.
+* Huidig gasverbruik.
+* Energieprijzen.
+
+Berekeningsmethode
+
+Bepaal de thermische prestaties van de bestaande vloer en de verbeterde vloer.
+
+Houd rekening met het type vloer en de relevante grond- en randcondities.
+
+Behandel een vloer op de grond niet alsof deze thermisch identiek is aan een vloer boven een onverwarmde buitenruimte.
+
+Gebruik een geschikte berekeningsmethode voor de betreffende vloerconstructie.
+
+Bereken de verwachte vermindering van de warmtevraag.
+
+Zet deze vervolgens om naar energiebesparing en financiële besparing.
+
+Houd rekening met het feit dat het werkelijke resultaat afhankelijk is van de bestaande constructie en het gebruik van de woning.
+
+⸻
+
+7. PRODUCTMODULE: DAKISOLATIE
+
+Ondersteun minimaal:
+
+* Hellend dak.
+* Plat dak.
+* Zoldervloerisolatie.
+
+Maak onderscheid tussen het isoleren van het dak en het isoleren van de zoldervloer.
+
+Vraag relevante informatie over:
+
+* Oppervlakte.
+* Huidige dakopbouw.
+* Bestaande isolatie.
+* Dikte en materiaal.
+* Nieuwe isolatielaag.
+* Verwarmde en onverwarmde ruimtes.
+* Installatiekosten.
+* Huidig energieverbruik.
+* Verwarmingssysteem.
+
+Bereken de verwachte thermische verbetering.
+
+Gebruik geen berekening die een onverwarmde zolder automatisch behandelt als een volledig verwarmde ruimte.
+
+Houd rekening met de grenzen van de verwarmde zone van de woning.
+
+Bereken de jaarlijkse vermindering van de warmtevraag en de daaruit voortvloeiende financiële besparing.
+
+⸻
+
+8. PRODUCTMODULE: GLASVERVANGING EN HR++-GLAS
+
+Deze module moet verschillende bestaande en nieuwe glassoorten ondersteunen.
+
+Minimaal:
+
+* Enkel glas.
+* Oud standaard dubbel glas.
+* HR-glas.
+* HR++-glas.
+* Triple glas.
+* Onbekend glastype.
+
+Benodigde invoer
+
+* Bestaand glastype.
+* Nieuw glastype.
+* Glasoppervlakte in m².
+* Aantal ramen, indien relevant.
+* Type kozijn.
+* Blijven de bestaande kozijnen behouden?
+* Worden kozijnen vervangen?
+* Bestaande U-waarde, indien bekend.
+* Nieuwe U-waarde volgens productdocumentatie.
+* Installatiekosten.
+* Eventuele toepasselijke subsidie.
+* Verwarmingssysteem.
+* Huidig energieverbruik.
+
+Berekeningsmethode
+
+Gebruik productspecifieke technische gegevens wanneer beschikbaar.
+
+Maak onderscheid tussen:
+
+* De U-waarde van het glas.
+* De U-waarde van het complete raam, inclusief kozijn.
+* De thermische verbetering van de volledige raamconstructie.
+
+Gebruik geen U-waarde van glas als vervanging voor de U-waarde van het complete raam zonder dit onderscheid expliciet te maken.
+
+Bereken de verwachte vermindering van de warmtevraag.
+
+Houd rekening met de bestaande situatie, het raamoppervlak en het verwarmingssysteem.
+
+Als het bestaande glastype onbekend is, vraag om aanvullende informatie of toon een voorlopige berekening met een duidelijke onzekerheidsmarge.
+
+Ga er nooit automatisch van uit dat iedere woning met oud dubbel glas dezelfde besparing behaalt.
+
+⸻
+
+9. PRODUCTMODULE: AIRCO
+
+Behandel een airco die kan verwarmen als een lucht-luchtwarmtepomp.
+
+Maak onderscheid tussen:
+
+* Alleen koelen.
+* Koelen en verwarmen.
+* Eén binnenunit.
+* Meerdere binnenunits.
+* Eén buitendeel.
+* Meerdere systemen.
+* Aanvullende verwarming.
+* Volledige of gedeeltelijke ruimteverwarming.
+
+Benodigde invoer
+
+* Type airco.
+* Merk en model.
+* Nominaal verwarmingsvermogen.
+* Nominaal koelvermogen.
+* SCOP, indien beschikbaar.
+* SEER, indien relevant.
+* Verwachte jaarlijkse verwarmingsvraag.
+* Verwachte jaarlijkse koelvraag.
+* Verwarmde ruimtes.
+* Gebruiksuren of gebruiksprofiel.
+* Huidige warmtebron.
+* Huidig gasverbruik.
+* Elektriciteitsprijs.
+* Gasprijs.
+* Installatiekosten.
+
+Berekeningsmethode
+
+Gebruik productspecifieke prestatiegegevens wanneer beschikbaar.
+
+Gebruik bij voorkeur seizoensprestaties die passen bij het klimaat en het verwachte gebruik.
+
+Bereken het elektriciteitsverbruik voor verwarming en koeling afzonderlijk.
+
+Bereken vervolgens de financiële gevolgen ten opzichte van de bestaande situatie.
+
+Als de airco een deel van de gasgestookte verwarming vervangt, bereken dan hoeveel gas daadwerkelijk wordt vermeden.
+
+Ga er niet automatisch van uit dat de volledige bestaande gasrekening verdwijnt.
+
+Houd rekening met:
+
+* De ruimtes waarin de airco daadwerkelijk wordt gebruikt.
+* De warmtebehoefte van die ruimtes.
+* Het bestaande verwarmingssysteem.
+* De seizoensgebonden efficiëntie.
+* Eventuele extra elektriciteitskosten.
+* De vraag of koeling daadwerkelijk wordt gebruikt.
+
+Tel de besparing op gas niet op bij een niet-bestaande besparing op elektriciteit.
+
+Bereken de netto financiële impact.
+
+⸻
+
+10. PRODUCTMODULE: WARMTEPOMP
+
+Ondersteun waar relevant:
+
+* Hybride warmtepomp.
+* All-electric warmtepomp.
+* Lucht-waterwarmtepomp.
+* Andere warmtepomptypen die al in het bestaande aanbod aanwezig zijn.
+
+Benodigde invoer
+
+* Type warmtepomp.
+* Merk en model.
+* Verwarmingsvermogen.
+* SCOP of geschikte seizoensprestatie.
+* Huidige verwarmingsinstallatie.
+* Jaarlijks gasverbruik.
+* Gasverbruik voor ruimteverwarming.
+* Gasverbruik voor warm tapwater, indien relevant.
+* Bestaande isolatie.
+* Verwarmingssysteem.
+* Aanvoertemperatuur.
+* Eventuele vloerverwarming.
+* Verwachte warmtevraag.
+* Elektriciteitsprijs.
+* Gasprijs.
+* Installatiekosten.
+* Eventuele aanpassingen aan de meterkast of elektrische installatie.
+
+Berekeningsmethode
+
+Bepaal eerst welk deel van de warmtevraag de warmtepomp daadwerkelijk kan leveren.
+
+Bereken vervolgens het benodigde elektriciteitsverbruik op basis van de warmtevraag en de toepasselijke seizoensprestatie.
+
+Maak onderscheid tussen:
+
+* Ruimteverwarming.
+* Warm tapwater.
+* Eventuele aanvullende verwarming.
+* Elektriciteitsverbruik van de warmtepomp.
+* Resterend gasverbruik.
+
+Bij een hybride warmtepomp mag het resterende gasverbruik niet automatisch op nul worden gezet.
+
+Bij een all-electric warmtepomp moet rekening worden gehouden met het feit dat de woning geschikt moet zijn voor de beoogde toepassing.
+
+Bereken de verandering in totale energiekosten ten opzichte van de bestaande installatie.
+
+Voeg de relevante installatiekosten toe aan de investering.
+
+Voorkom dat een warmtepompbesparing en een isolatiebesparing dubbel worden geteld wanneer beide maatregelen worden geselecteerd.
+
+⸻
+
+11. PRODUCTMODULE: ZONNEPANELEN
+
+Ondersteun alle bestaande zonnepanelenproducten in de aanbodomgeving.
+
+Benodigde invoer
+
+* Aantal panelen.
+* Vermogen per paneel in Wp.
+* Totaal geïnstalleerd vermogen.
+* Oriëntatie.
+* Hellingshoek.
+* Locatie.
+* Schaduw.
+* Verwachte jaarlijkse productie.
+* Huidig elektriciteitsverbruik.
+* Verwacht eigen verbruik.
+* Teruglevering.
+* Elektriciteitsprijs.
+* Terugleververgoeding.
+* Eventuele leverancierskosten die daadwerkelijk van toepassing zijn.
+* Installatiekosten.
+* Eventuele bestaande zonnepanelen.
+
+Berekeningsmethode
+
+Gebruik een geschikte opbrengstberekening op basis van locatie, oriëntatie, hellingshoek, schaduw en systeemverliezen.
+
+Gebruik gemeten of gedocumenteerde productiegegevens wanneer die beschikbaar zijn.
+
+Bereken de verwachte jaarlijkse productie.
+
+Verdeel deze productie over:
+
+1. Direct eigen verbruik.
+2. Eventuele opslag in een thuisbatterij.
+3. Teruglevering aan het elektriciteitsnet.
+
+Bereken de financiële waarde van elk onderdeel afzonderlijk.
+
+Gebruik actuele, relevante tarieven wanneer deze beschikbaar zijn.
+
+Als de toekomstige tarieven onbekend zijn, gebruik dan expliciete scenario’s.
+
+Neem niet aan dat iedere opgewekte kWh evenveel waard is.
+
+Voorkom dat dezelfde zonne-energie tegelijkertijd wordt gewaardeerd als direct eigen verbruik, opgeslagen energie en teruglevering.
+
+⸻
+
+12. PRODUCTMODULE: THUISBATTERIJ
+
+Ondersteun alle thuisbatterijproducten die in de bestaande aanbodomgeving beschikbaar zijn.
+
+Benodigde invoer
+
+* Merk en model.
+* Nominale batterijcapaciteit in kWh.
+* Bruikbare capaciteit in kWh.
+* Laadvermogen.
+* Ontlaadvermogen.
+* Laad- en ontlaadrendement.
+* Aantal laadcycli of verwachte gebruiksintensiteit.
+* Aanwezige zonnepanelen.
+* Jaarlijkse zonneproductie.
+* Huidig elektriciteitsverbruik.
+* Verbruiksprofiel.
+* Energiecontract.
+* Dynamisch of vast contract.
+* Inkoopprijzen.
+* Terugleververgoeding.
+* Eventuele terugleverkosten.
+* Eventuele kosten van energiemanagement.
+* Installatiekosten.
+
+Berekeningsmethode
+
+Bepaal welk deel van de beschikbare zonne-energie anders zou worden teruggeleverd en daadwerkelijk beschikbaar is voor opslag.
+
+Bereken hoeveel energie de batterij kan opslaan en later weer kan leveren.
+
+Houd rekening met:
+
+* Bruikbare batterijcapaciteit.
+* Laad- en ontlaadvermogen.
+* Rendementsverliezen.
+* Beschikbare zonneproductie.
+* Het tijdstip van productie.
+* Het tijdstip van verbruik.
+* Energieprijzen op relevante momenten.
+* De beperkingen van het energiecontract.
+
+Bereken de financiële waarde van de opgeslagen en later gebruikte energie.
+
+Als dynamische handel wordt ondersteund, bereken dan de opbrengsten op basis van een realistisch gebruiksmodel en relevante kosten.
+
+Veronderstel geen gegarandeerde handelsopbrengsten.
+
+Neem alleen inkomsten mee die onder de gekozen aannames daadwerkelijk berekend kunnen worden.
+
+Maak onderscheid tussen:
+
+* Besparing door meer eigen zonne-energie te gebruiken.
+* Besparing door verschuiving van elektriciteitsverbruik.
+* Eventuele opbrengsten uit energiemanagement.
+* Eventuele kosten van energiemanagement.
+* Verliezen door laden en ontladen.
+
+Voorkom dat dezelfde besparing meerdere keren wordt meegeteld.
+
+⸻
+
+13. UNIVERSELE U-WAARDEMODULE
+
+Implementeer een centrale module voor thermische eigenschappen van constructies.
+
+Deze module moet minimaal kunnen omgaan met:
+
+* Spouwmuren.
+* Gevels.
+* Beganegrondvloeren.
+* Daken.
+* Zoldervloeren.
+* Glas en raamconstructies.
+
+Gebruik voor bekende constructies de relevante materiaalgegevens en toepasselijke berekeningsmethoden.
+
+Sla per constructie op:
+
+* Constructietype.
+* Materiaallagen.
+* Materiaalsoorten.
+* Dikte per laag.
+* Warmtegeleidingscoëfficiënt per materiaal.
+* Bestaande isolatielaag.
+* Nieuwe isolatielaag.
+* Eventuele relevante oppervlakteweerstanden.
+* Berekende of gedocumenteerde U-waarde.
+* Bron van de gebruikte waarden.
+* Datum van de gegevens.
+* Onzekerheidsniveau.
+
+Bereken U-waarden automatisch wanneer de invoer daarvoor voldoende is.
+
+Als de constructie niet volledig bekend is, mag het systeem geen schijnnauwkeurige U-waarde presenteren.
+
+Gebruik in dat geval een gedocumenteerde standaardconstructie of vraag aanvullende gegevens.
+
+Maak onderscheid tussen een theoretische U-waarde van een eenvoudige constructie en de werkelijke thermische prestaties van een gebouwonderdeel waarin bijvoorbeeld koudebruggen of afwijkende constructiedetails voorkomen.
+
+Gebruik geen willekeurige U-waarden die alleen bedoeld zijn om een aantrekkelijkere ROI te tonen.
+
+⸻
+
+14. BELANGRIJK: VAN THERMISCHE VERBETERING NAAR ENERGIEBESPARING
+
+Een betere U-waarde betekent minder warmtedoorgang, maar bepaalt niet zelfstandig de jaarlijkse energiebesparing van een woning.
+
+Ontwikkel daarom een afzonderlijke berekeningslaag die de thermische verbetering omzet naar een verwachte vermindering van de warmtevraag.
+
+Gebruik hiervoor een geschikte, gedocumenteerde methode.
+
+Houd waar relevant rekening met:
+
+* Oppervlakte van de constructie.
+* Bestaande thermische prestaties.
+* Nieuwe thermische prestaties.
+* Klimaatcondities.
+* Verwarmingsperiode.
+* Verwarmde vloeroppervlakte.
+* Warmteverlies door andere constructies.
+* Ventilatie en infiltratie.
+* Interne warmtelasten.
+* Zonnewinsten.
+* Verwarmingsregeling.
+* Gebruikersgedrag.
+* Het type warmteopwekker.
+
+Wanneer onvoldoende gegevens beschikbaar zijn voor een volledige gebouwberekening, gebruik dan een onderbouwde vereenvoudigde methode.
+
+Documenteer de beperkingen.
+
+Presenteer een vereenvoudigde berekening niet als een exacte gebouwsimulatie.
+
+Gebruik geen universele besparingspercentages voor alle woningtypen.
+
+⸻
+
+15. MEERDERE MAATREGELEN TEGELIJK BEREKENEN
+
+Dit is een van de belangrijkste onderdelen van de gehele uitbreiding.
+
+Een woning kan meerdere verduurzamingsmaatregelen tegelijk krijgen.
+
+Bijvoorbeeld:
+
+* Spouwmuurisolatie.
+* Dakisolatie.
+* Vloerisolatie.
+* HR++-glas.
+* Warmtepomp.
+* Vloerverwarming.
+* Zonnepanelen.
+* Thuisbatterij.
+* Airco.
+
+Het systeem moet deze maatregelen als één samenhangend energiesysteem kunnen analyseren.
+
+Verplichte regel: voorkom dubbeltelling
+
+Wanneer een klant zowel dakisolatie als een warmtepomp selecteert, mag de berekende besparing niet bestaan uit twee onafhankelijk berekende besparingen die vervolgens zonder correctie bij elkaar worden opgeteld.
+
+De isolatie verlaagt de warmtevraag.
+
+De warmtepomp moet vervolgens worden doorgerekend op basis van de nieuwe warmtevraag.
+
+Op dezelfde manier beïnvloeden zonnepanelen en een thuisbatterij elkaar.
+
+Een batterij kan het eigen verbruik van zonne-energie veranderen, maar kan geen energie opslaan die niet beschikbaar is.
+
+Een airco die verwarmt kan een deel van het gasverbruik verminderen, maar alleen voor zover de warmtevoorziening daadwerkelijk wordt vervangen.
+
+Bereken daarom eerst de bestaande situatie en vervolgens de gecombineerde nieuwe situatie.
+
+Gebruik het verschil tussen beide situaties als basis voor de financiële besparing.
+
+⸻
+
+16. FINANCIËLE BEREKENINGEN
+
+Gebruik één centrale financiële rekenmodule.
+
+Alle productmodules moeten dezelfde definities gebruiken.
+
+Totale investering
+
+Bereken de volledige investering op basis van de bestaande productprijzen en relevante installatiekosten.
+
+Maak duidelijk welke kosten wel en niet zijn opgenomen.
+
+Netto-investering
+
+Trek alleen subsidies of andere financiële bijdragen af wanneer de toepasselijkheid voldoende is onderbouwd.
+
+Maak onderscheid tussen:
+
+* Bruto-investering.
+* Eventuele subsidie.
+* Netto-investering.
+* Eventuele financieringskosten.
+
+Presenteer een subsidie niet als gegarandeerd wanneer de klant nog niet aan de voorwaarden voldoet of de subsidie niet is bevestigd.
+
+Jaarlijkse financiële besparing
+
+Bereken de verandering in jaarlijkse energiekosten.
+
+Neem daarbij alle relevante extra en vermeden kosten mee.
+
+Voor een verwarmingsmaatregel moet bijvoorbeeld niet alleen naar de gasbesparing worden gekeken, maar ook naar de eventuele stijging van het elektriciteitsverbruik.
+
+De jaarlijkse netto besparing is het verschil tussen de jaarlijkse energiekosten van de bestaande en de nieuwe situatie.
+
+Houd overige kosten apart wanneer deze niet betrouwbaar kunnen worden vastgesteld.
+
+Eenvoudige terugverdientijd
+
+Bereken de eenvoudige terugverdientijd door de netto-investering te delen door de positieve jaarlijkse netto besparing.
+
+Als de jaarlijkse netto besparing nul of negatief is, presenteer dan geen positieve terugverdientijd.
+
+Geef in dat geval duidelijk aan dat de investering op basis van de huidige aannames niet wordt terugverdiend via de berekende jaarlijkse besparing.
+
+Cumulatieve besparing
+
+Bereken de financiële gevolgen over:
+
+* 5 jaar.
+* 10 jaar.
+* 15 jaar.
+* 20 jaar.
+* 25 jaar.
+
+Gebruik consistente aannames over energieprijzen, onderhoud, vervanging en eventuele opbrengsten.
+
+Maak onderscheid tussen:
+
+1. Bruto energiebesparing.
+2. Netto jaarlijkse besparing.
+3. Cumulatieve operationele besparing.
+4. Netto financieel resultaat na investering.
+5. Eventuele netto contante waarde wanneer daarvoor een discontovoet is ingesteld.
+
+Tel de initiële investering niet dubbel mee.
+
+⸻
+
+17. ENERGIEPRIJZEN EN TOEKOMSTIGE SCENARIO’S
+
+Gebruik niet automatisch één vaste energieprijs voor de gehele levensduur van een installatie.
+
+Ondersteun minimaal drie scenario’s:
+
+Voorzichtig scenario
+
+Gebruik aannames die leiden tot een lagere financiële besparing, voor zover deze aannames verdedigbaar zijn.
+
+Realistisch scenario
+
+Gebruik de best onderbouwde uitgangspunten die beschikbaar zijn.
+
+Gunstig scenario
+
+Gebruik een gunstiger, maar nog steeds verdedigbaar scenario.
+
+Laat gebruikers of beheerders de relevante aannames aanpassen.
+
+Leg vast:
+
+* Gasprijs.
+* Elektriciteitsprijs.
+* Terugleververgoeding.
+* Eventuele terugleverkosten.
+* Verwachte prijsontwikkeling.
+* Onderhoudskosten.
+* Vervangingskosten.
+* Eventuele degradatie van systemen.
+* Discontovoet voor financiële waarderingen.
+
+Gebruik geen onbevestigde voorspellingen als feiten.
+
+Wanneer actuele marktgegevens nodig zijn, gebruik dan een betrouwbare beschikbare bron en registreer de datum waarop de gegevens zijn opgehaald.
+
+Als actuele gegevens niet beschikbaar zijn, toon dan welke aannames zijn gebruikt.
+
+⸻
+
+18. SUBSIDIES EN FINANCIËLE REGELINGEN
+
+Ondersteun subsidies en financiële regelingen die relevant zijn voor Nederlandse woningeigenaren.
+
+Gebruik actuele officiële bronnen wanneer deze beschikbaar zijn.
+
+Controleer per maatregel:
+
+* Of de regeling bestaat.
+* Welke voorwaarden gelden.
+* Welke woningtypen in aanmerking komen.
+* Welke werkzaamheden subsidiabel zijn.
+* Of er eisen gelden aan uitvoering en installatie.
+* Of combinaties van maatregelen relevant zijn.
+* Welke aanvraagtermijnen gelden.
+* Of de subsidie afhankelijk is van de specifieke situatie.
+
+Maak onderscheid tussen:
+
+* Potentieel subsidiabel.
+* Voorlopig berekende subsidie.
+* Bevestigde subsidie.
+* Geen subsidie vastgesteld.
+
+Als voorwaarden niet kunnen worden gecontroleerd, toon dan geen subsidie als gegarandeerde besparing.
+
+Gebruik geen verouderde subsidiebedragen zonder waarschuwing.
+
+Sla de bron en controledatum op.
+
+⸻
+
+19. CO₂-BEREKENING
+
+Bereken waar mogelijk de verwachte verandering in CO₂-uitstoot.
+
+Gebruik hiervoor onderbouwde emissiefactoren die passen bij de betreffende energiedrager en berekeningsmethode.
+
+Maak onderscheid tussen:
+
+* Vermeden aardgasverbruik.
+* Veranderd elektriciteitsverbruik.
+* Eventuele verandering in teruglevering.
+* Eventuele vermeden netafname.
+
+Voorkom dat dezelfde vermeden uitstoot dubbel wordt geteld.
+
+Presenteer de uitkomst als een schatting wanneer de benodigde gegevens of emissiefactoren onzeker zijn.
+
+⸻
+
+20. ONZEKERHEID EN BETROUWBAARHEID
+
+De calculator moet eerlijk zijn over de nauwkeurigheid van zijn uitkomsten.
+
+Maak per berekening inzichtelijk:
+
+* Welke invoerwaarden bekend zijn.
+* Welke waarden zijn geschat.
+* Welke bronnen zijn gebruikt.
+* Welke aannames de uitkomst het sterkst beïnvloeden.
+* Welke aanvullende gegevens de berekening nauwkeuriger zouden maken.
+
+Gebruik waar mogelijk een onzekerheidsmarge of bandbreedte.
+
+Maak bijvoorbeeld onderscheid tussen:
+
+* Indicatieve berekening.
+* Berekening op basis van woninggegevens.
+* Berekening op basis van technische productgegevens.
+* Gedetailleerde berekening op basis van een geschikte gebouw- of energiesimulatie.
+
+Gebruik geen onterechte decimalen.
+
+Een berekende terugverdientijd van 11,372 jaar is niet zinvol wanneer het energieverbruik en de jaarlijkse besparing slechts geschat zijn.
+
+Rond resultaten af op een niveau dat past bij de betrouwbaarheid van de invoer.
+
+⸻
+
+21. GEBRUIKERSINTERFACE
+
+Integreer de resultaten in de bestaande aanbodomgeving.
+
+Maak het eenvoudig om een klant en woning te selecteren en vervolgens één of meerdere maatregelen toe te voegen.
+
+Toon per maatregel minimaal:
+
+* Productnaam.
+* Totale investering.
+* Eventuele subsidie.
+* Netto-investering.
+* Verwachte jaarlijkse besparing.
+* Extra jaarlijkse energiekosten, indien relevant.
+* Jaarlijkse netto financiële besparing.
+* Eenvoudige terugverdientijd.
+* Resultaat over 10, 15 en 25 jaar.
+* Belangrijkste aannames.
+* Betrouwbaarheid van de berekening.
+
+Toon daarnaast een overzicht van de totale combinatie van geselecteerde maatregelen.
+
+Laat zien:
+
+* Totale investering.
+* Totale jaarlijkse energiekosten vóór verduurzaming.
+* Verwachte jaarlijkse energiekosten na verduurzaming.
+* Totale jaarlijkse netto besparing.
+* Verwacht gasverbruik na verduurzaming.
+* Verwacht elektriciteitsverbruik na verduurzaming.
+* Terugverdientijd van het complete pakket.
+* Cumulatief financieel resultaat.
+
+Zorg voor een duidelijke interface zonder onnodige technische complexiteit.
+
+Technische informatie moet beschikbaar zijn voor controle, maar de standaardweergave moet begrijpelijk blijven voor een verkoper.
+
+⸻
+
+22. GEGEVENSSTRUCTUUR EN TRACEERBAARHEID
+
+Zorg ervoor dat iedere berekening reproduceerbaar is.
+
+Sla per berekening minimaal op:
+
+* Klant- of woningreferentie.
+* Geselecteerde producten.
+* Productconfiguraties.
+* Gebruikte prijzen.
+* Invoerwaarden.
+* Gebruikte aannames.
+* Bronnen van technische gegevens.
+* Versie van het rekenmodel.
+* Datum van berekening.
+* Berekende resultaten.
+
+Sla geen willekeurige uitkomst op zonder de gebruikte invoer en rekenmethode vast te leggen.
+
+Wanneer een productprijs, technische specificatie of energieprijs verandert, moet duidelijk zijn welke versie voor een bestaande offerte is gebruikt.
+
+Voorkom dat het openen van een oude offerte ongemerkt andere resultaten oplevert zonder dat de berekening opnieuw wordt uitgevoerd.
+
+⸻
+
+23. VALIDATIE EN TESTS
+
+Dit onderdeel is verplicht.
+
+De calculator mag niet alleen een aantrekkelijke interface hebben; de onderliggende berekeningen moeten aantoonbaar consistent werken.
+
+Ontwikkel automatische tests voor de berekeningslogica.
+
+Test minimaal de volgende situaties:
+
+Test 1: nul investering
+
+Controleer hoe het systeem omgaat met een investering van nul euro.
+
+Test 2: geen energiebesparing
+
+Controleer of het systeem voorkomt dat een terugverdientijd wordt berekend wanneer er geen positieve netto besparing is.
+
+Test 3: negatieve netto besparing
+
+Controleer of extra energiekosten correct worden verwerkt.
+
+Test 4: ontbrekende gegevens
+
+Controleer of het systeem ontbrekende waarden detecteert en geen onterechte precisie toont.
+
+Test 5: isolatie en warmtepomp
+
+Controleer of de gecombineerde besparing correct wordt berekend zonder dubbeltelling.
+
+Test 6: zonnepanelen en thuisbatterij
+
+Controleer of energie niet dubbel wordt gewaardeerd als eigen verbruik en teruglevering.
+
+Test 7: hybride warmtepomp
+
+Controleer of het resterende gasverbruik wordt meegenomen.
+
+Test 8: airco als verwarming
+
+Controleer of alleen het daadwerkelijk vervangen verwarmingsverbruik als besparing wordt meegerekend.
+
+Test 9: subsidie
+
+Controleer of een niet-bevestigde subsidie niet als gegarandeerd bedrag wordt gepresenteerd.
+
+Test 10: energieprijzen
+
+Controleer of gewijzigde energieprijzen leiden tot consistente nieuwe financiële uitkomsten.
+
+Test 11: productwijzigingen
+
+Controleer of een gewijzigd productvermogen, rendement of investeringsbedrag correct wordt verwerkt.
+
+Test 12: regressie
+
+Controleer of bestaande producten, offertes en berekeningen blijven werken.
+
+Voeg daarnaast referentietests toe met vooraf gecontroleerde rekenvoorbeelden.
+
+Laat de uitkomsten controleren door vergelijking met de verwachte resultaten van de gebruikte berekeningsmethode.
+
+Een test die alleen controleert of er een getal wordt weergegeven, is niet voldoende.
+
+⸻
+
+24. REGELS DIE NOOIT MOGEN WORDEN OVERTREDEN
+
+1. Verzin nooit technische specificaties.
+2. Verzin nooit actuele energieprijzen.
+3. Verzin nooit subsidiebedragen.
+4. Verzin nooit gegarandeerde besparingspercentages.
+5. Bereken geen exacte U-waarde als de benodigde constructiegegevens ontbreken.
+6. Presenteer een schatting niet als een gemeten waarde.
+7. Tel dezelfde energiebesparing nooit twee keer mee.
+8. Bereken geen terugverdientijd op basis van bruto besparing wanneer extra energiekosten niet zijn afgetrokken.
+9. Zet het gasverbruik niet automatisch op nul bij een hybride warmtepomp.
+10. Neem geen gegarandeerde handelsopbrengsten van een thuisbatterij aan.
+11. Waardeer zonne-energie niet dubbel.
+12. Verberg geen negatieve financiële uitkomsten.
+13. Presenteer een gunstig scenario niet als de verwachte uitkomst.
+14. Wijzig bestaande productprijzen of offertes niet ongemerkt.
+15. Verwijder geen bestaande functionaliteit zonder noodzaak.
+16. Gebruik geen fictieve meetgegevens om ontbrekende invoer te maskeren.
+17. Gebruik voor iedere berekening een consistente definitie van de investering en de jaarlijkse netto besparing.
+18. Maak duidelijk welke berekeningen indicatief zijn.
+
+⸻
+
+25. OPLEVERING
+
+Voer de uitbreiding daadwerkelijk uit in de bestaande applicatie.
+
+Lever niet uitsluitend een ontwerp, beschrijving of pseudocode op wanneer de ontwikkelomgeving de daadwerkelijke implementatie ondersteunt.
+
+Werk in deze volgorde:
+
+1. Analyseer de bestaande code en gegevensstructuur.
+2. Identificeer bestaande functionaliteit die kan worden hergebruikt.
+3. Beschrijf kort de voorgestelde wijzigingen.
+4. Implementeer de centrale berekeningsarchitectuur.
+5. Voeg de ontbrekende productmodules toe.
+6. Integreer de berekeningen met de bestaande aanbodomgeving.
+7. Voeg invoervelden toe waar die echt nodig zijn.
+8. Voeg de resultaten toe aan de bestaande interface.
+9. Implementeer automatische validatie en tests.
+10. Controleer bestaande functionaliteit.
+11. Los fouten op.
+12. Documenteer de formules, aannames en gegevensbronnen.
+
+Als bepaalde technische gegevens of betrouwbare databronnen ontbreken, identificeer dan precies welke gegevens nodig zijn.
+
+Vervang ontbrekende informatie niet door verzonnen waarden.
+
+Wanneer een onderdeel niet betrouwbaar kan worden berekend, laat het systeem dat expliciet zien en geef aan welke informatie nodig is om de berekening af te maken.
+
+DEFINITIE VAN GESLAAGD
+
+De uitbreiding is pas geslaagd wanneer:
+
+* De bestaande aanbodomgeving intact blijft.
+* De beschikbare producten automatisch de juiste rekenmodule gebruiken.
+* De berekeningen reproduceerbaar zijn.
+* De jaarlijkse netto besparing correct wordt berekend.
+* De terugverdientijd correct wordt berekend.
+* Meerdere verduurzamingsmaatregelen samen kunnen worden doorgerekend.
+* Dubbeltelling wordt voorkomen.
+* Onzekere invoerwaarden herkenbaar zijn.
+* De berekeningen zijn getest.
+* De uitkomsten technisch en financieel controleerbaar zijn.
+
+Prioriteit: rekenkundige juistheid, betrouwbare aannames en correcte integratie gaan boven een mooie presentatie of een aantrekkelijkere terugverdientijd.
+
+Wat je nu moet doen
+
+Broer, gebruik deze prompt in de ontwikkeltool waarin je huidige calculator staat.
+
+Maar ik wil dat je op drie dingen let voordat je hem de opdracht geeft.
+
+1. Laat je bestaande aanbod intact
+
+Je hebt al producten zoals spouwmuurisolatie en airco in je aanbod staan. Je wilt niet dat je ontwikkeltool een tweede aanbodomgeving maakt of bestaande producten verwijdert.
+
+Daarom staat in de prompt dat de huidige applicatie eerst onderzocht en vervolgens uitgebreid moet worden.
+
+2. Laat de tool eerst de berekeningen controleren
+
+Het gevaarlijkste aan een ROI-calculator is niet dat een knop niet werkt. Het gevaarlijkste is dat de calculator een mooie terugverdientijd laat zien terwijl de onderliggende berekening niet klopt.
+
+Een voorbeeld:
+
+Je installeert isolatie en een warmtepomp. De isolatie verlaagt de warmtevraag. De warmtepomp verbruikt daardoor minder elektriciteit.
+
+Als de calculator de besparing van beide maatregelen onafhankelijk berekent en bij elkaar optelt, kan hij de financiële voordelen overschatten.
+
+De prompt verplicht de tool daarom om de bestaande en de nieuwe totale energiesituatie met elkaar te vergelijken.
+
+3. Controleer vooral hoe je tool de besparingen bepaalt
+
+De software kan prima zelf rekenen, maar alleen als de gebruikte gegevens en aannames deugen.
+
+Bij isolatie moet het systeem bijvoorbeeld rekening houden met de woning en de bestaande constructie. Bij een airco moet het weten hoeveel verwarmingsverbruik daadwerkelijk wordt vervangen. Bij een thuisbatterij moet het weten wanneer energie wordt opgeslagen en gebruikt.
+
+Een automatische berekening is dus niet automatisch een betrouwbare berekening.
+
+⸻
+
+Nog één belangrijk punt
+
+Ik wil dat je me één ding vertelt, zodat ik je ook kan helpen om dit goed in jouw bestaande systeem te implementeren.
+
+Welke tool gebruik je om jouw huidige aanbodcalculator te bouwen?
+
+Bijvoorbeeld:
+
+* Lovable
+* Bolt.new
+* Replit
+* Claude Code
+* Cursor
+* Een eigen applicatie
+* Iets anders
+
+Als je me de naam geeft, kan ik de prompt aanpassen aan de mogelijkheden van die specifieke ontwikkeltool. Dan kunnen we ook rekening houden met je bestaande database, je huidige aanbod en de manier waarop de berekeningen moeten worden geïntegreerd.

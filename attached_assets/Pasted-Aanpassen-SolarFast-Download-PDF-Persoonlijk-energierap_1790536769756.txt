@@ -1,0 +1,144 @@
+Aanpassen
+SolarFast
+Download PDF
+Persoonlijk energierapport
+Geschat jaarlijks voordeel
+€1.058
+–
+€1.276
+per jaar, energiebesparing; EPEX alleen bij dynamisch contract en gemodelleerde doorvoer
+
+Terugverdientijd
+4,9 – 5,9 jaar
+Per maand
+€ 88,17 – 106,33
+Per dag
+€ 2,90 – 3,50
+Investering
+€ 6.290
+Gekozen producten en energieaannames
+De terugverdientijd is berekend voor de batterij-investering; andere productkosten zijn apart gehouden.
+
+Gekozen batterij
+HYXiPower 10,6 kWh · 10,6 kWh · 3-fase
+Investering
+€ 6.290
+Uw situatie: voor en na de batterij
+Huidig
+Huidig dynamisch contract
+Met batterij
+Dynamisch geoptimaliseerd + batterij
+Totale zonneopbrengst
+Uw jaarlijkse opwek via zonnepanelen
+4.000 kWh
+Totale zonneopbrengst
+Gelijk aan de huidige situatie
+4.000 kWh
+Zelfverbruik
+Aandeel zonne-opwek dat thuis wordt gebruikt, direct of na batterijopslag
+50%
+Zelfverbruik
+Aandeel zonne-opwek dat thuis wordt gebruikt, direct of na batterijopslag
+50% → 93%
+↑ 43%
+Direct zelfverbruik
+Zonnestroom die op hetzelfde moment direct wordt gebruikt, vóór batterijopslag
+2.000 kWh
+Direct zelfverbruik
+Zonnestroom die op hetzelfde moment direct wordt gebruikt, vóór batterijopslag
+2.000 kWh
+Zelfvoorziening uit eigen zonnestroom
+Aandeel van uw totale elektriciteitsverbruik dat door eigen zonnestroom wordt gedekt
+36%
+Zelfvoorziening uit eigen zonnestroom
+Aandeel van uw totale elektriciteitsverbruik dat door eigen zonnestroom wordt gedekt
+36% → 67%
+↑ 31%
+Teruglevering aan net
+Overschot aan zonne-energie wordt teruggeleverd aan het elektriciteitsnet
+2.000 kWh
+Zelf gebruikt i.p.v. teruggeleverd
+Overschot aan zonne-energie wordt opgeslagen en zelf gebruikt in plaats van teruggeleverd aan het net
+1.792 kWh
+↑ 1.792 kWh
+Geschatte energie via de batterij per jaar
+Geen batterij in de huidige situatie
+0 kWh/jaar
+Geschatte energie via de batterij per jaar
+Zonne-opslag en markthandel samen
+5.026 kWh/jaar
+Netstroom inkoop
+Aankoop van elektriciteit van het net wanneer opwek onvoldoende is
+3.500 kWh
+Netstroom inkoop
+Sterk verminderd door inzet van opgeslagen zonne-energie
+1.797 kWh
+↓ 1.703 kWh
+EPEX-marktwaarde (dynamisch contract)
+Niet actief in de huidige situatie
+€ 0/mnd
+EPEX-marktwaarde (dynamisch contract)
+€ 60–79/mnd
+↑
+Terugleverkosten
+Niet van toepassing in de huidige situatie
+—
+Terugleverkosten
+Niet van toepassing binnen dynamisch aangestuurd energiesysteem
+—
+Zo verdient u terug
+Meer eigen zonnestroom gebruiken
+Minder stroom inkopen van het net
+Minder terugleveren tegen lage vergoeding
+Slim laden en ontladen op dynamische prijzen
+Totaal geschat jaarvoordeel
+per jaar, energiebesparing; EPEX alleen bij dynamisch contract en gemodelleerde doorvoer
+€ 1.058 – 1.276
+
+Hoe is dit berekend?
+1
+Minder stroom inkopen
+U verbruikt uw eigen zonnestroom — elke kWh die u niet inkoopt scheelt direct geld
++ € 333
+2
+EPEX-marktwaarde
+Indicatieve marktwaarde bij een dynamisch contract. · Per maand: € 60,42–€ 78,58/mnd
++ € 725 – € 943/jr
+3
+Stroom wordt elk jaar duurder
+Gebaseerd op CBS-energieprijsontwikkeling ~5%/jr · uw besparing groeit automatisch mee
+Informatieve prognose — niet in basislijn
+€ 339 – € 409
+4
+Saldering verdwijnt 2027–2031
+U levert dan bijna niets meer terug — uw batterij vangt dat op
+Informatieve prognose — niet in basislijn
+€ 269
+Stap 1–2 schatten energiebesparing op basis van uw invoer. Marktwaarde wordt alleen berekend bij een dynamisch contract en is begrensd door gemodelleerde batterijdoorvoer en netvraag. Stap 3 gebruikt het CBS-historisch gemiddelde (~5%/jr, 2010–2024); stap 4 volgt de wettelijke afbouw van saldering 2027–2031. Werkelijke resultaten kunnen afwijken.
+
+
+Slimme batterijoptimalisatie
+Klik voor uitleg: hoe laadt en ontlaadt de batterij slim?
+Elke maand zonder batterij laat u naar schatting €88–€106 aan waarde liggen.
+
+Netto resultaat na 10 jaar
+€ 2.809 – € 5.449
+Na terugverdienen van uw investering van €6.290 houdt u dit over
+Investering
+€ 6.290
+Terugverdientijd
+4,9 – 5,9 jaar
+Nationaal Warmtefonds
+Financiering via SolarFast, 0% rente mogelijk
+Tot € 8.500 lenen via het Nationaal Warmtefonds. Bij inkomen onder € 60.000 betaalt u mogelijk 0% rente. Voorwaarden kunnen wijzigen, wij helpen u bij de aanvraag.
+
+Tot € 8.500
+0% rente mogelijk
+Wij regelen alles
+Klaar voor persoonlijk advies?
+Op basis van dit rapport stellen onze specialisten een offerte op maat samen. Volledig vrijblijvend.
+
+Vraag gratis advies aan
+Indicatieve berekening op basis van uw verbruiksdata en marktgemiddelden. Werkelijke resultaten kunnen afwijken.
+
+Andere getallen invoeren

@@ -1,0 +1,126 @@
+Ah, je bedoelt: een korte, strakke instructie voor Replit om je HUIDIGE tool te fixen (niet opnieuw bouwen).
+
+Hier is de juiste master prompt 👇
+
+⸻
+
+⚙️ REPLIT FIX PROMPT – BESTAANDE VOLTRAX TOOL
+
+Fix en optimaliseer de bestaande VOLTRAX FastAPI backend. NIET opnieuw bouwen, alleen verbeteren en stabiliseren.
+
+⸻
+
+🎯 DOEL
+
+Maak de huidige tool:
+
+* stabiel
+* foutloos
+* logisch consistent
+* zonder dubbeltellingen
+* met correcte EMS begrenzing
+
+Behoud bestaande structuur zoveel mogelijk.
+
+⸻
+
+🧱 WAT MOET JE DOEN
+
+1. CODE CLEANUP
+
+* verwijder dubbele berekeningen
+* centraliseer alle logica in één calculator functie of module
+* geen business logic in server.py (alleen API routing)
+
+⸻
+
+2. FIX ENERGIE MODEL
+
+Zorg dat:
+
+* alles via kWh → euro wordt berekend
+* zelfconsumptie, netinkoop en export consistent zijn
+* batterij-effect logisch wordt toegepast (geen overschatting)
+
+Gebruik:
+
+* ±40–50% baseline zelfconsumptie
+* ±70% effectieve batterij shift
+
+⸻
+
+3. FIX EMS (BELANGRIJK)
+
+* EMS mag NIET dominant zijn
+* berekening op basis van prijsverschil
+* efficiency factor ~0.22
+* HARD CAP: EMS ≤ 35% van totale jaarlijkse waarde
+
+⸻
+
+4. VERWIJDER DUBBELTELLINGEN
+
+Controleer en fix:
+
+* exportverlies + terugleverkosten mogen niet dubbel worden meegerekend
+* geen overlap tussen:
+    * netkosten
+    * gemiste opbrengst
+    * EMS winst
+
+⸻
+
+5. OUTPUT STABILISEREN
+
+Output moet altijd:
+
+* één scenario zijn (geen ranges)
+* consistent bij dezelfde input
+* realistisch maar optimised
+
+⸻
+
+📊 OUTPUT STRUCTUUR (NIET VERANDEREN)
+
+{
+  "yearly_savings": 3350,
+  "payback_years": 3.7,
+  "net_10_year": 16500,
+  "self_consumption_before": 46,
+  "self_consumption_after": 95
+}
+
+⸻
+
+🚀 SERVER RULES
+
+* FastAPI blijft behouden
+* endpoints niet wijzigen tenzij nodig
+* CORS aan laten staan
+* performance verbeteren waar mogelijk
+
+⸻
+
+🔥 BELANGRIJK
+
+* GEEN volledige rewrite
+* GEEN nieuwe architectuur
+* alleen fix + clean + stabilize
+* behoud huidige API contract
+
+⸻
+
+🎯 RESULTAAT
+
+Na fix:
+
+* geen extreme uitschieters meer
+* EMS logisch en begrensd
+* stabiele €3.000–€3.400 range in top scenario
+* professionele, betrouwbare calculator
+
+⸻
+
+Als je wil kan ik hierna ook:
+
+👉 ￼ je helpen om te checken of Replit hem “goed heeft gefixt” (ik review de output)

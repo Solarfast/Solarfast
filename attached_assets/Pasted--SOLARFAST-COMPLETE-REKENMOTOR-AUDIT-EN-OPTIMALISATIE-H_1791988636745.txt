@@ -1,0 +1,530 @@
+# SOLARFAST — COMPLETE REKENMOTOR-AUDIT EN OPTIMALISATIE
+
+## Hoofddoel
+
+Voer een volledige technische en financiële audit uit van de bestaande SolarFast-tool. Herstel alle rekenfouten, inconsistenties, dubbele besparingen en onrealistische aannames.
+
+Bouw de bestaande berekeningen om tot één centrale, controleerbare rekenmotor voor:
+
+- Thuisbatterijen
+- Dynamische energiehandel (EPEX)
+- Warmtepompen
+- Zonnepanelen
+- Airconditioning voor verwarmen en koelen
+- Laadpalen en elektrisch rijden
+- Isolatie en overige verduurzamingsmaatregelen die al in de applicatie aanwezig zijn
+- Alle afzonderlijke producten en combinaties van meerdere producten
+
+Behoud de bestaande functionaliteit, gebruikersinterface, productgegevens, API's en rapportages waar mogelijk. Verwijder geen bestaande functionaliteit zonder aantoonbare noodzaak.
+
+**Belangrijkste doel:** bereken het hoogst haalbare realistische financiële voordeel voor iedere woning en maak alle berekeningen onderling consistent, controleerbaar en reproduceerbaar.
+
+Voer daadwerkelijk wijzigingen door in de bestaande code. Lever niet alleen een analyse, advies of voorbeeldcode op.
+
+---
+
+## 1. Begin met een volledige audit van de bestaande code
+
+Onderzoek voordat je wijzigingen aanbrengt:
+
+1. Alle invoervelden en hun betekenis, eenheden en standaardwaarden.
+2. Alle formules voor energieverbruik, opwek, opslag, teruglevering en besparing.
+3. Alle productcalculators en hun onderlinge afhankelijkheden.
+4. De berekening van investeringen, subsidies, onderhoud, ROI en terugverdientijd.
+5. Alle combinaties van producten.
+6. Alle aannames, standaardwaarden, afrondingen en begrenzingen.
+7. De manier waarop gegevens vanuit de interface naar de rekenmotor worden gestuurd.
+8. De manier waarop uitkomsten in offertes, rapporten en de interface worden weergegeven.
+
+Zoek specifiek naar:
+- Dubbele berekeningen van dezelfde besparing.
+- Verschillende formules voor hetzelfde energieverbruik in verschillende modules.
+- Inconsistent gebruik van gas- en stroomprijzen.
+- Verwarring tussen kWh, kW, kWh warmte en kWh elektriciteit.
+- Onjuiste conversies, rendementen en vermogenslimieten.
+- Negatieve waarden waar deze fysiek onmogelijk zijn.
+- Opbrengsten die toenemen zonder fysieke of economische begrenzing.
+- Onjuiste behandeling van vaste energiekosten.
+- Subsidies die automatisch worden toegekend zonder dat de voorwaarden zijn gecontroleerd.
+- ROI-percentages die niet overeenkomen met het weergegeven jaarvoordeel.
+- Terugverdientijden die niet overeenkomen met de investering en de jaarlijkse kasstromen.
+
+Maak eerst een inventarisatie van de gevonden problemen en los ze daarna op.
+
+## 2. Gebruik één centrale rekenmotor
+
+Creëer of verbeter één centrale berekeningslaag die verantwoordelijk is voor alle energiestromen en financiële uitkomsten.
+
+Productcalculators mogen niet zelfstandig financiële besparingen optellen die al door andere calculators zijn berekend.
+
+De architectuur moet bestaan uit:
+
+1. Invoer en validatie.
+2. Een centrale woning- en energiebalans.
+3. Een centrale simulatie van energiegebruik en energieopwek.
+4. Een centrale financiële afrekening.
+5. Product- en combinatiescenario's.
+6. ROI-, terugverdien- en gevoeligheidsanalyses.
+7. Validatie en automatische tests.
+
+Gebruik dezelfde invoergegevens, tarieven, periode en rekenregels voor alle producten en scenario's.
+
+Iedere berekening moet reproduceerbaar zijn: dezelfde invoer en dezelfde versie van de rekenregels moeten dezelfde uitkomst opleveren.
+
+## 3. Definieer eerst de energiebalans
+
+Maak voor iedere situatie een expliciet onderscheid tussen:
+
+- Elektriciteitsverbruik van de woning.
+- Elektriciteitsverbruik van apparaten en installaties.
+- Elektriciteitsopwek van zonnepanelen.
+- Direct eigen verbruik van zonnestroom.
+- Laden en ontladen van de thuisbatterij.
+- Netafname.
+- Teruglevering.
+- Elektriciteit voor warmtepomp, airco en elektrische auto.
+- Gasverbruik vóór en na de installatie.
+- Eventuele overige energiedragers.
+
+De balans moet op ieder berekeningsinterval sluiten.
+
+Voor een vereenvoudigde elektriciteitsbalans geldt:
+
+Netafname + directe zonnestroom + batterijontlading = verbruik + batterijoplading + teruglevering
+
+Pas deze vergelijking aan de gekozen systeemgrenzen aan, zodat batterijverliezen, omzettingsverliezen en eventuele andere bronnen en afnemers correct worden verwerkt.
+
+Gebruik geen negatieve netafname of negatieve teruglevering om een onjuiste balans te corrigeren.
+
+Maak intern expliciet onderscheid tussen:
+- Energie aan de AC-zijde.
+- Energie aan de DC-zijde.
+- Energie in de batterijcellen.
+- Energie die daadwerkelijk aan de woning wordt geleverd.
+
+Leg bij iedere energiestroom vast waar de stroom vandaan komt en waar deze naartoe gaat.
+
+## 4. Werk met tijdsintervallen waar dat financieel verschil maakt
+
+Gebruik bij voorkeur echte uurgegevens voor:
+
+- Elektriciteitsprijzen.
+- Zonneopwek.
+- Huishoudelijk verbruik.
+- Batterijladen en -ontladen.
+- Dynamische handel.
+- Laden van elektrische auto's.
+- Elektriciteitsvraag van warmtepompen en airco's.
+
+Gebruik 15-minutengegevens wanneer deze beschikbaar en relevant zijn.
+
+Als uurgegevens ontbreken, gebruik dan een transparant scenario- of profielmodel. Presenteer een uitkomst op basis van jaarverbruiken niet als een nauwkeurige tijdsafhankelijke simulatie.
+
+Gebruik bij een tijdreeks een consistente tijdzone en correcte behandeling van zomer- en wintertijd. Voorkom dubbele of ontbrekende uren.
+
+Wanneer de gebruiker alleen een jaarverbruik invoert, mag de tool een realistisch profiel afleiden. Maak duidelijk dat dit een schatting is en laat zien hoe onzekerheid de uitkomst beïnvloedt.
+
+## 5. Thuisbatterij: eigen zonnestroom
+
+Bereken de waarde van een batterij op basis van het verschil tussen de werkelijke energierekening zonder batterij en de energierekening met batterij.
+
+Modelleer minimaal:
+
+- Bruikbare batterijcapaciteit.
+- Laad- en ontlaadvermogen.
+- Laad- en ontlaadrendement.
+- Stand-byverbruik indien relevant.
+- Laadstatus en toegestane minimale en maximale laadstatus.
+- Beschikbare zonnestroom per interval.
+- Werkelijk huishoudelijk verbruik per interval.
+- Gelijktijdige vraag van andere installaties.
+- Batterijdegradatie.
+- De mogelijkheid om op het juiste moment te laden en te ontladen.
+
+Voorkom dat dezelfde zonnestroom tegelijk als direct eigen verbruik en als batterijverbruik wordt geteld.
+
+De hoeveelheid energie die jaarlijks via de batterij loopt, mag nooit worden afgeleid uit alleen de batterijcapaciteit en een willekeurig aantal cycli als er onvoldoende energie beschikbaar is.
+
+Gebruik cycli als controle en technische grens, niet als zelfstandige voorspelling van de opbrengst.
+
+Bereken afzonderlijk:
+1. De waarde van vermeden netafname.
+2. De gemiste terugleveropbrengst.
+3. Vermeden variabele terugleverkosten, uitsluitend voor zover die aantoonbaar van toepassing zijn.
+4. Batterijverliezen.
+5. Extra netafname voor het laden, indien dat voorkomt.
+6. Onderhoud, degradatie en vervanging.
+
+De financiële uitkomst moet aansluiten op het verschil tussen de volledige energierekeningen van beide scenario's.
+
+## 6. Thuisbatterij: dynamische handel
+
+Vervang de vaste EPEX-opbrengstformule op basis van capaciteit × cycli × een aangenomen prijsvoordeel door een controleerbaar handelsmodel.
+
+Gebruik waar mogelijk historische of actuele uurprijzen en expliciete aannames voor toekomstige prijzen.
+
+Modelleer:
+- Inkoopprijs per interval.
+- Verkoopprijs per interval.
+- Energiebelasting en overige toepasselijke heffingen.
+- Leveranciersopslagen.
+- Handels- en aggregatorkosten.
+- Eventuele onbalans- of andere contractkosten.
+- Laad- en ontlaadverliezen.
+- Vermogenslimieten.
+- Beschikbaarheid van de batterij.
+- Degradatiekosten per verhandelde kWh.
+- Eventuele beperkingen door een energiemanagementsysteem.
+- Contractvoorwaarden en toegestane handelsstrategie.
+
+Maak onderscheid tussen:
+- Handel met uitsluitend netstroom.
+- Opslag van zonnestroom.
+- Combinatie van eigen verbruik en handel.
+
+Voorkom dat één laad- en ontlaadcyclus zowel als volledige eigenverbruiksbesparing als volledige handelswinst wordt geboekt.
+
+Optimaliseer de laad- en ontlaadstrategie binnen de fysieke en contractuele beperkingen. Een optimale historische strategie mag niet worden gepresenteerd als gegarandeerde toekomstige opbrengst. Maak duidelijk of een berekening gebruikmaakt van perfecte voorkennis van prijzen of van een realistische handelsstrategie.
+
+Bereken de netto handelswinst na alle toepasselijke kosten en verliezen.
+
+Als betrouwbare prijsdata ontbreken, gebruik dan expliciete scenario's en geef geen schijnnauwkeurige handelswinst weer.
+
+## 7. Warmtepomp
+
+Controleer en standaardiseer de volledige berekening van warmtevraag, gasbesparing en extra elektriciteitsverbruik.
+
+Maak onderscheid tussen:
+- Ruimteverwarming.
+- Warmtapwater.
+- Eventuele andere warmtebronnen.
+- Hybride en all-electric configuraties.
+- Aanvullende verwarming en piekbelasting.
+
+Gebruik voor gasgestookte verwarming een expliciete omzetting van gasverbruik naar nuttige warmte, gebaseerd op de juiste calorische waarde en het toepasselijke ketelrendement.
+
+Gebruik geen universele SCOP voor iedere woning. Gebruik bij voorkeur passende productgegevens en toepassingscondities. Maak duidelijk of het rendement afkomstig is uit productgegevens, een berekening of een standaardaanname.
+
+Voor all-electric moet alle relevante warmtebehoefte worden gedekt, inclusief warmtapwater en eventueel aanvullende elektrische verwarming.
+
+Voor hybride systemen moet het model bepalen welk deel door de warmtepomp en welk deel door de ketel wordt geleverd.
+
+Bereken het financiële voordeel als het verschil tussen de totale energiekosten vóór en na installatie.
+
+Vermijd dubbeltelling met:
+- Airconditioning die dezelfde verwarmingsvraag overneemt.
+- Isolatie die dezelfde warmtevraag verlaagt.
+- Andere maatregelen die het gasverbruik verminderen.
+
+Als het gecombineerde effect niet met voldoende zekerheid kan worden bepaald, toon dan een onderbouwde schatting met een zichtbare onzekerheidsmarge.
+
+## 8. Zonnepanelen
+
+Bereken de volledige economische waarde van de zonnepanelen op basis van de energie die werkelijk zelf wordt gebruikt en teruggeleverd.
+
+Gebruik:
+- Jaarlijkse opwek of een tijdsprofiel.
+- Direct eigen verbruik.
+- Teruglevering.
+- Variabele stroomkosten.
+- De toepasselijke terugleververgoeding.
+- Eventuele terugleverkosten.
+- Onderhoud.
+- Degradatie.
+- Omvormervervanging indien relevant.
+- Bevestigde subsidies en toepasselijke fiscale regelingen.
+
+Modelleer de toepasselijke salderingsregels en contractvoorwaarden per kalenderjaar. Hardcode geen regeling voor alle toekomstige jaren.
+
+Maak onderscheid tussen de situatie vóór en na 1 januari 2027 en pas de dan geldende regels correct toe.
+
+Bereken de waarde van eigen verbruik op basis van de kosten die daadwerkelijk worden vermeden. Gebruik niet automatisch het volledige all-in stroomtarief wanneer bepaalde kosten niet variabel zijn of niet door eigen verbruik worden vermeden.
+
+Voorkom dat de stroom die door een batterij wordt opgeslagen ook als direct eigen verbruik van zonnepanelen wordt gewaardeerd.
+
+## 9. Airconditioning
+
+Controleer de berekeningen voor verwarmen en koelen.
+
+Verwarmen:
+Elektriciteitsverbruik = geleverde warmte / passend seizoensrendement.
+
+Koelen:
+Elektriciteitsverbruik = geleverde koude / passend seizoensrendement voor koeling.
+
+Bereken de besparing op gas op basis van de daadwerkelijk door de airco overgenomen warmtevraag en het relevante ketelrendement.
+
+De vermeden hoeveelheid gas mag nooit hoger zijn dan het gasverbruik dat binnen dezelfde verwarmingscategorie beschikbaar is en daadwerkelijk door de airco kan worden vervangen.
+
+Voorkom dubbeltelling met warmtepompen, isolatie en andere verwarmingssystemen.
+
+Neem koeling als afzonderlijke energievraag mee en tel de bijbehorende stroomkosten mee in de financiële afrekening.
+
+Gebruik productgegevens of onderbouwde aannames voor de prestaties bij de relevante buitentemperaturen en deellast.
+
+## 10. Laadpaal en elektrisch rijden
+
+Voeg een volledige economische vergelijking toe.
+
+Modelleer:
+- Jaarlijkse kilometers.
+- Elektriciteitsverbruik van de auto per kilometer.
+- Laadverliezen.
+- Thuisladen.
+- Publiek laden.
+- Eventueel laden op het werk.
+- Dynamische laadtarieven.
+- Laden met zonnestroom.
+- Eventuele vergoeding of opbrengst van bidirectioneel laden, alleen indien technisch en contractueel beschikbaar.
+
+Vergelijk de situatie vóór en na de maatregel met een realistisch alternatief.
+
+Bereken afzonderlijk:
+- Besparing op laadkosten.
+- Netto kosten van thuisladen.
+- Kosten van de laadpaal.
+- Installatiekosten.
+- Eventuele abonnementskosten.
+- Onderhoud en vervanging indien relevant.
+
+Tel de waarde van zonnestroom voor de auto niet dubbel: gebruik dezelfde stroom niet tegelijk als teruglevering, batterijopbrengst en besparing op autoladen.
+
+## 11. Isolatie en overige maatregelen
+
+Controleer de bestaande berekeningen voor alle overige producten die al in SolarFast beschikbaar zijn.
+
+Gebruik een consistent model voor:
+- Vermeden warmteverlies.
+- Verandering in gas- en elektriciteitsvraag.
+- Rendement van verwarmingssystemen.
+- Investeringskosten.
+- Onderhoud.
+- Subsidies.
+- Levensduur.
+
+Gebruik passende bouwkundige en technische uitgangspunten. Leid geen nauwkeurige U-waarde af uit onvoldoende invoergegevens.
+
+Voorkom dat een isolatiemaatregel en een warmtepomp dezelfde energiebesparing onafhankelijk van elkaar claimen.
+
+Bereken gecombineerde scenario's door de nieuwe warmtevraag en de bijbehorende installaties gezamenlijk te simuleren.
+
+## 12. Eén financiële afrekening voor alle scenario's
+
+Maak één centrale financiële functie die de energierekening van een scenario berekent.
+
+Vergelijk voor elk scenario:
+- Situatie zonder nieuwe maatregelen.
+- Situatie met de gekozen maatregelen.
+
+Neem alleen kosten en opbrengsten mee die bij het scenario daadwerkelijk veranderen.
+
+Maak expliciet onderscheid tussen:
+- Variabele energiekosten.
+- Energiebelasting en btw waar van toepassing.
+- Vaste leveringskosten.
+- Netbeheerkosten.
+- Terugleververgoedingen.
+- Terugleverkosten.
+- Onderhoud.
+- Investering.
+- Vervanging.
+- Subsidies.
+- Financieringskosten indien relevant.
+
+Vaste gaskosten mogen uitsluitend vervallen als de gasaansluiting daadwerkelijk wordt beëindigd en de relevante kosten daardoor vervallen.
+
+Gebruik dezelfde prijsbasis voor alle scenario's en voorkom dat btw, belastingen, terugleverkosten of subsidies dubbel worden verwerkt.
+
+Bereken voor iedere combinatie het netto jaarlijkse voordeel als:
+
+Netto jaarvoordeel = jaarlijkse totale kosten zonder maatregelen − jaarlijkse totale kosten met maatregelen.
+
+Behandel productopbrengsten niet als onafhankelijke bedragen die blind bij elkaar kunnen worden opgeteld.
+
+## 13. ROI, terugverdientijd en levensduur
+
+Gebruik eenduidige definities.
+
+Eenvoudige jaarlijkse ROI:
+
+Netto jaarlijks voordeel / netto initiële investering × 100%.
+
+Eenvoudige terugverdientijd:
+
+Netto initiële investering / netto jaarlijks voordeel.
+
+Deze eenvoudige terugverdientijd is alleen bruikbaar wanneer het jaarlijkse voordeel positief en voldoende stabiel is.
+
+Bereken daarnaast waar mogelijk:
+- Terugverdientijd met veranderende jaarlijkse kasstromen.
+- Cumulatieve kasstromen.
+- Netto contante waarde.
+- Interne-opbrengstvoet, indien deze betrouwbaar kan worden berekend.
+- Levensduurkosten.
+- Degradatie en vervangingskosten.
+- Gevoeligheid voor energieprijzen, prestaties en investeringskosten.
+
+Gebruik bij de netto contante waarde een expliciete discontovoet en een duidelijke analyseperiode.
+
+Als een investering binnen de analyseperiode niet wordt terugverdiend, toon dan dat resultaat expliciet. Verzin geen terugverdientijd.
+
+Gebruik voor combinaties de totale netto investering en de totale financiële uitkomst van het gecombineerde scenario.
+
+## 14. Maximaliseer de haalbare ROI
+
+Optimaliseer niet uitsluitend voor de grootste absolute eurobesparing en ook niet uitsluitend voor het hoogste percentage.
+
+Bereken en vergelijk:
+1. Hoogste haalbare jaarlijkse netto besparing.
+2. Hoogste haalbare jaarlijkse ROI.
+3. Kortste realistische terugverdientijd.
+4. Hoogste netto contante waarde.
+5. Beste combinatie van maatregelen binnen een opgegeven budget.
+
+Als de gebruiker geen budget opgeeft, presenteer dan de beste economische scenario's zonder een onbeperkt investeringsbudget te veronderstellen.
+
+Optimaliseer alleen binnen de werkelijke technische, economische en contractuele grenzen.
+
+Gebruik geen onrealistisch hoge cycli, onhaalbare SCOP-waarden, gunstige tarieven zonder onderbouwing, onbevestigde subsidies of perfecte voorkennis als standaardaanname.
+
+Maak onderscheid tussen:
+- Conservatief scenario.
+- Verwacht scenario.
+- Gunstig maar realistisch scenario.
+
+Toon bij het gunstige scenario expliciet welke omstandigheden nodig zijn om het resultaat te behalen.
+
+Sorteer aanbevelingen op de gekozen economische doelstelling en toon duidelijk welke doelstelling is gebruikt.
+
+## 15. Subsidies en regelgeving
+
+Gebruik geen subsidie als gegarandeerde korting zonder de relevante voorwaarden te controleren.
+
+Maak onderscheid tussen:
+- Bevestigde subsidie.
+- Voorwaardelijke subsidie.
+- Geschatte subsidie.
+- Niet-geverifieerde subsidie.
+
+Controleer waar mogelijk actuele officiële bronnen, toepassingsvoorwaarden, technische eisen en geldigheidsperioden.
+
+Pas regels toe op het juiste kalenderjaar en de relevante productcategorie.
+
+Als de actuele regeling niet kan worden geverifieerd, markeer de subsidie als onbevestigd en presenteer de berekening zowel met als zonder deze subsidie.
+
+## 16. Consistente invoer en validatie
+
+Voeg centrale validatie toe voor alle invoervelden.
+
+Controleer onder meer:
+- Negatieve verbruiken.
+- Onmogelijke rendementen.
+- Ongeldige SCOP- en SEER-waarden.
+- Batterijcapaciteit en laadvermogen.
+- Onmogelijke energiebalansen.
+- Ontbrekende tarieven.
+- Investeringen van nul of negatieve waarde.
+- Subsidies hoger dan de toepasselijke investering zonder geldige onderbouwing.
+- Dubbele productidentificaties.
+- Onverenigbare productconfiguraties.
+- Ontbrekende gegevens die essentieel zijn voor een betrouwbare uitkomst.
+
+Gebruik duidelijke foutmeldingen en corrigeer ongeldige invoer niet stilzwijgend.
+
+Bewaar de oorspronkelijke invoer en maak eventuele standaardwaarden zichtbaar.
+
+## 17. Transparantie in de gebruikersinterface
+
+Toon bij ieder product en ieder combinatiescenario minimaal:
+
+- Jaarlijkse kosten vóór installatie.
+- Jaarlijkse kosten na installatie.
+- Netto jaarlijkse besparing.
+- Totale investering.
+- Bevestigde subsidie.
+- Netto investering.
+- Eenvoudige jaarlijkse ROI.
+- Terugverdientijd.
+- Analyseperiode.
+- Eventuele vervangingskosten.
+- Belangrijkste aannames.
+- Onzekerheidsmarge of scenario-indicatie.
+- Herkomst van de gebruikte gegevens.
+
+Toon bij batterijen bovendien de verwachte laad- en ontlaadenergie en de verdeling tussen eigenverbruik en handel.
+
+Maak duidelijk welke resultaten gemeten, berekend of geschat zijn.
+
+Rond alleen af voor de presentatie. Gebruik intern voldoende numerieke precisie en bereken afgeleide uitkomsten op basis van de ongeronde waarden.
+
+## 18. Geautomatiseerde tests en acceptatiecriteria
+
+Maak unit-tests en integratietests voor de volledige rekenmotor.
+
+Neem minimaal de volgende tests op:
+
+1. Een woning zonder zonnepanelen of batterij.
+2. Een woning met uitsluitend zonnepanelen.
+3. Een woning met uitsluitend een thuisbatterij.
+4. Een woning met zonnepanelen en batterij.
+5. Een woning met een hybride warmtepomp.
+6. Een woning met een all-electric warmtepomp.
+7. Een woning met airco als aanvullende verwarming.
+8. Een woning met een elektrische auto en laadpaal.
+9. Een combinatie van zonnepanelen, batterij, warmtepomp en elektrische auto.
+10. Een situatie met nul teruglevering.
+11. Een situatie met nul gasverbruik.
+12. Een situatie waarin de batterij niet voldoende energie kan laden.
+13. Een situatie waarin handel na kosten verliesgevend is.
+14. Een scenario waarin een maatregel niet wordt terugverdiend.
+15. Een vergelijking van de toepasselijke zonnepanelenregels vóór en na 2027.
+
+Test expliciet dat:
+- De energiebalans sluit.
+- Geen energiestroom dubbel wordt geteld.
+- Dezelfde invoer dezelfde uitkomst oplevert.
+- Losse producten en combinaties dezelfde centrale rekenregels gebruiken.
+- De gecombineerde berekening overeenkomt met de integrale kostenberekening.
+- Geen negatieve of fysiek onmogelijke energiestromen ontstaan.
+- ROI en terugverdientijd overeenkomen met de onderliggende kasstromen.
+- De som van afzonderlijke productbesparingen niet automatisch gelijk wordt gesteld aan de besparing van de combinatie.
+- Onzekere gegevens herkenbaar blijven.
+- Ontbrekende gegevens niet worden vervangen door verborgen, gunstige aannames.
+
+Gebruik referentieberekeningen met handmatig controleerbare tussenstappen.
+
+## 19. Uitvoering en oplevering
+
+Werk rechtstreeks in de bestaande codebase.
+
+Voer de wijzigingen in deze volgorde uit:
+
+1. Inventariseer de huidige architectuur.
+2. Identificeer en documenteer alle fouten.
+3. Ontwerp de centrale energiebalans en financiële afrekening.
+4. Implementeer de centrale rekenmotor.
+5. Koppel alle bestaande productcalculators eraan.
+6. Herstel de berekeningen voor combinaties.
+7. Implementeer de ROI- en optimalisatielogica.
+8. Werk de rapportages en interface bij.
+9. Voer alle tests uit.
+10. Herstel gevonden regressies.
+
+Verzin geen geslaagde tests, bronnen, tarieven of resultaten. Voer de tests daadwerkelijk uit en rapporteer wat wel en niet is geverifieerd.
+
+Behoud bestaande werkende functionaliteit en voorkom onnodige wijzigingen buiten de rekenlogica.
+
+### Definitie van gereed
+
+De opdracht is pas gereed wanneer:
+
+- Alle productcalculators dezelfde centrale rekenregels gebruiken.
+- Alle combinaties via één integrale energiebalans en financiële afrekening worden berekend.
+- Alle relevante energiestromen en kostenposten controleerbaar zijn.
+- Dubbeltelling is uitgesloten binnen de gedefinieerde systeemgrenzen.
+- ROI, terugverdientijd en kasstromen onderling consistent zijn.
+- De economische optimalisatie realistische grenzen respecteert.
+- De geautomatiseerde tests zijn uitgevoerd en de resultaten zijn gerapporteerd.
+- De applicatie daadwerkelijk werkt met de aangepaste code.
+
+Lever na implementatie een beknopt technisch overzicht op met de gewijzigde bestanden, herstelde fouten, gebruikte formules, testresultaten en resterende beperkingen.

@@ -1,0 +1,73 @@
+## 20. VERPLICHTE ROI-OPTIMALISATIE VOOR ELK PRODUCT EN ELKE WONING
+
+Pas deze optimalisatielogica toe op ieder afzonderlijk product, iedere mogelijke productconfiguratie en iedere combinatie van verduurzamingsmaatregelen.
+
+**Doel: vind voor iedere woning de economisch beste realistische oplossing op basis van de beschikbare gegevens. Bereken niet alleen de ROI van een vooraf gekozen product, maar vergelijk relevante alternatieven en bepaal welke configuratie het beste resultaat oplevert.**
+
+### A. Optimaliseer ieder product afzonderlijk
+
+Onderzoek per product de relevante mogelijkheden, bijvoorbeeld:
+
+- Thuisbatterij: verschillende capaciteiten, vermogens, laadstrategieën en verdelingen tussen eigenverbruik en dynamische handel.
+- Zonnepanelen: geschikte systeemgroottes, opwek, direct eigen verbruik en teruglevering.
+- Warmtepomp: hybride of all-electric, geschikte vermogens en realistische seizoensprestaties.
+- Airco: geschikte capaciteit, verwarmen, koelen en het aandeel gasverbruik dat daadwerkelijk kan worden vervangen.
+- Laadpaal: laadvermogen, thuislaadpercentage, dynamische tarieven en beschikbaarheid van zonnestroom.
+- Isolatie: relevante isolatiemaatregelen en combinaties daarvan, rekening houdend met de bestaande bouwkundige situatie.
+
+Onderzoek uitsluitend opties die technisch toepasbaar zijn en voldoende onderbouwd kunnen worden.
+
+### B. Optimaliseer per woning en gebruikssituatie
+
+Gebruik de daadwerkelijk ingevoerde gegevens over de woning, het energieverbruik, de huidige installaties, energiecontracten, beschikbare ruimte, investeringsbudget en gebruikspatronen.
+
+Als gegevens ontbreken, vraag alleen de informatie op die materieel nodig is voor een betrouwbare keuze. Als de gebruiker deze informatie niet kan aanleveren, gebruik dan zichtbare aannames en bereken meerdere scenario's.
+
+Neem nooit automatisch aan dat de grootste batterij, meeste zonnepanelen of duurste warmtepomp de beste ROI oplevert.
+
+### C. Vergelijk meerdere economische doelstellingen
+
+Bereken per relevante optie minimaal:
+
+1. Hoogste eenvoudige jaarlijkse ROI.
+2. Kortste realistische terugverdientijd.
+3. Hoogste netto contante waarde over de analyseperiode.
+4. Hoogste absolute netto jaarbesparing.
+5. Beste totaalpakket binnen het beschikbare investeringsbudget.
+
+Maak duidelijk welke optie op welke doelstelling het beste scoort. Presenteer niet één optie als universeel de beste wanneer de doelstellingen verschillende winnaars opleveren.
+
+### D. Optimaliseer combinaties gezamenlijk
+
+Bereken combinaties als één integraal energiesysteem. Optimaliseer de gezamenlijke energiebalans en de gezamenlijke energierekening.
+
+Vergelijk bijvoorbeeld zonnepanelen met en zonder batterij, een warmtepomp met en zonder aanvullende isolatie, en een laadpaal met en zonder slim laden.
+
+Bereken voor elke combinatie opnieuw de totale investering, subsidie, energiekosten, onderhoudskosten, jaarlijkse besparing, ROI, terugverdientijd en netto contante waarde.
+
+Tel nooit afzonderlijk berekende ROI-percentages bij elkaar op. Gebruik voor de gecombineerde ROI de gezamenlijke kasstromen en de gezamenlijke netto investering.
+
+### E. Maximaliseer ROI zonder de absolute winst te negeren
+
+Een kleine investering kan een hoog ROI-percentage hebben, maar weinig euro's besparen. Een grotere investering kan meer besparen en tegelijk een lagere ROI hebben.
+
+Toon daarom altijd zowel het percentage als het bedrag in euro's. Neem de netto contante waarde mee om te beoordelen of een grotere investering over de levensduur economisch beter is.
+
+Beperk de zoekruimte tot technisch haalbare configuraties, realistische prestaties, geldige tarieven en controleerbare aannames. Optimaliseer niet op basis van fictieve subsidies, gegarandeerde toekomstige handelswinsten of onrealistische rendementen.
+
+### F. Maak optimalisatie controleerbaar
+
+Rapporteer per geoptimaliseerde situatie:
+
+- De beste gevonden configuratie.
+- De alternatieven waarmee deze is vergeleken.
+- De doelstelling waarop de configuratie is geoptimaliseerd.
+- De investering en jaarlijkse netto besparing.
+- De ROI, terugverdientijd en netto contante waarde.
+- De belangrijkste aannames en onzekerheden.
+- De reden waarom de gekozen configuratie beter scoort dan de alternatieven.
+- Of de optimalisatie volledig is uitgevoerd of slechts een selectie van scenario's heeft onderzocht.
+
+Gebruik waar mogelijk een systematische zoekstrategie of optimalisatie-algoritme. Als niet alle mogelijkheden zijn onderzocht, claim dan niet dat een absoluut maximum is gevonden.
+
+**Acceptatiecriterium:** voor elk product en iedere relevante woningsituatie moet SolarFast niet alleen een besparing berekenen, maar aantoonbaar de economisch beste onderzochte, technisch haalbare configuratie kunnen selecteren. De geselecteerde configuratie moet altijd voortkomen uit dezelfde centrale rekenmotor en dezelfde financiële uitgangspunten.

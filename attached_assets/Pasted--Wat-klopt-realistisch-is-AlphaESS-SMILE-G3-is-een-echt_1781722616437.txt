@@ -1,0 +1,25 @@
+✅ Wat klopt / realistisch is
+
+AlphaESS SMILE G3 is een echte, populaire batterij in Nederland — marktleider met ~29% marktaandeel in 2025.
+Prijs €10.999 incl. installatie voor 27,9 kWh is aan de hoge kant maar niet onmogelijk. Een realistische prijsvork voor de hardware alleen ligt tussen €6.000 en €12.000, en de totale kosten liggen hoger zodra installatie en configuratie erbij komen. Voor 27,9 kWh (een grote configuratie) is €10.999 all-in eigenlijk vrij scherp geprijsd — vraag hier goed naar door. Energy Village
+Energieanalyse stap 1 (€1.071) rekent 3.825 kWh vermeden inkoop × €0,28 = €1.071. Dat klopt rekenkundig.
+Teruglevertarief €0,00 — realistisch, veel leveranciers betalen inderdaad niets of bijna niets meer.
+
+
+⚠️ Wat kritisch bekeken moet worden
+EPEX-arbitrage (stap 2) — dit is het grote vraagteken
+Ze rekenen: 320 cycli × 27,9 kWh × €0,17–0,20/kWh = €1.670–€2.416/jaar
+Dat is meer dan de helft van het totale voordeel. Dit is optimistisch:
+
+320 volledige laad/ontlaad-cycli per jaar betekent bijna elke dag een volledige cyclus puur voor arbitrage — bovenop normaal gebruik.
+EPEX-prijsverschillen van €0,17–0,20/kWh per cyclus zijn alleen haalbaar op de beste dagen, niet als gemiddelde.
+De batterij heeft 95% efficiëntie per richting, dus round-trip is ~90% — dat snoept al van het rendement.
+Dit vereist een dynamisch energiecontract, niet het "vaste tarief" dat ze in de koptekst noemen. Dat is tegenstrijdig in het document zelf.
+
+Stap 3 & 4 worden niet meegeteld maar staan er wel in
+Ze zeggen zelf "niet in basislijn", maar door ze te tonen wekken ze de suggestie van extra voordeel. Energieprijsstijging van +5%/jaar (CBS) is geen garantie.
+Terugverdientijd 3,2–4,0 jaar
+Op basis van alleen stap 1 (het zekere deel, €1.071/jaar) is de terugverdientijd: €10.999 ÷ €1.071 = ruim 10 jaar. De kortere terugverdientijd is volledig afhankelijk van de EPEX-arbitrage uitkomst.
+
+🔴 Conclusie
+Het document is niet opgelicht of nep, maar het schildert een rooskleurig scenario. De rekensom klopt technisch, maar de aannames zijn optimistisch:

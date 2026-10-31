@@ -1,0 +1,151 @@
+# SOLARFAST — REDESIGN GECOMBINEERD ENERGIERAPPORT
+
+Je bent een senior UX/UI-designer, frontend-engineer en energiecalculatie-specialist. Verbeter de bestaande SolarFast-calculator voor zonnepanelen, thuisbatterijen, warmtepompen en laadpalen.
+
+## 1. Hoofddoel
+
+De huidige gecombineerde resultatenpagina is onoverzichtelijk. Wanneer meerdere producten zijn geselecteerd, ziet de klant veel losse technische blokken en verschillende financiële uitkomsten, zonder duidelijk te begrijpen wat het complete systeem kost en oplevert.
+
+Herontwerp uitsluitend de presentatie en informatiehiërarchie van de gecombineerde resultatenpagina.
+
+**Behoud de bestaande applicatie, calculator, invoervelden, stappen, productselectie, rekenfuncties, integraties en functionaliteit. Bouw de tool niet opnieuw vanaf nul.**
+
+## 2. Nieuwe informatiehiërarchie
+
+### A. Financieel hoofdresultaat
+
+Bovenaan het rapport staat één duidelijke financiële samenvatting:
+
+- Totale investering van alle geselecteerde producten samen.
+- Totaal jaarlijks netto financieel voordeel, als onderbouwde bandbreedte.
+- Terugverdientijd van de totale investering, als onderbouwde bandbreedte.
+- Netto voordeel per maand en per dag, indien dit betrouwbaar kan worden afgeleid.
+- Een korte uitleg van wat in het berekende voordeel is meegenomen.
+
+De drie belangrijkste gegevens zijn de totale investering, het jaarlijkse netto voordeel en de terugverdientijd. Deze moeten onmiddellijk zichtbaar zijn zonder te scrollen.
+
+Gebruik grote bedragen, korte labels en voldoende witruimte. Geen lange introductieteksten, dubbele samenvattingen of concurrerende informatieblokken.
+
+### B. Geselecteerde producten met productfoto's
+
+Toon ieder geselecteerd product in een eigen compacte productkaart.
+
+Elke kaart bevat:
+- Een echte productfoto van het gekozen merk en model.
+- Productnaam en model.
+- Belangrijkste relevante specificatie, zoals kWh, kW of laadvermogen.
+- Product- en installatieprijs zoals deze in de bestaande berekening wordt gebruikt.
+- De afzonderlijke financiële bijdrage of impact van dit product, uitsluitend wanneer die betrouwbaar kan worden berekend.
+- Een uitklapbare knop ‘Bekijk details’.
+
+Gebruik echte, modelspecifieke productafbeeldingen. Gebruik waar mogelijk bestaande productafbeeldingen en beschikbare assets uit de applicatie. Voeg anders een betrouwbare afbeeldingsbron toe. Verzin geen productfoto's die een ander model voorstellen. Gebruik een nette fallback wanneer een afbeelding niet beschikbaar is.
+
+Zorg dat afbeeldingen correct worden geschaald, niet vervormen en op desktop en mobiel goed zichtbaar blijven.
+
+Voorbeelden van producten die ondersteund moeten blijven:
+- HYXiPower 21,2 kWh thuisbatterij.
+- WeHeat Flint P40 hybride warmtepomp.
+- Laadpaal en elektrisch rijden.
+- Alle andere bestaande producten die de applicatie al ondersteunt.
+
+Productkaarten moeten visueel rustig zijn. Geen grote lappen tekst of herhaling van alle technische details.
+
+### C. Wat levert het complete systeem op?
+
+Maak één compact blok met de titel ‘Uw financiële resultaat’.
+
+Toon:
+- Totale investering.
+- Totale jaarlijkse besparing en/of netto financieel voordeel.
+- Jaarlijkse energiekosten vóór en na de gekozen maatregelen, voor zover de bestaande gegevens dit betrouwbaar ondersteunen.
+- Terugverdientijd van de totale investering.
+- Eventueel maandelijkse impact en cumulatief financieel resultaat.
+
+Maak duidelijk onderscheid tussen energiebesparing, extra stroomkosten, opbrengsten uit teruglevering en eventuele marktoptimalisatie.
+
+Tel verschillende voordelen niet dubbel. Een besparing op gas mag bijvoorbeeld niet nogmaals worden meegeteld als dezelfde besparing al onderdeel is van een ander financieel resultaat.
+
+Als de bestaande rekenlogica niet genoeg informatie bevat om een betrouwbare netto-uitkomst te berekenen, toon dan niet zomaar een bedrag. Markeer de ontbrekende informatie of behoud de bestaande uitkomst totdat de formule gecontroleerd is.
+
+### D. Technische details achter uitklapbare secties
+
+Verplaats uitgebreide technische informatie naar uitklapbare onderdelen:
+
+1. Stroomverbruik en energieverdeling.
+2. Thuisbatterij en teruglevering.
+3. Warmtepomp en gasbesparing.
+4. Laadpaal en extra laadverbruik.
+5. Berekening en aannames.
+6. Financiering via het Nationaal Warmtefonds.
+
+Toon technische details alleen waar relevant voor de gekozen producten. Als geen warmtepomp is geselecteerd, toon dan geen warmtepompsectie.
+
+Behoud de bestaande mogelijkheid om alle invoerwaarden, aannames en berekeningen te controleren.
+
+### E. Acties
+
+Onderaan het rapport blijven de bestaande acties beschikbaar:
+- PDF downloaden.
+- Berekening aanpassen.
+- Contact opnemen met SolarFast.
+- Informatie over het Nationaal Warmtefonds bekijken.
+
+De primaire actie is ‘Bespreek mijn energierapport’. Houd de overige acties visueel ondergeschikt.
+
+## 3. Visuele stijl
+
+Gebruik een premium, minimalistische uitstraling geïnspireerd op Apple, Tesla en moderne duurzame-energiewebsites.
+
+- Merkkleuren: wit, zacht beige, donker groen en rustige neutrale grijstinten.
+- Geen oranje accenten.
+- Royale witruimte en een duidelijke typografische hiërarchie.
+- Grote, goed leesbare eurobedragen.
+- Subtiele scheidingslijnen en afgeronde productkaarten.
+- Geen overmatige schaduwen, drukke grafieken, overbodige badges of decoratieve elementen.
+- Professionele Nederlandse teksten en correcte Nederlandse getalnotatie.
+- Volledig responsive, geschikt voor laptop, tablet en gebruik aan de klanttafel.
+
+De interface moet betrouwbaar, rustig en overtuigend zijn, zonder overdreven marketingclaims.
+
+## 4. Financiële en technische integriteit
+
+Verander de bestaande rekenformules niet stilzwijgend tijdens het visuele redesign.
+
+Controleer wel of de getoonde cijfers onderling consistent zijn. De huidige interface toont bijvoorbeeld meerdere verschillende jaarvoordelen en terugverdientijden. Onderzoek waar deze vandaan komen.
+
+- Gebruik één duidelijk gedefinieerde bron voor het financiële hoofdresultaat.
+- Bereken de totale investering op basis van de daadwerkelijk geselecteerde producten.
+- Bereken de terugverdientijd op basis van de totale investering en het relevante netto jaarlijkse voordeel.
+- Houd rekening met extra elektriciteitsverbruik door warmtepompen en elektrische auto's.
+- Beschouw een batterij als opslag en verschuiving van energieverbruik, niet als een extra energiebron.
+- Tel voordelen van afzonderlijke producten niet blind bij elkaar op als ze elkaar beïnvloeden.
+- Verzin geen besparingen, productprestaties of opbrengsten.
+- Maak zichtbaar wanneer een uitkomst indicatief is.
+
+Als je een bestaande inconsistentie ontdekt, beschrijf deze afzonderlijk en wijzig de onderliggende formule pas na verificatie.
+
+## 5. Technische uitvoering
+
+Inspecteer eerst de bestaande code, componentstructuur, berekeningen en styling.
+
+Herbruik bestaande componenten en functies waar mogelijk. Vermijd duplicatie van berekeningen en maak geen tweede, afwijkende calculator naast de huidige.
+
+Zorg dat:
+- Het selecteren en verwijderen van producten blijft werken.
+- Alle bestaande invoervelden en herberekeningen blijven functioneren.
+- De PDF dezelfde correcte financiële hoofdresultaten weergeeft als het scherm.
+- Productfoto's per product correct worden gekoppeld.
+- Er geen kapotte afbeeldingen, horizontale overflow of onnodige dubbele informatie ontstaat.
+- De resultaten correct worden bijgewerkt wanneer de klant producten toevoegt of verwijdert.
+
+## 6. Acceptatiecriteria
+
+Het redesign is pas klaar wanneer een klant binnen enkele seconden kan zien:
+
+1. Welke producten zijn geselecteerd.
+2. Wat de totale investering is.
+3. Wat het systeem naar verwachting netto per jaar oplevert.
+4. Wat de terugverdientijd is.
+5. Waar de productfoto's en de verdere technische onderbouwing te vinden zijn.
+
+Implementeer het redesign in de bestaande applicatie. Lever geen uitsluitend statische mock-up op. Behoud alle bestaande functionaliteit en controleer het gecombineerde resultaat met meerdere geselecteerde producten.

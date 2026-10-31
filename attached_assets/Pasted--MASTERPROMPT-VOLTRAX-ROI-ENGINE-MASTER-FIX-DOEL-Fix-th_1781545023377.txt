@@ -1,0 +1,141 @@
+🔧 MASTERPROMPT – VOLTRAX ROI ENGINE (MASTER FIX)
+
+DOEL
+
+Fix the ROI calculation system so that it produces realistic but maximized (non-inflated) annual value for home battery systems in the Netherlands (2026).
+
+The current model is too conservative because it treats battery value as linear and underestimates energy shifting, arbitrage, and self-consumption interaction effects.
+
+⸻
+
+❌ PROBLEMEN DIE JE MOET OPLOSSEN
+
+1. Battery value is undercounted (too low kWh impact)
+2. EPEX arbitrage uses too small spread and too few cycles
+3. Self-consumption is static instead of dynamic
+4. All components are calculated independently (no interaction effects)
+5. Output range is too compressed (no realistic variance model)
+
+⸻
+
+🔧 FIX RULES (MUST IMPLEMENT)
+
+1. Battery energy impact (replace static kWh logic)
+
+DO NOT use fixed battery kWh contribution.
+
+Instead use:
+
+* Effective shifted energy range:
+    800 – 2.800 kWh/year (for 18.6 kWh battery)
+
+This includes:
+
+* PV shifting
+* grid import reduction
+* export reduction
+
+⸻
+
+2. EPEX arbitrage calculation (dynamic model)
+
+Replace fixed spread model.
+
+Use:
+
+* Cycles/year: 180 – 260
+* Effective usable capacity per cycle: 60–85% of battery size
+* Price spread: €0.10 – €0.18/kWh
+
+Formula:
+
+Arbitrage value =
+cycles × usable_kWh × spread
+
+Clamp result:
+
+👉 €850 – €1.450/year
+
+⸻
+
+3. Self-consumption upgrade logic
+
+Base PV self-consumption:
+
+* 2.900 kWh (baseline)
+
+Battery adds:
+
+* +650 to +1.050 kWh effective additional self-consumption
+
+IMPORTANT:
+This must also reduce grid import AND export simultaneously.
+
+⸻
+
+4. Interaction rule (CRITICAL)
+
+DO NOT calculate components independently.
+
+Battery affects ALL of the following at once:
+
+* grid import ↓
+* export ↓
+* arbitrage ↑
+* self-consumption ↑
+
+Apply interaction multiplier:
+
+👉 total system synergy multiplier: 1.10 – 1.25
+
+⸻
+
+5. Final annual value calculation
+
+Annual ROI MUST be:
+
+TOTAL =
+
+* avoided grid import savings
+
+* avoided export loss
+* arbitrage profit
+* system synergy uplift
+
+⸻
+
+6. Output constraints
+
+Final output MUST include:
+
+* Annual benefit range (€/year)
+* Monthly (€)
+* Payback period
+* 10-year net value
+
+Allowed final range for 18.6 kWh system:
+
+* €1.250 – €1.850 / year
+
+Anything below is invalid (model too conservative)
+
+Anything above €2.000 requires justification via “high usage profile”
+
+⸻
+
+⚠️ HARD RULE
+
+If model outputs below €1.250/year for a standard NL household:
+
+→ RE-CALCULATE using corrected battery impact model
+
+⸻
+
+🎯 GOAL
+
+Produce outputs that are:
+
+* mathematically consistent
+* realistic for NL 2026
+* optimized for full battery value capture
+* not artificially conservative

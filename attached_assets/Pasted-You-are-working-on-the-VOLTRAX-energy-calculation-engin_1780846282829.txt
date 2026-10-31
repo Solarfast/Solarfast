@@ -1,0 +1,142 @@
+You are working on the VOLTRAX energy calculation engine.
+
+This system is a commercial energy estimation engine for residential PV + battery + EMS systems in the Netherlands.
+
+It must be strictly physically consistent. No assumptions outside defined formulas are allowed.
+
+---
+
+## ⚠️ HARD RULES (NON-NEGOTIABLE)
+
+### 1. Energy conservation (absolute law)
+PV energy is the ONLY source of energy.
+
+Every kWh must be fully allocated:
+
+PV_kWh =
+    direct_self_consumption +
+    battery_charge +
+    grid_export
+
+Load_kWh =
+    direct_self_consumption +
+    battery_discharge +
+    grid_import
+
+No energy creation, duplication, or loss outside battery efficiency.
+
+---
+
+### 2. No double counting
+A single kWh cannot generate value in multiple places.
+
+- PV value ≠ EMS value
+- Battery shift ≠ extra generation
+- EMS only values timing, not extra energy
+
+---
+
+### 3. EMS constraint (strict)
+EMS operates ONLY on physically discharged battery energy.
+
+ems_kwh ≤ battery_discharge_kwh
+
+ems_kwh = min(
+    battery_discharge_kwh,
+    battery_charge_kwh * 1.2
+)
+
+ems_profit = ems_kwh × (grid_price - feed_in_price) × 0.35
+
+No additional multipliers allowed.
+
+---
+
+### 4. Battery behavior (diminishing returns)
+Battery effectiveness follows:
+
+effectiveness = 1 - exp(-battery_kwh / 20)
+
+This limits unrealistic scaling for large batteries.
+
+---
+
+## ⚙️ SELF-CONSUMPTION MODEL (STRICT FLOW DERIVED)
+
+Self-consumption is NEVER an input or assumption.
+
+It must be calculated from actual energy flows:
+
+self_consumption = direct_self_consumption / PV_kWh
+
+---
+
+### WITHOUT BATTERY
+Compute:
+
+direct_self_consumption = min(PV_kWh, Load_kWh × 0.6)
+
+This ensures realistic NL baseline:
+- 30%–55% self consumption range typical
+
+---
+
+### WITH BATTERY
+
+Step 1:
+direct_self_consumption = min(PV_kWh, Load_kWh)
+
+Step 2:
+battery_charge = min(PV_kWh - direct_self_consumption, available_capacity_adjusted)
+
+Step 3:
+battery_discharge = battery_charge × efficiency
+
+Step 4:
+battery_used_for_load = min(battery_discharge, Load_kWh - direct_self_consumption)
+
+---
+
+## ⚡ GRID FLOWS
+
+grid_export = PV_kWh - direct_self_consumption - battery_charge
+grid_import = Load_kWh - direct_self_consumption - battery_used_for_load
+
+---
+
+## 📊 OUTPUT REQUIREMENTS
+
+Return EXACTLY:
+
+- self_consumption_before (%)
+- self_consumption_after (%)
+- grid_import_before / after (kWh)
+- grid_export_before / after (kWh)
+- battery_charge_kwh
+- battery_discharge_kwh
+- ems_kwh
+- total_annual_value_eur
+
+---
+
+## 📉 REALISM CONSTRAINTS (HARD CAPS)
+
+Reject or clamp outputs if:
+
+- self_consumption_before not in 30%–55%
+- self_consumption_after > 98%
+- total annual value > €3,300 for residential system
+- EMS contributes > 60% of total value
+- grid_export_after = 0
+
+---
+
+## 🎯 GOAL
+
+Produce a physically correct, non-exploitable, stable energy model where:
+
+- Battery = energy shifting only
+- EMS = timing optimization only
+- Value = derived strictly from real kWh flows
+
+No overlaps. No hidden multipliers. No synthetic gains.

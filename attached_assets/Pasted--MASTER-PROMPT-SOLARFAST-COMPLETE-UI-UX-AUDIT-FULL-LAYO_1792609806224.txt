@@ -1,0 +1,374 @@
+# MASTER PROMPT — SOLARFAST COMPLETE UI/UX AUDIT & FULL LAYOUT REBUILD
+
+Je bent een senior frontend engineer, UI/UX-designer, design systems specialist en QA-engineer. Je werkt rechtstreeks in mijn bestaande Replit-project.
+
+## HOOFDDOEL
+
+Voer een volledige, grondige audit uit van de complete bestaande SolarFast-applicatie en herstel ieder visueel, structureel en functioneel probleem dat je aantreft.
+
+Dit is GEEN kleine styling-update. Dit is een complete kwaliteitscontrole en professionele afwerking van de volledige applicatie, van de eerste pagina tot de allerlaatste sectie, van iedere afbeelding tot ieder afzonderlijk tekstelement.
+
+De applicatie moet eruitzien alsof deze door een hoogwaardig professioneel productteam is ontworpen, gebouwd, getest en opgeleverd.
+
+**Belangrijk: inspecteer eerst de bestaande applicatie en de volledige codebase. Voer daarna de noodzakelijke verbeteringen daadwerkelijk door in de bestaande code. Lever geen rapport met alleen aanbevelingen op. Implementeer de oplossingen.**
+
+Behoud de bestaande bedrijfslogica, berekeningen, functionaliteit en relevante inhoud. Bouw niet onnodig opnieuw op wat al goed werkt.
+
+---
+
+## FASE 1 — VOLLEDIGE INVENTARISATIE
+
+Inspecteer de volledige applicatie, alle routes, pagina's, schermen, stappen, modals, formulieren, resultaten, navigatie-elementen en responsive varianten.
+
+Controleer onder andere:
+
+- De volledige startpagina en alle onderliggende pagina's.
+- Iedere stap van de bestaande klantwizard.
+- Alle invoervelden, keuzemenu's, schakelaars en knoppen.
+- Alle productkaarten en productvergelijkingen.
+- Alle berekeningen en resultaatkaarten.
+- Alle grafieken, tabellen en financiële overzichten.
+- Alle afbeeldingen, illustraties, iconen en productvisualisaties.
+- Alle kopteksten, tussenkoppen, labels, toelichtingen en footers.
+- Alle foutmeldingen, bevestigingen, lege toestanden en laadschermen.
+- Alle pop-ups, uitklapbare secties en aanvullende informatie.
+- Alle financieringsonderdelen en berekeningsoverzichten.
+- Alle mobiele, tablet- en desktopweergaven.
+
+Loop de volledige gebruikersreis stap voor stap door. Bekijk niet uitsluitend de eerste pagina.
+
+Maak intern een overzicht van alle aangetroffen problemen en los ze systematisch op.
+
+## FASE 2 — PIXELPRECISE UITLIJNING
+
+Controleer letterlijk alle zichtbare elementen op hun positie en onderlinge uitlijning.
+
+Herstel iedere afwijking, waaronder:
+
+- Scheve horizontale en verticale lijnen.
+- Kaarten die niet op dezelfde hoogte beginnen of eindigen.
+- Elementen die enkele pixels verschoven staan.
+- Kopteksten die niet op één lijn staan.
+- Knoppen met inconsistente hoogtes, breedtes of padding.
+- Ongelijke marges tussen vergelijkbare componenten.
+- Inconsistente linker- en rechteruitlijning.
+- Afbeeldingen die niet gecentreerd zijn.
+- Iconen die niet goed uitgelijnd zijn met hun tekst.
+- Teksten die niet verticaal gecentreerd staan.
+- Formuliervelden met verschillende afmetingen.
+- Secties met wisselende contentbreedtes.
+- Kolommen die niet netjes op elkaar aansluiten.
+- Scheve scheidingslijnen en onregelmatige randen.
+- Kaarten met verschillende interne witruimtes zonder functionele reden.
+- Overbodige lege ruimtes en onbedoelde overlappingen.
+- Elementen die tegen de schermrand aan staan.
+- Content die buiten de container valt.
+- Afgekapt tekst, afgesneden afbeeldingen of verborgen onderdelen.
+- Ongelijke tussenruimtes tussen opeenvolgende secties.
+
+Gebruik een consistent layout-grid, vaste containerbreedtes, herbruikbare spacing-tokens en duidelijke uitlijningsregels.
+
+Elementen die functioneel of visueel bij elkaar horen, moeten dezelfde uitlijningslogica volgen.
+
+Gebruik waar passend Flexbox en CSS Grid in plaats van willekeurige absolute positionering, negatieve marges of losse pixelcorrecties.
+
+**Streef naar pixelprecisie, maar forceer geen identieke afmetingen wanneer verschillende content of functies dat niet rechtvaardigen.**
+
+## FASE 3 — TYPOGRAFIE EN TEKSTCONTROLE
+
+Controleer iedere afzonderlijke tekst op vormgeving, plaatsing, leesbaarheid en duplicatie.
+
+Herstel:
+
+- Dubbele kopteksten en dubbele zinnen.
+- Dezelfde informatie die onnodig op meerdere plekken verschijnt.
+- Labels die inhoudelijk bij een verkeerd onderdeel staan.
+- Teksten die in de verkeerde kaart of sectie zijn geplaatst.
+- Teksten die over andere elementen heen vallen.
+- Afgebroken woorden en onbedoelde regelafbrekingen.
+- Inconsistente lettergroottes en letterdiktes.
+- Onlogische verschillen in regelafstand.
+- Onnodig kleine of juist buitenproportioneel grote tekst.
+- Teksten die niet goed uitlijnen met bijbehorende elementen.
+- Onlogische hoofdletters, interpunctie en witruimtes.
+- Lange teksten die de volledige lay-out ontregelen.
+- Technische teksten die onnodig veel ruimte innemen.
+- Knoppen met te lange of onduidelijke labels.
+
+Gebruik een consistente typografische schaal voor paginatitels, sectietitels, subtitels, bodytekst, labels, bedragen en ondersteunende informatie.
+
+Behoud inhoudelijk belangrijke informatie. Verwijder uitsluitend aantoonbare duplicaten of overbodige herhalingen. Herschrijf tekst alleen wanneer dit nodig is voor duidelijkheid, consistentie of een correcte gebruikerservaring.
+
+Controleer ook of bedragen, eenheden, kWh-waarden, eurotekens en overige dynamische gegevens correct worden weergegeven.
+
+## FASE 4 — AFBEELDINGEN EN VISUELE ELEMENTEN
+
+Controleer iedere afbeelding afzonderlijk en op iedere plek waar deze wordt weergegeven.
+
+Controleer onder meer:
+
+- Of de afbeelding inhoudelijk bij het juiste product of onderdeel hoort.
+- Of de afbeelding correct gecentreerd staat.
+- Of de verhoudingen behouden blijven.
+- Of de afbeelding niet wordt uitgerekt of vervormd.
+- Of er geen belangrijke delen onbedoeld worden afgesneden.
+- Of de beeldverhouding consistent is binnen vergelijkbare kaarten.
+- Of afbeeldingen voldoende scherp zijn.
+- Of de achtergrond en beeldstijl passen bij de rest van de applicatie.
+- Of de afbeelding niet over tekst, knoppen of andere elementen valt.
+- Of de afbeelding voldoende ruimte rondom heeft.
+- Of productafbeeldingen een consistente visuele schaal hebben.
+- Of afbeeldingen op mobiel correct worden geschaald.
+- Of er geen dubbele, kapotte of onnodige afbeeldingen bestaan.
+- Of laadfouten en ontbrekende afbeeldingen netjes worden opgevangen.
+
+Gebruik `object-fit: contain` voor productvisualisaties wanneer het volledige product zichtbaar moet blijven. Gebruik `object-fit: cover` uitsluitend wanneer een uitsnede bewust onderdeel is van het ontwerp.
+
+Controleer ook SVG's, logo's, iconen, illustraties en eventuele achtergrondafbeeldingen.
+
+Vervang bestaande afbeeldingen niet zomaar. Behoud de juiste SolarFast-branding en bestaande productafbeeldingen, tenzij er een aantoonbaar probleem is.
+
+## FASE 5 — VOLLEDIGE VISUELE HIËRARCHIE
+
+Breng de volledige applicatie naar één consistent, premium designniveau.
+
+De gewenste stijl:
+
+- Minimalistisch.
+- Modern.
+- Professioneel.
+- Hoogwaardig en betrouwbaar.
+- Rustig en overzichtelijk.
+- Gericht op conversie en vertrouwen.
+- Geïnspireerd op de visuele kwaliteit van Apple, Tesla en Quatt.
+- Passend bij SolarFast als aanbieder van slimme energieoplossingen.
+
+### Designregels
+
+**Kleuren**
+- Gebruik de bestaande SolarFast-huisstijl als uitgangspunt.
+- Werk met rustige wit-, beige- en groentinten waar deze bij de bestaande branding passen.
+- Gebruik geen willekeurige nieuwe accentkleuren.
+- Vermijd onnodige oranje accenten.
+- Zorg voor voldoende contrast en toegankelijke tekstkleuren.
+
+**Kaarten**
+- Consistente border-radius.
+- Consistente randdiktes.
+- Subtiele schaduwen waar functioneel.
+- Gelijke padding binnen vergelijkbare componenten.
+- Duidelijke visuele groepering.
+- Geen onnodige stapeling van kaarten binnen kaarten.
+- Geen overmatige decoratieve elementen.
+
+**Knoppen**
+- Consistente hoogte en padding.
+- Duidelijke primaire en secundaire acties.
+- Goed zichtbare hover-, focus-, active- en disabled-states.
+- Duidelijke tekst en voldoende klikoppervlak.
+- Knoppen moeten op dezelfde positie staan wanneer ze dezelfde functie hebben.
+
+**Witruimte**
+- Gebruik een vast spacing-systeem.
+- Voorkom willekeurige grote gaten.
+- Geef belangrijke onderdelen voldoende ademruimte.
+- Zorg dat gerelateerde elementen bij elkaar blijven.
+- Voorkom zowel overvolle als onnodig lege schermen.
+
+**Visuele hiërarchie**
+- De belangrijkste informatie moet direct herkenbaar zijn.
+- Bedragen en relevante resultaten moeten duidelijk leesbaar zijn.
+- Ondersteunende informatie mag minder nadruk krijgen.
+- Elke sectie moet een duidelijke functie hebben.
+- De gebruiker mag niet hoeven zoeken naar de volgende stap.
+
+## FASE 6 — COMPLETE LAYOUT VAN DE THUISBATTERIJTOOL
+
+Besteed extra aandacht aan de bestaande SolarFast-verkooptool.
+
+Controleer of de volledige klantreis logisch, rustig en consistent is opgebouwd.
+
+Inspecteer onder andere:
+
+1. Energiegegevens invoeren.
+2. Huidige situatie analyseren.
+3. Berekening en resultaat bekijken.
+4. Thuisbatterij selecteren.
+5. Productinformatie bekijken.
+6. Financiële voordelen en investeringsbedragen bekijken.
+7. Financiering en Warmtefonds bekijken waar aanwezig.
+8. De uiteindelijke samenvatting en eventuele PDF-rapportage.
+
+Behoud alle bestaande werkende functionaliteit en de huidige berekeningslogica.
+
+### Resultaatweergave
+
+Controleer of de vergelijking tussen de situatie zonder thuisbatterij en met thuisbatterij overzichtelijk en correct is weergegeven.
+
+Wanneer deze vergelijking onderdeel is van de huidige tool:
+
+- Plaats beide scenario's duidelijk naast elkaar op desktop.
+- Zorg voor een nette, logische stapeling op mobiel.
+- Gebruik consistente kaartafmetingen waar dat passend is.
+- Lijn bedragen, titels en toelichtingen correct uit.
+- Toon relevante kWh-waarden en eurobedragen overzichtelijk.
+- Voorkom dubbele weergave van dezelfde besparing.
+- Zorg dat de uitleg bij de juiste waarde staat.
+- Houd belangrijke financiële resultaten goed leesbaar.
+
+Verander geen berekeningsformules, aannames of financiële uitkomsten uitsluitend om het ontwerp mooier te laten lijken.
+
+Controleer ook of de resultaten visueel aansluiten bij de invoer die de gebruiker heeft opgegeven.
+
+## FASE 7 — RESPONSIVE DESIGN
+
+Test de volledige applicatie op verschillende schermformaten.
+
+Controleer minimaal de volgende viewportbreedtes:
+
+- 320 px.
+- 375 px.
+- 390 px.
+- 430 px.
+- 768 px.
+- 1024 px.
+- 1280 px.
+- 1440 px.
+- 1920 px.
+
+Dit zijn testbreedtes, geen vaste ontwerpafmetingen.
+
+Controleer per breedte:
+
+- Horizontale overflow.
+- Overlappende elementen.
+- Te smalle of te brede contentcontainers.
+- Onbedoelde tekstafbreking.
+- Knoppen die buiten beeld vallen.
+- Kaarten die niet goed herschikken.
+- Afbeeldingen die vervormen.
+- Tabellen die niet bruikbaar zijn.
+- Navigatie die niet goed werkt.
+- Formulieren die niet passen.
+- Modals die buiten het scherm vallen.
+- Onvoldoende ruimte rond de content.
+- Teksten en bedragen die niet volledig zichtbaar zijn.
+
+Gebruik passende responsive breakpoints en zorg dat de applicatie ook tussen de opgegeven breedtes goed werkt.
+
+Desktop mag niet simpelweg een uitvergrote mobiele lay-out zijn. Iedere schermgrootte moet bewust en professioneel worden ondersteund.
+
+## FASE 8 — CODEKWALITEIT EN CONSISTENTIE
+
+Inspecteer de relevante frontendcode en styling op structurele oorzaken van visuele fouten.
+
+Controleer:
+
+- Dubbele CSS-regels.
+- Tegenstrijdige styling.
+- Onnodige `!important`-declaraties.
+- Willekeurige marges en paddings.
+- Inconsistente componentvarianten.
+- Hardcoded afmetingen die responsive gedrag verstoren.
+- Onnodige absolute positionering.
+- Verouderde of ongebruikte styling.
+- Dubbele componenten die hetzelfde probleem verschillend oplossen.
+- Ontbrekende keys in dynamische lijsten.
+- Console-errors en renderingproblemen.
+- Fouten in conditionele weergave.
+- Problemen met dynamische content en langere teksten.
+
+Maak waar nuttig herbruikbare componenten en centrale design-tokens voor kleuren, spacing, typografie, radius en schaduwen.
+
+Refactor alleen waar dit de kwaliteit, consistentie of onderhoudbaarheid aantoonbaar verbetert.
+
+Behoud de bestaande technische stack en projectstructuur waar mogelijk. Vervang geen framework en voer geen onnodige migratie uit.
+
+## FASE 9 — FUNCTIONELE REGRESSIETESTS
+
+Een visueel perfecte applicatie die niet meer werkt, is niet acceptabel.
+
+Test na iedere relevante wijziging of de bestaande functionaliteit intact is gebleven.
+
+Controleer:
+
+- Navigatie tussen alle stappen.
+- Formuliervalidatie.
+- Invoer en wijziging van waarden.
+- Alle interactieve knoppen.
+- Berekeningen en resultaatupdates.
+- Productselectie.
+- Financieringsberekeningen.
+- Warmtefonds-functionaliteit waar aanwezig.
+- Dynamische content.
+- PDF-generatie en downloads waar aanwezig.
+- Foutmeldingen en lege toestanden.
+- Teruggaan en opnieuw doorlopen van de wizard.
+- Mobiele interacties.
+
+Controleer de browserconsole en beschikbare serverlogs.
+
+Los regressies op die door de wijzigingen ontstaan. Verzin geen testresultaten en claim geen tests die niet daadwerkelijk zijn uitgevoerd.
+
+## FASE 10 — VISUELE EINDCONTROLE
+
+Voer na de implementatie een tweede volledige controle uit.
+
+Bekijk de daadwerkelijke gerenderde applicatie, bij voorkeur met screenshots van alle belangrijke pagina's en wizardstappen.
+
+Vergelijk de verschillende schermen met elkaar.
+
+Zoek actief naar de laatste afwijkingen:
+
+- Een kaart die nog enkele pixels verschoven staat.
+- Een titel die niet op dezelfde lijn staat als vergelijkbare titels.
+- Een afbeelding die niet correct gecentreerd is.
+- Een knop met een afwijkende hoogte.
+- Een onverwachte lege ruimte.
+- Een tekst die dubbel staat.
+- Een rand die niet netjes aansluit.
+- Een verkeerd geplaatste beschrijving.
+- Een mobiel scherm dat afwijkt van de bedoelde lay-out.
+- Een element dat door dynamische content verschuift.
+- Een onbedoelde wijziging aan de huisstijl.
+
+Herhaal de controle en herstel de gevonden problemen totdat de belangrijkste pagina's en gebruikersstromen consistent zijn.
+
+Als browserautomatisering of screenshots beschikbaar zijn, gebruik deze dan actief. Als bepaalde schermen of interacties niet bereikbaar zijn, vermeld dat expliciet en controleer de beschikbare code zo grondig mogelijk.
+
+---
+
+## ABSOLUTE RANDVOORWAARDEN
+
+1. Werk rechtstreeks in het bestaande Replit-project.
+2. Maak geen losstaand prototype of een nieuwe demo.
+3. Behoud de bestaande bedrijfslogica en werkende functionaliteit.
+4. Verwijder geen essentiële tekst, productinformatie of financiële uitleg.
+5. Verander geen berekeningslogica zonder aantoonbare noodzaak.
+6. Verwijder dubbele tekst alleen wanneer deze daadwerkelijk redundant is.
+7. Vervang geen correcte productfoto's door willekeurige afbeeldingen.
+8. Verberg geen problemen door content simpelweg te verwijderen.
+9. Gebruik geen willekeurige pixelcorrecties als structurele oplossing.
+10. Pas geen wijzigingen toe die alleen op één schermformaat werken.
+11. Controleer zowel de styling als de daadwerkelijke gebruikerservaring.
+12. Los problemen op in de onderliggende componenten wanneer die de oorzaak zijn.
+13. Houd wijzigingen beheersbaar en voorkom onnodige herschrijvingen.
+14. Controleer bestaande configuratie en maak indien mogelijk een herstelpunt voordat je ingrijpende wijzigingen aanbrengt.
+15. Voer de wijzigingen daadwerkelijk door. Stop niet na het analyseren of opsommen van problemen.
+
+## OPLEVERING
+
+Voer de volledige audit en implementatie uit.
+
+Geef na afloop een beknopt maar concreet overzicht van:
+
+- Welke pagina's en onderdelen zijn gecontroleerd.
+- Welke visuele en structurele problemen zijn opgelost.
+- Welke componenten of stijlen zijn aangepast.
+- Welke responsive verbeteringen zijn doorgevoerd.
+- Welke functionele tests daadwerkelijk zijn uitgevoerd.
+- Welke resterende problemen of niet-geteste onderdelen er eventueel nog zijn.
+
+**Eindcriterium:** de volledige SolarFast-applicatie moet aanvoelen als één samenhangend, professioneel ontworpen product. Alle zichtbare onderdelen moeten logisch geplaatst zijn, vergelijkbare componenten moeten consistent zijn, afbeeldingen moeten correct worden weergegeven, teksten mogen niet onnodig dubbel staan en er mogen geen onbedoelde scheve lijnen, overlappingen of layoutfouten overblijven.
+
+Begin nu met de volledige inventarisatie van het bestaande project en voer vervolgens de verbeteringen systematisch door.

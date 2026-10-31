@@ -1,0 +1,184 @@
+DOEL
+Bouw een 2-layer systeem:
+
+LAYER 1 = PHYSICS ENGINE (100% correct, nooit gemanipuleerd)
+LAYER 2 = ROI ENGINE (commercieel geoptimaliseerd, maar fysica blijft leidend)
+
+⸻
+
+🚨 ABSOLUTE REGELS
+
+- NOOIT fysische energiecijfers manipuleren voor ROI
+- NOOIT negatieve kWh tonen
+- NOOIT 100% zelfverbruik tenzij off-grid fysiek bewezen
+- NO fallback prijzen (€18/kWh, etc.)
+- NO hardcoded percentages (85–94% alleen UI display cap, geen input basis)
+- EMS / EPEX / arbitrage logica blijft intact
+- ROI mag NIET direct uit UI waarden komen
+
+⸻
+
+========================
+⚡ LAYER 1 — PHYSICS ENGINE
+========================
+
+ALLE berekeningen moeten puur uit kWh flows komen:
+
+production
+consumption
+feedIn
+grid_import
+battery_charge
+battery_discharge
+
+⸻
+
+ENERGIE BALANS (ALTIJD WAAR):
+
+production + grid_import + battery_discharge
+= consumption + feed_in + battery_charge
+
+⸻
+
+SELF CONSUMPTION (ENIGE JUISTE DEFINITIE):
+
+directSelfConsumption = min(production, consumption)
+
+batterySelfConsumption = battery_discharge_used_for_load
+
+totalSelfConsumption = direct + battery
+
+selfConsumptionPct =
+(totalSelfConsumption / consumption) * 100
+
+NO CLAMP in physics layer
+
+⸻
+
+GRID IMPORT:
+
+grid_import = max(consumption - totalSelfConsumption, 0)
+
+NO minimum UI forcing
+NO negatieve waarden
+
+⸻
+
+BATTERY:
+
+battery_charge ≤ surplus_energy
+battery_discharge ≤ deficit_energy
+
+Battery mag alleen fysiek haalbare energie verschuiven
+
+⸻
+
+SURPLUS / DEFICIT SPLIT:
+
+IF production >= consumption:
+    SURPLUS MODE
+    battery stores excess only
+    grid_import minimal
+
+IF production < consumption:
+    DEFICIT MODE
+    battery discharges first
+    remaining deficit = grid_import
+
+⸻
+
+FAIL-SAFE RULE:
+
+Als iets ontbreekt:
+→ toon RAW physics
+→ NIET corrigeren
+→ NIET gladstrijken
+
+⸻
+
+========================
+⚡ LAYER 2 — ROI ENGINE
+========================
+
+ROI is GEBASEERD op physics layer output, NIET UI.
+
+⸻
+
+BASIS FORMULE:
+
+annual_savings =
+(avoided_grid_import × price_buy)
+- (lost_feed_in × price_sell)
++ (revenue_arbitrage from EMS)
+- (costs/fees)
+
+⸻
+
+BELANGRIJK:
+
+- ROI mag OPTIMALISEREN door:
+    - realistische marktprijzen
+    - EMS waarde benutting
+    - tijdsarbitrage waarde
+
+- ROI mag NOOIT:
+    - energie aanpassen
+    - kWh veranderen
+    - self-consumption manipuleren
+
+⸻
+
+TERUGVERDIENTIJD:
+
+payback = investment / annual_savings
+
+LOW = investment / high_savings
+HIGH = investment / low_savings
+
+⸻
+
+========================
+⚡ UI LAYER (DISPLAY ONLY)
+========================
+
+UI mag alleen tonen:
+
+- berekende physics waarden
+- ROI resultaten uit layer 2
+
+⸻
+
+UI REGELS:
+
+- self-consumption display mag 85–94% CLAMP hebben (ALLEEN VISUEEL)
+- grid_import mag minimum 150 kWh display hebben (ALLEEN VISUEEL)
+- NO impact op backend waarden
+
+⸻
+
+VERBODEN UI:
+
+- 100% zelfverbruik (tenzij off-grid)
+- negatieve kWh
+- €18/kWh of extreme fallback prijzen
+- “AI opgeblazen waarden”
+
+⸻
+
+========================
+⚡ RESULTAAT GARANTIE
+========================
+
+Na deze implementatie:
+
+✔ 100% fysisch correcte energieflow
+✔ geen negatieve of gefantaseerde kWh
+✔ ROI blijft stabiel maar realistisch geoptimaliseerd
+✔ EMS blijft intact
+✔ UI blijft clean zonder bullshit
+✔ edge cases blijven zichtbaar
+✔ geen fallback bugs meer
+
+⸻
+
+END SYSTEM

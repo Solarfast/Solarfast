@@ -1,0 +1,186 @@
+VOLTRAX
+Home
+Over AlphaESS
+Warmtefonds
+Aanbod
+Hoe werkt het?
+
+NL
+EN
+Bereken besparing
+Officieel AlphaESS dealer
+Hoe werkt een thuisbatterij?
+Van zonnestroom opslaan tot slim laden bij negatieve tarieven. Alles wat u moet weten, in gewone taal uitgelegd.
+
+Bereken mijn besparing
+Stap 1
+Wat doet een thuisbatterij precies?
+Uw zonnepanelen wekken overdag meer stroom op dan u verbruikt. Zonder batterij verdwijnt dat overschot voor een lage prijs naar het net. Met een batterij slaat u het op en gebruikt u het zelf, precies wanneer u het nodig heeft.
+
+STAP 1
+Overdag: panelen produceren
+Uw zonnepanelen wekken stroom op. Wat u niet direct verbruikt, slaat de batterij automatisch op.
+
+STAP 2
+Batterij laadt op
+De AlphaESS slaat de overtollige zonnestroom op: stil, veilig en volledig automatisch. 's Nachts laadt hij ook bij bij lage of negatieve tarieven.
+
+STAP 3
+Avond: gebruik eigen stroom
+Als de zon onder is en de panelen stoppen, levert de batterij stroom. U koopt nauwelijks iets van het net.
+
+Energietarieven
+Een dag in uw energietarieven
+Stroom heeft door de dag heen sterk wisselende prijzen. Soms zijn tarieven zelfs negatief: dan betaalt het net u om stroom af te nemen. Het AlphaESS EMS benut elk moment optimaal.
+
+00:00 – 06:00
+Negatieve stroomuren
+≤ €0,00 / kWh
+–
+Zonder: Geen actie: u slaapt en betaalt niets extra
+Met batterij: EMS laadt batterij bij negatieve of gratis tarieven
+06:00 – 12:00
+Zonneopwekking begint
+Gratis eigen stroom
+–
+Zonder: Overschot naar net, u ontvangt 0,05-0,09 euro/kWh
+Met batterij: Batterij laadt op met gratis eigen zonnestroom
+12:00 – 18:00
+Maximale zonne-energie
+Batterij vol geladen
+–
+Zonder: Stroom naar net voor lage terugleverprijs
+Met batterij: Batterij vol, EMS optimaliseert de rest
+18:00 – 23:00
+Avondpiek, duurste uren
+Eigen stroom, geen net
+–
+Zonder: Inkopen van net voor 0,30–0,40 €/kWh
+Met batterij: Batterij levert eigen stroom, geen netkosten
+Negatieve stroomtarieven: het EMS werkt ook 's nachts
+Op momenten dat zonne- en windenergie een overschot produceren, dalen de stroomprijzen soms onder nul. Het AlphaESS EMS herkent dit automatisch en laadt de batterij gratis op, of ontvangt zelfs een kleine vergoeding.
+Stap 2: Slimme technologie
+Het AlphaESS EMS doet het zware werk
+Een gewone batterij slaat alleen op en geeft terug. De AlphaESS gaat verder: het Energy Management System analyseert realtime de energieprijzen, het weerbericht en uw verbruikspatroon. Dan beslist het automatisch wanneer te laden, ontladen of te handelen op de energiemarkt, ook 's nachts bij negatieve tarieven.
+
+Laadt bij goedkope of negatieve daluren (dynamisch tarief)
+Levert terug op piekprijzen voor maximale opbrengst
+Deelname aan imbalance trading en netondersteunende diensten
+Realtime monitoring via de AlphaCloud app
+Optionele backupfunctie bij stroomstoring (instelbaar)
+Wat levert het EMS per dag op?
+☀️
+Zelfverbruik optimalisatie
+Eigen zonnestroom ipv netinkoop
+€2,50 – 3,50/dag
+⚡
+Dal-piek arbitrage
+Goedkoop laden, duur ontladen
+€1,50 – 2,50/dag
+📉
+Negatieve uren & markthandel
+Gratis of betaald laden
+€0,50 – 1,00/dag
+Totaal per dag
+€ 3,00 – 5,00
+Op basis van gemiddelde marktomstandigheden. Resultaten variëren per situatie.
+
+Stap 3: Waarom AlphaESS?
+Marktleider in Nederland
+AlphaESS is de meest verkochte thuisbatterij van Nederland. De cijfers spreken voor zich.
+
+200.000+
+Installaties wereldwijd
+Bewezen in de praktijk
+80+
+Landen actief
+Wereldwijde aanwezigheid
+10 jaar
+Fabrieksgarantie
+Per systeem, standaard
+AlphaESS vs gemiddelde thuisbatterij
+Waarom AlphaESS de betere keuze is op de drie belangrijkste criteria
+
+Criterium
+AlphaESS
+Gemiddeld
+Laadcycli garantie
+10.000
+4.000
+Fabrieksgarantie (jaar)
+10
+7
+Max. systeemcapaciteit (kWh)
+55,8
+20
+Vergelijkingsdata op basis van publiek beschikbare fabrieksspecificaties. AlphaESS SMILE G3 vs. markgemiddelde 2024.
+
+AlphaESS SMILE G3
+Technologie die het verschil maakt
+LFP-batterijcellen
+Lithium-ijzerfosfaat: veiligste lithiumchemie beschikbaar
+Geen brandrisico bij overbelasting of extreme temperaturen
+Werkt optimaal bij alle weersomstandigheden
+Vrij van gevaarlijke materialen zoals kobalt
+Indrukwekkende levensduur
+Meer dan 10.000 laadcycli gegarandeerd (vs. circa 4.000 gemiddeld)
+10 jaar garantie, uitbreidbaar tot 15 jaar
+Bewezen duurzaamheid: presteert uitstekend na jaren gebruik
+Meer dan 200.000 systemen wereldwijd succesvol in gebruik
+Modulair systeem
+Capaciteit van 9,3 tot 55,8 kWh, u kiest wat past
+Later uitbreidbaar zonder nieuwe omvormer
+Compatibel met alle grote omvormers op de markt
+IP55-gecertificeerd, geschikt voor binnen en buiten
+AlphaCloud connectiviteit
+Realtime monitoring op uw smartphone, altijd en overal
+Automatische firmware-updates voor optimale prestaties
+Slimme laadschemas op basis van actuele energietarieven
+Imbalance trading en netondersteunende diensten inbegrepen
+Wat klanten zeggen
+Echte ervaringen van AlphaESS gebruikers.
+
+"Batterij doet wat hij moet doen. Zonder haperen. De app geeft mij duidelijk inzicht. Zo weet ik zeker dat de batterij nuttig werk levert."
+
+Bart
+"De app is gemakkelijk te gebruiken en zeer duidelijk. Je weet direct hoeveel procent er nog in de batterij aanwezig is en hoeveel je van het net moet nemen."
+
+Marina Van den Eynde
+"De AlphaESS batterij geeft een mooi rendement. Via de app kan je perfect productie en verbruik opvolgen. Samen met de zonnepanelen zijn wij zeer tevreden."
+
+Marc De Schinckel
+Wat kunt u van VOLTRAX verwachten?
+Van advies tot in gebruik
+Geen gedoe. Wij regelen alles van A tot Z.
+
+01
+Gratis adviesgesprek aan tafel
+Wij analyseren uw energierekening, zonneproductie en situatie. U krijgt eerlijk advies over welke batterij voor u het meeste oplevert.
+
+Geen verkoopdruk. Gewoon een eerlijk gesprek.
+02
+Transparante offerte op maat
+U ontvangt een duidelijke offerte inclusief batterij, installatie, BTW en eventuele Warmtefonds-financiering. Alles in één overzicht.
+
+Inclusief Warmtefonds aanvraag indien gewenst.
+03
+Professionele installatie
+Onze gecertificeerde monteurs plaatsen de batterij netjes en vakkundig. De installatie duurt gemiddeld een halve dag.
+
+IP55 gecertificeerd voor binnen en buiten plaatsing.
+04
+Inbedrijfstelling en instructie
+We koppelen de batterij aan uw omvormer, activeren de AlphaCloud app en lopen alles met u door. Daarna geniet u direct van uw investering.
+
+App-toegang en ondersteuning voor de lange termijn.
+Gratis, geen registratie vereist
+Klaar om te berekenen wat het u oplevert?
+Gebruik de calculator en zie in 2 minuten uw persoonlijke besparing.
+
+Start de berekening
+Kosteloos, 100% vrijblijvend
+
+VOLTRAX
+Officieel AlphaESS dealer
+
+Warmtefonds partner

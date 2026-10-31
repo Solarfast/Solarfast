@@ -1,0 +1,101 @@
+# VOLTRAX — Fix: Huidig vast/dynamisch contract tekst in rapport
+# Alleen ResultsPage.jsx aanpassen
+
+---
+
+Pas VOLTRAX/frontend/src/pages/ResultsPage.jsx aan.
+Verander NIETS anders.
+
+---
+
+## STAP 1 — Lees dynamic_contract uit results
+
+Zoek bovenaan in de `ResultsPage` component na de state declaraties:
+
+```javascript
+  const battery_price = input?.battery_price || 9000
+  const battery_kWh   = input?.battery_kWh   || 18.6
+```
+
+Voeg toe op de regel erna:
+
+```javascript
+  const isDynamic = results?.dynamic_contract || false
+```
+
+---
+
+## STAP 2 — Pas tekst aan in SideBySideCards
+
+Zoek in de `SideBySideCards` functie:
+
+```jsx
+<span className="text-[10px] font-bold uppercase tracking-[0.18em] text-black/25 block mb-1">{res.currentSituation}</span>
+<h3 className="font-extrabold text-base text-black/65 leading-tight">{res.withoutBattery}</h3>
+```
+
+Vervang met:
+
+```jsx
+<span className="text-[10px] font-bold uppercase tracking-[0.18em] text-black/25 block mb-1">{res.currentSituation}</span>
+<h3 className="font-extrabold text-base text-black/65 leading-tight">
+  {r.dynamic_contract ? 'Huidig dynamisch contract' : 'Huidig vast contract'}
+</h3>
+{!r.dynamic_contract && (
+  <p className="text-[11px] text-[#22a55d] mt-1 font-medium leading-snug">
+    Met batterij stapt u over naar dynamisch — maximaal rendement
+  </p>
+)}
+```
+
+---
+
+## STAP 3 — Pas rechterkolom tekst aan
+
+Zoek in de `SideBySideCards` functie:
+
+```jsx
+<span className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#22a55d]/70 block mb-1">{res.withAlpha}</span>
+<h3 className="font-extrabold text-base text-black/85 leading-tight">{res.withBattery}</h3>
+```
+
+Vervang met:
+
+```jsx
+<span className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#22a55d]/70 block mb-1">{res.withAlpha}</span>
+<h3 className="font-extrabold text-base text-black/85 leading-tight">
+  {r.dynamic_contract ? 'Dynamisch geoptimaliseerd + batterij' : 'Dynamisch contract + batterij'}
+</h3>
+```
+
+---
+
+## STAP 4 — Rebuild frontend
+
+Na de wijziging in de Replit shell:
+
+```bash
+cd VOLTRAX/frontend && npm run build
+```
+
+Dan Run knop opnieuw drukken.
+
+---
+
+## VERWACHT RESULTAAT
+
+Vast contract klant:
+- Links: "Huidig vast contract"
+- Groene tekst: "Met batterij stapt u over naar dynamisch — maximaal rendement"
+- Rechts: "Dynamisch contract + batterij"
+
+Dynamisch contract klant:
+- Links: "Huidig dynamisch contract"
+- Rechts: "Dynamisch geoptimaliseerd + batterij"
+
+---
+
+## BELANGRIJK
+
+- Verander NIETS anders in ResultsPage.jsx
+- Altijd rebuilden na frontend wijzigingen

@@ -1,0 +1,174 @@
+VOLTRAX ROI ENGINE — PHYSICS-FIRST UNCAPPED FLOW MODEL (PRODUCTION)
+
+Gebruik een volledig energie-gedreven simulatiemodel voor AlphaESS thuisbatterijen.
+
+Doel: realistische maar maximale economische waarde berekenen op basis van echte energieflows (PV, load, export, batterij), zonder vaste caps op zelfverbruik of ROI.
+
+⸻
+
+1. FUNDAMENTELE REGEL (ABSOLUUT)
+
+Alle resultaten moeten ontstaan uit energievolgorde, niet uit percentages of vooraf ingestelde plafonds.
+
+Energieflow:
+
+1. PV → direct verbruik (instant self-consumption)
+2. PV overschot → batterij laden
+3. Batterij → verbruik verschuiven (avond/nacht)
+4. Rest PV → export
+5. Net → vult resterende vraag
+
+👉 Geen enkele stap mag worden geforceerd of begrensd met vaste % caps.
+
+⸻
+
+2. ZELFVERBRUIK (VOLLEDIG EMERGENT)
+
+Zelfverbruik is een uitkomst, geen input.
+
+WITHOUT BATTERY:
+
+* bepaald door overlap PV vs load profiel
+* kan variëren van 20% tot 60% (geen vaste baseline)
+
+WITH BATTERY:
+
+* bepaald door:
+    * batterijcapaciteit
+    * PV overschot
+    * load timing
+* typisch bereik: 70% – 92%
+* kan lager of hoger zijn afhankelijk van profiel (niet geforceerd)
+
+👉 NOOIT clampen op eindresultaat.
+
+⸻
+
+3. BATTERIJGEDRAG (FYSISCH MODEL)
+
+* batterij laadt alleen op PV-overschot of goedkope uren
+* batterij ontlaadt alleen op echte load of prijsverschil
+* max 1 cycle per dag per beschikbare capaciteit
+* 350 – 460 cycli/jaar afhankelijk van:
+    * PV overschot
+    * load mismatch
+    * capaciteit
+* efficiëntie: 92% – 95%
+* diminishing returns bij hoge self-consumption (natuurlijk, niet gecapt)
+
+⸻
+
+4. ENERGIEBALANS (VERPLICHT)
+
+Alles moet sluiten:
+
+PV = direct + batterij + export
+Load = direct + batterij + grid
+
+👉 geen dubbele toekenning van kWh
+👉 geen percentage shortcuts
+👉 geen statische splits
+
+⸻
+
+5. GRID SAVINGS (HOOFDWAARDE)
+
+Hoofdwaarde komt uit vermeden netimport:
+
+grid_import_before = realistische PV-load mismatch
+grid_import_after  = load - (direct PV + battery discharge)
+
+grid_saving = (grid_import_before - grid_import_after) × pE
+
+⸻
+
+6. EXPORT EFFECT (ENKEL CORRECTIE)
+
+export_loss = max(PV - total_self_use, 0) × pT
+
+👉 nooit positief én negatief tegelijk tellen
+
+⸻
+
+7. EMS MODEL (RESTWAARDE, NOOIT PRIMAIR)
+
+EMS is alleen wat overblijft na load shifting.
+
+ems_kwh = battery_capacity × cycles × efficiency
+
+spread = max(pE - pT, 0)
+
+ems_value = ems_kwh × spread × 0.20–0.25
+
+Constraints:
+
+* EMS mag niet dominant zijn (>40% totaal vermijden)
+* EMS schaalt alleen met overschot en capaciteit
+* geen hard caps op totaal resultaat
+
+⸻
+
+8. VAST VS DYNAMISCH
+
+Vast:
+
+* stabiele prijzen
+* lagere spread
+* lagere EMS waarde
+
+Dynamisch:
+
+* hogere spread volatiliteit
+* +5% tot +15% EMS uplift (alleen EMS, niet totaal)
+
+👉 verschil moet ontstaan uit markt, niet uit multipliers
+
+⸻
+
+9. TOTAAL MODEL
+
+total_annual_value =
+grid_saving
+
+* export_loss
+
+* EMS_value
+
+👉 geen dubbele telling
+👉 geen caps op eindwaarde
+👉 geen ROI plafonds
+
+⸻
+
+10. SCALING LOGICA
+
+* self-consumption is emergent (niet fixed)
+* batterij verhoogt vooral load shifting, niet percentage
+* PV bepaalt EMS plafond
+* load bepaalt maximum besparing
+* diminishing returns komen vanzelf uit energieflow
+
+⸻
+
+11. OUTPUT REGELS
+
+* gebruik ranges (laag–hoog) alleen door EMS spread variatie
+* geen marketing caps
+* geen geforceerde ROI bands
+* resultaten moeten fysisch verklaarbaar blijven
+* geen vaste percentages tonen als “input waarheid”
+
+⸻
+
+RESULTAATGEDRAG
+
+Dit model levert:
+
+* echte variatie self-consumption (30%–92%)
+* stabiele maar hoge ROI (€2.0k – €3.3k typisch)
+* geen €700 crashes
+* geen 72% lock
+* EMS correct en nooit dominant
+* dynamisch logisch beter maar niet geforceerd
+
+⸻

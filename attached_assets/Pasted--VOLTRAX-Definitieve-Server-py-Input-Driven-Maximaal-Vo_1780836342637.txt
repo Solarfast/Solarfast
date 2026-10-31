@@ -1,0 +1,260 @@
+# VOLTRAX — Definitieve Server.py: Input-Driven Maximaal Voordeel
+# Vervang de VOLLEDIGE calculate_battery_savings functie
+
+Pas VOLTRAX/backend/server.py aan.
+Vervang ALLES tussen "def calculate_battery_savings" 
+en "@api_router.get" met onderstaande code.
+Verander NIETS anders in het bestand.
+
+---
+
+```python
+def clamp(value: float, lo: float, hi: float) -> float:
+    return max(lo, min(hi, value))
+
+
+def calculate_battery_savings(
+    zonneproductie: float,
+    jaarverbruik: float,
+    teruglevering: float,
+    pE: float,
+    pT: float,
+    bat_kWh: float,
+    battery_price: float,
+    terugleververgoeding_value: float = 0,
+    terugleververgoeding_unit: str = "kWh",
+    terugleverkosten_value: float = 0,
+    terugleverkosten_unit: str = "jaar",
+    dynamic_contract: bool = False,
+) -> dict:
+
+    PV = max(zonneproductie, 1.0)
+    V  = max(jaarverbruik,   1.0)
+    T  = max(teruglevering,  0.0)
+
+    # ================================================================
+    # STAP 1 — HUIDIGE SITUATIE ZONDER BATTERIJ
+    # ================================================================
+    direct_rate         = clamp((PV - T) / PV if PV > 0 else 0.38, 0.32, 0.45)
+    sc_direct_kwh       = PV * direct_rate
+    grid_import_without = max(V * 0.05, V - sc_direct_kwh)
+    sc_direct_kwh       = V - grid_import_without
+    export_kwh_zonder   = max(0.0, PV - sc_direct_kwh)
+    sc_pct_zonder       = sc_direct_kwh / V * 100.0
+
+    if terugleverkosten_unit == "kWh":
+        tk_jaar = terugleverkosten_value * export_kwh_zonder
+    else:
+        tk_jaar = terugleverkosten_value
+    if terugleververgoeding_unit == "kWh":
+        tv_jaar = terugleververgoeding_value * export_kwh_zonder
+    else:
+        tv_jaar = terugleververgoeding_value
+
+    grid_cost_without       = grid_import_without * pE
+    export_revenue_without  = export_kwh_zonder * pT
+    net_annual_cost_without = grid_cost_without - export_revenue_without + tk_jaar - tv_jaar
+
+    # ================================================================
+    # STAP 2 — MET BATTERIJ (energieflow)
+    # ================================================================
+    batt_rate        = clamp(0.85 + (bat_kWh / 55.8) * 0.11, 0.85, 0.96)
+    total_self_use   = min(PV * batt_rate, V * 0.98)
+    grid_import_with = max(V * 0.02, V - total_self_use)
+    total_self_use   = V - grid_import_with
+    sc_battery_kwh   = max(0.0, total_self_use - sc_direct_kwh)
+    export_kwh_with  = max(0.0, PV - total_self_use)
+    sc_pct_met       = clamp(total_self_use / V * 100.0, 85.0, 94.0)
+
+    # Display: netinkoop altijd minimaal 150 kWh zichtbaar
+    disp_grid_met  = max(grid_import_with, 150.0)
+    disp_sc_total  = max(0.0, V - disp_grid_met)
+    disp_sc_direct = min(sc_direct_kwh, disp_sc_total)
+    disp_sc_bat    = max(0.0, disp_sc_total - disp_sc_direct)
+
+    # ================================================================
+    # STAP 3 — ENERGIEBESPARING (basis voor breakdown)
+    # ================================================================
+    grid_besparing_kwh = grid_import_without - grid_import_with
+    grid_besparing_eur = grid_besparing_kwh * pE
+    export_loss_eur    = sc_battery_kwh * pT
+    arbitrage_eur      = sc_battery_kwh * max(0.0, pE - pT) * 0.22
+
+    shift_ratio = clamp(sc_battery_kwh / max(export_kwh_zonder, 1.0), 0.0, 1.0)
+    saved_tk    = tk_jaar * shift_ratio
+    lost_tv     = tv_jaar * shift_ratio
+
+    net_energy_saving = max(0.0,
+        grid_besparing_eur - export_loss_eur + saved_tk - lost_tv + arbitrage_eur
+    )
+
+    # ================================================================
+    # STAP 4 — EMS MODEL
+    # Schaalt met batterijgrootte EN beschikbare export van klant.
+    # Grotere batterij = meer cycli maar alleen als er genoeg zon is.
+    # ================================================================
+    EMS_SPREAD_LOW  = 0.26
+    EMS_SPREAD_HIGH = 0.32
+    EFFICIENCY      = 0.94
+    UPLIFT          = 1.15
+
+    # Beschikbaar voor EMS: wat er over is na zelfverbruik
+    beschikbaar_export = max(export_kwh_zonder, 0.0)
+
+    # Cycli: schaalt met export en batterijgrootte
+    # Meer export = meer mogelijkheden, grotere batterij = meer buffer
+    max_solar_cycli = clamp(beschikbaar_export / max(bat_kWh, 1.0), 0.0, 180.0)
+    epex_cycli      = clamp(280.0 + (bat_kWh / 55.8) * 80.0, 280.0, 360.0)
+    total_cycli     = clamp(max_solar_cycli + epex_cycli, 280.0, 440.0)
+
+    ems_annual_low  = bat_kWh * total_cycli * EFFICIENCY * EMS_SPREAD_LOW
+    ems_annual_high = bat_kWh * total_cycli * EFFICIENCY * EMS_SPREAD_HIGH
+
+    # ================================================================
+    # STAP 5 — TOTAAL VOORDEEL
+    # Input-driven: schaalt met zon, verbruik en batterijgrootte.
+    # Altijd maximaal haalbaar scenario.
+    # Strakke band van 14%.
+    # ================================================================
+    total_raw_low  = (net_energy_saving + ems_annual_low)  * UPLIFT
+    total_raw_high = (net_energy_saving + ems_annual_high) * UPLIFT
+
+    # Minimum per batterijgrootte — altijd sterk aan tafel
+    min_targets = {
+        9.3:  (1600, 1900),
+        18.6: (2500, 2900),
+        27.9: (3200, 3700),
+        37.2: (4000, 4600),
+        46.5: (4700, 5400),
+        55.8: (5400, 6200),
+    }
+
+    closest_kWh           = min(min_targets.keys(), key=lambda x: abs(x - bat_kWh))
+    floor_low, floor_high = min_targets[closest_kWh]
+
+    # Neem beste van berekend en minimum floor
+    total_annual_low  = max(total_raw_low,  floor_low)
+    total_annual_high = max(total_raw_high, floor_high)
+
+    # Hard maximum: nooit meer dan 1.12x de floor
+    total_annual_low  = min(total_annual_low,  floor_low  * 1.12)
+    total_annual_high = min(total_annual_high, floor_high * 1.12)
+
+    # Strakke band van 14%
+    mid               = (total_annual_low + total_annual_high) / 2.0
+    total_annual_low  = round(mid * 0.93)
+    total_annual_high = round(mid * 1.07)
+
+    if total_annual_low > total_annual_high:
+        total_annual_low, total_annual_high = total_annual_high, total_annual_low
+
+    total_daily_low      = total_annual_low  / 365.0
+    total_daily_high     = total_annual_high / 365.0
+    bill_savings_annual  = net_energy_saving
+    bill_savings_monthly = bill_savings_annual / 12.0
+
+    # EMS display consistent met totaal
+    ems_display_low  = max(0.0, total_annual_low  - net_energy_saving)
+    ems_display_high = max(0.0, total_annual_high - net_energy_saving)
+    ems_daily_low    = ems_display_low  / 365.0
+    ems_daily_high   = ems_display_high / 365.0
+
+    # ================================================================
+    # STAP 6 — TERUGVERDIENTIJD altijd 3,5–5,5 jaar
+    # ================================================================
+    payback_low  = battery_price / max(total_annual_high, 1.0)
+    payback_high = battery_price / max(total_annual_low,  1.0)
+    payback_low  = max(3.5, payback_low)
+    payback_high = clamp(max(payback_low + 0.4, payback_high), payback_low + 0.4, 5.5)
+
+    # ================================================================
+    # DISPLAY WAARDEN
+    # ================================================================
+    teruglevering_pct_voor = export_kwh_zonder / PV * 100.0 if PV > 0 else 0.0
+    teruglevering_pct_na   = export_kwh_with   / PV * 100.0 if PV > 0 else 0.0
+    net_voor_pct           = grid_import_without / V * 100.0 if V > 0 else 0.0
+    net_na_pct             = disp_grid_met       / V * 100.0 if V > 0 else 0.0
+    netonafhankelijkheid   = clamp(
+        ((net_voor_pct - net_na_pct) / max(net_voor_pct, 1.0)) * 100.0,
+        0.0, 95.0
+    )
+
+    return {
+        "smart_daily_low":             round(ems_daily_low,              2),
+        "smart_daily_high":            round(ems_daily_high,             2),
+        "smart_annual_low":            round(ems_display_low,            0),
+        "smart_annual_high":           round(ems_display_high,           0),
+        "bill_savings_annual":         round(bill_savings_annual,        0),
+        "bill_savings_monthly":        round(bill_savings_monthly,       0),
+        "total_annual_low":            round(total_annual_low,           0),
+        "total_annual_high":           round(total_annual_high,          0),
+        "total_daily_low":             round(total_daily_low,            2),
+        "total_daily_high":            round(total_daily_high,           2),
+        "payback_low":                 round(payback_low,                1),
+        "payback_high":                round(payback_high,               1),
+        "zelfverbruik_voor":           round(sc_pct_zonder,              1),
+        "zelfverbruik_na":             round(sc_pct_met,                 1),
+        "netonafhankelijkheid":        round(netonafhankelijkheid,        1),
+        "teruglevering_voor":          round(teruglevering_pct_voor,     1),
+        "teruglevering_na":            round(teruglevering_pct_na,       1),
+        "bat_shift_kwh":               round(sc_battery_kwh,             0),
+        "saved_terugleverkosten":      round(saved_tk,                   0),
+        "lost_terugleververgoeding":   round(lost_tv,                    0),
+        "grid_import_without":         round(grid_import_without,        0),
+        "grid_cost_without":           round(grid_cost_without,          0),
+        "export_revenue_without":      round(export_revenue_without,     0),
+        "net_annual_cost_without":     round(net_annual_cost_without,    0),
+        "grid_cost_with":              round(disp_grid_met * pE,         0),
+        "export_kwh_with":             round(export_kwh_with,            0),
+        "sc_direct_kwh":               round(disp_sc_direct,             0),
+        "sc_battery_kwh":              round(disp_sc_bat,                0),
+        "sc_total_kwh":                round(disp_sc_total,              0),
+        "sc_pct_zonder":               round(sc_pct_zonder,              1),
+        "sc_pct_met":                  round(sc_pct_met,                 1),
+        "grid_import_with":            round(disp_grid_met,              0),
+        "grid_import_besparing_kwh":   round(grid_besparing_kwh,         0),
+        "grid_import_besparing_eur":   round(grid_besparing_eur,         0),
+        "export_kwh_zonder":           round(export_kwh_zonder,          0),
+        "export_shift_kwh":            round(sc_battery_kwh,             0),
+        "export_revenue_loss_eur":     round(export_loss_eur,            0),
+        "battery_arbitrage_eur":       round(arbitrage_eur,              0),
+        "net_energy_saving_eur":       round(net_energy_saving,          0),
+        "pE_used":                     round(pE,                         4),
+        "pT_used":                     round(pT,                         4),
+        "pv_input":                    round(PV,                         0),
+        "v_input":                     round(V,                          0),
+        "t_input":                     round(T,                          0),
+        "batterySelfConsumption":      round(disp_sc_bat,                0),
+        "totalSelfConsumption":        round(disp_sc_total,              0),
+        "ems_solar_cycles":            round(max_solar_cycli,            0),
+        "ems_total_cycles":            round(total_cycli,                0),
+        "spread_low":                  round(EMS_SPREAD_LOW,             2),
+        "spread_high":                 round(EMS_SPREAD_HIGH,            2),
+        "dynamic_contract":            dynamic_contract,
+    }
+```
+
+---
+
+## HOE HET SCHAALT PER BATTERIJ
+
+9,3 kWh  — weinig zon:  €1.600–€1.900 — veel zon: €1.700–€1.950
+18,6 kWh — weinig zon:  €2.500–€2.900 — veel zon: €2.700–€3.000
+27,9 kWh — weinig zon:  €3.200–€3.700 — veel zon: €3.400–€3.800
+37,2 kWh — weinig zon:  €4.000–€4.600 — veel zon: €4.300–€4.800
+46,5 kWh — weinig zon:  €4.700–€5.400 — veel zon: €5.000–€5.500
+55,8 kWh — weinig zon:  €5.400–€6.200 — veel zon: €5.700–€6.400
+
+Grotere batterij = meer EMS cycli = hoger voordeel.
+Meer zon = meer verschuiving = iets hoger voordeel.
+Terugverdientijd altijd 3,5–5,5 jaar.
+Breakdown klopt altijd met totaal.
+Netinkoop nooit 0.
+
+---
+
+## BELANGRIJK
+
+- Sla op en herstart backend
+- Verander NIETS anders in server.py
+- Imports, endpoints en middleware blijven exact hetzelfde

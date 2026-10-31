@@ -1,0 +1,139 @@
+Hoe een thuisbatterij werkt in de praktijk
+
+Belangrijk: dit is een voorbeeld van een gemiddelde dag. Werkelijke waarden verschillen per woning, seizoen en verbruik.
+
+⸻
+
+23:00 – 06:00
+
+Slim laden tijdens de goedkoopste uren
+
+Tijdens de nacht zijn stroomprijzen vaak het laagst. Het systeem controleert continu de marktprijzen en laadt de batterij automatisch op de momenten dat stroom goedkoop is.
+
+Op sommige momenten kunnen prijzen zelfs extreem laag of negatief zijn. Dat betekent dat er op dat moment meer aanbod dan vraag is op het elektriciteitsnet.
+
+Het systeem reageert daar automatisch op en kiest altijd de gunstigste laadmomenten.
+
+U hoeft hier niets voor te doen.
+
+Voorbeeld: Batterij van 15% naar 28%.
+
+💡 Kernidee: energie wordt niet op één vast moment gekocht, maar op het meest gunstige moment binnen de dag.
+
+⸻
+
+06:00 – 12:00
+
+Eerste zonne-energie direct benut en opgeslagen
+
+Zodra uw zonnepanelen energie produceren, wordt deze eerst direct gebruikt in uw woning.
+
+Denk aan basisverbruik zoals koelkast, ventilatie, apparaten en eventueel laden van een elektrische auto.
+
+De energie die op dat moment niet direct nodig is, wordt opgeslagen in de batterij in plaats van teruggeleverd aan het net.
+
+Zo blijft meer van uw eigen opgewekte energie beschikbaar voor later op de dag.
+
+Voorbeeld: Batterij van 28% naar 58%.
+
+💡 Veelgestelde vraag:
+“Wat als ik mijn elektrische auto overdag laad?”
+
+Dan gaat de zonne-energie eerst naar de auto. Het systeem verdeelt automatisch de beschikbare energie tussen direct verbruik, auto en batterij.
+
+⸻
+
+12:00 – 17:00
+
+Maximale zonne-opbrengst en overschot
+
+Dit zijn meestal de uren met de hoogste zonneproductie.
+
+In veel huishoudens ontstaat hier een energieoverschot. Zonder batterij wordt dit overschot direct teruggeleverd aan het elektriciteitsnet.
+
+Met een batterij wordt dit overschot eerst opgeslagen voor later gebruik.
+
+Hierdoor wordt een groter deel van de eigen zonne-energie intern benut.
+
+Voorbeeld: Batterij van 58% naar 83%.
+
+💡 Veelgestelde vraag:
+“Ik gebruik mijn zonnestroom toch al direct?”
+
+Dat klopt. Een deel wordt direct gebruikt. De batterij richt zich juist op het overschot dat anders automatisch teruggeleverd wordt.
+
+⸻
+
+17:00 – 23:00
+
+Gebruik van eigen energie tijdens de avondpiek
+
+In de avond ligt het energieverbruik van de meeste huishoudens het hoogst.
+
+Er wordt gekookt, verlichting brandt en apparaten draaien.
+
+Tegelijkertijd is dit vaak het moment waarop er nauwelijks nog zonneproductie is.
+
+Zonder batterij wordt op dat moment stroom ingekocht van het elektriciteitsnet.
+
+Met batterij wordt eerst de eerder opgeslagen energie gebruikt.
+
+Hierdoor neemt de behoefte aan inkoop van dure stroom af.
+
+Voorbeeld: Batterij van 83% naar ingestelde reserve.
+
+💡 Kernidee: energie wordt gebruikt op het moment dat uw woning die nodig heeft, niet op het moment dat deze wordt opgewekt.
+
+⸻
+
+Wat verandert er eigenlijk?
+
+Zonder thuisbatterij
+
+* Zonne-energie wordt direct gebruikt en deels teruggeleverd
+* Overschot gaat het net op
+* Later wordt opnieuw stroom ingekocht
+* U bent afhankelijk van terugleververgoeding en inkoopprijzen
+
+⸻
+
+Met thuisbatterij
+
+* Meer van uw eigen zonne-energie blijft binnen uw woning
+* Overschotten worden opgeslagen in plaats van direct teruggeleverd
+* Energie wordt gebruikt wanneer uw verbruik hoger ligt
+* Minder afhankelijk van het elektriciteitsnet
+
+⸻
+
+Dynamische stroomprijzen (extra uitleg)
+
+Bij een dynamisch energiecontract verandert de stroomprijs per uur.
+
+De batterij houdt hier automatisch rekening mee:
+
+* Laadt bij lage prijzen
+* Vermijdt hoge prijzen
+* Gebruikt opgeslagen energie op duurdere momenten
+
+💡 Op sommige momenten kan het voorkomen dat laden zeer voordelig is wanneer prijzen extreem laag zijn. De waarde zit hierbij niet in “winst maken”, maar in het structureel verlagen van de energiekosten door slim te sturen op prijsverschillen.
+
+⸻
+
+De kern van een thuisbatterij
+
+Een thuisbatterij produceert geen energie.
+
+Uw zonnepanelen doen dat al.
+
+De functie van een thuisbatterij is:
+
+ervoor zorgen dat u een groter deel van uw eigen opgewekte energie zelf gebruikt, op het moment dat die energie nodig is.
+
+Daarom kijken wij niet alleen naar productie.
+
+Wij kijken vooral naar:
+
+* hoeveel energie u direct verbruikt
+* hoeveel u teruglevert aan het net
+* en hoeveel daarvan slimmer binnen uw woning gebruikt kan worden

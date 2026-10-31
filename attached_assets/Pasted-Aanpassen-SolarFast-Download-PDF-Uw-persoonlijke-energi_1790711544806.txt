@@ -1,0 +1,240 @@
+Aanpassen
+SolarFast
+Download PDF
+Uw persoonlijke energieschatting
+Batterij + warmtepomp
+Geschatte daling van de totale energiekosten
+Zonder batterij en warmtepomp vergeleken met de combinatie
+€ 2.817–€ 3.143
+per jaar
+
+Dit is één vergelijking van de totale jaarlijkse energie- en gaskosten. De losse batterij- en warmtepompbesparingen worden niet opgeteld; de EPEX-schatting is één keer verwerkt.
+
+Totale investering
+€ 15.642
+Terugverdientijd samen
+5–5,6 jaar
+Netto na 10 jaar
+€ 12.528–€ 15.788
+Zo werken batterij en warmtepomp samen
+De warmtepomp wordt eerst aan de jaarlijkse stroomvraag toegevoegd. Daarna herberekent het model de zonne-overlap, batterijstromen, netinkoop en dynamische marktwaarde.
+
+Extra stroom warmtepomp
+2.022 kWh/jaar
+Warmtepompstroom die samenvalt met zonne-opwek: 202 kWh/jaar
+Batterij levert zonne-opslag aan huis
+1.698 kWh/jaar
+Verschil in zonne-opslag t.o.v. scenario zonder warmtepomp: −202 kWh/jaar
+Minder netinkoop door batterij
+1.698 kWh/jaar
+Netstroom na batterij: 4.122 kWh/jaar
+Totale energiekosten zonder beide producten
+€ 3.653
+Totale kosten met combinatie, vóór EPEX-waarde
+€ 1.924
+Gemodelleerde EPEX-waarde · al één keer verwerkt in totaal
+€ 1.088–€ 1.414
+4.985 kWh/jaar
+Eventuele geplande zonnepanelen of EV-lading zijn in beide scenario’s gelijk gehouden; hun aparte investering en besparing vallen buiten dit batterij + warmtepomp-resultaat.
+
+Bekijk de berekening en energiegegevens
+Thuisbatterij
+Zonder batterij
+Met batterij
+Zonne-opwek
+4.200 kWh/jaar
+Zonne-opwek
+4.200 kWh/jaar
+Zelfverbruik van zonne-opwek
+52%
+Zelfverbruik van zonne-opwek
+↑ 40,5 procentpunt
+52% → 93%
+Direct zelfverbruik
+2.202 kWh/jaar
+Direct zelfverbruik
+2.202 kWh/jaar
+Zelfvoorziening uit eigen zonnestroom
+28%
+Zelfvoorziening uit eigen zonnestroom
+28% → 49%
+Teruglevering aan net
+1.998 kWh/jaar
+Zelf gebruikt i.p.v. teruggeleverd
+1.787 kWh/jaar
+Batterijdoorvoer per jaar
+0 kWh/jaar
+Batterijdoorvoer per jaar
+1.698 kWh/jaar zonne-opslag · 4.985 kWh/jaar EPEX
+6.682 kWh/jaar
+Netstroom ingekocht
+5.820 kWh/jaar
+Netstroom ingekocht
+1.698 kWh/jaar minder
+4.122 kWh/jaar
+EPEX-marktwaarde
+€ 0/mnd
+EPEX-marktwaarde
+€ 91–€ 118/mnd
+Terugleverkosten
+€ 220
+Terugleverkosten
+€ 198 minder
+€ 22
+Batterijvergelijking op basis van de geplande stroomvraag.
+
+Warmtepomp
+Zonder warmtepomp
+Met warmtepomp
+Gasverbruik
+1.400 m³/jaar
+Gasverbruik
+280 m³/jaar
+Extra stroom warmtepomp
+0 kWh/jaar
+Extra stroom warmtepomp
++2.022,2 kWh/jaar
+Geschat tegelijk gebruikt met zonne-opwek
+0 kWh/jaar
+Geschat tegelijk gebruikt met zonne-opwek
+202 kWh/jaar
+Overige stroomvraag warmtepomp
+0 kWh/jaar
+Overige stroomvraag warmtepomp
+1.820 kWh/jaar
+Jaarlijkse verwarmingskosten
+€ 2.525
+Jaarlijkse verwarmingskosten
+€ 1.391
+Energiegebruik in dit scenario
+Zonne-opwek na plannen
+4.200 kWh/jaar
+Stroomvraag na plannen
+8.022 kWh/jaar
+Extra stroom warmtepomp
+2.022 kWh/jaar
+Jaarlijkse stroomvraag; overlap met zon is een schatting: 202 kWh/jaar · 1.820 kWh/jaar
+Batterij levert zonne-opslag aan huis
+1.698 kWh/jaar
+Verschil in zonne-opslag t.o.v. scenario zonder warmtepomp: −202 kWh/jaar
+Dynamische markthandel via batterij
+4.985 kWh/jaar
+Totale batterijdoorvoer
+6.682 kWh/jaar
+Netstroom na batterij
+4.122 kWh/jaar
+5.820 kWh/jaar zonder batterij
+EPEX-marktwaarde
+€ 91–€ 118/mnd
+De batterij bedient het hele huishouden; het model wijst geen stroom toe aan één apparaat. De overlap met zonne-opwek is een schatting.
+
+
+Gekozen producten en energieaannames
+HYXiPower 15,9 kWh · 15,9 kWh + Vaillant aroTHERM pro VWL 75/7.1 A 230V · 7 kW · hybrid
+Gekozen batterij
+HYXiPower 15,9 kWh · 15,9 kWh · 3-fase
+Investering
+€ 7.450
+Extra verbruik warmtepomp
+Vaillant aroTHERM pro VWL 75/7.1 A 230V · 7 kW · hybrid
++2.022,2 kWh/jaar · € 8.192
+Opgegeven investering andere producten
+€ 8.192
+Jaarwaarden na geplande producten
+4.200 opwek · 8.022,2 verbruik · 1.997,8 teruglevering
+Warmtepompdetails
+Vaillant aroTHERM pro VWL 75/7.1 A 230V · 7 kW · hybrid
+Details
+Gekozen warmtepomp
+Vaillant aroTHERM pro VWL 75/7.1 A 230V · 7 kW · hybrid · 7,0 kW
+
+Configuratie
+Hybride
+Geschatte jaarlijkse ruimteverwarmingsvraag
+9.848 kWh/jaar
+Voor en na · per jaar
+Jaarlijkse besparing: € 1.134 / per jaar
+Voor
+Jaarlijks gasverbruik
+1.400,0 m³/jaar
+Stroomverbruik warmtepomp
+0 kWh/jaar
+Vaste kosten gasaansluiting
+€ 425
+Jaarlijkse verwarmings- en gaskosten
+€ 2.525
+Na
+Jaarlijks gasverbruik
+280,0 m³/jaar
+Stroomverbruik warmtepomp
++2.022 kWh/jaar
+Vaste kosten gasaansluiting
+€ 425
+Vaste kosten bespaard na verwijdering aansluiting
+€ 0
+Jaarlijkse verwarmings- en gaskosten
+€ 1.391
+Vaste gaskosten worden alleen meegerekend als u bevestigt dat de netbeheerder de gasaansluiting en meter verwijdert. Hybride systemen behouden deze kosten.
+
+Technische details en woninginvoer
+Prestatieaannames
+Gebruikte SCOP
+4,87
+Extra stroom per bespaarde m³ gas
+1,81 kWh/m³
+SCOP volgens productlabel
+4,87 / 3,62
+Aanvoertemperatuur
+35 °C
+Rendement cv-ketel
+90%
+Woninggegevens en dimensioneringsaannames
+Woningtype
+Appartement
+Bouwperiode
+1975–1990
+Verwarmd woonoppervlak
+120 m²
+Totaal jaarlijks gasverbruik
+1.400,0 m³/jaar
+Geschat gas voor ruimteverwarming
+1.120,0 m³/jaar
+Isolatie
+Gemiddeld
+Afgiftesysteem
+Vloerverwarming
+Leeftijd cv-ketel
+10 jaar
+Geschat benodigd vermogen
+6,0 kW
+Voorlopig aanbevolen configuratie
+Hybride
+Stroomcontract
+Vast
+Opgegeven stroomprijs
+0,27 €/kWh
+Effectief stroomtarief in berekening
+0,27 €/kWh
+Gas voor ruimteverwarming wordt geschat uit het totale gasverbruik; woninggegevens helpen bij de voorlopige dimensionering.
+
+Aannames bij deze schatting
+Indicatieve schatting; werkelijk energieverbruik, tarieven en kosten kunnen afwijken. Onderhoud is niet meegenomen.
+
+De gestandaardiseerde SCOP voorspelt niet het werkelijke rendement in uw woning.
+
+De RVO Installatiemonitor 3.0 rapporteerde gemiddeld minder gasverbruik voor ruimteverwarming in hybride woningen; resultaten verschillen per woning.
+SCOP-bron: Vaillant aroTHERM pro
+Nationaal Warmtefonds
+Financiering via SolarFast, 0% rente mogelijk
+Bekijk of een lening van het Warmtefonds bij uw situatie past.
+
+Tot € 8.500
+0% rente mogelijk
+Wij regelen alles
+Klaar voor persoonlijk advies?
+Op basis van dit rapport stellen onze specialisten een offerte op maat samen. Volledig vrijblijvend.
+
+Vraag gratis advies aan
+Indicatieve berekening op basis van uw verbruiksdata en marktgemiddelden. Werkelijke resultaten kunnen afwijken.
+
+Andere getallen invoeren

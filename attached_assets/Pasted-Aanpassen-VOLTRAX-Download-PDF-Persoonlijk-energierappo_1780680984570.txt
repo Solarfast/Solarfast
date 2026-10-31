@@ -1,0 +1,112 @@
+Aanpassen
+VOLTRAX
+Download PDF
+Persoonlijk energierapport
+Geschat jaarlijks voordeel
+€1.082
+–
+€1.443
+per jaar — energiebesparing + marktoptimalisatie
+
+Terugverdientijd
+5,9 – 7,9 jaar
+Per maand
+€ 90 – 120
+Per dag
+€ 2,97 – 3,95
+Investering
+€ 8.500
+Uw situatie: voor en na de batterij
+Huidig
+Zonder batterij
+Zelfverbruik
+van eigen zonnestroom benut
+8%
+Netstroom inkoop
+€ 1/jr
+4 kWh
+Teruggeleverd aan net
+onbenut overschot naar het net
+1 kWh
+Jaarlijkse netkosten
+€ 1/jr
+Met batterij
+Met AlphaESS batterij
+Zelfverbruik
+22%
++14%
+Netstroom inkoop
+€ 1/jr
+3 kWh
+↓ 1 kWh
+Teruggeleverd aan net
+resterend na batterijopslag
+0 kWh
+↓ 1 kWh
+Jaarlijkse besparing
+per jaar — energiebesparing + marktoptimalisatie
+€ 1.082 – 1.443
+↑
+Zo verdient u terug
+Minder netinkoop
+Uw eigen zonnestroom ’s avonds en ’s nachts benut — niet weggegeven aan het net
++ € 0
+per jaar
+Slimme batterijsturing
+Automatisch laden bij lage stroomprijs, ontladen bij hoge prijs
++ € 1.002 – 1.288
+per jaar
+Totaal geschat jaarvoordeel
+per jaar — energiebesparing + marktoptimalisatie
+€ 1.082 – 1.443
+
+Hoe is dit berekend?
+Netafname vermeden
+U vermeed 1 kWh netinkoop × €0.28/kWh. Zonnestroom opgeslagen overdag, gebruikt 's avonds.
++ € 0
+Minder exportopbrengst
+1 kWh blijft nu in huis in plaats van terugleveren voor €0.07/kWh. Dit is de eerlijke aftrekpost.
+− € 0
+EMS arbitrage (direct)
+1 kWh × (€0.28 − €0.07) × 22% rendementsmarge.
++ € 0
+Subtotaal energiestroom
+€ 0
+EMS dag-piek optimalisatie
+Uw batterij maakt 270 laad/ontlaad cycli per jaar. 0 komen van zonnestroom, de rest zijn pure EPEX-cycli — laden voor €0.21/kWh, ontladen voor €0.27/kWh. 270 cycli × 18.6 kWh × €0.21–€0.27 = €1.002–€1.288/jaar.
++ € 1.002 – 1.288
+Totaal jaarlijks voordeel
+€ 1.082 – 1.443
+Gebaseerd op uw ingevoerde verbruiksdata, EPEX SPOT spreads 2023–2026 en LFP-batterijmodel (100% capaciteitsbenutting).
+
+
+Slimme optimalisatie met AlphaESS
+Klik voor uitleg — hoe laadt en ontlaadt de batterij slim?
+Wat u nu verliest zonder batterij
+Gemiste besparing
+− € 1.082
+Totaal gemist per jaar
+Elke maand wachten kost u €90 aan gemiste besparing.
+− € 1.082
+per jaar
+Netto resultaat na 10 jaar
++ € 2.320
+Na terugverdienen van uw investering van €8.500 houdt u dit over
+Investering
+€ 8.500
+Terugverdientijd
+5,9 – 7,9 jaar
+Nationaal Warmtefonds
+Financiering via VOLTRAX — 0% rente mogelijk
+Tot € 8.500 lenen via het Nationaal Warmtefonds. Bij inkomen onder € 60.000 betaalt u 0% rente. Wij regelen alles.
+
+Tot € 8.500
+0% rente mogelijk
+Wij regelen alles
+Klaar voor persoonlijk advies?
+Op basis van dit rapport stellen onze specialisten een offerte op maat samen. Volledig vrijblijvend.
+
+Vraag gratis advies aan
+Indicatieve berekening op basis van uw verbruiksdata en marktgemiddelden. Werkelijke resultaten kunnen afwijken.
+
+Andere getallen invoeren

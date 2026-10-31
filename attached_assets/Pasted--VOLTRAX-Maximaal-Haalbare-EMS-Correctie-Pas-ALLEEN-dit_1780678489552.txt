@@ -1,0 +1,140 @@
+# VOLTRAX — Maximaal Haalbare EMS Correctie
+# Pas ALLEEN dit aan in de bestaande tool, niets anders
+
+---
+
+Pas het bestaande bestand `VOLTRAX/backend/server.py` aan.
+Verander NIETS anders dan wat hieronder staat.
+
+---
+
+## STAP 1 — Vervang uplift
+
+Zoek:
+
+```python
+UPLIFT_LOW  = 1.12
+UPLIFT_HIGH = 1.18
+
+total_annual_low  = (net_energy_saving + ems_annual_low)  * UPLIFT_LOW
+total_annual_high = (net_energy_saving + ems_annual_high) * UPLIFT_HIGH
+total_daily_low   = total_annual_low  / 365.0
+total_daily_high  = total_annual_high / 365.0
+bill_savings_annual  = net_energy_saving * UPLIFT_LOW
+bill_savings_monthly = bill_savings_annual / 12.0
+```
+
+Vervang met:
+
+```python
+UPLIFT_LOW  = 1.08
+UPLIFT_HIGH = 1.12
+
+total_annual_low  = (net_energy_saving + ems_annual_low)  * UPLIFT_LOW
+total_annual_high = (net_energy_saving + ems_annual_high) * UPLIFT_HIGH
+total_daily_low   = total_annual_low  / 365.0
+total_daily_high  = total_annual_high / 365.0
+bill_savings_annual  = net_energy_saving * UPLIFT_LOW
+bill_savings_monthly = bill_savings_annual / 12.0
+```
+
+---
+
+## STAP 2 — Vervang EMS constanten
+
+Zoek:
+
+```python
+if dynamic_contract:
+    EMS_GRID_CYCLES      = 336
+    EMS_MAX_SOLAR_CYCLES = 180
+    EMS_MAX_TOTAL_CYCLES = 480
+    SPREAD_LOW           = 0.28
+    SPREAD_HIGH          = 0.34
+else:
+    EMS_GRID_CYCLES      = 280
+    EMS_MAX_SOLAR_CYCLES = 180
+    EMS_MAX_TOTAL_CYCLES = 400
+    SPREAD_LOW           = 0.20
+    SPREAD_HIGH          = 0.26
+```
+
+Vervang met:
+
+```python
+if dynamic_contract:
+    EMS_GRID_CYCLES      = 320
+    EMS_MAX_SOLAR_CYCLES = 180
+    EMS_MAX_TOTAL_CYCLES = 450
+    SPREAD_LOW           = 0.25
+    SPREAD_HIGH          = 0.32
+else:
+    EMS_GRID_CYCLES      = 270
+    EMS_MAX_SOLAR_CYCLES = 180
+    EMS_MAX_TOTAL_CYCLES = 400
+    SPREAD_LOW           = 0.21
+    SPREAD_HIGH          = 0.27
+```
+
+---
+
+## STAP 3 — Voeg efficiency toe
+
+Zoek:
+
+```python
+ems_solar_cycles = min(EMS_MAX_SOLAR_CYCLES, shifted_kwh / bat_kWh) if bat_kWh > 0 else 0.0
+ems_cycles       = min(EMS_MAX_TOTAL_CYCLES, ems_solar_cycles + EMS_GRID_CYCLES)
+
+ems_annual_low  = bat_kWh * ems_cycles * SPREAD_LOW
+ems_annual_high = bat_kWh * ems_cycles * SPREAD_HIGH
+```
+
+Vervang met:
+
+```python
+BATTERY_EFFICIENCY = 0.95  # AlphaESS LFP fabrieksspec round-trip
+
+ems_solar_cycles = min(EMS_MAX_SOLAR_CYCLES, shifted_kwh / bat_kWh) if bat_kWh > 0 else 0.0
+ems_cycles       = min(EMS_MAX_TOTAL_CYCLES, ems_solar_cycles + EMS_GRID_CYCLES)
+
+ems_annual_low  = bat_kWh * ems_cycles * BATTERY_EFFICIENCY * SPREAD_LOW
+ems_annual_high = bat_kWh * ems_cycles * BATTERY_EFFICIENCY * SPREAD_HIGH
+```
+
+---
+
+## VERWACHT RESULTAAT NA WIJZIGING
+
+27,9 kWh — dynamisch contract:
+  Totaal voordeel: €2.800 – €3.600/jaar
+  Terugverdientijd: ~3,5 jaar bij €11.000
+
+27,9 kWh — vast contract:
+  Totaal voordeel: €2.000 – €2.600/jaar
+  Terugverdientijd: ~4,5 jaar bij €11.000
+
+18,6 kWh — dynamisch contract:
+  Totaal voordeel: €1.800 – €2.400/jaar
+  Terugverdientijd: ~3,5 jaar bij €8.500
+
+18,6 kWh — vast contract:
+  Totaal voordeel: €1.300 – €1.700/jaar
+  Terugverdientijd: ~5 jaar bij €8.500
+
+---
+
+## VERDEDIGING AAN TAFEL
+
+- Efficiency 95%: AlphaESS LFP fabrieksspecificatie
+- Spread dynamisch €0,25–€0,32: NL EPEX gemiddeld 2024
+- 320 EPEX dagen: AlphaESS EMS actief op alle dagen met spread > €0,10
+- Uplift 1.08/1.12: negatieve uren benutting + seizoensoptimalisatie
+
+---
+
+## BELANGRIJK
+
+- Sla op en herstart de backend na deze wijzigingen
+- Verander NIETS anders in server.py
+- Test met meerdere capaciteiten na de wijziging

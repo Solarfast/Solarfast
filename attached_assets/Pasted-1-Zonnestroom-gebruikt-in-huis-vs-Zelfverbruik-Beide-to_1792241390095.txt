@@ -1,0 +1,24 @@
+1. “Zonnestroom gebruikt in huis” vs. “Zelfverbruik”
+Beide tonen hetzelfde concept, maar met verschillende presentatie. Gebruik één duidelijke benaming en toon kWh + percentage.
+2. “Stroom uit batterij gebruikt in huis” vs. “Goedkoop geladen batterijvermogen geleverd aan huis”
+Beide beschrijven stroom die vanuit de batterij naar huis gaat. Toon goedkoop geladen stroom als uitsplitsing van het totaal, niet als een extra stroomcategorie.
+3. “Totale netstroominkoop incl. batterijhandel: 3.080 kWh” vs. “Netstroominkoop: 1.848 kWh”
+Tegenstrijdig zonder uitleg. Geef aan of batterijhandel is inbegrepen en waarom de waarden verschillen.
+4. “Netstroom direct gebruikt in huis: 0 kWh” vs. “Totale netstroominkoop: 3.080 kWh”
+Dit lijkt tegenstrijdig. Maak duidelijk dat de tweede waarde ook stroom omvat die de batterij in gaat.
+5. “Uit zonnegeladen batterij aan huis geleverd: 2.312 kWh” vs. “Warmtepompstroom uit zonnegeladen batterij: 2.312 kWh”
+Dezelfde hoeveelheid staat tweemaal. De warmtepompwaarde moet als uitsplitsing worden weergegeven, niet als extra levering.
+6. “Goedkoop geladen voor thuisgebruik: 1.848 kWh” vs. “Goedkoop geladen batterijvermogen geleverd aan huis: 1.756 kWh”
+Onduidelijk of dit laadvolume of ontladen volume is. Benoem expliciet geladen versus geleverd na verliezen.
+7. “Vermindering van teruglevering: 2.433 kWh”
+Onder de huidige situatie staat 0 kWh en onder de batterijsituatie 2.433 kWh. De labels suggereren dat het om twee verschillende waarden gaat. Toon één vergelijking: 2.519 → 86 kWh, vermindering 2.433 kWh.
+8. “Huis gebruikt: 6.548 kWh” vs. “Warmtepomp extra stroomverbruik: 3.048 kWh”
+Onduidelijk of het totale verbruik de warmtepomp al bevat. Vermeld expliciet dat 6.548 kWh inclusief warmtepomp is.
+9. “Netto voordeel per jaar” vs. “Batterij bespaart per jaar” vs. “Warmtepomp bespaart per jaar”
+Drie besparingsbedragen met verschillende scopes. Label ze duidelijk als totaal gecombineerd en indicatief per product.
+10. “Totale ontlading: 5.238 kWh” vs. “4.068 kWh naar huis + 1.170 kWh EPEX”
+Deze optelling klopt, maar vermeld dat EPEX-ontlading niet voor eigen verbruik wordt gebruikt.
+11. “Terugverdientijd: 8,8–9,3 jaar” staat tweemaal.
+Toon dit één keer prominent bij het financiële resultaat; herhaal het alleen bij de batterij als daar expliciet de batterij-terugverdientijd staat.
+12. “Batterij + warmtepomp: € 18.168” vs. “Geschat leenbedrag: € 18.168”
+Dezelfde waarde heeft twee betekenissen: investering en financieringsbedrag. Benoem ze afzonderlijk als totale investering en geschat leenbedrag.

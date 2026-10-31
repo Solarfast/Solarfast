@@ -1,0 +1,91 @@
+
+
+⸻
+
+🔧 VOLTRAX — FULL EMS + SELF-CONSUMPTION SALES UPGRADE (PASTE IN REPLIT)
+Fix the VOLTRAX calculator in server.py. Replace the current EMS, self-consumption and export logic with the following unified sales-optimized but still realistic model.
+DO NOT add extra explanations. ONLY implement.
+
+⸻
+
+⚙️ 1. SELF-CONSUMPTION MODEL (REPLACE ENTIRE BLOCK)
+base_self_use = PV * (0.38 + 0.30 * (1 - exp(-bat_kWh / 16)))
+
+grid_pressure = PV / 5000
+boost = 1 + (0.08 * grid_pressure)
+
+total_self_use = base_self_use * boost
+
+cap = V * (0.88 + 0.04 * tanh(bat_kWh / 30))
+total_self_use = min(total_self_use, cap)
+total_self_use = max(total_self_use, V * 0.55)
+
+⸻
+
+⚙️ 2. EXPORT / IMPORT BALANCE
+grid_import = max(V * 0.02, V - total_self_use)
+export_kwh = max(PV * 0.04, PV - total_self_use)
+
+⸻
+
+⚙️ 3. EMS MODEL (REPLACE FULL EMS BLOCK)
+if dynamic_contract:
+    base_cycles = 340
+    spread_low = 0.11
+    spread_high = 0.16
+    volatility = 1.12
+else:
+    base_cycles = 280
+    spread_low = 0.08
+    spread_high = 0.12
+    volatility = 1.0
+
+utilization = min(1.0, 0.85 + (bat_kWh / 25) * 0.15)
+
+solar_share = min(0.45, PV / 12000)
+
+grid_cycles = base_cycles * (1 - solar_share)
+solar_cycles = base_cycles * solar_share
+
+cycles = min(base_cycles, solar_cycles + grid_cycles)
+
+seasonal_boost = 1.0 + (0.05 * (PV / 6000))
+peak_factor = 1.08 + 0.06 * dynamic_contract
+
+ems_kwh = bat_kWh * cycles * 0.95 * utilization
+ems_kwh *= seasonal_boost
+
+ems_low = ems_kwh * spread_low * volatility * peak_factor
+ems_high = ems_kwh * spread_high * volatility * peak_factor
+
+⸻
+
+⚙️ 4. EXPORT VALUE CORRECTION
+export_shifted = max(0, PV - total_self_use)
+export_loss = export_shifted * (pT * 1.2)
+
+⸻
+
+⚙️ 5. FINAL CONSTRAINTS (IMPORTANT)
+Ensure:
+total_self_use = min(total_self_use, PV * 0.92)
+grid_import = max(V * 0.02, grid_import)
+export_kwh = max(0, export_kwh)
+
+⸻
+
+🎯 GOAL
+* Realistic but sales-optimized output
+* No over-claiming (>92% self-consumption max)
+* EMS uplift included but capped via volatility + peak logic
+* Must increase output vs current baseline but remain defensible
+
+⸻
+
+🚫 DO NOT
+* Do not introduce new variables outside this block
+* Do not remove caps
+* Do not allow self-consumption >92%
+* Do not remove energy balance constraints
+
+

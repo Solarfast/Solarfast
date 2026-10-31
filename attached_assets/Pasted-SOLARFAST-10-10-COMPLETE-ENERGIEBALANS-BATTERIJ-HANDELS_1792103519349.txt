@@ -1,0 +1,331 @@
+SOLARFAST 10/10 — COMPLETE ENERGIEBALANS-, BATTERIJ-, HANDELS- EN ROI-AUDIT
+
+Voer een volledige technische en financiële audit uit van de bestaande SolarFast-applicatie. Onderzoek eerst de huidige backend, API, rekenfuncties, invoervelden, frontend en PDF-generatie. Traceer de volledige berekening van gebruikersinvoer tot de uiteindelijke cijfers in het energierapport.
+
+Doel: een technisch sluitend, financieel controleerbaar en commercieel professioneel energierapport maken, waarin de klant precies ziet wat er vóór en na installatie verandert, hoeveel energie de batterij verwerkt, hoeveel stroom de woning uit de batterij gebruikt, hoeveel stroom wordt verhandeld en hoeveel euro ieder onderdeel oplevert.
+
+Verhoog nooit opbrengsten om een aantrekkelijker resultaat te tonen. Corrigeer de formules en optimaliseer uitsluitend binnen technisch en financieel verdedigbare grenzen.
+
+Behoud de bestaande API-contracten, routes, invoervelden en interface zo veel mogelijk. Start geen tweede backendproces wanneer poort 8000 al door de bestaande API wordt gebruikt.
+
+1. Verplichte contractlogica
+
+De invoer van het huidige energiecontract blijft bestaan, bijvoorbeeld vast, variabel of dynamisch.
+
+Wanneer een klant een batterij kiest, wordt het berekende scenario standaard gebaseerd op een dynamisch elektriciteitscontract, omdat SolarFast de batterij optimaliseert op dynamische tarieven.
+
+De applicatie moet daarom onderscheid maken tussen:
+
+* Huidige situatie: de werkelijke huidige configuratie, het bestaande contract en de bestaande energiekosten.
+* Nieuwe situatie: de gekozen batterij en eventuele andere producten, met een dynamisch elektriciteitscontract als uitgangspunt.
+* Contracteffect: het afzonderlijke financiële verschil tussen het huidige contract en het dynamische contract.
+* Batterijeffect: de extra financiële waarde van de batterij ten opzichte van dezelfde dynamische situatie zonder batterij.
+* Totaal effect: de daadwerkelijke financiële verbetering van de huidige situatie naar de nieuwe situatie.
+
+Als de klant al een dynamisch contract heeft, mag geen extra overstapbesparing worden berekend.
+
+Als de klant een vast contract heeft, mag de nieuwe situatie standaard dynamisch worden gemodelleerd, maar moet duidelijk worden vermeld dat de berekening uitgaat van een contractwijziging. Neem een eventuele opzegvergoeding of andere overstapkosten alleen mee als die daadwerkelijk van toepassing zijn.
+
+Tel het contracteffect nooit nogmaals op als het al in de totale voor-en-na-berekening is verwerkt.
+
+2. Modelleer de batterij als een energiesysteem, niet als een vaste besparingsfactor
+
+Ondersteun de HYXiPower MAX-configuraties van:
+
+* 10,6 kWh
+* 15,9 kWh
+* 21,2 kWh
+* 26,5 kWh
+
+Maak onderscheid tussen kWh opslagcapaciteit en kW laad- of ontlaadvermogen.
+
+Gebruik de bevestigde productspecificaties van de exacte batterij- en invertercombinatie. Markeer niet-bevestigde waarden als configureerbare aannames.
+
+Bereken per batterij:
+
+* Nominale capaciteit.
+* Bruikbare capaciteit.
+* Laadenergie uit zonnepanelen.
+* Laadenergie uit het elektriciteitsnet.
+* Totale laadenergie.
+* Conversie- en opslagverliezen.
+* Totale ontlaadenergie.
+* Ontladen energie die daadwerkelijk in de woning wordt gebruikt.
+* Energie die vanuit de batterij aan het net wordt geleverd.
+* Equivalent volledige laadcycli per jaar.
+* Resterende netinkoop.
+* Resterende teruglevering.
+
+Hanteer maximaal gemiddeld één equivalente volledige cyclus per dag als bovengrens van het standaardscenario, tenzij een andere bedrijfsstrategie aantoonbaar wordt ondersteund en technisch is gevalideerd.
+
+Zonne-opslag en netladen voor handel moeten hetzelfde batterijbudget delen. Bereken dus niet afzonderlijk 365 cycli voor zonne-opslag én nog eens 365 cycli voor handel.
+
+3. Splits alle energiestromen afzonderlijk
+
+De berekening moet minimaal de volgende stromen onderscheiden:
+
+A. Direct eigen verbruik
+
+Zonnestroom die direct wordt gebruikt op het moment dat de zonnepanelen produceren.
+
+B. Zonne-energie opgeslagen in de batterij
+
+Zonnestroom die anders zou worden teruggeleverd, maar nu in de batterij wordt opgeslagen.
+
+Toon:
+
+* Hoeveel kWh zonnestroom niet meer rechtstreeks wordt teruggeleverd.
+* Hoeveel kWh daarvan in de batterij wordt geladen.
+* Hoeveel kWh na verliezen weer beschikbaar komt.
+* Hoeveel kWh daarvan daadwerkelijk door de woning wordt gebruikt.
+* Hoeveel kWh eventueel voor toegestane teruglevering of handel wordt gebruikt.
+
+C. Batterijlevering aan de woning
+
+Toon hoeveel elektriciteit de batterij gedurende het jaar aan de woning afgeeft om het huishoudelijk verbruik te dekken.
+
+Dit is niet hetzelfde als de totale ontlaadenergie wanneer de batterij ook stroom verkoopt aan het net.
+
+D. Netladen voor dynamische optimalisatie
+
+Toon hoeveel kWh tijdens goedkope uren van het elektriciteitsnet wordt ingekocht en in de batterij wordt geladen.
+
+E. Ontladen voor energiehandel
+
+Toon hoeveel kWh op geschikte momenten vanuit de batterij aan het elektriciteitsnet wordt geleverd, indien de hardware, EMS-aansturing, het contract en de gekozen strategie dit daadwerkelijk ondersteunen.
+
+Maak onderscheid tussen energie die thuis wordt gebruikt en energie die wordt verhandeld. Dezelfde kWh mag maar één bestemming krijgen.
+
+4. Bouw een sluitende energiebalans
+
+Gebruik bij voorkeur een uur- of kwartiermodel met tijdreeksen voor zonneproductie, huishoudelijk verbruik en dynamische elektriciteitsprijzen.
+
+Als dergelijke gegevens niet beschikbaar zijn, gebruik dan een gedocumenteerd schattingsmodel met seizoensprofielen. Presenteer de uitkomst dan als een schatting en niet als een gevalideerde uurdispatchsimulatie.
+
+Controleer onder andere:
+
+Zonder batterij:
+
+* Zonne-opwek = direct eigen verbruik + teruglevering.
+* Huishoudelijk verbruik = direct eigen verbruik + netinkoop.
+
+Met batterij:
+
+* Splits laden uit zonnepanelen en laden uit het net.
+* Verwerk alle laad-, opslag- en ontlaadverliezen.
+* Verwerk batterijlevering aan huis en ontlading naar het net afzonderlijk.
+* Verwerk de begin- en eindlading van de batterij consistent.
+* Voorkom dat direct eigen verbruik en batterijlevering dezelfde kWh bevatten.
+
+Gebruik geen vaste 15%-restimport, willekeurige reservefactor of andere universele beperking zonder technische of empirische onderbouwing.
+
+5. Bereken de financiële waarde per energiestroom
+
+A. Besparing door meer eigen zonnestroom te gebruiken
+
+Bereken de waarde van de zonnestroom die door de batterij daadwerkelijk extra door de woning wordt benut.
+
+Vergelijk de werkelijke kosten en opbrengsten van deze stroom zonder en met batterij. Houd rekening met het toepasselijke contract en de geldende salderings- en terugleverregels.
+
+Gebruik niet automatisch de volledige stroomprijs als waarde van iedere opgeslagen kWh. De juiste waarde hangt af van wat de klant zonder batterij met die stroom zou hebben gedaan en welke kosten daardoor werkelijk worden vermeden.
+
+B. Besparing door minder teruglevering
+
+Bereken de werkelijke financiële verandering door minder teruglevering:
+
+* Gemiste terugleververgoeding.
+* Vermeden terugleverkosten, uitsluitend voor zover de contractvoorwaarden deze daadwerkelijk verlagen.
+* Eventuele verschillen in saldering.
+* Relevante belasting- en tariefcomponenten.
+
+Als terugleverkosten gebaseerd zijn op vaste staffels of vaste bedragen, bereken de verandering volgens die voorwaarden. Ga niet standaard uit van een lineaire vergoeding of besparing per kWh.
+
+C. Winst door dynamische energiehandel
+
+Bereken de bruto en netto handelsopbrengst afzonderlijk.
+
+Bruto handelsresultaat = verkoopopbrengst van de daadwerkelijk verhandelde energie minus de inkoopkosten van de daarvoor gebruikte energie.
+
+Netto handelsresultaat = bruto handelsresultaat minus relevante conversieverliezen, handelskosten, leverancierstarieven, abonnementskosten en andere toepasselijke kosten.
+
+Houd rekening met:
+
+* Laad- en ontlaadrendement.
+* Beschikbare laad- en ontlaadvermogens.
+* Energieprijzen op de betreffende momenten.
+* Inkoop- en verkoopkosten.
+* Beperkingen van het EMS.
+* Batterijcapaciteit en cyclusslijtage.
+* Energie die anders voor eigen verbruik nodig is.
+
+Verkoop geen energie aan het net die volgens dezelfde simulatie al in de woning is verbruikt.
+
+Neem geen onbalansopbrengsten of automatische EPEX-handel aan zonder bevestigde ondersteuning door de daadwerkelijke aansturing.
+
+D. Netto totaalvoordeel
+
+Bereken het totaalvoordeel door de volledige jaarlijkse energiekosten van de huidige en nieuwe situatie met elkaar te vergelijken.
+
+Gebruik de afzonderlijke berekeningen als controle, maar tel de afzonderlijke posten niet nogmaals bij het totale voor-en-na-verschil op.
+
+6. Verwerk Nederlandse regelgeving en contracten correct
+
+Maak het rekenmodel datumafhankelijk.
+
+De wettelijke salderingsregeling stopt op 1 januari 2027. Verwerk de geldende regels voor 2026 en de toepasselijke regels vanaf 2027 afzonderlijk. Maak geen berekening alsof de huidige salderingsregeling permanent blijft bestaan.
+
+Gebruik actuele en controleerbare informatie over:
+
+* Saldering.
+* Terugleververgoedingen.
+* Terugleverkosten.
+* Dynamische elektriciteitstarieven.
+* Energiebelasting en btw.
+* Handels- en leverancierskosten.
+
+Gebruik waar mogelijk officiële bronnen, waaronder Rijksoverheid, RVO, ACM en Belastingdienst, en documenteer de datum en bron van veranderlijke aannames.
+
+Pas regelgeving niet automatisch toe op een manier die niet bij het gekozen contract of de datum hoort.
+
+7. Bereken de ROI van de volledige configuratie
+
+Ondersteun combinaties van:
+
+* Zonnepanelen.
+* Thuisbatterij.
+* Warmtepomp.
+* Airconditioning.
+* Elektrische auto en laadpaal.
+* Dynamisch energiecontract.
+* Slimme energiehandel, indien ondersteund.
+
+Bereken de incrementele financiële waarde van ieder product en de volledige combinatie.
+
+Voorkom dat bijvoorbeeld de besparing door een warmtepomp én de besparing door een batterij dezelfde vervangen netinkoop claimen.
+
+Bereken:
+
+* Jaarlijkse netto besparing.
+* Netto handelsopbrengst.
+* Investeringsbedrag inclusief installatie en relevante belastingen.
+* Eventuele toepasselijke subsidies of fiscale effecten, uitsluitend wanneer bevestigd.
+* Terugverdientijd.
+* Netto cumulatief resultaat over 10 en 15 jaar.
+* Rendement over de gekozen levensduur.
+* Gevoeligheid voor veranderende elektriciteitsprijzen, degradatie en onderhoud.
+
+Presenteer een voorzichtig, verwacht en gunstig scenario. Maak duidelijk welke invoerwaarden en aannames ieder scenario bepalen.
+
+Gebruik geen niet-onderbouwde jaarlijkse prijsstijging als gegarandeerde basis voor de terugverdientijd.
+
+8. Maak de PDF een professionele voor-en-na-vergelijking
+
+De klant moet de huidige en nieuwe situatie direct naast elkaar kunnen vergelijken.
+
+Huidige situatie — zonder batterij
+
+Toon:
+
+* Jaarlijkse zonne-opwek.
+* Direct eigen verbruik.
+* Teruglevering aan het net.
+* Netinkoop.
+* Terugleverkosten.
+* Financiële opbrengst van teruglevering.
+* Totale jaarlijkse elektriciteitskosten.
+
+Nieuwe situatie — met batterij en dynamisch contract
+
+Toon:
+
+* Dezelfde zonne-opwek, tenzij extra zonnepanelen worden toegevoegd.
+* Direct eigen verbruik.
+* Zonnestroom die niet meer rechtstreeks wordt teruggeleverd.
+* Zonnestroom die in de batterij wordt geladen.
+* Totale laadenergie, inclusief afzonderlijke netlading.
+* Jaarlijkse batterijlevering aan de woning.
+* Jaarlijkse ontlaadenergie voor eventuele handel.
+* Conversieverliezen.
+* Resterende teruglevering.
+* Resterende netinkoop.
+* Nieuwe jaarlijkse energiekosten.
+* Netto handelsresultaat.
+* Jaarlijkse netto besparing.
+
+Voeg een afzonderlijk financieel overzicht toe met:
+
+1. Voordeel door extra eigen zonnestroom.
+2. Effect van minder teruglevering en terugleverkosten.
+3. Netto voordeel van dynamische handel.
+4. Effect van de overstap naar een dynamisch contract.
+5. Totale jaarlijkse verbetering ten opzichte van de huidige situatie.
+
+Gebruik overal dezelfde eenheden en definities. Vermeld bedragen per jaar en vermijd percentages die niet duidelijk aansluiten op de absolute waarden.
+
+9. Controleer de eerdere foutgevallen
+
+Reproduceer het eerdere rapport met:
+
+* Zonne-opwek: 4.500 kWh/jaar.
+* Jaarverbruik: 2.800 kWh.
+* Direct eigen verbruik: 2.300 kWh.
+* Teruglevering vóór batterij: 2.200 kWh.
+* Batterij: 10,6 kWh.
+* Investering: € 6.290.
+* Inkoopprijs in de huidige invoer: € 0,28/kWh.
+* Teruglevertarief: € 0,07/kWh.
+* Terugleverkosteninvoer: € 0,11/kWh.
+
+Controleer de eerder gerapporteerde waarden:
+
+* 3.492 kWh jaarlijkse batterijontlading.
+* 489 kWh minder netinkoop.
+* 515 kWh minder teruglevering.
+* € 343 basisbesparing.
+* € 515–€ 613 dynamische handelsopbrengst.
+* € 858–€ 956 totaal jaarlijks voordeel.
+
+Bepaal per waarde of deze uit de onderliggende berekening volgt. Corrigeer onjuiste resultaten in plaats van ze als verwachte waarden te behouden.
+
+De energiebalans moet aantonen waar het verschil tussen 3.492 kWh ontlading, 489 kWh extra batterijlevering aan huis en 515 kWh minder teruglevering vandaan komt. Als deze stromen niet consistent zijn, moet de berekening falen of de fout expliciet rapporteren.
+
+10. Test alle vier batterijgroottes en productcombinaties
+
+Voer regressietests uit voor:
+
+* 10,6 kWh.
+* 15,9 kWh.
+* 21,2 kWh.
+* 26,5 kWh.
+
+Test minimaal huishoudens met:
+
+* Veel teruglevering en een hoge avondvraag.
+* Veel teruglevering en een lage avondvraag.
+* Een warmtepomp.
+* Een airco.
+* Een elektrische auto met laadpaal.
+* Een combinatie van meerdere producten.
+* Geen geschikte dynamische handelsaansturing.
+* Een vast huidig contract dat in het nieuwe scenario wordt vervangen door dynamisch.
+* Een klant die al een dynamisch contract heeft.
+
+Controleer de energiebalans, cyclustellingen, verliezen, handelsstromen, contracteffecten, jaarlijkse besparing, ROI en PDF-waarden.
+
+Voer de tests uit op de backend én frontend. Controleer de resultatenpagina en het gegenereerde PDF-rapport daadwerkelijk.
+
+11. Oplevering
+
+Lever na uitvoering op:
+
+* Welke bestanden zijn aangepast.
+* Welke formules zijn gewijzigd.
+* Welke aannames zijn bevestigd en welke nog onzeker zijn.
+* De testresultaten per batterijcapaciteit.
+* De voor-en-na-energiebalans.
+* De financiële uitsplitsing.
+* Eventuele resterende beperkingen.
+
+Claim niet dat de audit volledig geslaagd is wanneer alleen de build slaagt of slechts een deel van de productcombinaties is getest.
+
+Definitie van klaar: de energiestromen sluiten, de financiële posten zijn controleerbaar, de contractwissel wordt correct verwerkt, de batterijlevering aan huis is gescheiden van handelsontlading en alle vier batterijgroottes leveren consistente, reproduceerbare resultaten op.

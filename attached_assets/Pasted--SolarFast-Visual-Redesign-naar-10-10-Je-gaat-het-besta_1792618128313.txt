@@ -1,0 +1,111 @@
+# SolarFast — Visual Redesign naar 10/10
+
+Je gaat het bestaande SolarFast-project volledig visueel verfijnen tot een uitzonderlijk premium, professioneel en conversiegericht energiemerk. Werk in het bestaande project. Bouw geen nieuwe website vanaf nul.
+
+## 1. Harde grenzen
+
+**Pas uitsluitend de visuele presentatie aan.**
+
+- Wijzig geen berekeningen, formules, calculatorlogica, API's, backend, database, productgegevens of bedrijfslogica.
+- Verander geen bestaande functionaliteit of gebruikersstromen.
+- Verwijder geen bestaande secties, producten, knoppen of pagina's.
+- Behoud bestaande routes, links, formulieren en taalfunctionaliteit.
+- Vervang geen werkende componenten als een visuele verbetering voldoende is.
+- Voeg geen onbewezen reviews, keurmerken, statistieken, garanties of claims toe.
+- Controleer eerst de bestaande code, componenten, styling en beschikbare afbeeldingen voordat je wijzigingen aanbrengt.
+
+## 2. De gewenste merkuitstraling
+
+Ontwerp SolarFast alsof het een premium consumentenmerk is met de visuele kwaliteit van Apple, Tesla en hoogwaardige architectuurwebsites.
+
+**Designsysteem**
+- Achtergrond: warm gebroken wit, bijvoorbeeld `#FAF9F6`.
+- Primaire merkkleur: diep bosgroen, bijvoorbeeld `#183D32`.
+- Secundaire vlakken: subtiel beige, bijvoorbeeld `#F0EDE5`.
+- Tekstkleur: bijna zwart, bijvoorbeeld `#20231F`.
+- Secundaire tekst: ingetogen grijs, bijvoorbeeld `#74766F`.
+- Gebruik geen oranje accenten, felle gradients of overdadige schaduwen.
+- Gebruik dunne borders, verfijnde afgeronde hoeken en subtiele schaduwen.
+- Hanteer een consistent spacing-systeem, bijvoorbeeld stappen van 8 px.
+- Gebruik bestaande merkassets en logo's correct. Verander de merkidentiteit niet onnodig.
+
+## 3. Homepage: maak de eerste indruk uitzonderlijk
+
+### Navigatie
+- Maak de header strak, rustig en professioneel.
+- Zorg voor perfecte uitlijning van het logo, navigatie en primaire CTA.
+- Verbeter de verhoudingen, tussenruimtes en typografische hiërarchie.
+- Maak dropdowns en het mobiele menu visueel consistent.
+- Gebruik subtiele hover- en focus-effecten.
+- Voorkom dat de header te hoog of visueel te zwaar wordt.
+
+### Hero-sectie
+- Maak de eerste schermweergave direct indrukwekkend.
+- Gebruik een hoogwaardige, bestaande afbeelding die past bij moderne architectuur, een stijlvolle woning of premium energieopslag.
+- Kies de juiste uitsnede, beeldpositie en contrastverhouding.
+- Vermijd een generieke stockfoto-uitstraling en drukke composities.
+- Geef de hoofdheadline een sterke, elegante typografische hiërarchie.
+- Beperk de tekstbreedte zodat de boodschap direct leesbaar is.
+- Maak de primaire CTA duidelijk herkenbaar en de secundaire CTA rustiger.
+- Zorg dat tekst en knoppen niet over belangrijke delen van de afbeelding vallen.
+- Houd de hero overzichtelijk en laat het beeld voldoende ruimte krijgen.
+
+### Secties en overgangen
+- Geef iedere sectie een duidelijke visuele functie.
+- Wissel witte en subtiel beige achtergronden zorgvuldig af.
+- Gebruik royale witruimte zonder onnodig lange pagina's te creëren.
+- Maak sectieovergangen rustig en consistent.
+- Verbeter de visuele balans tussen afbeeldingen, koppen, tekst en CTA's.
+- Verwijder geen bestaande inhoud; verbeter uitsluitend de presentatie.
+
+## 4. Producten en oplossingen
+
+Geef thuisbatterijen, zonnepanelen, warmtepompen, laadpalen en overige oplossingen een premium productpresentatie.
+
+- Gebruik grote, scherpe productafbeeldingen met consistente beeldverhoudingen.
+- Voorkom uitgerekte, wazige of onnodig bijgesneden afbeeldingen.
+- Zorg voor consistente kaarthoogtes, uitlijning en binnenmarges.
+- Maak productnamen duidelijker en beschrijvingen rustiger.
+- Gebruik subtiele borders en lichte schaduwen in plaats van zware kaartontwerpen.
+- Geef HYXiPOWER-producten een professionele, technische en hoogwaardige uitstraling.
+- Verbeter de carrouselknoppen en categoriebediening.
+- Laat interactieve elementen duidelijk reageren op hover, focus en klikken.
+- Voorkom springende kaartformaten wanneer producten of afbeeldingen wisselen.
+
+## 5. Calculator en besparingspagina
+
+Behoud de calculator exact functioneel zoals die nu is. Pas alleen de visuele vormgeving aan.
+
+- Maak invoervelden, selecties en schakelaars visueel consistent.
+- Verbeter labels, typografie, groepering en onderlinge afstanden.
+- Maak resultaten en belangrijke eurobedragen eenvoudig scanbaar.
+- Geef de bestaande vergelijking tussen scenario's een rustigere, professionelere presentatie.
+- Zorg dat tabellen, resultaten en kaarten niet overvol raken.
+- Gebruik kleur alleen om informatie te structureren, niet als decoratie.
+- Maak de volledige calculator prettig bruikbaar tijdens een persoonlijk verkoopgesprek aan de keukentafel.
+- Behoud alle bestaande invoerwaarden, uitkomsten, berekeningen, validaties en knoppen.
+- Verander geen teksten die inhoudelijk financiële of technische claims aanpassen.
+
+## 6. Typografie en microdetails
+
+- Gebruik maximaal één samenhangende typografische familie, met een consistente reeks gewichten.
+- Maak koppen groot en karaktervol zonder dat ze onnodig veel regels innemen.
+- Houd bodytekst comfortabel leesbaar.
+- Beperk extreem lange tekstregels.
+- Zorg voor consistente regelhoogtes en letterafstanden.
+- Stem iconen, knoppen, invoervelden en labels op elkaar af.
+- Maak alle klikbare elementen herkenbaar als interactief.
+- Voeg subtiele overgangen toe waar ze de ervaring verbeteren.
+- Vermijd overdreven animaties, parallax en effecten die de website trager laten aanvoelen.
+
+## 7. Alle bestaande pagina's
+
+Inspecteer alle bestaande pagina's en componenten in het project, niet alleen de homepage.
+
+Pas dezelfde visuele kwaliteit consequent toe op:
+- navigatie en footer;
+- aanbod- en productpagina's;
+- besparingscalculator;
+- informatie- en FAQ-secties;
+- contact- en formulierenpagina's;
+- privacy-

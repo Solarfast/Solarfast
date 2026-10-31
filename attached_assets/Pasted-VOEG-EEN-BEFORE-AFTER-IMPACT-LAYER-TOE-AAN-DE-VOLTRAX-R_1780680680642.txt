@@ -1,0 +1,92 @@
+VOEG EEN “BEFORE → AFTER IMPACT LAYER” TOE AAN DE VOLTRAX RESULTS PAGE
+
+DOEL:
+Maak de resultaten begrijpelijker door visueel verschil te tonen tussen:
+- huidige situatie zonder batterij
+- situatie met batterij
+
+BELANGRIJK:
+- GEEN nieuwe berekeningen toevoegen
+- ALLEEN bestaande backend data gebruiken
+- Geen dubbele monetisatie van dezelfde kWh
+- Verschillen moeten exact overeenkomen met backend outputs (geen UI-opblazing)
+
+------------------------------------------------------------
+POSITIONERING
+------------------------------------------------------------
+
+Deze sectie is ondersteunend aan de HERO.
+Niet belangrijker dan het hoofdresultaat.
+Moet het hoofdresultaat versterken, niet vervangen.
+
+------------------------------------------------------------
+STRUCTUUR: 2 KOLOMMEN
+------------------------------------------------------------
+
+LINKS: ZONDER BATTERIJ (HUIDIGE SITUATIE)
+
+Titel:
+Zonder batterij
+
+Toon alleen:
+- Zelfverbruik: X%
+- Netstroom inkoop: X kWh / €X
+- Teruglevering: X kWh
+- Netkosten + verliezen: €X
+
+TONE:
+Neutraal en feitelijk (niet dramatisch)
+
+------------------------------------------------------------
+
+RECHTS: MET BATTERIJ (NIEUWE SITUATIE)
+
+Titel:
+Met AlphaESS batterij
+
+Toon:
+- Zelfverbruik: X%
+- Netstroom inkoop: X kWh / €X
+- Teruglevering: X kWh
+- Jaarlijkse besparing: €X – €X
+
+TONE:
+Positief maar realistisch
+
+------------------------------------------------------------
+VISUEEL CONCEPT
+------------------------------------------------------------
+
+- Toon een subtiele “energie verschuiving” van links → rechts
+- Gebruik kleur:
+  links = grijs/blauw (verlies)
+  rechts = groen/blauw (winst)
+- Mobile: stacked layout (zonder → met)
+
+------------------------------------------------------------
+HARD RULES
+------------------------------------------------------------
+
+- Geen EMS, EPEX of technische termen in deze sectie
+- Geen extra berekeningen
+- Geen verdubbeling van dezelfde kWh-waarde in geld
+- Verschil moet exact matchen backend data
+- Geen agressieve marketing copy
+
+------------------------------------------------------------
+PSYCHOLOGISCH DOEL
+------------------------------------------------------------
+
+Gebruiker moet intuïtief begrijpen:
+
+“zonder batterij betaal ik meer en lever ik energie weg”
+“met batterij houd ik energie en geld in huis”
+
+------------------------------------------------------------
+SUCCESS CRITERIA
+------------------------------------------------------------
+
+- Begrijpbaar in <3 seconden
+- Versterkt vertrouwen (niet hype)
+- Maakt HERO overtuigender
+- Voelt als premium energy dashboard

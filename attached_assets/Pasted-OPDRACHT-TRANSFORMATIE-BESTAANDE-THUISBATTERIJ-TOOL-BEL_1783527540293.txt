@@ -1,0 +1,355 @@
+OPDRACHT: TRANSFORMATIE BESTAANDE THUISBATTERIJ TOOL
+
+BELANGRIJK:
+Gebruik de bestaande tool als basis.
+NIET opnieuw bouwen.
+NIET de calculatorlogica aanpassen.
+NIET de formules, berekeningen, stappen, invoervelden, resultaten of ROI-logica wijzigen.
+
+Alleen aanpassen:
+- Branding
+- Teksten
+- Pagina-inhoud
+- Productinformatie
+- FAQ
+- Positionering
+- Contactgegevens
+- Merkstijl
+
+De bestaande calculatorstructuur blijft exact hetzelfde.
+
+==================================================
+NIEUWE BRANDING
+==================================================
+
+Vervang overal:
+
+VOLTRAX
+naar:
+SolarFast
+
+voltrax.nl
+naar:
+www.solarfast.nl
+
+info@voltrax.nl
+naar:
+SolarFast contactgegevens
+
+"Officieel HYXiPower dealer"
+alleen gebruiken als dit aantoonbaar klopt.
+
+Nieuwe hoofdpositionering:
+
+SolarFast
+Specialist in zonnepanelen, thuisbatterijen en slimme energieoplossingen.
+
+SolarFast helpt Nederlandse huishoudens om meer energie zelf te gebruiken, minder afhankelijk te worden van het elektriciteitsnet en maximaal rendement uit hun zonnepanelen te halen.
+
+==================================================
+BELANGRIJK: HYXiPower INFORMATIE
+==================================================
+
+Gebruik uitsluitend correcte HYXiPower informatie.
+
+Bron:
+www.hyxipower.com
+
+Gebruik geen verzonnen claims.
+
+Controleer en corrigeer:
+
+- Garantieclaims
+- Capaciteiten
+- Installatieaantallen
+- Marktpositie
+- Certificeringen
+- Technische specificaties
+
+Verwijder alle onbewezen claims.
+
+Gebruik alleen feiten zoals:
+
+HYXiPower All-in-One ESS
+
+- Slim energieopslagsysteem
+- LFP batterijtechnologie
+- Slim Energy Management System (EMS)
+- Realtime monitoring
+- Modulair uitbreidbaar systeem
+- Geschikt voor residentiële energieopslag
+
+==================================================
+PAGINA 1: HOMEPAGE
+==================================================
+
+Nieuwe titel:
+
+De slimme thuisbatterij voor maximale controle over uw energie.
+
+Subtitel:
+
+Met SolarFast en HYXiPower haalt u meer rendement uit uw zonnepanelen. Uw energie wordt slim opgeslagen, gebruikt wanneer u het nodig heeft en automatisch geoptimaliseerd.
+
+CTA:
+
+Bereken uw besparing
+
+Tweede CTA:
+
+Vraag advies aan
+
+
+Verwijder:
+- VOLTRAX teksten
+- VOLTRAX voordelen
+- fictieve reviews
+
+
+==================================================
+PAGINA: OVER HYXiPower
+==================================================
+
+Maak volledig SolarFast + HYXiPower gericht.
+
+Titel:
+
+HYXiPower slimme energieopslag
+
+Tekst:
+
+HYXiPower ontwikkelt slimme energieopslagsystemen waarmee huishoudens hun eigen opgewekte energie beter kunnen benutten.
+
+Door batterijopslag te combineren met slimme energiesturing helpt HYXiPower gebruikers om hun energieverbruik efficiënter te beheren.
+
+Belangrijke punten:
+
+- LFP batterijtechnologie
+- Slim energiebeheer via EMS
+- Monitoring via app
+- Modulair uitbreidbaar
+- Veilig en efficiënt energie opslaan
+
+
+==================================================
+PAGINA: AANBOD
+==================================================
+
+Behoud exact dezelfde batterijcapaciteiten in de calculator.
+
+Geen wijzigingen:
+
+9,3 kWh
+18,6 kWh
+27,9 kWh
+37,2 kWh
+46,5 kWh
+111,3 kWh
+
+
+Wijzig alleen teksten.
+
+Nieuwe productnamen:
+
+HYXiPower thuisbatterij 9,3 kWh
+
+HYXiPower thuisbatterij 18,6 kWh
+
+HYXiPower thuisbatterij 27,9 kWh
+
+etc.
+
+
+Gebruik geen:
+"VOLTRAX systeem"
+
+Gebruik:
+"SolarFast HYXiPower systeem"
+
+
+==================================================
+PAGINA: HOE WERKT EEN THUISBATTERIJ?
+==================================================
+
+Nieuwe uitleg:
+
+Uw zonnepanelen produceren overdag vaak meer energie dan u direct gebruikt.
+
+Een thuisbatterij slaat dit overschot op zodat u deze energie later kunt gebruiken.
+
+Het slimme EMS van HYXiPower helpt automatisch bij het optimaliseren van laden, ontladen en energiegebruik.
+
+
+==================================================
+PAGINA: WAAROM SOLARFAST?
+==================================================
+
+Nieuwe voordelen:
+
+SolarFast begeleidt klanten bij het volledige traject:
+
+- Persoonlijk energieadvies
+- Analyse van huidig verbruik
+- Berekening van optimale batterijcapaciteit
+- Professionele installatie
+- Ondersteuning na installatie
+
+
+Verwijderen:
+
+- VOLTRAX specifieke teksten
+- verzonnen medewerkers
+- verzonnen klantnamen
+
+
+==================================================
+WARMTEFONDS PAGINA
+==================================================
+
+Vervang VOLTRAX door SolarFast.
+
+Nieuwe tekst:
+
+SolarFast helpt klanten bij het verduurzamen van hun woning met slimme financieringsmogelijkheden zoals het Nationaal Warmtefonds.
+
+Maak duidelijk:
+
+- voorwaarden kunnen wijzigen
+- actuele voorwaarden controleren via Warmtefonds
+
+
+Geen absolute garanties geven.
+
+
+==================================================
+FAQ AANPASSEN
+==================================================
+
+Alle vragen behouden.
+
+Maar:
+
+VOLTRAX vervangen door SolarFast.
+
+Antwoorden herschrijven vanuit:
+
+SolarFast + HYXiPower.
+
+
+Verwijder:
+
+- verzonnen telefoonnummers
+- verzonnen e-mailadressen
+- fictieve reviews
+
+
+==================================================
+CALCULATOR
+==================================================
+
+ABSOLUUT NIET WIJZIGEN.
+
+Behoud:
+
+Stap 1:
+Zonneproductie
+
+Stap 2:
+Jaarverbruik
+
+Stap 3:
+Teruglevering
+
+Stap 4:
+Energietarieven
+
+Stap 5:
+Batterijcapaciteit
+
+Stap 6:
+Investering
+
+
+Behoud:
+
+- bestaande berekeningen
+- ROI berekening
+- terugverdientijd
+- besparingslogica
+- dynamisch/vast contract logica
+
+
+Alleen teksten rondom de calculator aanpassen naar SolarFast.
+
+
+==================================================
+DESIGN / TONE OF VOICE
+==================================================
+
+Stijl:
+
+Premium
+Betrouwbaar
+Technisch sterk
+Nederlandse verduurzaming
+Geen agressieve verkooptaal
+
+Gebruik:
+
+"slimme energieoplossing"
+"meer controle over uw energie"
+"maximaal rendement uit zonnepanelen"
+"persoonlijk energieadvies"
+
+Vermijd:
+
+"beste ter wereld"
+"nummer 1"
+"altijd gegarandeerd"
+"verdient zichzelf terug"
+
+tenzij aantoonbaar.
+
+
+==================================================
+FOOTER
+==================================================
+
+Nieuwe footer:
+
+SolarFast
+
+Zonnepanelen | Thuisbatterijen | Slim energiebeheer
+
+www.solarfast.nl
+
+
+Links:
+
+Home
+Thuisbatterij
+HYXiPower
+Calculator
+Warmtefonds
+FAQ
+Contact
+
+
+==================================================
+EINDRESULTAAT
+==================================================
+
+De bestaande tool moet eruitzien alsof deze altijd van SolarFast is geweest.
+
+Geen verwijzingen meer naar VOLTRAX.
+
+Calculator blijft exact hetzelfde.
+
+Alle teksten professioneel herschreven voor SolarFast + HYXiPower.
+
+Geen fictieve informatie.
+
+Geen oncontroleerbare claims.
+
+Focus:
+SolarFast als betrouwbare Nederlandse verduurzamingspartner met HYXiPower als slimme thuisbatterijoplossing.

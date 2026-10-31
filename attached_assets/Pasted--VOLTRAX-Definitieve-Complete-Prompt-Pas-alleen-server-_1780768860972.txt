@@ -1,0 +1,206 @@
+# VOLTRAX — Definitieve Complete Prompt
+# Pas alleen server.py aan. Minimale wijzigingen.
+
+Pas VOLTRAX/backend/server.py aan. Verander NIETS buiten deze instructies.
+
+---
+
+## WIJZIGING 1 — CalculationResult: voeg dynamic_contract toe
+
+Zoek:
+```python
+    pv_input: float
+```
+
+Voeg toe op regel erboven:
+```python
+    dynamic_contract: bool = False
+```
+
+---
+
+## WIJZIGING 2 — calculate_battery_savings: vervang STAP 4 + STAP 5
+
+Zoek dit blok (volledig):
+```python
+    EMS_GRID_CYCLES      = 280
+    EMS_MAX_SOLAR_CYCLES = 180
+    EMS_MAX_TOTAL_CYCLES = 400
+
+    ems_solar_cycles = min(EMS_MAX_SOLAR_CYCLES, shifted_kwh / bat_kWh) if bat_kWh > 0 else 0.0
+    ems_cycles       = min(EMS_MAX_TOTAL_CYCLES, ems_solar_cycles + EMS_GRID_CYCLES)
+
+    ems_annual_low  = bat_kWh * ems_cycles * 0.20
+    ems_annual_high = bat_kWh * ems_cycles * 0.26
+    ems_daily_low   = ems_annual_low  / 365.0
+    ems_daily_high  = ems_annual_high / 365.0
+
+    # ================================================================
+    # STAP 5 — TOTAAL VOORDEEL
+    #
+    # Conservatieve uplift 12% / optimistische uplift 18% voor
+    # EMS marktoptimalisatie, negatieve-uren benutting,
+    # seizoenspreiding en salderingsvoordelen.
+    # ================================================================
+    UPLIFT_LOW  = 1.12
+    UPLIFT_HIGH = 1.18
+
+    total_annual_low  = (net_energy_saving + ems_annual_low)  * UPLIFT_LOW
+    total_annual_high = (net_energy_saving + ems_annual_high) * UPLIFT_HIGH
+    total_daily_low   = total_annual_low  / 365.0
+    total_daily_high  = total_annual_high / 365.0
+    bill_savings_annual  = net_energy_saving * UPLIFT_LOW
+    bill_savings_monthly = bill_savings_annual / 12.0
+```
+
+Vervang met:
+```python
+    # ================================================================
+    # STAP 4 — EMS / SMART OPTIMIZATION
+    # Altijd dynamisch geoptimaliseerd ongeacht contracttype.
+    # dynamic_contract bepaalt alleen de tekst in het rapport.
+    # ================================================================
+    EMS_GRID_CYCLES      = 310
+    EMS_MAX_SOLAR_CYCLES = 180
+    EMS_MAX_TOTAL_CYCLES = 440
+    SPREAD_LOW           = 0.26
+    SPREAD_HIGH          = 0.32
+    BATTERY_EFFICIENCY   = 0.94
+
+    ems_solar_cycles = min(EMS_MAX_SOLAR_CYCLES, shifted_kwh / bat_kWh) if bat_kWh > 0 else 0.0
+    ems_cycles       = min(EMS_MAX_TOTAL_CYCLES, ems_solar_cycles + EMS_GRID_CYCLES)
+
+    ems_annual_low  = bat_kWh * ems_cycles * BATTERY_EFFICIENCY * SPREAD_LOW
+    ems_annual_high = bat_kWh * ems_cycles * BATTERY_EFFICIENCY * SPREAD_HIGH
+    ems_daily_low   = ems_annual_low  / 365.0
+    ems_daily_high  = ems_annual_high / 365.0
+
+    # ================================================================
+    # STAP 5 — TOTAAL VOORDEEL
+    # Uplift voor negatieve uren + seizoensoptimalisatie.
+    # Cap per batterijgrootte schaalt met beschikbare zonnestroom.
+    # ================================================================
+    UPLIFT_LOW  = 1.09
+    UPLIFT_HIGH = 1.13
+
+    total_annual_low_raw  = (net_energy_saving + ems_annual_low)  * UPLIFT_LOW
+    total_annual_high_raw = (net_energy_saving + ems_annual_high) * UPLIFT_HIGH
+
+    # Cap per batterijgrootte — maximaal verdedigbaar aan tafel
+    # Schaalt automatisch met beschikbare zonnestroom van klant
+    ems_caps = {
+        9.3:  (1500, 1900),
+        18.6: (2400, 2900),
+        27.9: (3100, 3700),
+        37.2: (3800, 4500),
+        46.5: (4400, 5200),
+        55.8: (5000, 5900),
+    }
+    closest_kWh = min(ems_caps.keys(), key=lambda x: abs(x - bat_kWh))
+    cap_low, cap_high = ems_caps[closest_kWh]
+
+    # Schaalfactor op basis van beschikbare export
+    cap_factor = clamp(export_kwh_zonder / max(PV * 0.35, 1.0), 0.60, 1.0)
+    effective_cap_low  = cap_low  * cap_factor
+    effective_cap_high = cap_high * cap_factor
+
+    total_annual_low  = min(total_annual_low_raw,  effective_cap_low)
+    total_annual_high = min(total_annual_high_raw, effective_cap_high)
+
+    # Bug fix: low altijd lager dan high
+    if total_annual_low > total_annual_high:
+        total_annual_low, total_annual_high = total_annual_high, total_annual_low
+
+    # Minimale band van 8%
+    if total_annual_high - total_annual_low < total_annual_low * 0.08:
+        total_annual_high = total_annual_low * 1.10
+
+    total_daily_low   = total_annual_low  / 365.0
+    total_daily_high  = total_annual_high / 365.0
+    bill_savings_annual  = net_energy_saving * UPLIFT_LOW
+    bill_savings_monthly = bill_savings_annual / 12.0
+
+    # EMS daily voor rapport bijwerken na cap
+    ems_annual_low  = max(0, total_annual_low  - net_energy_saving * UPLIFT_LOW)
+    ems_annual_high = max(0, total_annual_high - net_energy_saving * UPLIFT_HIGH)
+    ems_daily_low   = ems_annual_low  / 365.0
+    ems_daily_high  = ems_annual_high / 365.0
+```
+
+---
+
+## WIJZIGING 3 — return dict: voeg dynamic_contract toe
+
+Zoek:
+```python
+        "totalSelfConsumption":        round(sc_direct_kwh + sc_battery_kwh, 0),
+    }
+```
+
+Vervang met:
+```python
+        "totalSelfConsumption":        round(sc_direct_kwh + sc_battery_kwh, 0),
+        "dynamic_contract":            dynamic_contract,
+    }
+```
+
+---
+
+## WIJZIGING 4 — /calculate endpoint: geef dynamic_contract door
+
+Zoek:
+```python
+    results = calculate_battery_savings(
+        zonneproductie=input_data.zonneproductie,
+        jaarverbruik=input_data.jaarverbruik,
+        teruglevering=input_data.teruglevering,
+        pE=input_data.prijsInkoop,
+        pT=input_data.prijsTeruglevering,
+        bat_kWh=input_data.battery_kWh,
+        battery_price=input_data.battery_price,
+        terugleververgoeding_value=input_data.terugleververgoeding_value or 0,
+        terugleververgoeding_unit=input_data.terugleververgoeding_unit or "kWh",
+        terugleverkosten_value=input_data.terugleverkosten_value or 0,
+        terugleverkosten_unit=input_data.terugleverkosten_unit or "jaar",
+    )
+```
+
+Vervang met:
+```python
+    results = calculate_battery_savings(
+        zonneproductie=input_data.zonneproductie,
+        jaarverbruik=input_data.jaarverbruik,
+        teruglevering=input_data.teruglevering,
+        pE=input_data.prijsInkoop,
+        pT=input_data.prijsTeruglevering,
+        bat_kWh=input_data.battery_kWh,
+        battery_price=input_data.battery_price,
+        terugleververgoeding_value=input_data.terugleververgoeding_value or 0,
+        terugleververgoeding_unit=input_data.terugleververgoeding_unit or "kWh",
+        terugleverkosten_value=input_data.terugleverkosten_value or 0,
+        terugleverkosten_unit=input_data.terugleverkosten_unit or "jaar",
+        dynamic_contract=input_data.dynamic_contract or False,
+    )
+```
+
+---
+
+## BELANGRIJK
+
+- Sla op en herstart de backend
+- Verander NIETS anders in server.py
+- Frontend wijzigingen zitten in VOLTRAX_Vast_Naar_Dynamisch.md
+- Test met alle 6 batterijgroottes na wijziging
+
+## VERWACHT RESULTAAT
+
+9,3 kWh:  €1.500 – €1.900/jaar
+18,6 kWh: €2.400 – €2.900/jaar
+27,9 kWh: €3.100 – €3.700/jaar
+37,2 kWh: €3.800 – €4.500/jaar
+46,5 kWh: €4.400 – €5.200/jaar
+55,8 kWh: €5.000 – €5.900/jaar
+
+Schaalt automatisch omlaag bij weinig zonnestroom.
+Low altijd lager dan high.
+Altijd dynamisch geoptimaliseerd.

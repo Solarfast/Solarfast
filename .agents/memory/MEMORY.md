@@ -1,0 +1,17 @@
+- [SolarFast brand & positioning](voltrax-brand.md) — current redesign uses forest green/sage, broad services, verified InstallQ framing, and the user-confirmed 500+ monthly figure
+- [Calculator result theme](voltrax-results-theme.md) — use the battery result screen as the visual baseline across all calculators
+- [VOLTRAX EMS calculator model](voltrax-calculator.md) — non-linear utilisation_factor = 1-exp(-(bat_kWh/pv_daily)*2.2), validated output €1,576-€2,302/yr for standard inputs
+- [VOLTRAX product-savings boundaries](voltrax-product-savings.md) — use traceable inputs, keep standalone ROI separate, and never infer heating capacity from a cooling W/m² rule
+- [Airco product imagery](voltrax-airco-imagery.md) — show genuine brand/model-matched unit photos; never make generic or illustrated units look like the recommended set
+- [Results product gallery](voltrax-results-product-gallery.md) — keep selected-product photos horizontal and aligned at the same height without cropping or stretching
+- [Battery backup recommendation](voltrax-battery-backup.md) — confirm 3-phase before recommending backup-capable HYXiPower All-in-One; never silently assume another model supports backup
+- [VOLTRAX combined ROI boundaries](voltrax-heat-pump-roi.md) — compare whole-house costs with and without both products; add EPEX once and gas standing-charge savings only after confirmed removal.
+- [Heat-pump SCOP W35 reference](voltrax-heat-pump-scop.md) — use the user-supplied SCOP values only for the exact listed aroTHERM plus and WeHeat models.
+- [Heat-pump questionnaire assumptions](voltrax-heat-pump-intake.md) — range midpoints must be disclosed; do not equate air-conditioning with water-based emitters.
+- [Battery animation masking](battery-animation-masking.md) — webp alpha mask (zIndex 2) + pixel left:55px/right:8px inside; SVG masks & clip-path both fail; z-index order is critical
+- [VOLTRAX public asset imports](voltrax-public-assets.md) — files in public/ can't be JS-imported via @assets alias; reference as plain "/assets/..." URL strings instead
+- [Roof scanner assumptions](voltrax-dakscanner.md) — automatic open-data scans exclude north-facing panels; disclose financial assumptions and never infer ballast
+- [PDF report rendering](pdf-report-rendering.md) — build success alone doesn't validate React-PDF; smoke-render real report data and guard operations on optional labels.
+- [Home value and label claims](voltrax-home-value-label-claims.md) — give source-backed context only; never promise a resale uplift or predict a future label.
+- [Lazy route transitions](voltrax-route-loading.md) — keep the current page visible while a new route chunk loads; keep shared navigation styles with the nav component.
+- [VOLTRAX site access](voltrax-site-licensing.md) — keep the website and calculator APIs open; do not reintroduce activation or administrator code gates

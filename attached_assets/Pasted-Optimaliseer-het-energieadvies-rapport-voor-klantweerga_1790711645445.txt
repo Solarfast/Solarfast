@@ -1,0 +1,99 @@
+Optimaliseer het energieadvies rapport voor klantweergave. Behoud de huidige berekeningen en logica, maar maak de presentatie korter, duidelijker en premium.
+
+Belangrijk:
+
+* Behoud de EPEX/dynamische optimalisatie als waardevolle bijdrage. Toon deze als “indicatieve dynamische optimalisatie” en niet als garantie.
+* Geen volledige herberekening van de batterijformule.
+
+Verbeteringen:
+
+1. Maak het bovenste blok korter
+
+Toon alleen:
+
+Uw energieplan
+Batterij + warmtepomp
+
+Geschat jaarlijks voordeel
+€ X – € X / jaar
+
+Investering
+€ X
+
+Terugverdientijd
+X – X jaar
+
+Daaronder een korte uitleg:
+“De combinatie werkt beter doordat de warmtepomp extra stroom gebruikt en de batterij goedkope energie kan verschuiven naar momenten met hogere vraag.”
+
+⸻
+
+2. Leg zelfverbruik zonnepanelen correct uit
+
+Gebruik niet alleen:
+“Zelfverbruik 52% → 93%”
+
+Maak:
+
+Gebruik van eigen zonne-opwek
+52% → 93%
+
+Uitleg:
+“Een warmtepomp verhoogt het eigen gebruik van zonnepanelen doordat een deel van de opgewekte stroom direct wordt gebruikt. De batterij gebruikt het resterende overschot later.”
+
+⸻
+
+3. Maak batterij + warmtepomp synergie zichtbaar
+
+Nieuw klein blok:
+
+Waarom deze combinatie slim is
+
+✓ Warmtepomp gebruikt meer eigen zonnestroom
+✓ Batterij slaat overschot op voor de avond
+✓ Minder stroom inkopen van het net
+✓ Dynamische prijzen kunnen extra voordeel geven
+
+Maximaal 4 regels.
+
+⸻
+
+4. Verberg technische details standaard
+
+Verplaats naar een uitklapbaar blok:
+
+“Technische berekening bekijken”
+
+Daarin:
+
+* SCOP
+* batterijdoorvoer
+* EPEX-kWh
+* aannames
+* woningdetails
+
+Niet direct tonen.
+
+⸻
+
+5. Maak negatieve formuleringen positief
+
+Vervang:
+
+“Verschil in zonne-opslag t.o.v. scenario zonder warmtepomp: −202 kWh”
+
+Door:
+
+“Warmtepomp gebruikt 202 kWh extra zonnestroom direct in huis.”
+
+⸻
+
+6. Maak het rapport maximaal 1 scherm overzicht + details achter knop
+
+De klant moet binnen 10 seconden begrijpen:
+
+* wat kost het;
+* wat bespaart het;
+* waarom werkt de combinatie.
+
+Behoud alle berekeningen op de achtergrond.

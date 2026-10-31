@@ -1,0 +1,30 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "xzlizVeN1ekicFtzs26Iy"
+uri = "file://generated-artifacts/random-calculation-tests-50.html"
+type = "html"
+title = "50 willekeurige SolarFast-batterijberekeningen"
+description = "Volledige invoer en alle API-uitvoer voor 50 reproduceerbare, willekeurig gegenereerde tests. Inclusief balanscontroles en scenario-overzicht."
+logical_id = "7555c5bc-0cac-45d9-9983-8b8b1c9a2ebc"
+content_hash = "sha256:dbc9e0bd99dfca127096ebbdc87847515701ccb55e1515e86020b7ca0987aff7"
+size = 237381
+mtime_ms = 1791845478637
+storage_uri = "gcs://replit-rams-assets-pike/rams/assets/repl:e2a4d4bb-1106-4822-b771-c864f4aa8a7f/7555c5bc-0cac-45d9-9983-8b8b1c9a2ebc/6bc37822-0a43-4edb-89b8-3de693a19e5d"
+storage_version_token = "1791845511184023"
+content_type = "text/html"
+
+[[outputs]]
+id = "2U4ClAzUoCpj6ESB5HCcH"
+uri = "file://generated-artifacts/20-woningmixen.html"
+type = "html"
+title = "20 woningen · 20 productmixen — volledige invoer en uitvoer"
+description = "Open elke rij voor alle ingevoerde waarden, de volledige backend-uitvoer en de energiebalanscontrole."
+logical_id = "313d4d65-d004-42fa-8469-0c4ec01a6525"
+content_hash = "sha256:3a682b1988d1cff47f21217731d75cf65bc9df8f12a73d1bf454d9adc70c031e"
+size = 119990
+mtime_ms = 1791846002997
+storage_uri = "gcs://replit-rams-assets-pike/rams/assets/repl:e2a4d4bb-1106-4822-b771-c864f4aa8a7f/313d4d65-d004-42fa-8469-0c4ec01a6525/2a0c1426-5183-4872-9345-3a6d4fdba5b7"
+storage_version_token = "1791846059580101"
+content_type = "text/html"
